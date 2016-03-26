@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var logger = require('morgan');
 
 var app = express();
-var db = 'mongodb://localhost/angularTodoList';
+var db = 'mongodb://localhost/tripChat';
 mongoose.connect(db);
 
 var PORT = process.env.PORT || 4000;
