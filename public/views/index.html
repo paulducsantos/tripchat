@@ -2,8 +2,97 @@
 <html>
 <head>
   <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper grey">
+        <div class="container">
+          <a href="/" class="brand-logo text-shadow hide-on-med-and-down">TripChat</a>
+          <a href="#"></a>
+          <!-- desktop nav -->
+          <ul class="right hide-on-med-and-down">
+            <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
+            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
+          </ul>
+          <!-- mobile nav -->
+          <!-- mobile nav menu icon -->
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul id="mobile-demo" class="side-nav">
+            <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
+            <li ng-show="!user"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <header>
 
+  </header>
+  <main>
+
+  </main>
+  <footer>
+
+  </footer>
+
+  <!-- login modal -->
+  <aside>
+     <div id="login-modal" class="modal">
+      <form id="formLogin" class="col s12" method="POST">
+        <div class="modal-content">
+          <h3>Log In</h3>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="username" type="text" class="validate" name="username">
+              <label for="username">Username</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="password" type="password" class="validate" name="password">
+              <label for="password">Password</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn modal-action modal-close waves-effect waves-white btn-flat">Cancel</button>
+          <button ng-click="login()" type="submit" class="btn modal-action modal-close waves-effect waves-white btn-flat" onclick="Materialize.toast('Logging in...', 4000)">Submit</button>
+        </div>
+      </form>
+    </div>
+   </aside>
+
+   <!-- signup modal -->
+   <aside>
+     <div id="signup-modal" class="modal">
+      <form class="col s12" id="formSignup" method="POST">
+        <div class="modal-content">
+          <h3>Sign Up</h3>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="username" type="text" name="username" ng-model="todoList.forms.signupusername">
+              <label for="username">Username</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="password" type="password" class="validate" name="password" ng-model="todoList.forms.signuppassword">
+              <label for="password">Password</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn modal-action modal-close waves-effect waves-white btn-flat">Cancel</button>
+          <button ng-click="todoList.signup()" type="submit" class="btn modal-action modal-close waves-effect waves-white btn-flat" onclick="Materialize.toast('Account created', 4000)">Submit</button>
+        </div>
+      </form>
+    </div>
+   </aside>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>
