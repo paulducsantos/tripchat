@@ -11,7 +11,7 @@ var app = express();
 var PORT = process.env.PORT || 4000;
 
 app.use(logger('dev'));
-app.use(express.static('public/assets'));
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
   extended: false
 }));

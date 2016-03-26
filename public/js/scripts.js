@@ -1,6 +1,8 @@
 // Scripts for Angular To Do List App
 $(document).ready(function() {
 
+  alert('connected to scripts.js');
+
   // Triggers modal launch
   $('.modal-trigger').leanModal();
 
