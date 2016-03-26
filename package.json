@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/paulducsantos/tripchat/issues"
   },
-  "homepage": "https://github.com/paulducsantos/tripchat#readme"
+  "homepage": "https://github.com/paulducsantos/tripchat#readme",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
 }
