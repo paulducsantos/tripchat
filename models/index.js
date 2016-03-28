@@ -1,12 +1,20 @@
 var fs        = require("fs");
 var path      = require("path");
 var Sequelize = require("sequelize");
+var mysql     = require("mysql");
 var bcrypt    = require('bcryptjs');
-// var env       = process.env.NODE_ENV || "development";
-// debugger;
-// var sequelize = new Sequelize(process.env.JAWSDB_URL);
-var sequelize = new Sequelize('itinerary_db', 'root');
+
+// Database Setup
 var db        = {};
+if(process.env.NODE_ENV === 'production') {
+  // HEROKU DB
+  console.log(process.env.JAWSDB_URL);
+  var sequelize = new Sequelize(process.env.JAWSDB_URL);
+}
+else {
+  // LOCAL DB
+  var sequelize = new Sequelize('itinerary_db', 'root');
+}
 
 fs
   .readdirSync(__dirname)

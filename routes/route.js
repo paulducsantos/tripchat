@@ -3,7 +3,7 @@ var passportLocal = require('passport-local');
 var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var controller = require('../controllers/controller.js');
-var User = require('../models/user.js');
+var models = require('../models');
 
 module.exports.routes = function(app) {
 
@@ -58,7 +58,7 @@ module.exports.routes = function(app) {
   // use method as callback when being autheticated
   passport.use(new passportLocal.Strategy(function(username, password, done) {
     // check the password in database
-    User.findOne({
+    models.User.findOne({
       username: username
     }).then(function(user) {
       console.log(user.id);
