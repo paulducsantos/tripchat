@@ -118,3 +118,22 @@ app.put('/updateActivity', function(req,res, next){
     res.json(result)
   });
 });
+
+
+// ************** DELETE **************
+
+
+app.get("/delete/:id", function(req, res) {
+  var itineraryId = req.params.id;
+  Itinerary.destroy(
+    {
+      where: {
+        id: itineraryId
+      }
+    }).then(function(result) {
+    res.redirect('/user_dashboard?msg=Review deleted.');
+    }).catch(function(err) {
+      console.log(err);
+      res.redirect('/yourReviews?msg=' + err.message);
+    });
+});
