@@ -1,12 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var models = require("./models");
+
 
 var app = express();
-
-// Database - change to mysql
-// var db = 'mongodb://localhost/tripChat';
-// mongoose.connect(db);
 
 var PORT = process.env.PORT || 4000;
 
@@ -20,6 +18,8 @@ app.use(bodyParser.json());
 var route = require('./routes/route.js');
 route.routes(app);
 
-app.listen(PORT, function() {
-  console.log("listening on port", PORT);
+models.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("LISTNEING!");
+  });
 });

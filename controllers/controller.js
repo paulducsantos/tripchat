@@ -1,4 +1,7 @@
-var User = require('../models/user.js');
+var models = require('../models');
+var Activity = require('../models/activity.js');
+var Itinerary = require('../models/itinerary.js');
+var Comment = require('../models/comment.js');
 
 exports.home = function(req, res, next) {
   res.sendFile(process.cwd() + '/public/views/index.html');
@@ -8,7 +11,7 @@ exports.getLogin = function(req, res, next) {
   console.log(req.user.username);
   console.log(req.user.id);
 
-  User.findOne({
+  models.User.findOne({
     username: req.user.username
   })
   .select('username')
