@@ -1,7 +1,4 @@
 var models = require('../models');
-var Activity = require('../models/activity.js');
-var Itinerary = require('../models/itinerary.js');
-var Comment = require('../models/comment.js');
 
 exports.home = function(req, res, next) {
   res.sendFile(process.cwd() + '/public/views/index.html');
