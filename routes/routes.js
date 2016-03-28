@@ -51,7 +51,6 @@ app.post('/newToDo', function(req,res){
 
 // ************** READ **************
 
-//  DO WE NEED A RES.RENDER SINCE WE ARE USING ANGULAR?
 
 //FIND ALL ITINERARIES
 app.get('/allItineraries', function(req,res){
@@ -87,10 +86,32 @@ app.get('/username', function(req,res){
 
 // ************** UPDATE **************
 
-app.put('updateItinerary', function(req,res, next){
+app.put('/updateItinerary', function(req,res, next){
   Itinerary.findOne({
     where:{
       id: req.itinerary.id
+    }
+  })
+  .then(function(result){
+    res.json(result)
+  });
+});
+
+app.put('/updateComment', function(req,res, next){
+  Itinerary.findOne({
+    where:{
+      id: req.comment.id
+    }
+  })
+  .then(function(result){
+    res.json(result)
+  });
+});
+
+app.put('/updateActivity', function(req,res, next){
+  Itinerary.findOne({
+    where:{
+      id: req.activity.id
     }
   })
   .then(function(result){

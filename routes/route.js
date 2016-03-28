@@ -33,13 +33,18 @@ module.exports.routes = function(app) {
       failureRedirect: '/?msg=Login failed'
     })
   );
-
   app.post('/signup', controller.signup);
   app.post('/newItinerary', controller.newItinerary);
   app.post('/newComment', controller.newComment);
   app.post('/newToDo', controller.newToDo);
 
-  // passport
+
+  app.put('/updateItinerary', controller.updateItinerary);
+  app.put('/updateComment', controller.updateComment);
+  app.put('/updateActivity', controller.updateActivity);
+
+
+    // passport
   passport.serializeUser(function(user, done) {
     done(null, user);
   });

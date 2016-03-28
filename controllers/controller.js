@@ -4,36 +4,21 @@ exports.home = function(req, res, next) {
   res.sendFile(process.cwd() + '/public/views/index.html');
 }
 
-exports.getLogin = function(req, res, next) {
-  console.log(req.user.username);
-  console.log(req.user.id);
 
-  User.findOne({
-    username: req.user.username
-  })
-  .select('username')
-  .exec()
-  .then(function(user){
-    res.json(user);
-  });
-}
+// ************** CREATE QUERIES **************
 
-exports.logout = function(req, res, next) {
-  req.session.destroy(function(err) {
-    res.redirect('/');
-  });
-}
 
+//NEEDS TO BE UPDATES FROM MYSQL
 exports.signup = function(req, res, next) {
   var user = new User(req.body);
   console.log("USER:\t" + user);
-  user.save(function(err) {
+  User.save(function(err) {
     if(err) throw err;
   })
   .then(function(user) {
     console.log('saved!');
   });
-}
+};
 
 exports.addLocation = function(req, res, next){
   var newItinerary = req.body;
@@ -43,7 +28,7 @@ exports.addLocation = function(req, res, next){
     }).catch(function(err){
       res.redirect('/msg=Something Went Wrong! Please Try Again');
     });
-}
+};
 
 exports.newComment = function(req, res, next){
   var newComment = req.body;
@@ -59,8 +44,7 @@ exports.newComment = function(req, res, next){
 
 exports.newToDo = function(req, res, next){
   var newToDo = req.body;
-  //NOT SURE ON THIS
-  newToDO.itinerary.id = req.itinerary.id
+  //NOT SURE ON THIS  newToDO.itinerary.id = req.itinerary.id
     Comment.create(newComment)
     .then(function(result){
       res.redirect('/?msg=ToDo Added!');
@@ -68,6 +52,23 @@ exports.newToDo = function(req, res, next){
       res.redirect('/msg=Something Went Wrong! Please Try Again');
     });
 };
+
+// ************** READ QUERIES **************
+
+//NEEDS TO BE CORRECTED FOR MYSQL
+exports.getLogin = function(req, res, next) {
+  console.log(req.user.username);
+  console.log(req.user.id);
+
+  User.findOne({
+    username: req.user.username
+  })
+  .select('username')
+  .exec()
+  .then(function(user){
+    res.json(user);
+  });
+}
 
 
 exports.allItineraries = function(req, res, next){
@@ -77,7 +78,6 @@ exports.allItineraries = function(req, res, next){
   });
 };
 
-//Not sure on this
 exports.itineraryLocation = function(req,res, next){
   Itinerary.findAll({
     where:{
@@ -99,4 +99,46 @@ exports.itineraryUser = function(req, res, next){
     res.json(result)
   });
 };
+
+// ************** UPDATE QUERIES **************
+
+exports.updateItinerary =  function(req,res, next){
+  Itinerary.findOne({
+    where:{
+      id: req.itinerary.id
+    }
+  })
+  .then(function(result){
+    res.json(result)
+  });
+};
+
+exports.updateComment = function(req,res, next){
+  Itinerary.findOne({
+    where:{
+      id: req.comment.id
+    }
+  })
+  .then(function(result){
+    res.json(result)
+  });
+};
+exports.updateActivity = function(req,res, next){
+  Itinerary.findOne({
+    where:{
+      id: req.activity.id
+    }
+  })
+  .then(function(result){
+    res.json(result)
+  });
+};
+
+// ************** DELETE QUERIES **************
+
+exports.logout = function(req, res, next) {
+  req.session.destroy(function(err) {
+    res.redirect('/');
+  });
+}
 
