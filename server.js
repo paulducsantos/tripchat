@@ -20,6 +20,6 @@ route.routes(app);
 
 models.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-    console.log("LISTNEING!");
+    console.log("Listening on: " + PORT)
   });
 });
