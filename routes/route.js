@@ -36,12 +36,16 @@ module.exports.routes = function(app) {
   app.post('/signup', controller.signup);
   app.post('/newItinerary', controller.newItinerary);
   app.post('/newComment', controller.newComment);
-  app.post('/newToDo', controller.newToDo);
+  app.post('/newActvitiy', controller.newToDo);
 
 
   app.put('/updateItinerary', controller.updateItinerary);
   app.put('/updateComment', controller.updateComment);
   app.put('/updateActivity', controller.updateActivity);
+
+  app.get('/destroyItinerary', controller.destroyItinerary);
+  app.get('/destroyComment', controller.destroyComment);
+  app.get('/destroyActivity', controller.destroyActivity);
 
 
     // passport

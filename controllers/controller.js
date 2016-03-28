@@ -1,7 +1,5 @@
 var models = require('../models');
-var Activity = require('../models/activity.js');
-var Itinerary = require('../models/itinerary.js');
-var Comment = require('../models/comment.js');
+
 
 exports.home = function(req, res, next) {
   res.sendFile(process.cwd() + '/public/views/index.html');
@@ -10,22 +8,20 @@ exports.home = function(req, res, next) {
 
 // ************** CREATE QUERIES **************
 
+exports.signup = function(req, res, next){
+  var newUser = req.body;
+  models.User.create(newUser)
+  .then(function(result){
+    res.redirect('/?msg=New User Create!');
+    }).catch(function(err){
+      res.redirect('/msg=Something Went Wrong! Please Try Again');
+    });
+  };
 
-//NEEDS TO BE UPDATES FROM MYSQL
-exports.signup = function(req, res, next) {
-  var user = new User(req.body);
-  console.log("USER:\t" + user);
-  User.save(function(err) {
-    if(err) throw err;
-  })
-  .then(function(user) {
-    console.log('saved!');
-  });
-};
 
 exports.addLocation = function(req, res, next){
   var newItinerary = req.body;
-    Itinerary.create(newItinerary)
+    models.Itinerary.create(newItinerary)
     .then(function(result){
       res.redirect('/?msg=New Itinerary Create!');
     }).catch(function(err){
@@ -37,7 +33,7 @@ exports.newComment = function(req, res, next){
   var newComment = req.body;
   //NOT SURE ON THIS
   newComment.itinerary.id = req.itinerary.id
-    Comment.create(newComment)
+    models.Comment.create(newComment)
     .then(function(result){
       res.redirect('/?msg=Comment Added!');
     }).catch(function(err){
@@ -45,12 +41,12 @@ exports.newComment = function(req, res, next){
     });
 };
 
-exports.newToDo = function(req, res, next){
-  var newToDo = req.body;
+exports.newActivity = function(req, res, next){
+  var newActvitiy = req.body;
   //NOT SURE ON THIS  newToDO.itinerary.id = req.itinerary.id
-    Comment.create(newComment)
+    models.Activity.create(newActivitiy)
     .then(function(result){
-      res.redirect('/?msg=ToDo Added!');
+      res.redirect('/?msg=Activity Added!');
     }).catch(function(err){
       res.redirect('/msg=Something Went Wrong! Please Try Again');
     });
@@ -62,27 +58,23 @@ exports.newToDo = function(req, res, next){
 exports.getLogin = function(req, res, next) {
   console.log(req.user.username);
   console.log(req.user.id);
-
   models.User.findOne({
     username: req.user.username
   })
-  .select('username')
-  .exec()
-  .then(function(user){
-    res.json(user);
+  .then(function(result){
+    res.json(result);
   });
 }
 
-
 exports.allItineraries = function(req, res, next){
-  Itinerary.findAll({})
+  models.Itinerary.findAll({})
   .then(function(result){
     res.json(result);
   });
 };
 
 exports.itineraryLocation = function(req,res, next){
-  Itinerary.findAll({
+  models.Itinerary.findAll({
     where:{
       location: req.body.location
     }
@@ -91,11 +83,23 @@ exports.itineraryLocation = function(req,res, next){
     res.json(result);
   });
 };
-
+//FIND ALL INTERARIES FOR USER - LOOK FOR ITINERARY FOREIGN ID KEY
 exports.itineraryUser = function(req, res, next){
-  Itinerary.findAll({
+  models.Itinerary.findAll({
     where:{
-      username: req.body.username
+      UserId: req.body.username
+    }
+  })
+  .then(function(result){
+    res.json(result)
+  });
+};
+
+//FIND ALL ACTIVITES FOR AN ITINERARY - NEED HELP
+exports.allActivites = function(req, res, next){
+  models.activity.findAll({
+    where:{
+      ItineraryId: req.body//itinerary id
     }
   })
   .then(function(result){
@@ -106,7 +110,7 @@ exports.itineraryUser = function(req, res, next){
 // ************** UPDATE QUERIES **************
 
 exports.updateItinerary =  function(req,res, next){
-  Itinerary.findOne({
+  models.Itinerary.findOne({
     where:{
       id: req.itinerary.id
     }
@@ -117,7 +121,7 @@ exports.updateItinerary =  function(req,res, next){
 };
 
 exports.updateComment = function(req,res, next){
-  Itinerary.findOne({
+  models.Itinerary.findOne({
     where:{
       id: req.comment.id
     }
@@ -127,7 +131,7 @@ exports.updateComment = function(req,res, next){
   });
 };
 exports.updateActivity = function(req,res, next){
-  Itinerary.findOne({
+  models.Activity.findOne({
     where:{
       id: req.activity.id
     }
@@ -144,4 +148,51 @@ exports.logout = function(req, res, next) {
     res.redirect('/');
   });
 }
+
+exports.destroyItinerary = function(req, res, next) {
+  var itineraryId = req.params.id;
+  Itinerary.destroy(
+    {
+      where: {
+        id: itineraryId
+      }
+    }).then(function(result) {
+    res.redirect('/?msg=Itinerary deleted.');
+    }).catch(function(err) {
+      console.log(err);
+      res.redirect('/?msg=' + err.message);
+    });
+};
+
+
+exports.destroyComment = function(req, res, next) {
+  var commentId = req.params.id;
+  Comment.destroy(
+    {
+      where: {
+        id: commentId
+      }
+    }).then(function(result) {
+    res.redirect('/?msg=Comment deleted.');
+    }).catch(function(err) {
+      console.log(err);
+      res.redirect('/?msg=' + err.message);
+    });
+};
+
+
+exports.destroyActivity = function(req, res, next) {
+  var activityId = req.params.id;
+  Comment.destroy(
+    {
+      where: {
+        id: activityId
+      }
+    }).then(function(result) {
+    res.redirect('/?msg=Activity deleted.');
+    }).catch(function(err) {
+      console.log(err);
+      res.redirect('/?msg=' + err.message);
+    });
+};
 
