@@ -1,8 +1,4 @@
 var models = require('../models');
-<<<<<<< HEAD
-
-=======
->>>>>>> 23e0ed2f5fa25e4b69e3c502438edc16c429b042
 
 exports.home = function(req, res, next) {
   res.sendFile(process.cwd() + '/public/views/index.html');
