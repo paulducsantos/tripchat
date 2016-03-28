@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #D90000;
+}
+
+
+
+.mapBox {
+  width: 100%;
+  z-index: -1;
+}
+
+.container {
+  width: 85%;
+}

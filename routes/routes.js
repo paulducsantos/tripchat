@@ -34,13 +34,22 @@ app.post('/newComment', function(req,res){
     });
 });
 
+//ADD NEW TODO
+
+app.post('/newToDo', function(req,res){
+  var newToDo = req.body;
+  //NOT SURE ON THIS
+  newToDO.itinerary.id = req.itinerary.id
+    Comment.create(newComment)
+    .then(function(result){
+      res.redirect('/?msg=ToDo Added!');
+    }).catch(function(err){
+      res.redirect('/msg=Something Went Wrong! Please Try Again');
+    });
+});
 
 
-
-
-
-
-// ************** READY **************
+// ************** READ **************
 
 //  DO WE NEED A RES.RENDER SINCE WE ARE USING ANGULAR?
 
@@ -48,7 +57,7 @@ app.post('/newComment', function(req,res){
 app.get('/allItineraries', function(req,res){
   Itinerary.findAll({})
   .then(function(result){
-    res.render('/', {result});
+    res.json(result);
   });
 });
 
@@ -60,7 +69,7 @@ app.get('/allItineraries:location', function(req,res){
     }
   })
   .then(function(result){
-    res.render('/', {result});
+    res.json(result);
   });
 });
 
@@ -72,9 +81,19 @@ app.get('/username', function(req,res){
     }
   })
   .then(function(result){
-    res.render('/', {result});
+    res.json(result)
   });
 });
 
+// ************** UPDATE **************
 
-
+app.put('updateItinerary', function(req,res, next){
+  Itinerary.findOne({
+    where:{
+      id: req.itinerary.id
+    }
+  })
+  .then(function(result){
+    res.json(result)
+  });
+});
