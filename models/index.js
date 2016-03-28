@@ -2,9 +2,10 @@ var fs        = require("fs");
 var path      = require("path");
 var Sequelize = require("sequelize");
 var bcrypt    = require('bcryptjs');
-var env       = process.env.NODE_ENV || "development";
-// var config    = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
-var sequelize = new Sequelize('itinerary_db', 'root');
+// var env       = process.env.NODE_ENV || "development";
+// debugger;
+var sequelize = new Sequelize(process.env.JAWSDB_URL);
+// var sequelize = new Sequelize('itinerary_db', 'root');
 var db        = {};
 
 fs
