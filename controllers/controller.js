@@ -195,3 +195,40 @@ exports.destroyActivity = function(req, res, next) {
     });
 };
 
+// Passport-Facebook
+// App ID: 202504846791549
+// App Secret: e101c9e8e1f2aa13d18047de13a7279f
+exports.saveOAuthUserProfile = function(req, profile, done) {
+    User.findOne({
+            provider: profile.provider,
+            providerId: profile.providerId
+        },
+        function(err, user) {
+            if (err) {
+            return done(err);
+            }
+            else {
+                if (!user) {
+                    var possibleUsername = profile.username || ((profile.email) ? profile.email.split('@')[0] : '');
+                    User.findUniqueUsername(possibleUsername, null, function(availableUsername) {
+                        profile.username = availableUsername;
+                        user = new User(profile);
+
+                        user.save(function(err) {
+                            if (err) {
+                                var message = _this.getErrorMessage(err);
+                                req.flash('error', message);
+                                return res.redirect('/signup');
+                            }
+
+                            return done(err, user);
+                        });
+                    });
+                }
+                else {
+                    return done(err, user);
+                }
+            }
+        }
+    );
+};
