@@ -1,7 +1,5 @@
-// Scripts for Angular To Do List App
+// Scripts Trip Chats
 $(document).ready(function() {
-
-
 
   // Triggers modal launch
   $('.modal-trigger').leanModal();
