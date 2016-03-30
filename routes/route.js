@@ -4,12 +4,14 @@ var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var controller = require('../controllers/controller.js');
 var models = require('../models');
+var FacebookStrategy = require('passport-facebook').Strategy
+var config = require('../configuration/config')
 
 module.exports.routes = function(app) {
 
   app.use(require('express-session')(
     {
-      secret: 'eventsoccurinreal-time',
+      secret: 'eventsoccurinrealtime',
       resave: true,
       saveUninitialized: true,
       cookie: { secure: false, maxAge: ( 4 * 60 * 60 * 1000 ) // 4 hours
@@ -48,18 +50,26 @@ module.exports.routes = function(app) {
   // app.get('/destroyActivity', controller.destroyActivity);
 
 
-    // passport
+  /*==========================================
+    PASSPORTS
+  ==========================================*/
+
+  // ************** PASSPORT-LOCAL **************
+
   passport.serializeUser(function(user, done) {
+    console.log('passport.serializeUser fired')
     done(null, user);
   });
   passport.deserializeUser(function(user, done) {
+    console.log('passport.deserializeUser fired')
     done(null, user);
   });
   // use method as callback when being autheticated
   passport.use(new passportLocal.Strategy(function(username, password, done) {
+    console.log('passportLocal fired')
     // check the password in database
     models.User.findOne({
-      username: username
+      where: {username: username }
     }).then(function(user) {
       console.log(user.id);
       // check the password against the hash
@@ -75,6 +85,48 @@ module.exports.routes = function(app) {
         });
       }
     })
-  }))
+  })); // end passport-local 
+
+  // ************** PASSPORT-FACEBOOK **************
+
+  /*config is our configuration variable.*/
+  passport.use(new FacebookStrategy({
+      clientID: config.facebook_api_key,
+      clientSecret:config.facebook_api_secret ,
+      callbackURL: config.callback_url
+    },
+    function(accessToken, refreshToken, profile, done) {
+      process.nextTick(function () {
+        //Check whether the User exists or not using profile.id
+        if(config.use_database==='true')
+        {
+           //Further code of Database.
+        }
+        return done(null, profile);
+      });
+    }
+  ));
+
+  app.get('/account', ensureAuthenticated, function(req, res){
+    res.render('account', { user: req.user });
+  });
+  //Passport Router
+  app.get('/auth/facebook', passport.authenticate('facebook'));
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { 
+         successRedirect : '/', 
+         failureRedirect: '/login' 
+    }),
+    function(req, res) {
+      res.redirect('/');
+    });
+  app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
+  function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) { return next(); }
+    res.redirect('/login')
+  } // end passport-facebook
 
 }; // module.exports.routes

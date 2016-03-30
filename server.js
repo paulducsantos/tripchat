@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var models = require("./models");
 
-
 var app = express();
 
 var PORT = process.env.PORT || 4000;
