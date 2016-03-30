@@ -5,7 +5,9 @@
   <title>TripChat</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/mapBox.css">
   <base href="/" />
 </head>
 <body>
@@ -35,17 +37,10 @@
     </nav>
   </div>
 
-
-  <img class="mapBox" src="https://www.advancedcustomfields.com/wp-content/uploads/2013/11/acf-google-maps-field-2.png">
-
-  <div class="container">
-    <div class="row">
-      <div class="col l7">
-      </div>
-      <div class="col l5">
-      </div>
-    </div>
-  </div>
+<!--Initializing the Map START-->
+ <div id="mapid">
+ </div>
+<!--Initializing the Map END-->
 
   <!-- login modal -->
   <aside>
@@ -118,10 +113,12 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
   <script type="text/javascript" src="js/controllers/formController.js"></script>
+  <script type="text/javascript" src="js/mapBox.js"></script>
 
 </body>
 </html>
