@@ -50,9 +50,12 @@ module.exports.routes = function(app) {
   // app.get('/destroyActivity', controller.destroyActivity);
 
 
-  // ************** PASSPORTS **************
+  /*==========================================
+    PASSPORTS
+  ==========================================*/
 
-  // PASSPORT-LOCAL
+  // ************** PASSPORT-LOCAL **************
+
   passport.serializeUser(function(user, done) {
     console.log('passport.serializeUser fired')
     done(null, user);
@@ -66,7 +69,7 @@ module.exports.routes = function(app) {
     console.log('passportLocal fired')
     // check the password in database
     models.User.findOne({
-      username: username
+      where: {username: username }
     }).then(function(user) {
       console.log(user.id);
       // check the password against the hash
@@ -82,12 +85,11 @@ module.exports.routes = function(app) {
         });
       }
     })
-    alert('login successful')
-  })); // passport-local 
+  })); // end passport-local 
 
-  // PASSPORT-FACEBOOK
+  // ************** PASSPORT-FACEBOOK **************
+
   /*config is our configuration variable.*/
-  console.log(config.facebook_api_secret);
   passport.use(new FacebookStrategy({
       clientID: config.facebook_api_key,
       clientSecret:config.facebook_api_secret ,
@@ -124,8 +126,7 @@ module.exports.routes = function(app) {
   });
   function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
-    alert('facebook login successful');
     res.redirect('/login')
-  }
+  } // end passport-facebook
 
 }; // module.exports.routes

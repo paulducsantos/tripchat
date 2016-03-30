@@ -13,6 +13,20 @@ angular.module('TripChat')
       console.log(result);
     })
   }
+});
 
+angular.module('TripChat')
+.controller('userLogin', function($scope, $http) {
+
+  $scope.login = function() {
+    console.log($scope.username);
+    $http.post('/login', {
+      username: $scope.username,
+      password: $scope.password
+    })
+    .then(function(result) {
+      console.log(result);
+    })
+  }
   
 });

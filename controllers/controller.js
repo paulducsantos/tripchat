@@ -1,6 +1,7 @@
 var models = require('../models');
 
 exports.home = function(req, res, next) {
+  debugger;
   res.sendFile(process.cwd() + '/public/views/index.html');
 }
 
@@ -196,7 +197,8 @@ exports.destroyActivity = function(req, res, next) {
     });
 };
 
-// Passport-Facebook
+// ************** PASSPORT-FACEBOOK **************
+
 exports.saveOAuthUserProfile = function(req, profile, done) {
     User.findOne({
             provider: profile.provider,
@@ -225,6 +227,7 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
                     });
                 }
                 else {
+                    alert('facebook login successful');
                     return done(err, user);
                 }
             }

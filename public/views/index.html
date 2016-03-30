@@ -49,17 +49,17 @@
 
   <!-- login modal -->
   <aside>
-    <div id="login-modal" class="modal">
-      <form id="formLogin" class="col s12" method="POST">
+    <div id="login-modal" class="modal" ng-controller="userLogin as login">
+      <form id="formLogin" class="col s12">
         <div class="modal-content">
           <h3>Log In</h3>
           <div class="row">
             <div class="input-field col s6">
-              <input id="username" type="text" class="validate" name="username">
+              <input id="username" type="text" class="validate" name="username" ng-model="username">
               <label for="username">Username</label>
             </div>
             <div class="input-field col s6">
-              <input id="password" type="password" class="validate" name="password">
+              <input id="password" type="password" class="validate" name="password" ng-model="password">
               <label for="password">Password</label>
             </div>
           </div>
