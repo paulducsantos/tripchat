@@ -5,7 +5,7 @@ var session = require('express-session');
 var controller = require('../controllers/controller.js');
 var models = require('../models');
 var FacebookStrategy = require('passport-facebook').Strategy
-var config = require('./configuration/config')
+var config = require('../configuration/config')
 
 module.exports.routes = function(app) {
 
@@ -50,15 +50,20 @@ module.exports.routes = function(app) {
   // app.get('/destroyActivity', controller.destroyActivity);
 
 
-  // passport-local
+  // ************** PASSPORTS **************
+
+  // PASSPORT-LOCAL
   passport.serializeUser(function(user, done) {
+    console.log('passport.serializeUser fired')
     done(null, user);
   });
   passport.deserializeUser(function(user, done) {
+    console.log('passport.deserializeUser fired')
     done(null, user);
   });
   // use method as callback when being autheticated
   passport.use(new passportLocal.Strategy(function(username, password, done) {
+    console.log('passportLocal fired')
     // check the password in database
     models.User.findOne({
       username: username
@@ -77,10 +82,12 @@ module.exports.routes = function(app) {
         });
       }
     })
-  })); // passport-local
+    alert('login successful')
+  })); // passport-local 
 
-  // passport-facebook
+  // PASSPORT-FACEBOOK
   /*config is our configuration variable.*/
+  console.log(config.facebook_api_secret);
   passport.use(new FacebookStrategy({
       clientID: config.facebook_api_key,
       clientSecret:config.facebook_api_secret ,
@@ -117,6 +124,7 @@ module.exports.routes = function(app) {
   });
   function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
+    alert('facebook login successful');
     res.redirect('/login')
   }
 
