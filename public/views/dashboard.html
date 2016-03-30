@@ -10,38 +10,53 @@
 </head>
 <body>
 
-<div class="container">
-  <ul>
-    <li><a href="/allItineraries" class="btn">View My Itineraries</a></li>
-    <li><a  class="btn">Create New Itineraries</a></li>
-  </ul>
+<div class="container" ng-controller="" >
 
  <div class="row">
-    <form class="col s12">
-
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="NYC Weekend" id="itinerary_name" type="text" class="validate">
-          <label for="itinerary_name">Intinerary Name</label>
+    <div class="col s7">
+      <div class="itinerary-panel" ng-repeat="intinerary in intineraries">
+        <div class="itinerary-header">
+          <h3>{{itinerary.title}}</h3>
+          <p>{{itinerary.upvotes}}</p>
+          <p>{{itinerary.comment.length}}</p>
         </div>
 
-        <div class="input-field col s6">
-          <input placeholder="New York City" id="location" type="text" class="validate">
-          <label for="location">Location</label>
+        <div class="itinerary-body">
+          <div class="row">
+            <div class="col s3">
+              {{MapBox Location}}
+            </div>
+
+            <div class="col s9">
+              <div class="row">
+                <h6>Activities</h6>
+                <a href="" class="btn">Add Activity</a>
+                <div ng-repeat"activity in activties">
+                  <div class="s4">
+                    <div class="activity-box">
+                      {{activity}}
+                      <span href= class="delete-activity">x</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <div class="itinerary-footer">
+          <a href="" class="btn">View</a>
+          <a href="" class="btn">Edit</a>
+          <a href="" class="btn">Delete</a>
+        </div>
+
       </div>
+    </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Museums" id="interest" type="text" class="validate">
-          <label for="interest">Activity</label>
-        </div>
-        <a href="/newActvitiy" class="btn">Add Activity</a>
-      </div>
+    <div class="col s5">
 
-    </form>
-  </div>
-</div>
+    </div>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
