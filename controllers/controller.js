@@ -13,6 +13,7 @@ exports.signup = function(req, res, next){
   .then(function(result){
     res.redirect('/?msg=New User Create!');
     }).catch(function(err){
+      console.log(err);
       res.redirect('/msg=Something Went Wrong! Please Try Again');
     });
   };
