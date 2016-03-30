@@ -196,8 +196,6 @@ exports.destroyActivity = function(req, res, next) {
 };
 
 // Passport-Facebook
-// App ID: 202504846791549
-// App Secret: e101c9e8e1f2aa13d18047de13a7279f
 exports.saveOAuthUserProfile = function(req, profile, done) {
     User.findOne({
             provider: profile.provider,
