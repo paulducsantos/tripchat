@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="TripChat">
+<head>
+  <meta charset="utf-8">
+  <title>TripChat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <base href="/" />
+</head>
+<body>
+
+<div class="container">
+  <ul>
+    <li><a href="/allItineraries" class="btn">View My Itineraries</a></li>
+    <li><a  class="btn">Create New Itineraries</a></li>
+  </ul>
+
+ <div class="row">
+    <form class="col s12">
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="NYC Weekend" id="itinerary_name" type="text" class="validate">
+          <label for="itinerary_name">Intinerary Name</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input placeholder="New York City" id="location" type="text" class="validate">
+          <label for="location">Location</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Museums" id="interest" type="text" class="validate">
+          <label for="interest">Activity</label>
+        </div>
+        <a href="/newActvitiy" class="btn">Add Activity</a>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <script type="text/javascript" src="js/controllers/formController.js"></script>
+
+</body>
+</html>
