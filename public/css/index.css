@@ -12,3 +12,8 @@
 .container {
   width: 85%;
 }
+
+
+#mapid { 
+  height: 600px; 
+}
