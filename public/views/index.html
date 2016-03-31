@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="css/mapBox.css">
   <base href="/" />
 </head>
-<body>
+<body ng-controller="mainCtrl">
 
   <div class="navbar-fixed">
     <nav>
@@ -20,9 +20,9 @@
           <a href="#"></a>
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
-            <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
-            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4" id="loginBtn">Log In</span></a></li>
-            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal" id="signupBtn"><span class="red-text accent-4">Sign Up</span></a></li>
+            <li ng-show="showLogout"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <li ng-show="showLogin"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
+            <li ng-show="showLogin"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
           <!-- mobile nav -->
           <!-- mobile nav menu icon -->
@@ -51,7 +51,7 @@
 
   <!-- login modal -->
   <aside>
-    <div id="login-modal" class="modal" ng-controller="userLogin as login">
+    <div id="login-modal" class="modal">
       <form id="formLogin" class="col s12">
         <div class="modal-content">
           <h3>Log In</h3>
@@ -77,7 +77,7 @@
 
   <!-- signup modal -->
   <aside>
-    <div id="signup-modal" class="modal" ng-controller="userSignup as signup">
+    <div id="signup-modal" class="modal">
       <form class="col s12" id="formSignup">
         <div class="modal-content">
           <h3>Sign Up</h3>
