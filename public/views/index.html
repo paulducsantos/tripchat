@@ -19,8 +19,8 @@
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
             <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
-            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
-            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
+            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4" id="loginBtn">Log In</span></a></li>
+            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal" id="signupBtn"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
           <!-- mobile nav -->
           <!-- mobile nav menu icon -->
@@ -29,6 +29,7 @@
             <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
             <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
             <li ng-show="!user"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
+            <p>test</p>
           </ul>
         </div>
       </div>
