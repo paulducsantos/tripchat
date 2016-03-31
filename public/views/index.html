@@ -5,7 +5,9 @@
   <title>TripChat</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/mapBox.css">
   <base href="/" />
 </head>
 <body ng-controller="mainCtrl">
@@ -29,6 +31,7 @@
             <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
             <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
             <li ng-show="!user"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
+            <p>test</p>
           </ul>
         </div>
       </div>
@@ -36,16 +39,15 @@
   </div>
 
 
-  <img class="mapBox" src="https://www.advancedcustomfields.com/wp-content/uploads/2013/11/acf-google-maps-field-2.png">
-
-  <div class="container">
-    <div class="row">
-      <div class="col l7">
-      </div>
-      <div class="col l5">
-      </div>
-    </div>
+<div class="row">
+  <div id="mapid">
   </div>
+  <div id="content" class="col l8 myItinerary">
+    <!-- This is where your regular content should be -->
+     <p>This is where your foreground code should be. This is where your foreground code should be. This is where your foreground code should be.</p>
+  </div>
+</div>
+
 
   <!-- login modal -->
   <aside>
@@ -119,10 +121,13 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
   <script type="text/javascript" src="js/controllers/formController.js"></script>
+  <script type="text/javascript" src="js/mapBox.js"></script>
 
 </body>
 </html>

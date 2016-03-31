@@ -11,7 +11,7 @@ exports.signup = function(req, res, next){
   var newUser = req.body;
   models.User.create(newUser)
   .then(function(result){
-    res.redirect('/?msg=New User Create!');
+    res.redirect('/?msg=New User Created!');
     }).catch(function(err){
       console.log(err);
       res.redirect('/msg=Something Went Wrong! Please Try Again');
