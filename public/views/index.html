@@ -20,15 +20,16 @@
           <ul class="right hide-on-med-and-down">
             <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
             <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
-            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
+            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal" id="signupBtn"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
           <!-- mobile nav -->
           <!-- mobile nav menu icon -->
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="mobile-demo" class="side-nav">
             <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
-            <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
-            <li ng-show="!user"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
+            <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger" id="loginBtn">Log In</a></li>
+            <li ng-show="!user"><a href="#signup-modal" class="waves-effect waves-light modal-trigger" id="signupBtn">Sign Up</a></li>
+            <p>test</p>
           </ul>
         </div>
       </div>
