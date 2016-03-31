@@ -1,23 +1,17 @@
 angular.module('TripChat')
-.controller('userSignup', function($scope, $http) {
+.controller('mainCtrl', function($scope, userFactory) {
+
+  $scope.users = {};
 
   $scope.signup = function() {
-    $http.post('/signup', {
-      username: $scope.username,
-      password: $scope.password,
-      email: $scope.email,
-      fname: $scope.fname,
-      lname: $scope.lname
-    })
+    userFactory.saveUser($scope.users)
     .then(function(result) {
       console.log(result);
     })
   }
-});
 
-angular.module('TripChat')
-.controller('userLogin', function($scope, $http) {
-
+  $scope.showLogout = false;
+  $scope.showLogin = true;
   $scope.login = function() {
     console.log($scope.username);
     $http.post('/login', {
@@ -26,6 +20,8 @@ angular.module('TripChat')
     })
     .then(function(result) {
       console.log(result);
+      $scope.showLogout = true;
+      $scope.showLogin = false;
     })
   }
   

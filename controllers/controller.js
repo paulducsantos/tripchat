@@ -1,7 +1,6 @@
 var models = require('../models');
 
 exports.home = function(req, res, next) {
-  debugger;
   res.sendFile(process.cwd() + '/public/views/index.html');
 }
 
