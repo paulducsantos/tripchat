@@ -1,10 +1,14 @@
 angular.module('TripChat')
-.controller('mainCtrl', function($scope, userFactory) {
-
-  $scope.users = {};
+.controller('mainCtrl', function($scope, $http) {
 
   $scope.signup = function() {
-    userFactory.saveUser($scope.users)
+    $http.post('/signup', {
+      username: $scope.username,
+      password: $scope.password,
+      email: $scope.email,
+      fname: $scope.fname,
+      lname: $scope.lname
+    })
     .then(function(result) {
       console.log(result);
     })
