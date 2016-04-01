@@ -9,10 +9,10 @@ angular.module('TripChat')
       controller: 'rootController',
       templateUrl: 'views/partials/home-partial.html'
     })
-    // .state('dashboard', {
-    //   url: '/dashboard',
-    //   templateUrl: 'views/partials/dashboard.html'
-    // })
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'views/partials/dashboard-partial.html'
+    })
 
   $locationProvider.html5Mode(true);
 }]);

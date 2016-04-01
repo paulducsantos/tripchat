@@ -1,4 +1,5 @@
-angular.module('TripChat').controller('rootController', [
+angular.module('TripChat')
+.controller('rootController', [
     '$scope',
     function ($scope) {
         // Gets called when the directive is ready:

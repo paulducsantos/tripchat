@@ -1,4 +1,5 @@
-angular.module('TripChat').directive('mapbox', [
+angular.module('TripChat')
+.directive('mapbox', [
     function () {
         return {
             restrict: 'EA',
