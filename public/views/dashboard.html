@@ -10,46 +10,85 @@
 </head>
 <body>
 
-<div class="container">
-  <ul>
-    <li><a href="/allItineraries" class="btn">View My Itineraries</a></li>
-    <li><a  class="btn">Create New Itineraries</a></li>
-  </ul>
-
- <div class="row">
+<div class="container" ng-controller="dashboardCtrl" >
+  <div class="row">
     <form class="col s12">
 
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="NYC Weekend" id="itinerary_name" type="text" class="validate">
+          <input placeholder="NYC Weekend" ng-model="itinerary_name" name="title" type="text" class="validate">
           <label for="itinerary_name">Intinerary Name</label>
         </div>
 
         <div class="input-field col s6">
-          <input placeholder="New York City" id="location" type="text" class="validate">
+          <input placeholder="New York City" ng-model="location" name="location" type="text" class="validate">
           <label for="location">Location</label>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Museums" id="interest" type="text" class="validate">
-          <label for="interest">Activity</label>
-        </div>
-        <a href="/newActvitiy" class="btn">Add Activity</a>
-      </div>
-
+      <a href="" class="btn right">Save Itinerary</a>
     </form>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col s7">
+
+      <div class="itinerary-panel" ng-repeat="intinerary in intineraries">
+
+        <div class="itinerary-header">
+          <h3>{{itinerary.title}}</h3>
+          <p>{{itinerary.upvotes.length}}</p>
+          <p>{{itinerary.comment.length}}</p>
+        </div>
+
+        <div class="itinerary-body">
+          <div class="row">
+            <div class="col s3">
+              {{MapBox Location}}
+            </div>
+
+            <div class="col s9">
+              <div class="row">
+                <h6>Add Activity:</h6>
+                <div class="input-field">
+                  <input placeholder="Museums" id="activity" ng-model="activity" type="text" class="validate col">
+                </div>
+                <a href="" class="btn" ng-click="addActivity()">Add Activity</a>
+                <div ng-repeat"activity in activties">
+                  <div class="s4">
+                    <ul>
+                      <li ng-repeat="activity in activites"><span class="btn">{{activity}}<span ng-click="deleteActivity()" class="delete-activity">x</span></span>
+                     </li>
+                    </ul>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="itinerary-footer">
+          <a ui-sref="itinerary/" class="btn">View</a>
+          <a href="#" ng-click class="btn">Edit</a>
+          <a href="#" ng-click class="btn">Delete</a>
+        </div>
+
+      <div class="col s5">
+      </div>
+
+    </div>
+  </div>
+
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/scripts.js"></script>
-  <script type="text/javascript" src="js/controllers/formController.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+  <script type="text/javascript" src="/js/scripts.js"></script>
+  <script type="text/javascript" src="/js/controllers/formController.js"></script>
 
 </body>
 </html>
