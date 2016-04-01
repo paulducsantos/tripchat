@@ -1,5 +1,5 @@
 angular.module('TripChat')
-.controller('mainCtrl', function($scope, $http) {
+.controller('AppCtrl', function($scope, $http) {
 
   $scope.signup = function() {
     $http.post('/signup', {
