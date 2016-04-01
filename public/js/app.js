@@ -1,1 +1,1 @@
-angular.module('TripChat', []);
+angular.module('TripChat', ['ui.router']);

@@ -27,6 +27,6 @@ angular.module('TripChat')
       $scope.showLogout = true;
       $scope.showLogin = false;
     })
-  }
+  };
   
 });

@@ -39,14 +39,6 @@
   </div>
 
 
-<div class="row">
-  <div id="mapid">
-  </div>
-  <div id="content" class="col l8 myItinerary">
-    <!-- This is where your regular content should be -->
-     <p>This is where your foreground code should be. This is where your foreground code should be. This is where your foreground code should be.</p>
-  </div>
-</div>
 
 
   <!-- login modal -->
@@ -116,8 +108,19 @@
     </div>
   </aside>
 
+<!--==========================================================
+  INJECT VIEWS HERE!
+=============================================================-->
+<div>
+  <ui-view></ui-view>
+<div>
 
 
+
+
+<!--==========================================================
+  SCRIPTS!!
+=============================================================-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -125,9 +128,12 @@
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/directives/mapbox-directive.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
   <script type="text/javascript" src="js/controllers/formController.js"></script>
-  <script type="text/javascript" src="js/mapBox.js"></script>
+  <script type="text/javascript" src="js/configs/appStates.js"></script>
+  <script type="text/javascript" src="js/controllers/mapbox-controller.js"></script>
+  <!-- <script type="text/javascript" src="js/mapBox.js"></script> -->
 
 </body>
 </html>
