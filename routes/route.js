@@ -21,7 +21,10 @@ module.exports.routes = function(app) {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.get('/', controller.home);
+  app.get('*', function(req, res) {
+    res.sendFile(process.cwd() + '/public/views/index.html');
+  });
+  
   app.get('/loginInfo', controller.getLogin);
   app.get('/logout', controller.logout);
   app.get('/allItineraries', controller.allItineraries);
