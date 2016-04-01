@@ -6,6 +6,7 @@ angular.module('TripChat')
   $stateProvider
     .state('home', {
       url: '/',
+      controller: 'rootController',
       templateUrl: 'views/partials/home-partial.html'
     })
     // .state('dashboard', {

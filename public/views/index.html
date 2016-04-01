@@ -5,10 +5,12 @@
   <title>TripChat</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/mapBox.css">
   <base href="/" />
 </head>
-<body>
+<body ng-controller="mainCtrl">
 
   <div class="navbar-fixed">
     <nav>
@@ -18,9 +20,9 @@
           <a href="#"></a>
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
-            <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
-            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4" id="loginBtn">Log In</span></a></li>
-            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal" id="signupBtn"><span class="red-text accent-4">Sign Up</span></a></li>
+            <li ng-show="showLogout"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <li ng-show="showLogin"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
+            <li ng-show="showLogin"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
           <!-- mobile nav -->
           <!-- mobile nav menu icon -->
@@ -36,9 +38,19 @@
     </nav>
   </div>
 
+<div class="row">
+  <div id="mapid">
+  </div>
+  <div id="content" class="col l8 myItinerary">
+    <!-- This is where your regular content should be -->
+     <p>This is where your foreground code should be. This is where your foreground code should be. This is where your foreground code should be.</p>
+  </div>
+</div>
+
+
   <!-- login modal -->
   <aside>
-    <div id="login-modal" class="modal" ng-controller="userLogin as login">
+    <div id="login-modal" class="modal">
       <form id="formLogin" class="col s12">
         <div class="modal-content">
           <h3>Log In</h3>
@@ -64,7 +76,7 @@
 
   <!-- signup modal -->
   <aside>
-    <div id="signup-modal" class="modal" ng-controller="userSignup as signup">
+    <div id="signup-modal" class="modal">
       <form class="col s12" id="formSignup">
         <div class="modal-content">
           <h3>Sign Up</h3>
@@ -119,11 +131,16 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/directives/mapbox-directive.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
   <script type="text/javascript" src="js/controllers/formController.js"></script>
   <script type="text/javascript" src="js/configs/appStates.js"></script>
+  <script type="text/javascript" src="js/controllers/mapbox-controller.js"></script>
+  <!-- <script type="text/javascript" src="js/mapBox.js"></script> -->
 
 </body>
 </html>
