@@ -1,5 +1,5 @@
 angular.module('TripChat')
-.controller('AppCtrl', function($scope, $http) {
+.controller('AppCtrl', function($scope, $rootScope, $http) {
 
   $scope.signup = function() {
     $http.post('/signup', {
@@ -24,6 +24,7 @@ angular.module('TripChat')
     })
     .then(function(result) {
       console.log(result);
+      $rootScope.user = result.data;
       $scope.userLoggedIn = true;
       $scope.userNotLoggedIn = false;
     })
