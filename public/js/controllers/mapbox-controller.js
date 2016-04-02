@@ -6,7 +6,7 @@ angular.module('TripChat')
         $scope.callback = function (map) {
             // Map is available here to use:
             // map.setView([40.5232920,-74.4405990], 13)
-            var mymap = L.map('mapid').setView([40.5232920,-74.4405990], 13);
+            var mymap = L.map('mapid').setView([40.5201060,-74.5516470], 12);
 
             var marker = L.marker([40.5232920, -74.4405990]).addTo(mymap);
 
