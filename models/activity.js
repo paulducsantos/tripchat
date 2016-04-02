@@ -4,7 +4,6 @@ module.exports = function(sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     },
