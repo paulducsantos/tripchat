@@ -28,10 +28,9 @@ module.exports.routes = function(app) {
   // app.get('/itineraryUser:???????', controller.itineraryUser);
 
   app.post('/login',
-    passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/?msg=Login failed'
-    })
+    passport.authenticate('local'), function(req, res) {
+      res.json(req.user);
+    }
   );
   app.post('/signup', controller.signup);
   // app.post('/newItinerary', controller.newItinerary);
@@ -77,7 +76,7 @@ module.exports.routes = function(app) {
         bcrypt.compare(password, user.password, function(err, userlogin) {
           if(userlogin) {
             // if password is valid -- authenticate the user with cookie
-            done(null, { id: user.id, username: user.username });
+            done(null, { id: user.id, username: user.username, firstname: user.fname });
           }
           else {
             done(null, null);
