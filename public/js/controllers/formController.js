@@ -23,7 +23,6 @@ angular.module('TripChat')
       password: $scope.password
     })
     .then(function(result) {
-      debugger;
       console.log(result);
       $rootScope.user = result.data;
       $scope.userLoggedIn = true;
