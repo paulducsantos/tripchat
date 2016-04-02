@@ -14,8 +14,8 @@ angular.module("TripChat",  [])
   };
 
   $scope.addItinerary = function(){
-    $http.post("/itineraries").then(function (response) {
-      $scope.intineraries = response.data
+    $http.post("/api/itineraries", {title:$scope.itinerary_name, location: $scope.location}).then(function (response) {
+      $scope.intineraries = response.data;
      });
   };
 
