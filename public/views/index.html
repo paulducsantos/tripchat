@@ -27,7 +27,18 @@
           <a href="#"></a>
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
-            <li ng-show="userLoggedIn"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <!-- Dropdown Trigger -->
+            <li ng-show="userLoggedIn">
+              <a class='dropdown-button btn' href='#' data-activates='dropdown1'>{{ username }}</a>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!">My Itineraries</a></li>
+                <li ng-show="userLoggedIn">
+                  <a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a>
+                </li>
+              </ul>
+            </li>
+            
             <li ng-show="userNotLoggedIn"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
             <li ng-show="userNotLoggedIn"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
