@@ -14,8 +14,8 @@ angular.module('TripChat')
     })
   }
 
-  $scope.showLogout = false;
-  $scope.showLogin = true;
+  $scope.userLoggedIn = false;
+  $scope.userNotLoggedIn = true;
   $scope.login = function() {
     console.log($scope.username);
     $http.post('/login', {
@@ -24,8 +24,8 @@ angular.module('TripChat')
     })
     .then(function(result) {
       console.log(result);
-      $scope.showLogout = true;
-      $scope.showLogin = false;
+      $scope.userLoggedIn = true;
+      $scope.userNotLoggedIn = false;
     })
   };
   

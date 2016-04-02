@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>TripChat</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
@@ -17,20 +19,22 @@
       <div class="nav-wrapper grey">
         <div class="container">
           <a href="/" class="brand-logo text-shadow hide-on-med-and-down">TripChat</a>
+          <!-- Still working on getting user's firstname to appear in navbar on login -->
+          <!-- <h3 class="brand-logo text-shadow center">Welcome {{ user.username }}</h3> -->
           <a href="#"></a>
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
-            <li ng-show="showLogout"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
-            <li ng-show="showLogin"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
-            <li ng-show="showLogin"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
+            <li ng-show="userLoggedIn"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <li ng-show="userNotLoggedIn"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
+            <li ng-show="userNotLoggedIn"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
           <!-- mobile nav -->
           <!-- mobile nav menu icon -->
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="mobile-demo" class="side-nav">
-            <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
-            <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
-            <li ng-show="!user"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
+            <li ng-show="userLoggedIn"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <li ng-show="userNotLoggedIn"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
+            <li ng-show="userNotLoggedIn"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
             <p>test</p>
           </ul>
         </div>
@@ -121,8 +125,6 @@
 <!--==========================================================
   SCRIPTS!!
 =============================================================-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
