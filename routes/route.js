@@ -20,17 +20,12 @@ module.exports.routes = function(app) {
 
   app.use(passport.initialize());
   app.use(passport.session());
-
-  app.get('*', function(req, res) {
-    res.sendFile(process.cwd() + '/public/views/index.html');
-  });
   
   app.get('/loginInfo', controller.getLogin);
   app.get('/logout', controller.logout);
   app.get('/allItineraries', controller.allItineraries);
   // app.get('/itineraryLocation:???????', controller.itineraryLocation);
   // app.get('/itineraryUser:???????', controller.itineraryUser);
-
 
   app.post('/login',
     passport.authenticate('local', {
@@ -43,7 +38,6 @@ module.exports.routes = function(app) {
   // app.post('/newComment', controller.newComment);
   // app.post('/newActvitiy', controller.newToDo);
 
-
   // app.put('/updateItinerary', controller.updateItinerary);
   // app.put('/updateComment', controller.updateComment);
   // app.put('/updateActivity', controller.updateActivity);
@@ -52,6 +46,9 @@ module.exports.routes = function(app) {
   // app.get('/destroyComment', controller.destroyComment);
   // app.get('/destroyActivity', controller.destroyActivity);
 
+  app.get('*', function(req, res) {
+    res.sendFile(process.cwd() + '/public/views/index.html');
+  });
 
   /*==========================================
     PASSPORTS

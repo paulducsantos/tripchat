@@ -20,7 +20,7 @@
         <div class="container">
           <a href="/" class="brand-logo text-shadow hide-on-med-and-down">TripChats</a>
           <!-- Still working on getting user's firstname to appear in navbar on login -->
-          <!-- <h3 class="brand-logo text-shadow center">Welcome {{ user.username }}</h3> -->
+          <h3 class="brand-logo text-shadow center">Welcome <span ng-show="userLoggedIn">{{ username }}</span></h3>
           <a href="#"></a>
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
@@ -135,6 +135,7 @@
   <script type="text/javascript" src="js/controllers/formController.js"></script>
   <script type="text/javascript" src="js/configs/appStates.js"></script>
   <script type="text/javascript" src="js/controllers/mapbox-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/dashboard-controller.js"></script>
   <!-- <script type="text/javascript" src="js/mapBox.js"></script> -->
 
 </body>
