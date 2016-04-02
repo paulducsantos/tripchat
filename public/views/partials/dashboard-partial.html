@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <a href="" class="btn right">Save Itinerary</a>
+      <a href="" ng-click="addItinerary()" class="btn right">Save Itinerary</a>
     </form>
   </div>
 
@@ -45,7 +45,7 @@
                 <div ng-repeat"activity in activties">
                   <div class="s4">
                     <ul>
-                      <li ng-repeat="activity in activites"><span class="btn">{{activity}}<span ng-click="deleteActivity()" class="delete-activity">x</span></span>
+                      <li ng-repeat="activity in activites"><span class="btn">{{activity}}<span ng-click="deleteActivity(activity.id)" class="delete-activity">x</span></span>
                       </li>
                     </ul>
 
@@ -59,8 +59,8 @@
 
       <div class="itinerary-footer">
         <a ui-sref="itinerary/" class="btn">View</a>
-        <a href="#" ng-click class="btn">Edit</a>
-        <a href="#" ng-click class="btn">Delete</a>
+        <a href="#" ng-click="editItinerary(itinerary.id)" class="btn">Edit</a>
+        <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
       </div>
 
       <div class="col s5">

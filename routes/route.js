@@ -24,10 +24,10 @@ module.exports.routes = function(app) {
   app.get('*', function(req, res) {
     res.sendFile(process.cwd() + '/public/views/index.html');
   });
-  
+
   app.get('/loginInfo', controller.getLogin);
   app.get('/logout', controller.logout);
-  app.get('/allItineraries', controller.allItineraries);
+  // app.get('/allItineraries', controller.allItineraries);
   // app.get('/itineraryLocation:???????', controller.itineraryLocation);
   // app.get('/itineraryUser:???????', controller.itineraryUser);
 
@@ -88,7 +88,7 @@ module.exports.routes = function(app) {
         });
       }
     })
-  })); // end passport-local 
+  })); // end passport-local
 
   // ************** PASSPORT-FACEBOOK **************
 
@@ -116,9 +116,9 @@ module.exports.routes = function(app) {
   //Passport Router
   app.get('/auth/facebook', passport.authenticate('facebook'));
   app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', { 
-         successRedirect : '/', 
-         failureRedirect: '/login' 
+    passport.authenticate('facebook', {
+         successRedirect : '/',
+         failureRedirect: '/login'
     }),
     function(req, res) {
       res.redirect('/');
