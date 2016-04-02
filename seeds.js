@@ -1,3 +1,8 @@
+var models = require('./models');
+
+
+
+//USERS
 var newUser1 = {
   email: 'danpetro7@gmail.com',
   username: 'dpetro07',
@@ -6,7 +11,7 @@ var newUser1 = {
   lname:'Petro'
 };
 
-models.Iternary.create(newUser)
+models.Iternary.create(newUser1)
 .then(function(result){
     res.redirect('/?msg=New User Created!');
   }).catch(function(err){
@@ -182,3 +187,177 @@ models.Iternary.create(newUser10)
     res.redirect('/msg=Something Went Wrong! Please Try Again');
 });
 
+
+//ACTIVITIES 
+var newActivity1 = {
+  name: 'Basketball',
+  ItineraryId: '1'
+};
+
+models.Iternary.create(newActivity1)
+.then(function(result){
+    res.redirect('/?msg=New User Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+
+var newActivity1 = {
+  name: 'Basketball',
+  ItineraryId: 1
+};
+
+models.Iternary.create(newActivity1)
+.then(function(result){
+    res.redirect('/?msg=New User Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+
+var newActivity2 = {
+  name: 'Skydiving',
+  ItineraryId: 2
+};
+
+models.Iternary.create(newActivity2)
+.then(function(result){
+    res.redirect('/?msg=New User Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+
+var newActivity3 = {
+  name: 'Surfing',
+  ItineraryId: 3
+};
+
+models.Iternary.create(newActivity3)
+.then(function(result){
+    res.redirect('/?msg=New User Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+
+
+
+
+
+
+
+//Itinerary
+
+
+var newItinerary1 = {
+  title: 'Adventure Time!',
+  location: 'New York City, NY',
+  UserId: 1
+};
+
+
+models.Iternary.create(newItinerary1)
+.then(function(result){
+    res.redirect('/?msg=New User Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+var newItinerary2 = {
+  title: 'Time for another adventure!',
+  location: 'Jersey City, NJ',
+  UserId: 1
+};
+
+
+models.Iternary.create(newItinerary2)
+.then(function(result){
+    res.redirect('/?msg=New Iternary Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+var newItinerary3 = {
+  title: 'Beach time!',
+  location: 'Miami, FL',
+  UserId: 2
+};
+
+
+models.Iternary.create(newItinerary3)
+.then(function(result){
+    res.redirect('/?msg=New Iternary Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+var newItinerary4 = {
+  title: 'Camping Trip',
+  location: 'Catskill, NY',
+  UserId: 3
+};
+
+
+models.Iternary.create(newItinerary4)
+.then(function(result){
+    res.redirect('/?msg=New Iternary Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+var newItinerary5 = {
+  title: 'Surfing!',
+  location: 'Juno, AK',
+  UserId: 4
+};
+
+
+models.Iternary.create(newItinerary5)
+.then(function(result){
+    res.redirect('/?msg=New Iternary Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+var newItinerary6 = {
+  title: 'Motorcycle Trip!',
+  location: 'Los Angeles, CA',
+  UserId: 5
+};
+
+
+models.Iternary.create(newItinerary6)
+.then(function(result){
+    res.redirect('/?msg=New Iternary Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+var newItinerary7 = {
+  title: 'Museums',
+  location: 'New York City, NY',
+  UserId: 6
+};
+
+
+models.Iternary.create(newItinerary7)
+.then(function(result){
+    res.redirect('/?msg=New Iternary Created!');
+  }).catch(function(err){
+    console.log(err);
+    res.redirect('/msg=Something Went Wrong! Please Try Again');
+});
+
+
+models.sequelize.sync();
