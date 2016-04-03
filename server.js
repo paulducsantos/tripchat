@@ -18,13 +18,12 @@ app.use(bodyParser.json());
 var route = require('./routes/route.js');
 route.routes(app);
 
-models.sequelize.sync().then(function() {
-  epilogue.initialize({
+epilogue.initialize({
     app: app,
     sequelize: models.sequelize
   });
 
-  epilogue.resource({
+var itineraryResource = epilogue.resource({
     model: models.Itinerary,
     endpoints: [
       '/api/itineraries',
@@ -33,7 +32,7 @@ models.sequelize.sync().then(function() {
     associations: true
   });
 
-  epilogue.resource({
+var activityResource =  epilogue.resource({
     model: models.Activity,
     endpoints: [
       '/api/activities',
@@ -42,7 +41,7 @@ models.sequelize.sync().then(function() {
     associations: true
   });
 
-  epilogue.resource({
+var commentResource =  epilogue.resource({
     model: models.Comment,
     endpoints: [
       '/api/comments',
@@ -51,6 +50,7 @@ models.sequelize.sync().then(function() {
     associations: true
   });
 
+models.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("Listening on: " + PORT)
   });

@@ -13,15 +13,17 @@ angular.module("TripChat")
   // };
 
   $scope.addItinerary = function(){
-    console.log('yo');
     $http.post("/api/itineraries", {
       title:$scope.itinerary_name,
       location: $scope.location
     })
-    .then(function (response) {
-      console.log('here');
+    .success(function (response) {
+      console.log(response.data);
       $scope.intineraries = response.data;
-     });
+     })
+    .error(function(err) {
+      console.log(err);
+    });
   };
 
   // $scope.editItinerary = function(){
