@@ -1,5 +1,6 @@
 angular.module("TripChat")
 .controller('dashboardCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.itineraries = [];
   // $scope.showItineraries = function(){
   //   $http.get("/itineraries").then(function (response) {
   //     $scope.intineraries = response.data
@@ -15,11 +16,12 @@ angular.module("TripChat")
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
       title:$scope.itinerary_name,
-      location: $scope.location
+      location: $scope.location,
+      UserId: $scope.user.id
     })
     .success(function (response) {
       console.log(response.data);
-      $scope.intineraries = response.data;
+      $scope.intineraries = response;
      })
     .error(function(err) {
       console.log(err);
