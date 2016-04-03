@@ -3,13 +3,14 @@ module.exports = function(sequelize, DataTypes) {
   var Itinerary = sequelize.define('Itinerary', {
     title: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     },
     location: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         notEmpty: true  
       }
