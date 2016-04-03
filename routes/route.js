@@ -2,6 +2,7 @@ var passport = require('passport');
 var passportLocal = require('passport-local');
 var bcrypt = require('bcryptjs');
 var session = require('express-session');
+var epilogue = require('epilogue');
 var controller = require('../controllers/controller.js');
 var models = require('../models');
 var FacebookStrategy = require('passport-facebook').Strategy
@@ -10,19 +11,47 @@ var config = require('../configuration/config')
 module.exports.routes = function(app) {
 
   app.use(require('express-session')(
-    {
-      secret: 'eventsoccurinrealtime',
-      resave: true,
-      saveUninitialized: true,
+  {
+    secret: 'eventsoccurinrealtime',
+    resave: true,
+    saveUninitialized: true,
       cookie: { secure: false, maxAge: ( 4 * 60 * 60 * 1000 ) // 4 hours
-    }
-  }));
+      }
+    }));
 
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.get('*', function(req, res) {
-    res.sendFile(process.cwd() + '/public/views/index.html');
+  epilogue.initialize({
+    app: app,
+    sequelize: models.sequelize
+  });
+
+  var itineraryResource = epilogue.resource({
+    model: models.Itinerary,
+    endpoints: [
+    '/api/itineraries',
+    '/api/itineraries/:id'
+    ],
+    associations: true
+  });
+
+  var activityResource =  epilogue.resource({
+    model: models.Activity,
+    endpoints: [
+    '/api/activities',
+    '/api/activities/:id'
+    ],
+    associations: true
+  });
+
+  var commentResource =  epilogue.resource({
+    model: models.Comment,
+    endpoints: [
+    '/api/comments',
+    '/api/comments/:id'
+    ],
+    associations: true
   });
 
   app.get('/loginInfo', controller.getLogin);
@@ -35,7 +64,7 @@ module.exports.routes = function(app) {
     passport.authenticate('local'), function(req, res) {
       res.json(req.user);
     }
-  );
+    );
   app.post('/signup', controller.signup);
   // app.post('/newItinerary', controller.newItinerary);
   // app.post('/newComment', controller.newComment);
@@ -55,7 +84,7 @@ module.exports.routes = function(app) {
 
   /*==========================================
     PASSPORTS
-  ==========================================*/
+    ==========================================*/
 
   // ************** PASSPORT-LOCAL **************
 
@@ -94,20 +123,20 @@ module.exports.routes = function(app) {
 
   /*config is our configuration variable.*/
   passport.use(new FacebookStrategy({
-      clientID: config.facebook_api_key,
-      clientSecret:config.facebook_api_secret ,
-      callbackURL: config.callback_url
-    },
-    function(accessToken, refreshToken, profile, done) {
-      process.nextTick(function () {
+    clientID: config.facebook_api_key,
+    clientSecret:config.facebook_api_secret ,
+    callbackURL: config.callback_url
+  },
+  function(accessToken, refreshToken, profile, done) {
+    process.nextTick(function () {
         //Check whether the User exists or not using profile.id
         if(config.use_database==='true')
         {
            //Further code of Database.
-        }
-        return done(null, profile);
-      });
-    }
+         }
+         return done(null, profile);
+       });
+  }
   ));
 
   app.get('/account', ensureAuthenticated, function(req, res){
@@ -117,9 +146,9 @@ module.exports.routes = function(app) {
   app.get('/auth/facebook', passport.authenticate('facebook'));
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-         successRedirect : '/',
-         failureRedirect: '/login'
-    }),
+     successRedirect : '/',
+     failureRedirect: '/login'
+   }),
     function(req, res) {
       res.redirect('/');
     });
