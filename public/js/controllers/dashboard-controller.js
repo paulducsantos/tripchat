@@ -1,17 +1,66 @@
 angular.module("TripChat")
 .controller('dashboardCtrl', ['$scope', '$http', function($scope, $http) {
-    $scope.itineraries = [];
-  // $scope.showItineraries = function(){
-  //   $http.get("/itineraries").then(function (response) {
-  //     $scope.intineraries = response.data
-  //    });
-  // };
 
-  // $scope.userItineraries = function(){
-  //   $http.get("/users/" + user.id + "/itineraries").then(function (response) {
-  //     $scope.itineraries = response.data
-  //    });
-  // };
+  $scope.getUserItineraries = function() {
+    $http.get('/api/itineraries?UserId=' + $scope.user.id)
+    .then(function(result) {
+      $scope.userItineraries = result.data;
+      console.log(result.data);
+    }, function(err) {
+      console.log(err)
+    });
+  }
+  $scope.getUserItineraries();
+
+
+  // $scope.editItinerary = function(itineraryId) {
+
+  //   console.log($scope.user.id);
+  //   $http.put('/api/itineraries/' + itineraryId, {
+  //     title:$scope.itinerary_name,
+  //     location: $scope.location
+  //   })
+  //   .then(function(result) {
+  //     $scope.userItineraries = result.data;
+  //     console.log(result.data);
+  //   }, function(err) {
+  //     console.log(err)
+  //   });
+  // }
+
+
+//FOR SEARCH PARTIAL WHEN COMPLETED
+  // $scope.getItineraries = function() {
+
+  //     console.log($scope.user.id);
+  //     $http.get('/api/itineraries')
+  //     .then(function(result) {
+  //       $scope.allItineraries = result.data;
+  //       console.log(result.data);
+  //     }, function(err) {
+  //       console.log(err)
+  //     });
+  //   }
+  // $scope.getItineraries();
+
+
+
+
+  $scope.addItinerary = function(){
+    $http.post("/api/itineraries", {
+      title:$scope.itinerary_name,
+      location: $scope.location,
+      UserId: $scope.user.id
+    })
+    .success(function (response) {
+      console.log(response.data);
+      $scope.intineraries = response.data;
+     })
+    .error(function(err) {
+      console.log(err);
+    });
+  };
+
 
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {

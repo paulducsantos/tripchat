@@ -2,7 +2,7 @@ angular.module('TripChat')
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
   // $urlRouterProvider.otherwise('/home');
-  
+
   $stateProvider
     .state('home', {
       url: '/',
@@ -11,6 +11,7 @@ angular.module('TripChat')
     })
     .state('dashboard', {
       url: '/dashboard',
+      controller: 'dashboardCtrl',
       templateUrl: 'views/partials/dashboard-partial.html'
     })
 
