@@ -6,13 +6,13 @@ angular.module("TripChat")
     $http.get('/api/itineraries?UserId=' + $scope.user.id)
     .then(function(result) {
       $scope.userItineraries = result.data;
-      $scope.itinerary_name = "";
-      $scope.location = "";
+
     }, function(err) {
       console.log(err)
     });
   };
   $scope.getUserItineraries();
+
 
 
   $scope.addItinerary = function(){
@@ -23,17 +23,19 @@ angular.module("TripChat")
     })
     .then(function (result) {
       $scope.userItineraries.push(result.data);
+      $scope.itinerary_name = "";
+      $scope.location = "";
      },function(err) {
       console.log(err)
     });
-    $scope.getUserItineraries();
+    // $scope.getUserItineraries();
   };
 
 
   $scope.deleteItinerary = function(itineraryId){
     $http.delete("/api/itineraries/" + itineraryId)
     .then(function (result) {
-      $scope.userItineraries.push(result.data);
+      // $scope.userItineraries.push(result.data);
      }), (function(err) {
       console.log(err);
     });
