@@ -29,13 +29,13 @@
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <li ng-show="userLoggedIn">
-              <a class='dropdown-button btn' href='#' data-activates='dropdown1'>{{ username }}</a>
+              <a class='dropdown-button' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true">{{ username }}</a>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="/">Home</a></li>
                 <li><a href="/dashboard">My Itineraries</a></li>
                 <li ng-show="userLoggedIn">
-                  <a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a>
+                  <a ng-click="logout()" class="waves-effect waves-light">Log Out</a>
                 </li>
               </ul>
             </li>

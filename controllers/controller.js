@@ -144,6 +144,7 @@ exports.getLogin = function(req, res, next) {
 // ************** DELETE QUERIES **************
 
 exports.logout = function(req, res, next) {
+  console.log('logout function fired');
   req.session.destroy(function(err) {
     res.redirect('/');
   });
