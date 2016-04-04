@@ -4,7 +4,11 @@
   </div>
   <div id="content" class="col l8 myItinerary">
     <!-- This is where your regular content should be -->
-     <p>Main page Information goes here:</p>
-     <h1><a ui-sref="dashboard">go to dashboard</a></h1>
+     <h2>Here is the latest itinerary!</h2>
+     <h3>{{latestItinerary.title}} in <small>{{latestItinerary.location}}</small></h3>
+     <ul>
+       <li ng-repeat="activity in latestItinerary.Activities">{{activity.name}}</li>
+     </ul>
+
   </div>
 </div>
