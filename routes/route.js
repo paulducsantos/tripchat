@@ -51,7 +51,6 @@ module.exports.routes = function(app) {
     '/api/comments',
     '/api/comments/:id'
     ],
-    excludeAttributes: 'UserId',
     associations: true
   });
 
@@ -61,7 +60,6 @@ module.exports.routes = function(app) {
     '/api/users',
     '/api/users/:id'
     ],
-    excludeAttributes: 'password',
     associations: true
   });  
 

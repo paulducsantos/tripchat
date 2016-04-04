@@ -42,8 +42,7 @@ angular.module('TripChat')
   }
 
   $scope.addComment = function(itineraryId) {
-    debugger;
-    $http.post('/api/comments?ItineraryId=' + itineraryId, {
+    $http.post('/api/comments', {
       text: $scope.newComment,
       ItineraryId: itineraryId,
       UserId: $scope.user.id
@@ -51,7 +50,7 @@ angular.module('TripChat')
     .then(function(results) {
       console.log(results.data);
       $scope.newComment = '';
-      $scope.getComments(itineraryId);
+      $scope.comments.push(results.data);
     }, function(err) {
       console.log(err);
     });
