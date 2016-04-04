@@ -10,6 +10,18 @@
   </div>
 
   <div class="row">
-    
+    <div class="col s12 m6 offset-m3 center">
+      <div class="itinerary" ng-repeat="itinerary in allItineraries">
+        <h3>{{itinerary.title}}</h3>
+        <small>{{itinerary.User.username}}</small>
+        <br />
+        <h4>Activities</h4>
+        <ul ng-repeat="activity in itinerary.Activities">
+          <li>{{activity.name}}</li>
+        </ul>
+        <h4>Suggestions</h4>
+        
+      </div>
+    </div>
   </div>
 </div>
