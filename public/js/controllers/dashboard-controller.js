@@ -2,18 +2,14 @@ angular.module("TripChat")
 .controller('dashboardCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.getUserItineraries = function() {
-
     $http.get('/api/itineraries?UserId=' + $scope.user.id)
     .then(function(result) {
       $scope.userItineraries = result.data;
-
     }, function(err) {
       console.log(err)
     });
   };
   $scope.getUserItineraries();
-
-
 
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
@@ -30,30 +26,39 @@ angular.module("TripChat")
     });
   };
 
-
   $scope.deleteItinerary = function(itineraryId){
     $http.delete("/api/itineraries/" + itineraryId)
     .then(function (result) {
-
+      //Does anything need to be here - it works apporprietly with empty
      }), (function(err) {
       console.log(err);
     });
     $scope.getUserItineraries();
   };
 
-  // $scope.editItinerary = function(itineraryId) {
-  //   console.log(itineraryId);
-  //   $http.put('/api/itineraries/' + itineraryId, {
-  //     title: $scope.itinerary_name,
-  //     location: $scope.location
-  //   })
-  //   .then(function(result) {
-  //     $scope.userItineraries = result.data;
-  //     console.log(result.data);
-  //   }, function(err) {
-  //     console.log(err)
-  //   });
-  // }
+  $scope.showEditableItinerary = function(itineraryId) {
+    $http.get('/api/itineraries/' + itineraryId)
+    .then(function(result) {
+      console.log(result.data);
+    }, function(err) {
+      console.log(err)
+    });
+  };
+
+
+  $scope.editItinerary = function(itineraryId) {
+    console.log(itineraryId);
+    $http.put('/api/itineraries/' + itineraryId, {
+      title: $scope.itinerary_name,
+      location: $scope.location
+    })
+    .then(function(result) {
+      $scope.userItineraries.push(result.data);
+      console.log(result.data);
+    }, function(err) {
+      console.log(err)
+    });
+  }
 
 
 //FOR SEARCH PARTIAL WHEN COMPLETED
