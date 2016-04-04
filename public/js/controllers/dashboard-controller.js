@@ -5,6 +5,8 @@ angular.module("TripChat")
     $http.get('/api/itineraries?UserId=' + $scope.user.id)
     .then(function(result) {
       $scope.userItineraries = result.data;
+      $scope.itinerary_name = "";
+      $scope.location = "";
     }, function(err) {
       console.log(err)
     });
@@ -55,6 +57,7 @@ angular.module("TripChat")
       console.log(err);
     });
     $scope.getUserItineraries();
+
   };
 
 
