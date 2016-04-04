@@ -51,8 +51,19 @@ module.exports.routes = function(app) {
     '/api/comments',
     '/api/comments/:id'
     ],
+    excludeAttributes: 'UserId',
     associations: true
   });
+
+  var userResource =  epilogue.resource({
+    model: models.User,
+    endpoints: [
+    '/api/users',
+    '/api/users/:id'
+    ],
+    excludeAttributes: 'password',
+    associations: true
+  });  
 
   app.get('/loginInfo', controller.getLogin);
   app.get('/logout', controller.logout);
