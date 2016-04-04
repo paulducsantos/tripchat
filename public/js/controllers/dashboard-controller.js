@@ -5,7 +5,6 @@ angular.module("TripChat")
     $http.get('/api/itineraries?UserId=' + $scope.user.id)
     .then(function(result) {
       $scope.userItineraries = result.data;
-      console.log(result.data);
     }, function(err) {
       console.log(err)
     });
@@ -14,7 +13,6 @@ angular.module("TripChat")
 
 
   // $scope.editItinerary = function(itineraryId) {
-
   //   console.log($scope.user.id);
   //   $http.put('/api/itineraries/' + itineraryId, {
   //     title:$scope.itinerary_name,
@@ -44,8 +42,6 @@ angular.module("TripChat")
   // $scope.getItineraries();
 
 
-
-
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
       title:$scope.itinerary_name,
@@ -53,29 +49,14 @@ angular.module("TripChat")
       UserId: $scope.user.id
     })
     .success(function (response) {
-      console.log(response.data);
-      $scope.intineraries = response.data;
+      $scope.getUserItineraries = response.data;
      })
     .error(function(err) {
       console.log(err);
     });
+    $scope.getUserItineraries();
   };
 
-
-  $scope.addItinerary = function(){
-    $http.post("/api/itineraries", {
-      title:$scope.itinerary_name,
-      location: $scope.location,
-      UserId: $scope.user.id
-    })
-    .success(function (response) {
-      console.log(response.data);
-      $scope.intineraries = response;
-     })
-    .error(function(err) {
-      console.log(err);
-    });
-  };
 
   // $scope.editItinerary = function(){
   //   $http.put("/itineraries/" + itineraryId).then(function (response) {

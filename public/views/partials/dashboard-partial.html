@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col s7">
 
-      <div class="itinerary-panel" ng-repeat="itinerary in userItineraries">
+      <div class="itinerary-panel" ng-repeat="itinerary in userItineraries | orderBy:'created_at':true">
 
         <div class="itinerary-header">
           <h3>{{itinerary.title}}</h3>
@@ -53,12 +53,11 @@
           </div><!-- end row -->
         </div><!--end itinerary-body -->
 
-
-          <div class="itinerary-footer">
-            <a ui-sref="itinerary/" class="btn">View</a>
-            <a href="#" ng-click="editItinerary(itinerary.id)" class="btn">Edit</a>
-            <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
-          </div>
+        <div class="itinerary-footer">
+          <a ui-sref="itinerary/" class="btn">View</a>
+          <a href="#" ng-click="editItinerary(itinerary.id)" class="btn">Edit</a>
+          <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
+        </div>
       </div><!-- End Itineray-panel -->
 
     </div><!-- end col s7-->
