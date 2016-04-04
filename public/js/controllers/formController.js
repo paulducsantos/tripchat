@@ -32,12 +32,10 @@ angular.module('TripChat')
   }; // end login
 
   $scope.logout = function() {
-    console.log("$scope.logout function fired");
     $http.get('/logout').then(function() {
       $scope.userLoggedIn = false;
       $scope.userNotLoggedIn = true;
       $state.go('home');
-      console.log('$scope.logout finished successfully');
     }, function(err) {
       console.log(err);
     })
