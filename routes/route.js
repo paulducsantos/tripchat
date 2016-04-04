@@ -161,4 +161,4 @@ module.exports.routes = function(app) {
     res.redirect('/login')
   } // end passport-facebook
 
-}; // module.exports.routes
+}; // end module.exports.routes
