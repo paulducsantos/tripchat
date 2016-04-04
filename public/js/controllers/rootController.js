@@ -25,8 +25,35 @@ angular.module('TripChat')
     .then(function(result) {
       $scope.latestItinerary = result.data[0];
       console.log($scope.latestItinerary);
+      $scope.getComments($scope.latestItinerary.id);
     }, function(err) {
       console.log(err)
+    });
+  }
+
+  $scope.getComments = function(itineraryId) {
+    $http.get('/api/comments?ItineraryId=' + itineraryId)
+    .then(function(results) {
+      console.log(results.data);
+      $scope.comments = results.data;
+    }, function(err) {
+      console.log(err);
+    });
+  }
+
+  $scope.addComment = function(itineraryId) {
+    debugger;
+    $http.post('/api/comments?ItineraryId=' + itineraryId, {
+      text: $scope.newComment,
+      ItineraryId: itineraryId,
+      UserId: $scope.user.id
+    })
+    .then(function(results) {
+      console.log(results.data);
+      $scope.newComment = '';
+      $scope.getComments(itineraryId);
+    }, function(err) {
+      console.log(err);
     });
   }
 
