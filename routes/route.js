@@ -54,6 +54,15 @@ module.exports.routes = function(app) {
     associations: true
   });
 
+  var userResource =  epilogue.resource({
+    model: models.User,
+    endpoints: [
+    '/api/users',
+    '/api/users/:id'
+    ],
+    associations: true
+  });  
+
   app.get('/loginInfo', controller.getLogin);
   app.get('/logout', controller.logout);
   // app.get('/allItineraries', controller.allItineraries);
