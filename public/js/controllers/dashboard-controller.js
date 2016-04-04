@@ -10,14 +10,40 @@ angular.module("TripChat")
     }, function(err) {
       console.log(err)
     });
-  }
+  };
   $scope.getUserItineraries();
 
 
+  $scope.addItinerary = function(){
+    $http.post("/api/itineraries", {
+      title:$scope.itinerary_name,
+      location: $scope.location,
+      UserId: $scope.user.id
+    })
+    .then(function (result) {
+      $scope.getUserItineraries = response.data;
+     }), (function(err) {
+      console.log(err);
+    });
+    $scope.getUserItineraries();
+  };
+
+
+
+  $scope.deleteItinerary = function(itineraryId){
+    $http.delete("/api/itineraries/" + itineraryId)
+    .then(function (result) {
+      $scope.getUserItineraries = response.data;
+     }), (function(err) {
+      console.log(err);
+    });
+    $scope.getUserItineraries();
+  };
+
   // $scope.editItinerary = function(itineraryId) {
-  //   console.log($scope.user.id);
+  //   console.log(itineraryId);
   //   $http.put('/api/itineraries/' + itineraryId, {
-  //     title:$scope.itinerary_name,
+  //     title: $scope.itinerary_name,
   //     location: $scope.location
   //   })
   //   .then(function(result) {
@@ -44,34 +70,9 @@ angular.module("TripChat")
   // $scope.getItineraries();
 
 
-  $scope.addItinerary = function(){
-    $http.post("/api/itineraries", {
-      title:$scope.itinerary_name,
-      location: $scope.location,
-      UserId: $scope.user.id
-    })
-    .success(function (response) {
-      $scope.getUserItineraries = response.data;
-     })
-    .error(function(err) {
-      console.log(err);
-    });
-    $scope.getUserItineraries();
-
-  };
 
 
-  // $scope.editItinerary = function(){
-  //   $http.put("/itineraries/" + itineraryId).then(function (response) {
-  //     $scope.itineraries = response.data
-  //   });
-  // };
 
-  // $scope.deleteItinerary = function(){
-  //   $http.delete("/itineraries/" + itineraryId).then(function (response) {
-  //     // $scope.intineraries = response.data
-  //   });
-  // };
 
   // $scope.addActvitity = function(){
   //   $http.post("/itineraries/" + itineraryId + "/activities").then(function (response) {
