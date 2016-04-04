@@ -1,4 +1,4 @@
-<div class="container" ng-controller="dashboardCtrl">
+<div class="container">
   <div class="row">
     <form class="col s12">
 
@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col s7">
 
-      <div class="itinerary-panel" ng-repeat="itinerary in itineraries">
+      <div class="itinerary-panel" ng-repeat="itinerary in userItineraries">
 
         <div class="itinerary-header">
           <h3>{{itinerary.title}}</h3>
@@ -33,7 +33,7 @@
         <div class="itinerary-body">
           <div class="row">
             <div class="col s3">
-              {{MapBox Location}}
+              <!-- {{MapBox Location}} -->
             </div>
 
             <div class="col s9">
@@ -55,18 +55,21 @@
               </div>
             </div>
           </div>
+
+
+        <div class="itinerary-footer">
+          <a ui-sref="itinerary/" class="btn">View</a>
+          <a href="#" ng-click="editItinerary(itinerary.id)" class="btn">Edit</a>
+          <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
         </div>
       </div>
-
-      <div class="itinerary-footer">
-        <a ui-sref="itinerary/" class="btn">View</a>
-        <a href="#" ng-click="editItinerary(itinerary.id)" class="btn">Edit</a>
-        <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
       </div>
 
-      <div class="col s5">
-      </div>
+   <!--  <div class="col s5">
+    </div> -->
 
-    </div>
+
   </div>
 </div>
+
+
