@@ -1,4 +1,4 @@
-<div class="container" ng-controller="dashboardCtrl">
+<div class="container">
   <div class="row">
     <form class="col s12">
 
@@ -21,52 +21,46 @@
 
   <div class="row">
     <div class="col s7">
-
-      <div class="itinerary-panel" ng-repeat="itinerary in itineraries">
-
+      <div class="itinerary-panel" ng-repeat="itinerary in userItineraries | orderBy:'created_at':true">
         <div class="itinerary-header">
           <h3>{{itinerary.title}}</h3>
-          <p>{{itinerary.upvotes.length}}</p>
-          <p>{{itinerary.comment.length}}</p>
         </div>
-
         <div class="itinerary-body">
           <div class="row">
             <div class="col s3">
-              {{MapBox Location}}
+             <!--  {{MapBox Location}} -->
             </div>
-
             <div class="col s9">
               <div class="row">
                 <h6>Add Activity:</h6>
                 <div class="input-field">
-                  <input placeholder="Museums" id="activity" ng-model="activity" type="text" class="validate col">
+                  <input placeholder="Museums" id="activity_name" ng-model="activity_name" type="text" class="validate col">
                 </div>
-                <a href="" class="btn" ng-click="addActivity()">Add Activity</a>
+                 <div class="input-field">
+                  <input placeholder="123 Museum Dr. New York City, NY, 10002" id="activity_address" ng-model="activity_address" type="text" class="validate col">
+                </div>
+                <a href="" class="btn" ng-click="addActivity(ItineraryId)">Add Activity</a>
                 <div ng-repeat"activity in activties">
-                  <div class="s4">
+                  <div class="col s4">
                     <ul>
-                      <li ng-repeat="activity in activites"><span class="btn">{{activity}}<span ng-click="deleteActivity(activity.id)" class="delete-activity">x</span></span>
+                      <li ng-repeat="activity in activites">
+                      <span class="btn">{{activity_name}} - {{activity_address}} <span ng-click="deleteActivity(activity.id)" class="delete-activity">x</span></span>
                       </li>
                     </ul>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </div><!-- end col s4 -->
+                </div><!-- end activities -->
+              </div><!-- end row -->
+            </div><!-- end col s9 -->
+          </div><!-- end row -->
+        </div><!--end itinerary-body -->
+        <div class="itinerary-footer">
+          <a ui-sref="itinerary/" class="btn">View</a>
+          <a href="#" ng-click="editItinerary(itinerary.id)" class="btn">Edit</a>
+          <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
         </div>
-      </div>
-
-      <div class="itinerary-footer">
-        <a ui-sref="itinerary/" class="btn">View</a>
-        <a href="#" ng-click="editItinerary(itinerary.id)" class="btn">Edit</a>
-        <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
-      </div>
-
-      <div class="col s5">
-      </div>
-
-    </div>
-  </div>
-</div>
+      </div><!-- End Itineray-panel -->
+    </div><!-- end col s7-->
+      <!-- <div class="col s5">
+      </div> -->
+  </div><!-- end row-->
+</div><!-- end container -->
