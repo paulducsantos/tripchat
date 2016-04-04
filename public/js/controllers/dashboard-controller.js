@@ -28,14 +28,13 @@ angular.module("TripChat")
      },function(err) {
       console.log(err)
     });
-    // $scope.getUserItineraries();
   };
 
 
   $scope.deleteItinerary = function(itineraryId){
     $http.delete("/api/itineraries/" + itineraryId)
     .then(function (result) {
-      // $scope.userItineraries.push(result.data);
+
      }), (function(err) {
       console.log(err);
     });
