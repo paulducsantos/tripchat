@@ -17,7 +17,6 @@ angular.module('TripChat')
   $scope.userLoggedIn = false;
   $scope.userNotLoggedIn = true;
   $scope.login = function() {
-    // console.log($scope.username);
     $http.post('/login', {
       username: $scope.username,
       password: $scope.password
@@ -30,6 +29,18 @@ angular.module('TripChat')
       $state.go('dashboard');
       console.log($rootScope.user.id);
     })
-  };
+  }; // end login
+
+  $scope.logout = function() {
+    console.log("$scope.logout function fired");
+    $http.get('/logout').then(function() {
+      $scope.userLoggedIn = false;
+      $scope.userNotLoggedIn = true;
+      $state.go('home');
+      console.log('$scope.logout finished successfully');
+    }, function(err) {
+      console.log(err);
+    })
+  }; // end logout
 
 });
