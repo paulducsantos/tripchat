@@ -10,9 +10,8 @@ angular.module('TripChat')
       lname: $scope.lname
     })
     .then(function(result) {
-      // console.log(result);
     })
-  }
+  } // end sign up
 
   $scope.userLoggedIn = false;
   $scope.userNotLoggedIn = true;
@@ -22,12 +21,10 @@ angular.module('TripChat')
       password: $scope.password
     })
     .then(function(result) {
-      console.log(result);
       $rootScope.user = result.data;
       $scope.userLoggedIn = true;
       $scope.userNotLoggedIn = false;
       $state.go('dashboard');
-      console.log($rootScope.user.id);
     })
   }; // end login
 
