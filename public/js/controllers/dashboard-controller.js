@@ -39,24 +39,16 @@ angular.module("TripChat")
   $scope.showEditableItinerary = function(itineraryId) {
     $http.get('/api/itineraries/' + itineraryId)
     .then(function(result) {
-      console.log(result.data);
+
     }, function(err) {
       console.log(err)
     });
   };
 
-
-  $scope.editItinerary = function(itineraryId) {
-    console.log(itineraryId);
-    $http.put('/api/itineraries/' + itineraryId, {
-      title: $scope.itinerary_name,
-      location: $scope.location
-    })
-    .then(function(result) {
-      $scope.userItineraries.push(result.data);
-      console.log(result.data);
-    }, function(err) {
-      console.log(err)
+  $scope.editItinerary = function(itinerary) {
+    console.log('too many logs', itinerary.title);
+    $http.put('/api/itineraries/' + itinerary.id, {
+      title: itinerary.title
     });
   }
 

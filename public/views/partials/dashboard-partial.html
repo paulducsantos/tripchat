@@ -4,7 +4,7 @@
 
       <div class="row">
         <div class="input-field col s6">
-          <input ng-model="itinerary_name" name="title" type="text" class="validate">
+          <input ng-model="itinerary.title" name="title" type="text" class="validate">
           <label for="itinerary_name">Intinerary Name</label>
         </div>
 
@@ -55,9 +55,9 @@
         </div><!--end itinerary-body -->
         <div class="itinerary-footer">
           <a ui-sref="itinerary/" class="btn">View</a>
-          <input type="text" ng-show="showme" ng-model="itinerary.title">
-          <a href="#" ng-click="editItinerary(itinerary.id); showme=true" class="btn">Save</a>
-          <a href="#" ng-click="showEditableItinerary(itinerary.id); showme=true" class="btn">Edit</a>
+          some text <input type="text"  ng-model="itinerary.title">
+          <a href="#" ng-click="editItinerary(itinerary)" class="btn">Save</a>
+          <!-- <a href="#" ng-click="showEditableItinerary(itinerary.id)"class="btn">Edit</a> -->
           <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
         </div>
       </div><!-- End Itineray-panel -->
