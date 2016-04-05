@@ -13,8 +13,8 @@ angular.module("TripChat")
 
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
-      title:$scope.itinerary_name,
-      location: $scope.itinerary_location,
+      title:$scope.itinerary.title,
+      location: $scope.itinerary.location,
       UserId: $scope.user.id
     })
     .then(function (result) {
@@ -29,17 +29,15 @@ angular.module("TripChat")
   $scope.deleteItinerary = function(itineraryId){
     $http.delete("/api/itineraries/" + itineraryId)
     .then(function (result) {
-      //Does anything need to be here - it works apporprietly with empty
+      $scope.getUserItineraries();
      }), (function(err) {
       console.log(err);
     });
-    $scope.getUserItineraries();
   };
 
   $scope.showEditableItinerary = function(itineraryId) {
     $http.get('/api/itineraries/' + itineraryId)
     .then(function(result) {
-
     }, function(err) {
       console.log(err)
     });
@@ -69,8 +67,8 @@ angular.module("TripChat")
 
   //  $scope.getItineraryActivities = function(){
   //   $http.get("/api/activites?ItineraryId=" + $scope.itinerary.id, {
-  //     // $scope.activity_name,
-  //     // $scope.activity_address,
+  //     $scope.activity_name,
+  //     $scope.activity_address,
 
   //   })
   //   .then(function (result) {
@@ -81,20 +79,21 @@ angular.module("TripChat")
   //   $scope.getItineraryActivities();
   // };
 
-  // $scope.addActivity = function(){
-  //   $http.post("/api/activites", {
-  //     name:$scope.activity_name,
-  //     address: $scope.activity_address,
-  //     ItineraryId: $scope.itinerary.id
-  //   })
-  //   .then(function (result) {
-  //     console.log(result);
-  //     $scope.getItineraryActivities = response.data;
-  //    }), (function(err) {
-  //     console.log(err);
-  //   });
-  //   // $scope.getItineraryActivities();
-  // };
+  $scope.addActivity = function(){
+    console.log("clicked")
+    $http.post("/api/activites", {
+      name:$scope.activity_name,
+      address: $scope.activity_address,
+      ItineraryId: $scope.itinerary.id
+    })
+    .then(function (result) {
+      console.log(result);
+      $scope.getItineraryActivities = response.data;
+     }), (function(err) {
+      console.log(err);
+    });
+    // $scope.getItineraryActivities();
+  };
 
 
 
