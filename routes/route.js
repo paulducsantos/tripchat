@@ -10,15 +10,6 @@ var config = require('../configuration/config')
 
 module.exports.routes = function(app) {
 
-  app.use(require('express-session')(
-  {
-    secret: 'eventsoccurinrealtime',
-    resave: true,
-    saveUninitialized: true,
-      cookie: { secure: false, maxAge: ( 4 * 60 * 60 * 1000 ) // 4 hours
-      }
-    }));
-
   app.use(passport.initialize());
   app.use(passport.session());
 
@@ -54,17 +45,25 @@ module.exports.routes = function(app) {
     associations: true
   });
 
+  var userResource =  epilogue.resource({
+    model: models.User,
+    endpoints: [
+    '/api/users',
+    '/api/users/:id'
+    ],
+    associations: true
+  });  
+
   app.get('/loginInfo', controller.getLogin);
   app.get('/logout', controller.logout);
   // app.get('/allItineraries', controller.allItineraries);
   // app.get('/itineraryLocation:???????', controller.itineraryLocation);
   // app.get('/itineraryUser:???????', controller.itineraryUser);
 
-  app.post('/login',
-    passport.authenticate('local'), function(req, res) {
+  app.post('/login', passport.authenticate('local'), function(req, res) {
       res.json(req.user);
     }
-    );
+  );
   app.post('/signup', controller.signup);
   // app.post('/newItinerary', controller.newItinerary);
   // app.post('/newComment', controller.newComment);
@@ -79,6 +78,8 @@ module.exports.routes = function(app) {
   // app.get('/destroyActivity', controller.destroyActivity);
 
   app.get('*', function(req, res) {
+    debugger;
+    console.log(req.user);
     res.sendFile(process.cwd() + '/public/views/index.html');
   });
 
@@ -90,11 +91,17 @@ module.exports.routes = function(app) {
 
   passport.serializeUser(function(user, done) {
     console.log('passport.serializeUser fired')
-    done(null, user);
+    done(null, user.id);
   });
-  passport.deserializeUser(function(user, done) {
+  passport.deserializeUser(function(id, done) {
     console.log('passport.deserializeUser fired')
-    done(null, user);
+    models.User.findOne({
+      where: {
+        id: id
+      }
+    }).then(function(user) {
+      done(null, user);
+    });
   });
   // use method as callback when being autheticated
   passport.use(new passportLocal.Strategy(function(username, password, done) {
@@ -161,4 +168,4 @@ module.exports.routes = function(app) {
     res.redirect('/login')
   } // end passport-facebook
 
-}; // module.exports.routes
+}; // end module.exports.routes
