@@ -5,6 +5,10 @@ angular.module("TripChat")
     $http.get('/api/itineraries?UserId=' + $scope.user.id)
     .then(function(result) {
       $scope.userItineraries = result.data;
+      for(var i = 0; i < $scope.userItineraries.length; i++) {
+        $scope.userItineraries[i].newActivity = {};
+        console.log($scope.userItineraries[i]);
+      }
     }, function(err) {
       console.log(err)
     });
@@ -79,16 +83,13 @@ angular.module("TripChat")
   //   $scope.getItineraryActivities();
   // };
 
-  $scope.addActivity = function(){
-    console.log("clicked")
-    $http.post("/api/activites", {
-      name:$scope.activity_name,
-      address: $scope.activity_address,
-      ItineraryId: $scope.itinerary.id
-    })
+  $scope.addActivity = function(itineraryId, newActivity){
+    newActivity.ItineraryId = itineraryId;
+    $http.post("/api/activities", newActivity)
     .then(function (result) {
       console.log(result);
-      $scope.getItineraryActivities = response.data;
+      $scope.getUserItineraries();
+      // $scope.getItineraryActivities = result.data;
      }), (function(err) {
       console.log(err);
     });
@@ -104,10 +105,10 @@ angular.module("TripChat")
   //    });
   // };
 
-  // $scope.deleteActvitity = function(activityId){
-  //   $http.delete("/activities/" + activityId).then(function (response) {
-  //     // $scope./**/ = response.data
-  //   });
-  // };
+  $scope.deleteActvitity = function(activityId){
+    $http.delete("/activities/" + activityId).then(function (response) {
+      // $scope./**/ = response.data
+    });
+  };
 
 }]);
