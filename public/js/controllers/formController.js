@@ -14,9 +14,6 @@ angular.module('TripChat')
     })
   } // end sign up
 
-  // $scope.userLoggedIn = false;
-  // $scope.userNotLoggedIn = true;
-
   $scope.getLogin = function() {
     $http.get('/loginInfo')
     .then(function(result) {
@@ -32,8 +29,6 @@ angular.module('TripChat')
     })
     .then(function(result) {
       $scope.getLogin();
-      // $scope.userLoggedIn = true;
-      // $scope.userNotLoggedIn = false;
       $state.go('dashboard');
     })
   }; // end login
@@ -41,8 +36,6 @@ angular.module('TripChat')
   $scope.logout = function() {
     $http.get('/logout').then(function() {
       $rootScope.user = '';
-      // $scope.userLoggedIn = false;
-      // $scope.userNotLoggedIn = true;
       $state.go('home');
     }, function(err) {
       console.log(err);
