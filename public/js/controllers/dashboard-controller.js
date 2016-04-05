@@ -84,10 +84,7 @@ angular.module("TripChat")
   // };
 
   $scope.addActivity = function(itineraryId, newActivity){
-    console.log("clicked")
-    debugger;
     newActivity.ItineraryId = itineraryId;
-
     $http.post("/api/activities", newActivity)
     .then(function (result) {
       console.log(result);
@@ -108,10 +105,10 @@ angular.module("TripChat")
   //    });
   // };
 
-  // $scope.deleteActvitity = function(activityId){
-  //   $http.delete("/activities/" + activityId).then(function (response) {
-  //     // $scope./**/ = response.data
-  //   });
-  // };
+  $scope.deleteActvitity = function(activityId){
+    $http.delete("/activities/" + activityId).then(function (response) {
+      // $scope./**/ = response.data
+    });
+  };
 
 }]);
