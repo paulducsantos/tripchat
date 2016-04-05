@@ -23,13 +23,13 @@
         <div class="container">
           <a href="/" class="brand-logo text-shadow hide-on-med-and-down">TripChats</a>
           <!-- Still working on getting user's firstname to appear in navbar on login -->
-          <h3 class="brand-logo text-shadow center">Welcome <span ng-show="user">{{ user.firstname }}</span></h3>
+          <h3 class="brand-logo text-shadow center">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
           <a href="#"></a>
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <li ng-show="user">
-              <a class='dropdown-button' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true">{{ username }}</a>
+              <a class='dropdown-button' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true">{{ user.username }}</a>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="/">Home</a></li>

@@ -56,14 +56,7 @@ exports.signup = function(req, res, next){
 
 //NEEDS TO BE CORRECTED FOR MYSQL
 exports.getLogin = function(req, res, next) {
-  console.log(req.user.username);
-  console.log(req.user.id);
-  models.User.findOne({
-    username: req.user.username
-  })
-  .then(function(result){
-    res.json(result);
-  });
+    res.json(req.user);
 }
 
 // exports.allItineraries = function(req, res, next){
