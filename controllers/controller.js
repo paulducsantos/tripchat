@@ -146,7 +146,7 @@ exports.getLogin = function(req, res, next) {
 exports.logout = function(req, res, next) {
   console.log('logout function fired');
   req.session.destroy(function(err) {
-    res.redirect('/');
+    res.json();
   });
 }
 

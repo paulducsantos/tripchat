@@ -12,26 +12,26 @@ angular.module('TripChat')
     .then(function(result) {
     })
   } // end sign up
-
-  $scope.userLoggedIn = false;
-  $scope.userNotLoggedIn = true;
+  $scope.user = {};
+  // $scope.userLoggedIn = false;
+  // $scope.userNotLoggedIn = true;
   $scope.login = function() {
     $http.post('/login', {
       username: $scope.username,
       password: $scope.password
     })
     .then(function(result) {
-      $rootScope.user = result.data;
-      $scope.userLoggedIn = true;
-      $scope.userNotLoggedIn = false;
+      $scope.user = result.data;
+      // $scope.userLoggedIn = true;
+      // $scope.userNotLoggedIn = false;
       $state.go('dashboard');
     })
   }; // end login
 
   $scope.logout = function() {
     $http.get('/logout').then(function() {
-      $scope.userLoggedIn = false;
-      $scope.userNotLoggedIn = true;
+      // $scope.userLoggedIn = false;
+      // $scope.userNotLoggedIn = true;
       $state.go('home');
     }, function(err) {
       console.log(err);
