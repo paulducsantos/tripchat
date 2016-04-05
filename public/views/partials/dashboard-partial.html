@@ -9,7 +9,7 @@
         </div>
 
         <div class="input-field col s6">
-          <input ng-model="location" name="location" type="text" class="validate">
+          <input ng-model="itinerary.location" name="location" type="text" class="validate">
           <label for="location">Location</label>
         </div>
       </div>
@@ -23,7 +23,7 @@
     <div class="col s7">
       <div class="itinerary-panel" ng-repeat="itinerary in userItineraries | orderBy:'created_at':true">
         <div class="itinerary-header">
-          <h3>{{itinerary.title}}</h3>
+          <h3>{{itinerary.title}} || {{itinerary.location}}</h3>
         </div>
         <div class="itinerary-body">
           <div class="row">
@@ -55,7 +55,8 @@
         </div><!--end itinerary-body -->
         <div class="itinerary-footer">
           <a ui-sref="itinerary/" class="btn">View</a>
-          some text <input type="text"  ng-model="itinerary.title">
+          <input type="text"  ng-model="itinerary.title">
+          <input type="text"  ng-model="itinerary.location">
           <a href="#" ng-click="editItinerary(itinerary)" class="btn">Save</a>
           <!-- <a href="#" ng-click="showEditableItinerary(itinerary.id)"class="btn">Edit</a> -->
           <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>

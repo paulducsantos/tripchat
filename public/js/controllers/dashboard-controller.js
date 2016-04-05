@@ -14,7 +14,7 @@ angular.module("TripChat")
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
       title:$scope.itinerary_name,
-      location: $scope.location,
+      location: $scope.itinerary_location,
       UserId: $scope.user.id
     })
     .then(function (result) {
@@ -46,11 +46,11 @@ angular.module("TripChat")
   };
 
   $scope.editItinerary = function(itinerary) {
-    console.log('too many logs', itinerary.title);
     $http.put('/api/itineraries/' + itinerary.id, {
-      title: itinerary.title
+      title: itinerary.title,
+      location:itinerary.location
     });
-  }
+  };
 
 
 //FOR SEARCH PARTIAL WHEN COMPLETED
