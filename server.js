@@ -13,6 +13,15 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+app.use(require('express-session')({
+  secret: 'eventsoccurinrealtime',
+  resave: true,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: ( 4 * 60 * 60 * 1000 ) // 4 hours
+  }
+}));
 
 var route = require('./routes/route.js');
 route.routes(app);
