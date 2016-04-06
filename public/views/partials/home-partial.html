@@ -2,7 +2,7 @@
 <div class="row">
   <div id="mapid">
   </div>
-  <div id="content" class="col l8 myItinerary">
+  <div id="content" class="col-md-8 myItinerary">
     <!-- This is where your regular content should be -->
    <h2>Here is the latest itinerary!</h2>
    <a ui-sref="itineraries"><h6>Or click here to see all itineraries here!</h6></a>
@@ -23,7 +23,7 @@
      <p>Sign up or login to leave a suggestion!</p>
    </div>
    <div ng-show="user">
-     <div class="input-field col s12">
+     <div class="input-field col-md-12">
         <textarea id="textarea1" class="materialize-textarea" ng-model="newComment"></textarea>
         <label for="textarea1">Leave a suggestion for {{latestItinerary.User.fname}}</label>
       </div>
