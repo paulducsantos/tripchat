@@ -2,8 +2,13 @@
   background-color: #D90000;
 }
 
+.welcomeHeader {
+  text-align: center;
+}
 
 
+
+/*Mapbox*/
 .mapBox {
   width: 100%;
   z-index: -1;
