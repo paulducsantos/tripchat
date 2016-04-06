@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8">
+  <!-- Latest compiled and minified BootStrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8"> -->
   <!-- MaterializeCSS Icons Stylesheet -->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -17,34 +19,176 @@
 </head>
 <body ng-controller="AppCtrl">
 
-  <div class="navbar-fixed">
+
+<!-- BOOTSTRAP NAVBAR -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">TripChats</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <h3 class="brand-logo text-shadow center">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }} <span class="caret"></span>
+          </a>
+        <li ng-show="user">
+              <a class='dropdown-toggle' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }}&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
+          <ul id="dropdown1" class="dropdown-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">My Itineraries</a></li>
+            <li role="separator" class="divider"></li>
+            <li ng-show="user">
+              <li ng-click="logout()">
+                <a>Logout</a>
+              </li>
+          </ul>
+            <li ng-show="!user"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".login">Log In</button></li>
+            <li ng-show="!user"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".signup">Sign Up</button></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- LOGIN MODAL -->
+<div class="modal fade login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+<form class="form-horizontal formLogin">
+  <div class="form-group">
+    <label for="username" class="col-sm-2 control-label">UserName</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control validate" id="username" placeholder="Username" name="username" ng-model="username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="login()" type="submit" class="btn btn-default">Log in</button>
+    </div>
+  </div>
+</form>
+    </div>
+  </div>
+</div>
+<!-- SIGNUP MODAL -->
+<div class="modal fade signup" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <form class="form-horizontal">
+
+  <div class="form-group">
+    <label for="username" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="username" placeholder="Username" ng-model="username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" placeholder="Email" ng-model="email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fname" class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="fname" placeholder="First Name" ng-model="fname">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lname" class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="lname" placeholder="Last Name" ng-model="lname">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="signup()" type="submit" class="btn btn-default">Sign Up</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <a href="/auth/facebook">Login with Facebook</a>
+    </div>
+  </div>
+</form>
+    </div>
+  </div>
+</div>
+
+
+<!--MATERIALIZE NAVBAR-->
+  <!-- <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper grey">
         <div class="container">
-          <a href="/" class="brand-logo text-shadow hide-on-med-and-down">TripChats</a>
+          <a href="/" class="brand-logo text-shadow hide-on-med-and-down">TripChats</a> -->
           <!-- Still working on getting user's firstname to appear in navbar on login -->
-          <h3 class="brand-logo text-shadow center">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
-          <a href="#"></a>
+ <!--          <h3 class="brand-logo text-shadow center">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
+          <a href="#"></a> -->
           <!-- desktop nav -->
-          <ul class="right hide-on-med-and-down">
+<!--           <ul class="right hide-on-med-and-down"> -->
             <!-- Dropdown Trigger -->
-            <li ng-show="user">
+            <!-- <li ng-show="user">
               <a class='dropdown-button' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true">{{ user.username }}&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
               <!-- Dropdown Structure -->
-              <ul id='dropdown1' class='dropdown-content'>
+<!--               <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="/">Home</a></li>
                 <li><a href="/dashboard">My Itineraries</a></li>
                 <li ng-show="user">
                   <a ng-click="logout()" class="waves-effect waves-light">Log Out</a>
                 </li>
-              </ul>
-            </li>
+              </ul> -->
+
+
+    <!--         </li>
             <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
             <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
+           -->
+
+
+
+
+
+
           <!-- mobile nav -->
           <!-- mobile nav menu icon -->
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<!--           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="mobile-demo" class="side-nav">
             <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
             <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
@@ -54,7 +198,7 @@
         </div>
       </div>
     </nav>
-  </div>
+  </div> -->
 
 <!--==========================================================
   INJECT VIEWS HERE!
@@ -136,7 +280,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script> -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/directives/mapbox-directive.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
