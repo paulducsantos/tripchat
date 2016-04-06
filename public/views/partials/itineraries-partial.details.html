@@ -1,0 +1,13 @@
+<h3 ng-init="getComments()">Suggestions</h3>
+
+<div ng-show="!comments.length">
+  <h6>Sorry! No suggestions for this itinerary yet!</h6>
+</div>
+<div id="itinerarySuggestions" ng-show="comments" ng-repeat="comment in comments">
+  <div>
+    <h6>{{comment.User.username}} says:</h6>
+    <p>{{comment.text}}</p>
+  </div>
+  
+  <div class="divider"></div>
+</div>

@@ -12,3 +12,7 @@
 .container {
   width: 85%;
 }
+
+#itinerarySuggestions {
+  position: fixed;
+}

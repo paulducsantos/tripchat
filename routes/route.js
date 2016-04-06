@@ -56,26 +56,14 @@ module.exports.routes = function(app) {
 
   app.get('/loginInfo', controller.getLogin);
   app.get('/logout', controller.logout);
-  // app.get('/allItineraries', controller.allItineraries);
-  // app.get('/itineraryLocation:???????', controller.itineraryLocation);
-  // app.get('/itineraryUser:???????', controller.itineraryUser);
+  
 
   app.post('/login', passport.authenticate('local'), function(req, res) {
       res.json(req.user);
     }
   );
   app.post('/signup', controller.signup);
-  // app.post('/newItinerary', controller.newItinerary);
-  // app.post('/newComment', controller.newComment);
-  // app.post('/newActvitiy', controller.newToDo);
 
-  // app.put('/updateItinerary', controller.updateItinerary);
-  // app.put('/updateComment', controller.updateComment);
-  // app.put('/updateActivity', controller.updateActivity);
-
-  // app.get('/destroyItinerary', controller.destroyItinerary);
-  // app.get('/destroyComment', controller.destroyComment);
-  // app.get('/destroyActivity', controller.destroyActivity);
 
   app.get('*', function(req, res) {
     debugger;
