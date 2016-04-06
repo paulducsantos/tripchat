@@ -15,3 +15,5 @@ angular.module('TripChat')
       }
     };
 }]);
+
+map.scrollZoom.disable();
