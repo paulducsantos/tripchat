@@ -20,10 +20,9 @@ angular.module('TripChat')
     };
 
 
-  $scope.getItineraries = function() {
+  $scope.getLatestItinerary = function() {
     $http.get('/api/itineraries?sort=-createdAt')
     .then(function(result) {
-      $scope.allItineraries = result.data.reverse();
       $scope.latestItinerary = result.data[0];
       console.log($scope.latestItinerary);
       $scope.getComments($scope.latestItinerary.id);
@@ -57,5 +56,5 @@ angular.module('TripChat')
     });
   }
 
-  $scope.getItineraries();
+  $scope.getLatestItinerary();
 }]);

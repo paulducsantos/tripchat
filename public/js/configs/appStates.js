@@ -16,7 +16,7 @@ angular.module('TripChat')
     })
     .state('itineraries', {
       url: '/itineraries',
-      controller: 'rootController',
+      controller: 'itinerariesController',
       templateUrl: 'views/partials/itineraries-partial.html'
     })
 
