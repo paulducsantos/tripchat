@@ -23,33 +23,32 @@
         <div class="container">
           <a href="/" class="brand-logo text-shadow hide-on-med-and-down">TripChats</a>
           <!-- Still working on getting user's firstname to appear in navbar on login -->
-          <h3 class="brand-logo text-shadow center">Welcome <span ng-show="userLoggedIn">{{ user.firstname }}</span></h3>
+          <h3 class="brand-logo text-shadow center">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
           <a href="#"></a>
           <!-- desktop nav -->
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
-            <li ng-show="userLoggedIn">
-              <a class='dropdown-button' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true">{{ username }}</a>
+            <li ng-show="user">
+              <a class='dropdown-button' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true">{{ user.username }}&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="/">Home</a></li>
                 <li><a href="/dashboard">My Itineraries</a></li>
-                <li ng-show="userLoggedIn">
+                <li ng-show="user">
                   <a ng-click="logout()" class="waves-effect waves-light">Log Out</a>
                 </li>
               </ul>
             </li>
-            
-            <li ng-show="userNotLoggedIn"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
-            <li ng-show="userNotLoggedIn"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
+            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#login-modal"><span class="red-text accent-4">Log In</span></a></li>
+            <li ng-show="!user"><a class="waves-effect waves-light btn modal-trigger white" href="#signup-modal"><span class="red-text accent-4">Sign Up</span></a></li>
           </ul>
           <!-- mobile nav -->
           <!-- mobile nav menu icon -->
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="mobile-demo" class="side-nav">
-            <li ng-show="userLoggedIn"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
-            <li ng-show="userNotLoggedIn"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
-            <li ng-show="userNotLoggedIn"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
+            <li ng-show="user"><a ng-click="logout()" href="#" class="waves-effect waves-light">Log Out</a></li>
+            <li ng-show="!user"><a href="#login-modal" class="waves-effect waves-light modal-trigger">Log In</a></li>
+            <li ng-show="!user"><a href="#signup-modal" class="waves-effect waves-light modal-trigger">Sign Up</a></li>
             <p>test</p>
           </ul>
         </div>
@@ -57,8 +56,12 @@
     </nav>
   </div>
 
-
-
+<!--==========================================================
+  INJECT VIEWS HERE!
+=============================================================-->
+<div>
+  <ui-view></ui-view>
+<div>
 
   <!-- login modal -->
   <aside>
@@ -128,16 +131,6 @@
   </aside>
 
 <!--==========================================================
-  INJECT VIEWS HERE!
-=============================================================-->
-<div>
-  <ui-view></ui-view>
-<div>
-
-
-
-
-<!--==========================================================
   SCRIPTS!!
 =============================================================-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -147,6 +140,7 @@
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/directives/mapbox-directive.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
+  <script type="text/javascript" src="js/toArrayFilter.js"></script>
   <script type="text/javascript" src="js/controllers/formController.js"></script>
   <script type="text/javascript" src="js/configs/appStates.js"></script>
   <script type="text/javascript" src="js/controllers/rootController.js"></script>
