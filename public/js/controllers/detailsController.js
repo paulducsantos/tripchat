@@ -1,20 +1,15 @@
 angular.module('TripChat')
-.controller('itinerariesController', ['$scope', '$http', function ($scope, $http) {
+.controller('detailsController', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
   // Gets called when the directive is ready:
-  
 
-  $scope.getItineraries = function() {
-    $http.get('/api/itineraries')
-    .then(function(result) {
-      $scope.allItineraries = result.data;
-      console.log($scope.allItineraries);
-      // $scope.getComments($scope.latestItinerary.id);
+  $scope.getComments = function() {
+    $http.get('/api/comments?ItineraryId=' + $stateParams.id)
+    .then(function(results) {
+      $scope.comments = results.data;
     }, function(err) {
-      console.log(err)
+      console.log(err);
     });
   }
-
-
 
   $scope.addComment = function(itineraryId) {
     $http.post('/api/comments', {
