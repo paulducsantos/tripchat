@@ -2,8 +2,13 @@
   background-color: #D90000;
 }
 
+.welcomeHeader {
+  text-align: center;
+}
 
 
+
+/*Mapbox*/
 .mapBox {
   width: 100%;
   z-index: -1;
@@ -11,4 +16,11 @@
 
 .container {
   width: 85%;
+}
+
+#itinerarySuggestions {
+  position: fixed;
+  right: 25%;
+  top: 25%;
+  overflow: scroll;
 }

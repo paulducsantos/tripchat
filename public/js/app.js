@@ -1,1 +1,1 @@
-angular.module('TripChat', ['ui.router']);
+angular.module('TripChat', ['ui.router', 'angular-toArrayFilter']);

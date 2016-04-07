@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Activity = sequelize.define('Activity', {
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         notEmpty: true
       }

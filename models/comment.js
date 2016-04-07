@@ -3,8 +3,8 @@ module.exports = function(sequelize, DataTypes) {
   var Comment = sequelize.define('Comment', {
     text: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     },

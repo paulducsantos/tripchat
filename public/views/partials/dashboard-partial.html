@@ -1,71 +1,73 @@
-<div class="container" ng-controller="dashboardCtrl">
+<div class="container">
   <div class="row">
-    <form class="col s12">
+    <form class="col-md-12">
 
       <div class="row">
-        <div class="input-field col s6">
-          <input ng-model="itinerary_name" name="title" type="text" class="validate">
-          <label for="itinerary_name">Intinerary Name</label>
+        <div class="input-field col-md-6">
+          <input ng-model="itinerary.title" name="title" type="text" class="validate">
+          <label for="itinerary.name">Intinerary Name</label>
         </div>
 
-        <div class="input-field col s6">
-          <input ng-model="location" name="location" type="text" class="validate">
-          <label for="location">Location</label>
+        <div class="input-field col-md-6">
+          <input ng-model="itinerary.location" name="location" type="text" class="validate">
+          <label for="itinerary.location">Location</label>
         </div>
       </div>
 
-      <a href="" class="btn right">Save Itinerary</a>
+      <a href="#" class="btn right" ng-click="addItinerary()">Save Itinerary</a>
+
     </form>
   </div>
 
   <div class="row">
-    <div class="col s7">
+    <div class="col-md-7">
 
-      <div class="itinerary-panel" ng-repeat="intinerary in intineraries">
-
+      <div class="itinerary-panel" ng-repeat="itinerary in userItineraries | orderBy:'created_at':true">
         <div class="itinerary-header">
-          <h3>{{itinerary.title}}</h3>
-          <p>{{itinerary.upvotes.length}}</p>
-          <p>{{itinerary.comment.length}}</p>
+          <h3>{{itinerary.title}} || {{itinerary.location}}</h3>
         </div>
-
         <div class="itinerary-body">
           <div class="row">
-            <div class="col s3">
-              {{MapBox Location}}
+              <!-- {{MapBox Location}} -->
             </div>
-
             <div class="col s9">
               <div class="row">
                 <h6>Add Activity:</h6>
                 <div class="input-field">
-                  <input placeholder="Museums" id="activity" ng-model="activity" type="text" class="validate col">
+                  <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate col">
                 </div>
-                <a href="" class="btn" ng-click="addActivity()">Add Activity</a>
-                <div ng-repeat"activity in activties">
-                  <div class="s4">
+                 <div class="input-field">
+                  <input placeholder="123 Museum Dr. New York City, NY, 10002"  ng-model="itinerary.newActivity.address" type="text" class="validate col">
+                </div>
+                <a href="" class="btn" ng-click="addActivity(itinerary.id, itinerary.newActivity)">Add Activity</a>
+
+               <div ng-repeat="activity in itinerary.Activities">
+
+                  <div class="col-md-4">
                     <ul>
-                      <li ng-repeat="activity in activites"><span class="btn">{{activity}}<span ng-click="deleteActivity()" class="delete-activity">x</span></span>
+                      <li>
+                      <span class="btn">{{activity.name}} <span ng-click="deleteActivity(activity.id)" class="delete-activity">x</span></span>
                       </li>
                     </ul>
+                  </div><!-- end col s4 -->
 
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              </div><!-- end row -->
+            </div><!-- end col s9 -->
+          </div><!-- end row -->
+        </div><!--end itinerary-body -->
+        <div class="itinerary-footer">
+          <a ui-sref="itinerary/" class="btn">View</a>
+          <input type="text"  ng-model="itinerary.title">
+          <input type="text"  ng-model="itinerary.location">
+          <a href="#" ng-click="editItinerary(itinerary)" class="btn">Save</a>
+          <!-- <a href="#" ng-click="showEditableItinerary(itinerary.id)"class="btn">Edit</a> -->
+          <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
         </div>
-      </div>
 
-      <div class="itinerary-footer">
-        <a ui-sref="itinerary/" class="btn">View</a>
-        <a href="#" ng-click class="btn">Edit</a>
-        <a href="#" ng-click class="btn">Delete</a>
-      </div>
+      </div><!-- End Itineray-panel -->
+    </div><!-- end col s7-->
+      <!-- <div class="col s5">
+      </div> -->
+  </div><!-- end row-->
+</div><!-- end container -->
 
-      <div class="col s5">
-      </div>
-
-    </div>
-  </div>
-</div>

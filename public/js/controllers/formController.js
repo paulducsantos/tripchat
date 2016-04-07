@@ -1,5 +1,6 @@
 angular.module('TripChat')
-.controller('AppCtrl', function($scope, $http) {
+.controller('AppCtrl', function($scope, $rootScope, $http, $state) {
+
 
   $scope.signup = function() {
     $http.post('/signup', {
@@ -10,23 +11,35 @@ angular.module('TripChat')
       lname: $scope.lname
     })
     .then(function(result) {
-      console.log(result);
+    })
+  } // end sign up
+
+  $scope.getLogin = function() {
+    $http.get('/loginInfo')
+    .then(function(result) {
+      console.log(result.data);
+      $rootScope.user = result.data;
     })
   }
 
-  $scope.userLoggedIn = false;
-  $scope.userNotLoggedIn = true;
   $scope.login = function() {
-    console.log($scope.username);
     $http.post('/login', {
       username: $scope.username,
       password: $scope.password
     })
     .then(function(result) {
-      console.log(result);
-      $scope.userLoggedIn = true;
-      $scope.userNotLoggedIn = false;
+      $scope.getLogin();
+      $state.go('dashboard');
     })
-  };
-  
+  }; // end login
+
+  $scope.logout = function() {
+    $http.get('/logout').then(function() {
+      $rootScope.user = '';
+      $state.go('home');
+    }, function(err) {
+      console.log(err);
+    })
+  }; // end logout
+  $scope.getLogin();
 });
