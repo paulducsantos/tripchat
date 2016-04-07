@@ -19,10 +19,16 @@ angular.module('TripChat')
       controller: 'itinerariesController',
       templateUrl: 'views/partials/itineraries-partial.html'
     })
+    .state('showItinerary', {
+      url: '/itineraries/:id',
+      controller: 'itinerariesController',
+      templateUrl: 'views/partials/showItinerary-partial.html'
+    })
     .state('itineraries.details', {
-      url: '/:id',
+      url: '/details/:id',
       controller: 'detailsController',
-      templateUrl: 'views/partials/itineraries-partial.details.html'
+      templateUrl: 'views/partials/itineraries-partial.details.html',
+      css: ['css/index.css']
     })
 
   $locationProvider.html5Mode(true);
