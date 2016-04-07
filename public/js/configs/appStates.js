@@ -24,6 +24,11 @@ angular.module('TripChat')
       controller: 'detailsController',
       templateUrl: 'views/partials/itineraries-partial.details.html'
     })
+    .state('user', {
+      url: '/:username',
+      controller: 'userController',
+      templateUrl: 'views/partials/user-partial.html'
+    })
 
   $locationProvider.html5Mode(true);
 }]);
