@@ -1,5 +1,6 @@
 var models = require('./models');
 
+var x;
 var newUser1 = {
   email: 'danpetro7@gmail.com',
   username: 'dpetro07',

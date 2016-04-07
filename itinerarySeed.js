@@ -1,6 +1,5 @@
 var models = require('./models');
 
-
 var newItinerary1 = {
   title: 'Adventure Time!',
   location: 'New York City, NY',
