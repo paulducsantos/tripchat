@@ -22,4 +22,7 @@
 
 #itinerarySuggestions {
   position: fixed;
+  right: 25%;
+  top: 25%;
+  overflow: scroll;
 }
