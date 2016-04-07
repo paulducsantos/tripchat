@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-md-6 col-s-12">
       <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
-        <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</h3></a>
+        <h3><a ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
         <h5>{{itinerary.location}}</h5>
         <small>User: {{itinerary.User.username}}</small>
         <br />
@@ -34,7 +34,7 @@
         <ul ng-repeat="activity in itinerary.Activities">
           <li>{{activity.name}}</li>
         </ul>
-        <h4>Suggestions</h4>
+        <h4><a ui-sref=".details({id: itinerary.id})">Suggestions</a></h4>
         <!-- <div class="comments" ng-repeat="comment in comments">
           <h6>{{comment.User.username}} says:</h6>
           <p>{{comment.text}}</p>
