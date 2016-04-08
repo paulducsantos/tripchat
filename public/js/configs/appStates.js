@@ -33,7 +33,7 @@ angular.module('TripChat')
     .state('user', {
       url: '/:username',
       controller: 'userController',
-      templateUrl: 'views/partials/user-partial.html'
+      templateUrl: 'views/partials/profile-partial.html'
     })
 
   $locationProvider.html5Mode(true);

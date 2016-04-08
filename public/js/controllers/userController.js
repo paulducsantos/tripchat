@@ -1,14 +1,18 @@
 angular.module('TripChat')
 .controller('userController', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
   // Gets called when the directive is ready:
-  
 
   $scope.getUsers = function() {
+
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(result) {
-      $scope.allItineraries = result.data;
-      console.log($scope.allItineraries);
-      // $scope.getComments($scope.latestItinerary.id);
+      $http.get('/api/itineraries/' + result.data[0].id)
+      .then(function(itineraries) {
+        $scope.userItineraries = itineraries.data;
+        console.log($scope.userItineraries);
+      }, function(err) {
+        console.log(err);
+      })
     }, function(err) {
       console.log(err)
     });
