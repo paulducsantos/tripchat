@@ -1,0 +1,50 @@
+.searchBtn {
+    box-shadow: 3px 3px 2px #888888;
+}
+
+
+.itinerariesTitle {
+  border-style: solid;
+  border-color: black;
+  background-color: red;
+  text-align: center;
+}
+
+.itinerary {
+  border-style: solid;
+  border-color: black;
+  margin-bottom: 4px;
+}
+
+.itineraryName {
+  color: red;
+}
+
+.userImage {
+  border-style: solid;
+  border-color: black;
+  height: 75px;
+  width: 75px;
+  margin: 4px;
+  text-align: center;
+}
+
+.itineraryLists {
+  border-style: solid;
+  border-color: black;
+  margin-top: 30px;
+  box-shadow: 3px 3px 2px #888888;
+}
+
+#itinerarySuggestions {
+  border-style: solid;
+  border-color: black;
+}
+
+.itinerariesMap {
+  height: 350px;
+  width: 500px;
+  margin-top: 30px;
+  border-style: solid;
+  border-color: black;
+}
