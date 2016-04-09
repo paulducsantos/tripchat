@@ -1,4 +1,4 @@
-<div class="container" ng-init="getItineraries()">
+<div ng-init="getItineraries()">
   <div class="row">
     <div class="col-md-4 center input-field">
       <input id="last_name" type="text" class="validate" ng-model="search.location">
@@ -24,7 +24,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6 col-s-12">
+    <div class="col-md-4">
       <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
         <h3><a ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
         <h5>{{itinerary.location}}</h5>
@@ -43,8 +43,19 @@
         <div class="divider"></div>
       </div>
     </div>
-    <div>
+    
+    <!-- <div>
       <ui-view></ui-view>
+    </div> -->
+    <div class="col-md-8">
+      <div ng-controller="mapController">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
+          <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idKey="m.id"></ui-gmap-marker>
+
+        </ui-gmap-google-map>
+      </div>
     </div>
+    
+    
   </div>
 </div>
