@@ -1,5 +1,6 @@
 var models = require('./models');
 
+var x;
 //ACTIVITIES 
 var newActivity = {
   name: 'Basketball',

@@ -1,20 +1,20 @@
 <div class="container" ng-init="getItineraries()">
   <div class="row">
-    <div class="col s4 center input-field">
+    <div class="col-md-4 center input-field">
       <input id="last_name" type="text" class="validate" ng-model="search.location">
       <label for="last_name">Search by location</label>
       <button class="btn waves-effect waves-light" type="submit" name="action">Search
         <i class="material-icons right">search</i>
       </button>
     </div>
-    <div class="col s4 center input-field">
+    <div class="col-md-4 center input-field">
       <input id="last_name" type="text" class="validate" ng-model="search.title">
       <label for="last_name">Search by title</label>
       <button class="btn waves-effect waves-light" type="submit" name="action">Search
         <i class="material-icons right">search</i>
       </button>
     </div>
-    <div class="col s4 center input-field">
+    <div class="col-md-4 center input-field">
       <input id="last_name" type="text" class="validate" ng-model="search.User.username">
       <label for="last_name">Search by user</label>
       <button class="btn waves-effect waves-light" type="submit" name="action">Search
@@ -24,9 +24,9 @@
   </div>
 
   <div class="row">
-    <div class="col s12 m6">
+    <div class="col-md-6 col-s-12">
       <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
-        <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</h3></a>
+        <h3><a ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
         <h5>{{itinerary.location}}</h5>
         <small>User: {{itinerary.User.username}}</small>
         <br />
@@ -34,7 +34,7 @@
         <ul ng-repeat="activity in itinerary.Activities">
           <li>{{activity.name}}</li>
         </ul>
-        <h4>Suggestions</h4>
+        <h4><a ui-sref=".details({id: itinerary.id})">Suggestions</a></h4>
         <!-- <div class="comments" ng-repeat="comment in comments">
           <h6>{{comment.User.username}} says:</h6>
           <p>{{comment.text}}</p>

@@ -1,0 +1,26 @@
+<div class="container" ng-init="init()">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="itinerary">
+        <h3>{{currentItinerary.title}}</h3>
+        <h5>{{currentItinerary.location}}</h5>
+        <small>User: {{currentItinerary.User.username}}</small>
+        <br />
+        <h4>Activities</h4>
+        <ul ng-repeat="activity in currentItinerary.Activities">
+          <li>{{activity.name}}</li>
+        </ul>
+        <h4>Suggestions</h4>
+        <div class="comments" ng-repeat="comment in comments">
+          <h6>{{comment.User.username}} says:</h6>
+          <p>{{comment.text}}</p>
+          <div class="divider"></div>
+        </div>
+        <div class="divider"></div>
+      </div>
+    </div>
+    <div>
+      <ui-view></ui-view>
+    </div>
+  </div>
+</div>
