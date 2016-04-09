@@ -2,8 +2,18 @@ angular.module('TripChat')
 .controller('userController', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
   // Gets called when the directive is ready:
 
+<<<<<<< Updated upstream
   $scope.getUsers = function() {
 
+=======
+  $scope.init = function() {
+    console.log('userController init() fired!');
+    $scope.getUserProfile();
+  };
+
+  $scope.getUserProfile = function() {
+    console.log('getUserProfile() fired');
+>>>>>>> Stashed changes
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(result) {
       $http.get('/api/itineraries/' + result.data[0].id)
@@ -16,7 +26,7 @@ angular.module('TripChat')
     }, function(err) {
       console.log(err)
     });
-  }
+  };
 
 
 
