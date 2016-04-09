@@ -10,6 +10,14 @@ angular.module("TripChat")
     markers: []        
   };
 
+  geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ address: 'jersey city'}, function (result, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+        // bingo!
+        console.log('lat: ' + result[0].geometry.location.lat());
+    }
+  });
+
 
   // console.log($rootScope.redLobsters);
   // $scope.filterMale = function(maleFemale) {
