@@ -1,5 +1,5 @@
-<div class="container" ng-init="getItineraries()">
-  <div class="row col-md-12">
+
+  <div class="row col-md-12" ng-init="getItineraries()">
     <div class="col-md-4 center input-field">
       <input id="last_name" type="text" class="validate" ng-model="search.location" placeholder="Location">
 <!--       <label for="last_name">Search by location</label> -->
@@ -23,9 +23,8 @@
     </div>
   </div>
 
-<div class="container-fluid">
   <div class="row">
-    <div class="itineraryLists col-md-5 col-s-12">
+    <div class="itineraryLists col-md-4 col-s-12">
       <h3 class="itinerariesTitle">Itineraries</h3>
       <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
         <div class="userImage col-md-3"><h1>DP</h1></div>
@@ -46,13 +45,10 @@
         <div class="divider"></div>
       </div>
     </div>
-    <div class="col-md-6 col-md-offset-1">
-      <div id="mapid"><img class="itinerariesMap" src="https://cartoblography.files.wordpress.com/2013/07/mapbox-streets-london.jpg">
-      </div>
+    <div class="col-md-8 mapBorder">
+      <img class="itinerariesMap" src="https://cartoblography.files.wordpress.com/2013/07/mapbox-streets-london.jpg">
     </div>
     <div>
       <ui-view></ui-view>
     </div>
   </div>
-</div>
-</div>

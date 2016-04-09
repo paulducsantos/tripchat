@@ -13,6 +13,8 @@
 .itinerary {
   border-style: solid;
   border-color: black;
+  border-left: 0px;
+  border-right: 0px;
   margin-bottom: 4px;
 }
 
@@ -33,12 +35,17 @@
   border-style: solid;
   border-color: black;
   margin-top: 30px;
-  box-shadow: 3px 3px 2px #888888;
 }
 
 #itinerarySuggestions {
   border-style: solid;
   border-color: black;
+}
+
+
+.mapBorder {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .itinerariesMap {
