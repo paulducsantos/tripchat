@@ -26,3 +26,8 @@
   top: 25%;
   overflow: scroll;
 }
+
+.angular-google-map-container {
+ height: 760px;
+
+}

@@ -22,10 +22,9 @@
           <i class="material-icons right">search</i>
         </button>
       </div>
+
     </div>
-    <div class="col-md-8 mapBorder">
-      <img class="itinerariesMap" src="https://cartoblography.files.wordpress.com/2013/07/mapbox-streets-london.jpg">
-    </div>
+    
   </div>
 
   <div class="row">
@@ -51,7 +50,18 @@
       </div>
     </div>
 
+    <div class="col-md-8 mapBorder">
+      <div ng-controller="mapController">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
+          <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idKey="m.id"></ui-gmap-marker>
+
+        </ui-gmap-google-map>
+      </div>
+    </div>
+
     <div>
       <ui-view></ui-view>
     </div>
+    
+    
   </div>

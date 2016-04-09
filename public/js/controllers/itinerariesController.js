@@ -53,4 +53,7 @@ angular.module('TripChat')
     });
   }
 
+
+ 
+
 }]);
