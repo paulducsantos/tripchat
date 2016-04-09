@@ -35,6 +35,7 @@
   border-style: solid;
   border-color: black;
   margin-top: 30px;
+  overflow:scroll
 }
 
 #itinerarySuggestions {
@@ -49,9 +50,7 @@
 }
 
 .itinerariesMap {
-  height: 350px;
-  width: 500px;
-  margin-top: 30px;
-  border-style: solid;
-  border-color: black;
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
 }

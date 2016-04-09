@@ -1,5 +1,4 @@
 
-
   <div class="row" ng-init="getItineraries()">
     <div class="col-md-4">
       <div class="col-md-3 center input-field">
@@ -23,6 +22,10 @@
           <i class="material-icons right">search</i>
         </button>
       </div>
+
+    </div>
+    <div class="col-md-8 mapBorder">
+      <img class="itinerariesMap" src="https://cartoblography.files.wordpress.com/2013/07/mapbox-streets-london.jpg">
     </div>
   </div>
 
@@ -31,7 +34,7 @@
       <h3 class="itinerariesTitle">Itineraries</h3>
       <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
         <div class="userImage col-md-3"><h1>DP</h1></div>
-        <h3><a class="itineraryName col-md-5" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
+        <h3><a class="itineraryName col-md-9" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
         <h5 class="col-md-offset-3">{{itinerary.location}}</h5>
         <small class="col-md-3">User: {{itinerary.User.username}}</small>
         <br />
@@ -48,10 +51,7 @@
         <div class="divider"></div>
       </div>
     </div>
-    
-    <div class="col-md-8 mapBorder">
-      <img class="itinerariesMap" src="https://cartoblography.files.wordpress.com/2013/07/mapbox-streets-london.jpg">
-    </div>
+
     <div>
       <ui-view></ui-view>
     </div>
