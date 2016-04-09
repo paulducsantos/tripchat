@@ -20,7 +20,6 @@
 </head>
 <body ng-controller="AppCtrl">
 
-
 <!-- BOOTSTRAP NAVBAR -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -32,18 +31,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">TripChats</a>
+      <a class="navbar-brand" href="#">Trip Chats</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <h3 class="brand-logo text-shadow welcomeHeader">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
-
+      
+      <h3 class="brand-logo text-shadow text-center">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
+      <a ng-show="!user" type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target=".login">Log In</a>
+      <a ng-show="!user" type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target=".signup">Sign Up</a>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
         <li ng-show="user">
-              <a class='dropdown-toggle' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }}&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
+          <a class='dropdown-toggle' href='#' data-activates='dropdown1' data-hover="true" data-beloworigin="true" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }}&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
           <ul id="dropdown1" class="dropdown-menu">
             <li><a href="/">Home</a></li>
             <li><a href="/dashboard">My Itineraries</a></li>
@@ -54,8 +54,6 @@
                 <a>Logout</a>
               </li>
           </ul>
-            <li ng-show="!user"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".login">Log In</button></li>
-            <li ng-show="!user"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".signup">Sign Up</button></li>
           </ul>
         </li>
       </ul>
@@ -64,9 +62,13 @@
 </nav>
 
 
+
+
+
+
 <!-- LOGIN MODAL -->
-<div class="modal fade login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-md">
+<div class="modal fade login dismiss" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
 <form class="form-horizontal formLogin">
   <div class="form-group">
@@ -92,7 +94,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="login()" type="submit" class="btn btn-default">Log in</button>
+      <button ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Log in</button>
     </div>
   </div>
 </form>
@@ -137,7 +139,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="signup()" type="submit" class="btn btn-default">Sign Up</button>
+      <button ng-click="signup()" type="submit" class="btn btn-default" data-dismiss="modal">Sign Up</button>
     </div>
   </div>
   <div class="form-group">
@@ -177,6 +179,7 @@
   <script type="text/javascript" src="js/controllers/dashboard-controller.js"></script>
   <script type="text/javascript" src="js/controllers/itinerariesController.js"></script>
   <script type="text/javascript" src="js/controllers/detailsController.js"></script>
+  <script type="text/javascript" src="js/controllers/userController.js"></script>
   <!-- <script type="text/javascript" src="js/mapBox.js"></script> -->
 
 </body>
