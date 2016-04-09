@@ -15,6 +15,7 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" type="text/css" href="css/mapBox.css">
+  <link rel="stylesheet" type="text/css" href="css/itinerary.css">
   <base href="/" />
 </head>
 <body ng-controller="AppCtrl">
@@ -46,6 +47,7 @@
           <ul id="dropdown1" class="dropdown-menu">
             <li><a href="/">Home</a></li>
             <li><a href="/dashboard">My Itineraries</a></li>
+            <li><a href="/itineraries">All Itineraries</a></li>
             <li role="separator" class="divider"></li>
             <li ng-show="user">
               <li ng-click="logout()">
@@ -101,7 +103,7 @@
 </div>
 <!-- SIGNUP MODAL -->
 <div class="modal fade signup" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-md">
     <div class="modal-content">
       <form class="form-horizontal">
 
