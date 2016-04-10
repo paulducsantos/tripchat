@@ -1,0 +1,62 @@
+.mainpic{
+  width: 100%;
+  height: 600px;
+  background-image: url("../images/waterfall3.png");
+  background-size: cover;
+  margin-top: -70px;
+  position: relative;
+}
+
+.search-container{
+  position:relative;
+  top: 60%;
+}
+
+.slogan{
+  color: #fff;
+}
+
+.btn-begin{
+  color: #fff;
+  border-radius: 3px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  height: 45px;
+  width: 10%;
+  font-size: 18px;
+}
+
+.btn-begin:hover{
+  color: #3E3B3B;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.discover-heading{
+  padding-top:20px;
+}
+
+.searchbar{
+  width: 35%;
+  margin: 10px auto;
+  height: 45px;
+  opacity: .6;
+  font-size: 18px;
+}
+
+.searchbar::-webkit-input-placeholder {
+   color: #337AB7;
+}
+
+.searchbar:-moz-placeholder { /* Firefox 18- */
+   color: #337AB7;
+}
+
+.searchbar::-moz-placeholder {  /* Firefox 19+ */
+   color: #337AB7;
+}
+
+.searchbar:-ms-input-placeholder {
+   color: #337AB7;
+}
+
