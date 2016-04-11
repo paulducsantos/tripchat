@@ -1,7 +1,7 @@
 angular.module('TripChat')
 .controller('rootController', ['$scope', '$http', function ($scope, $http) {
   // Gets called when the directive is ready:
-
+  geocoder = new google.maps.Geocoder();
 
   $scope.getLatestItinerary = function() {
     $http.get('/api/itineraries?sort=-createdAt')
@@ -24,19 +24,34 @@ angular.module('TripChat')
     });
   }
 
-  $scope.addComment = function(itineraryId) {
-    $http.post('/api/comments', {
-      text: $scope.newComment,
-      ItineraryId: itineraryId,
-      UserId: $scope.user.id
-    })
-    .then(function(results) {
-      console.log(results.data);
-      $scope.newComment = '';
-      $scope.comments.push(results.data);
-    }, function(err) {
-      console.log(err);
+  $scope.addComment = function(itineraryId, location) {
+    var lng;
+    var lat;
+    geocoder.geocode({ address: $scope.address}, function (result, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        lat = result[0].geometry.location.lat();
+        lng = result[0].geometry.location.lng();
+        console.log(lat);
+        console.log(lng);
+        $http.post('/api/comments', {
+          text: $scope.newComment,
+          ItineraryId: itineraryId,
+          UserId: $scope.user.id,
+          address: $scope.address,
+          location: location,
+          longitude: lng,
+          latitude: lat
+        })
+        .then(function(results) {
+          console.log(results.data);
+          $scope.newComment = '';
+          $scope.comments.push(results.data);
+        }, function(err) {
+          console.log(err);
+        });
+      }
     });
+    
   }
 
   $scope.getLatestItinerary();

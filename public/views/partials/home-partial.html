@@ -1,6 +1,8 @@
 <mapbox callback="callback"></mapbox>
 <div class="row">
-  <div id="mapid">
+  <div ng-controller="itinerariesController">
+    <input ng-model="findLocation">{{findLocation}}</input>
+    <a ui-sref="itineraries({location: findLocation})">Get Location</a>
   </div>
   <div id="content" class="col-md-8 myItinerary">
     <!-- This is where your regular content should be -->
@@ -27,7 +29,11 @@
         <textarea id="textarea1" class="materialize-textarea" ng-model="newComment"></textarea>
         <label for="textarea1">Leave a suggestion for {{latestItinerary.User.fname}}</label>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addComment(latestItinerary.id)">Add Comment
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Address</span>
+        <input type="text" ng-model="address" class="form-control" placeholder="Address" aria-describedby="basic-addon1">
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addComment(latestItinerary.id, latestItinerary.location)">Add Comment
         <i class="material-icons right">send</i>
       </button>
    </div>
