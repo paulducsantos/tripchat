@@ -1,1 +1,1 @@
-angular.module('TripChat', ['ui.router', 'angular-toArrayFilter']);
+angular.module('TripChat', ['ui.router', 'uiGmapgoogle-maps']);
