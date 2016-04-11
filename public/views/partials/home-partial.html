@@ -35,41 +35,81 @@
   </div>
 </div> -->
 <div class="container-fluid">
-    <div class="row"><!--hero-->
-      <div class="mainpic">
-        <div class="search-container text-center">
-        <h2 class="slogan">Where Will Your Adventure Begin?</h2>
-          <input type="text" class=" form-control searchbar" placeholder="Yosemite">
-          <button type="submit" class="btn btn-default btn-begin">Search</button>
+  <div class="row"><!--hero-->
+    <div class="mainpic">
+      <div class="search-container text-center">
+      <h2 class="slogan">Where Will Your Adventure Begin?</h2>
+        <input type="text" class=" form-control searchbar" placeholder="Yosemite">
+        <button type="submit" class="btn btn-default btn-begin">Search</button>
 
+      </div>
+    </div><!-- end mainpic-->
+  </div><!-- end hero-->
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <h3 class="text-center discover-heading">Discover Roads Less Traveled</h3>
+
+    <div class="col-sm-6  index-col">
+      <div class="discover-panel">
+        <div id="top-left" class="discover-panel-body text-center" ng-mouseenter="topLeft = true" ng-mouseleave="topLeft = false">
+          <h4 class="discover-panel-location">Mexico</h4>
+          <div class="discover-panel-footer" ng-show="topLeft">
+            <div class="button-group">
+              <button type="button" class="btn btn-view">Discover</button>
+              <button href="#" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
         </div>
-      </div><!-- end mainpic-->
-    </div><!-- end hero-->
+      </div>
+    </div>
+
+    <div class="col-sm-6 index-col">
+      <div class="discover-panel">
+        <div id="top-right" class="discover-panel-body text-center" ng-mouseenter="topRight = true" ng-mouseleave="topRight = false">
+          <h4 class="discover-panel-location">Machu Pechu</h4>
+          <div class="discover-panel-footer" ng-show="topRight">
+            <div class="button-group">
+              <button type="button" class="btn btn-view">Discover</button>
+              <button href="#" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="row">
-      <h3 class="text-center discover-heading">Discover Roads Less Traveled</h3>
-
-      <div class="col-sm-3">
+      <div class="col-sm-6  index-col">
         <div class="discover-panel">
-          <div class="discover-panel-body">
-            <h4 class="discover-panel-location">Mexico</h4>
-          </div>
-          <div class="discover-panel-footer">
-            <a href="#" class="btn btn-info start">Start Your Journey</a>
-            <button type="button" class="btn btn-view">Discover</button>
+          <div id="bottom-left" class="discover-panel-body text-center" ng-mouseenter="bottomLeft = true" ng-mouseleave="bottomLeft = false">
+            <h4 class="discover-panel-location">Argentina</h4>
+            <div class="discover-panel-footer" ng-show="bottomLeft">
+              <div class="button-group">
+                <button type="button" class="btn btn-view">Discover</button>
+                <button href="#" class="btn btn-link start">Or Start Your Own Journey</button>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
 
-      <div class="col-sm-3">
-
+      <div class="col-sm-6 index-col">
+        <div class="discover-panel">
+          <div id="bottom-right" class="discover-panel-body text-center" ng-mouseenter="bottomRight = true" ng-mouseleave="bottomRight = false">
+            <h4 class="discover-panel-location">Antelope Canyon</h4>
+            <div class="discover-panel-footer" ng-show="bottomRight">
+              <div class="button-group">
+                <button type="button" class="btn btn-view">Discover</button>
+                <button href="#" class="btn btn-link start">Or Start Your Own Journey</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="col-sm-3">
-
-      </div>
-
     </div>
 
 </div>
+
+

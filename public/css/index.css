@@ -18,13 +18,6 @@ body{
   width: 85%;
 }
 
-.btn-login{
-  color: #fff;
-  font-size: 18px;
-  border: 2px solid #fff;
-  border-radius: 3px;
-}
-
 .btn-signup{
   color: #000;
   border-radius: 3px;
@@ -33,11 +26,19 @@ body{
   font-size: 18px;
 }
 
-.btn-signup:hover, .btn-login:hover{
+.btn-signup:hover{
   color:#fff;
   background-color: #337AB7;
   border: 2px solid #337AB7;
   text-decoration: none;
+}
+
+.btn-login{
+  color: #fff;
+  font-size: 18px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  background-color: transparent;
 }
 
 .btn-login:hover{
@@ -46,8 +47,6 @@ body{
   border: 2px solid #549A17;
   text-decoration: none;
 }
-
-
 
 ul.nav{
   margin-top: 10px;
