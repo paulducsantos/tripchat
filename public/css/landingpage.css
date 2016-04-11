@@ -1,6 +1,5 @@
 .index-col{
   padding:0;
-  margin: 0;
 }
 
 .mainpic{
@@ -31,9 +30,9 @@
 }
 
 .btn-begin:hover{
-  color: #3E3B3B;
-  border: 2px solid #fff;
-  background-color: #fff;
+  color: #fff;
+  border: 2px solid#549A17;
+  background-color: #549A17;
 }
 
 .discover-heading{
@@ -154,4 +153,32 @@
   text-decoration: none;
 }
 
+.all-itineraries{
+ padding-top: 35px;
+}
+
+.btn-all{
+  background-color: #fff;
+  color: #777;
+  border: 1px solid #777;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.material-icons{
+  font-size: 130px;
+  color: #337AB7;
+}
+
+hr{
+  padding: 15px;
+}
+
+.social-paragraph{
+  font-size: 18px;
+}
+
+.social-columns{
+  padding-bottom:30px;
+}
 
