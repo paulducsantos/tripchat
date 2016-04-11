@@ -1,7 +1,6 @@
 angular.module('TripChat')
 .controller('AppCtrl', function($scope, $rootScope, $http, $state) {
 
-
   $scope.signup = function() {
     $http.post('/signup', {
       username: $scope.username,
