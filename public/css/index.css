@@ -25,6 +25,7 @@ body{
   border: 2px solid #fff;
   background-color: #fff;
   font-size: 18px;
+  display: inline-block;
 }
 
 .btn-signup:hover{
@@ -61,3 +62,4 @@ ul.nav{
   color: #fff;
   font-size: 30px;
 }
+
