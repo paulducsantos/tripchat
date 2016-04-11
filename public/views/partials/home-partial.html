@@ -1,37 +1,112 @@
-<mapbox callback="callback"></mapbox>
-<div class="row">
-  <div id="mapid">
-  </div>
-  <div id="content" class="col-md-8 myItinerary">
-    <!-- This is where your regular content should be -->
-   <h2>Here is the latest itinerary!</h2>
-   <a ui-sref="itineraries"><h6>Or click here to see all itineraries here!</h6></a>
-   <h3>{{latestItinerary.title}} in <small>{{latestItinerary.location}}</small></h3>
-   <ul>
-     <li ng-repeat="activity in latestItinerary.Activities">{{activity.name}}</li>
-   </ul>
 
-   <h5>Suggestions</h5>
-   <div class="comments" ng-repeat="comment in comments">
-     <h6>{{comment.User.username}} says:</h6>
-     <p>{{comment.text}}</p>
-     <div class="divider"></div>
-   </div>
+<div class="container-fluid">
+  <div class="row"><!--hero-->
+    <div class="mainpic">
+      <div class="search-container text-center">
+      <h2 class="slogan">Where Will Your Adventure Begin?</h2>
+        <input type="text" class=" form-control searchbar" placeholder="Yosemite">
+        <button ng-click="" class="btn btn-default btn-begin">Search</button>
 
-   <h4>Been here? Help {{latestItinerary.User.username}} out and make a suggestion!</h4>
-   <div ng-show="!user">
-     <p>Sign up or login to leave a suggestion!</p>
-   </div>
-   <div ng-show="user">
-     <div class="input-field col-md-12">
-        <textarea id="textarea1" class="materialize-textarea" ng-model="newComment"></textarea>
-        <label for="textarea1">Leave a suggestion for {{latestItinerary.User.fname}}</label>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addComment(latestItinerary.id)">Add Comment
-        <i class="material-icons right">send</i>
-      </button>
-   </div>
+    </div><!-- end mainpic-->
+  </div><!-- end hero-->
+</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <h3 class="text-center discover-heading">Discover Roads Less Traveled</h3>
 
+    <div class="col-sm-6  index-col">
+      <div class="discover-panel">
+        <div id="top-left" class="discover-panel-body text-center" ng-mouseenter="topLeft = true" ng-mouseleave="topLeft = false">
+          <h4 class="discover-panel-location">Mazatlan | Mexico</h4>
+          <div class="discover-panel-footer" ng-show="topLeft">
+            <div class="button-group">
+              <button type="button" class="btn btn-view">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 index-col">
+      <div class="discover-panel">
+        <div id="top-right" class="discover-panel-body text-center" ng-mouseenter="topRight = true" ng-mouseleave="topRight = false">
+          <h4 class="discover-panel-location">Machu Picchu | Peru</h4>
+          <div class="discover-panel-footer" ng-show="topRight">
+            <div class="button-group">
+              <button ng-click="" class="btn btn-view">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6  index-col">
+      <div class="discover-panel">
+        <div id="bottom-left" class="discover-panel-body text-center" ng-mouseenter="bottomLeft = true" ng-mouseleave="bottomLeft = false">
+          <h4 class="discover-panel-location">Iguazu Falls | Argentina</h4>
+          <div class="discover-panel-footer" ng-show="bottomLeft">
+            <div class="button-group">
+              <button ng-click="" class="btn btn-view">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 index-col">
+      <div class="discover-panel">
+        <div id="bottom-right" class="discover-panel-body text-center" ng-mouseenter="bottomRight = true" ng-mouseleave="bottomRight = false">
+          <h4 class="discover-panel-location">Antelope Canyon | Arizona</h4>
+          <div class="discover-panel-footer" ng-show="bottomRight">
+            <div class="button-group">
+              <button ng-click="" class="btn btn-view">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="all-itineraries text-center">
+    <button ng-click="" class="btn btn-all">Discover All Itineraries</button>
   </div>
 </div>
+
+<div class="container">
+ <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="social-columns text-center">
+        <i class="material-icons">chrome_reader_mode</i>
+        <h2>View</h2>
+        <p class="social-paragraph">Browse through hundreds intineraries shared from users all over the world, sharing their interests, activities and the must sees on your next trip.</p>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="social-columns text-center">
+        <i class="material-icons">queue</i>
+        <h2>Create</h2>
+        <p class="social-paragraph">Going somewhere? Create an itinerary, share your interests and prepare for feedback! TripChat users will suggest great locations for you to experience the best of the best according your interests and location!</p>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="social-columns text-center">
+        <i class="material-icons">share</i>
+        <h2>Share</h2>
+        <p class="social-paragraph">Been there, done that? Share your experiences! View itineraries of other TripChat users and recommend the locations off the beaten path they must see! </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

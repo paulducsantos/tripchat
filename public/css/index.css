@@ -1,33 +1,65 @@
+body{
+  font-family: 'Questrial', sans-serif;
+  background-color: #F5F5F5;
+}
+
 .navbar {
-  background-color: #D90000;
+  background-color: transparent;
+  margin-bottom:0px;
+  border-radius: 0px;
+  z-index: 1;
+  border: 0;
 }
 
 .welcomeHeader {
   text-align: center;
 }
 
-.inline {
-  display: inline-block;
-}
-
-/*Mapbox*/
-.mapBox {
-  width: 100%;
-  z-index: -1;
-}
-
 .container {
   width: 85%;
 }
 
-#itinerarySuggestions {
-  position: fixed;
-  right: 25%;
-  top: 25%;
-  overflow: scroll;
+.btn-signup{
+  color: #000;
+  border-radius: 3px;
+  border: 2px solid #fff;
+  background-color: #fff;
+  font-size: 18px;
+  display: inline-block;
 }
 
-.angular-google-map-container {
- height: 760px;
-
+.btn-signup:hover{
+  color:#fff;
+  background-color: #337AB7;
+  border: 2px solid #337AB7;
+  text-decoration: none;
 }
+
+.btn-login{
+  color: #fff;
+  font-size: 18px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+.btn-login:hover{
+  color:#fff;
+  background-color: #549A17;
+  border: 2px solid #549A17;
+  text-decoration: none;
+}
+
+ul.nav{
+  margin-top: 10px;
+}
+
+.signup-link{
+  padding-left: 10px;
+}
+
+.navbar-brand{
+  color: #fff;
+  font-size: 30px;
+}
+
