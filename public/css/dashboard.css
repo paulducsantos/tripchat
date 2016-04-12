@@ -1,0 +1,31 @@
+.itinerary-panel{
+  border: 1px #c9c9c9 solid;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+
+li.interest{
+  list-style-type: none;
+}
+
+.interest{
+  background-color: #337AB7;
+  color: #fff;
+  font-size: 15px;
+  height: 31px;
+}
+
+.interest-delete{
+  position: absolute;
+  right: 0%;
+  top: 0;
+  background-color: #fff;
+  color: #337AB7;
+  border: 2px #337AB7 solid;
+  border-radius: 20px;
+  width: 31px;
+  text-align: center;
+  height: 31px;
+  padding-top: 3px;
+  padding-left: 2px;
+}
