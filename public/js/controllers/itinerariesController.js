@@ -7,7 +7,10 @@ angular.module('TripChat')
     // $scope.getComments();
     $scope.getItineraries();
     $scope.makeMarkers();
+    $scope.getGeo();
   }
+
+  $scope.location = $stateParams.location;
 
   $scope.getItineraries = function() {
     $http.get('/api/itineraries')
@@ -67,67 +70,91 @@ angular.module('TripChat')
         latitude: 40.7128,
         longitude: 74.0059
       },
-      zoom: 10,
+      zoom: 11,
 
       markers: []        
     };
+    
+  geocoder = new google.maps.Geocoder();
 
-  console.log($stateParams.location);
-    geocoder = new google.maps.Geocoder();
+  $scope.getGeo = function() {
 
-    $scope.getGeo = function() {
-
-      if($stateParams.location) {
-        geocoder.geocode({ address: $stateParams.location}, function (result, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            $scope.map.center = {
-              latitude: result[0].geometry.location.lat(),
-              longitude: result[0].geometry.location.lng()
-            }
-            console.log($scope.map.center);
+    if($stateParams.location) {
+      geocoder.geocode({ address: $stateParams.location}, function (result, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          $scope.map.center = {
+            latitude: result[0].geometry.location.lat(),
+            longitude: result[0].geometry.location.lng()
           }
-        });
-      } else {
-        geocoder.geocode({ address: $scope.location}, function (result, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            $scope.map.center = {
-              latitude: result[0].geometry.location.lat(),
-              longitude: result[0].geometry.location.lng()
-            }
-            console.log($scope.map.center);
-          }
-        });
-      }
-
-      
-    }
-
-    $scope.getGeo();
-
-    $scope.makeMarkers = function() {
-      $scope.map.markers = [];
-      $http.get('/api/comments?location=' + $stateParams.location)
-        .then(function(result) {
-          console.log(result);
-          var markers = [];
-          result.data.forEach(function(element, index) {
-            // if(element.Gender === "M") {
-              $scope.map.markers.push({
-                coords: {
-                  latitude: element.latitude, 
-                  longitude: element.longitude
-                },
-                id: element.id
-              });
-            // }
-            
-          });
-          // $scope.map.markers = markers;
-        }, function(err) {
-          console.log(err);
+          console.log($scope.map.center);
+        }
       });
+    } else {
+      $scope.map.center = {
+        latitude: 40.7128,
+        longitude: -74.0059
+      }
     }
+  }
 
+  $scope.filterGeo = function() {
+    geocoder.geocode({ address: $scope.location}, function (result, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        $scope.map.center = {
+          latitude: result[0].geometry.location.lat(),
+          longitude: result[0].geometry.location.lng()
+        }
+        console.log($scope.map.center);
+        $scope.newMarkers();
+      }
+    });
+  }
+
+  $scope.makeMarkers = function() {
+    $scope.map.markers = [];
+    $http.get('/api/comments?location=' + $stateParams.location)
+      .then(function(result) {
+        console.log(result);
+        var markers = [];
+        result.data.forEach(function(element, index) {
+            $scope.map.markers.push({
+              coords: {
+                latitude: element.latitude, 
+                longitude: element.longitude
+              },
+              id: element.id
+            });
+        });
+      }, function(err) {
+        console.log(err);
+    });
+  }
+
+  $scope.newMarkers = function() {
+    $scope.map.markers = [];
+    $http.get('/api/comments?location=' + $scope.location)
+      .then(function(result) {
+        console.log(result);
+        var markers = [];
+        result.data.forEach(function(element, index) {
+            $scope.map.markers.push({
+              coords: {
+                latitude: element.latitude, 
+                longitude: element.longitude
+              },
+              id: element.id
+            });
+          
+        });
+      }, function(err) {
+        console.log(err);
+    });
+  }
+
+
+  // $scope.$watch($scope.search.location, _.debounce(function () {
+  //   $scope.newMarkers();
+  // }, 2000));
     
     
 
