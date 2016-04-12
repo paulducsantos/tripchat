@@ -12,16 +12,15 @@ angular.module('TripChat')
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(result) {
       console.log(result);
-      $http.get('/api/itineraries/?UserId=' + result.data[0].id)
-      .then(function(itineraries) {
+      $scope.user = result.data[0];
+      return $http.get('/api/itineraries/?UserId=' + result.data[0].id)
+    })
+    .then(function(itineraries) {
         // console.log(itineraries.data);
-        $scope.userItineraries = itineraries.data;
-        // console.log($scope.userItineraries);
-      }, function(err) {
-        console.log(err);
-      })
-    }, function(err) {
-      console.log(err)
+      $scope.userItineraries = itineraries.data;
+    })
+    .catch(function(err) {
+      console.log(err);
     });
   };
 
