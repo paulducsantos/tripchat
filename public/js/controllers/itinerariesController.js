@@ -71,8 +71,11 @@ angular.module('TripChat')
         longitude: 74.0059
       },
       zoom: 11,
-
-      markers: []        
+      options: {
+        scrollwheel: false,
+        draggable: true
+      },
+      markers: []      
     };
     
   geocoder = new google.maps.Geocoder();
@@ -122,7 +125,16 @@ angular.module('TripChat')
                 latitude: element.latitude, 
                 longitude: element.longitude
               },
-              id: element.id
+              id: element.id,
+              title: 'hello',
+
+              options: {
+                animation: 'DROP',
+                labelContent: 'this is a label',
+                labelAnchor: '22 0',
+                labelClass: 'marker-labels',
+                labelVisible: true
+              }
             });
         });
       }, function(err) {

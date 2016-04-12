@@ -53,7 +53,14 @@
     <div class="col-md-8 mapBorder">
       <div>
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
-          <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idKey="m.id"></ui-gmap-marker>
+          <ui-gmap-marker 
+            ng-repeat="m in map.markers" 
+            coords="m.coords" 
+            icon="m.icon" 
+            idKey="m.id" 
+            options="m.options" 
+            events="m.events">
+          </ui-gmap-marker>
 
         </ui-gmap-google-map>
       </div>
