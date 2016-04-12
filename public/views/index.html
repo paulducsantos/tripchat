@@ -23,23 +23,18 @@
   <!-- Navbar -->
   <div ng-include="'/views/partials/navbar-partial.html'"></div>
 
-  <!-- LOGIN MODAL -->
+  <!-- Views -->
+  <div>
+    <ui-view></ui-view>
+  <div>
+
+  <!-- Login Modal -->
   <div ng-include="'/views/partials/login-modal-partial.html'"></div>
-  
-  <!-- SIGNUP MODAL -->
+
+  <!-- Signup Modal -->
   <div ng-include="'/views/partials/signup-modal-partial.html'"></div>
 
-<!--==========================================================
-  INJECT VIEWS HERE!
-=============================================================-->
-<div>
-  <ui-view></ui-view>
-<div>
-
-
-<!--==========================================================
-  SCRIPTS!!
-=============================================================-->
+  <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script> -->
 <!-- Latest compiled and minified JavaScript -->
