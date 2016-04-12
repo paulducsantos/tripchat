@@ -8,13 +8,19 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
-    location: {
+    city: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: true  
       }
     },
+    state: {
+      type: DataTypes.STRING
+    },
+    country: {
+      type: DataTypes.STRING
+    }
   }, {
     classMethods: {
       associate: function(models) {
