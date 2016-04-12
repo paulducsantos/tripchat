@@ -1,7 +1,10 @@
 // Scripts Trip Chats
-
 $(document).ready(function() {
 
-  // Enter custom scripts
+  // Triggers modal launch
+  $('.modal-trigger').leanModal();
+
+  // Activate side-nav for mobile
+  $(".button-collapse").sideNav();
 
 }); //end of doc.ready
