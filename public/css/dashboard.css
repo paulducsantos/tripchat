@@ -32,8 +32,8 @@ li.interest{
   width: 31px;
   text-align: center;
   height: 31px;
-  padding-top: 3px;
-  padding-left: 2px;
+  padding-top: 2px;
+  padding-right: 4px;
 }
 
 .interest-name{
