@@ -1,11 +1,12 @@
 
+
 <div class="container-fluid">
   <div class="row"><!--hero-->
     <div class="mainpic">
       <div class="search-container text-center">
       <h2 class="slogan">Where Will Your Adventure Begin?</h2>
-        <input type="text" class=" form-control searchbar" placeholder="Yosemite">
-        <button ng-click="" class="btn btn-default btn-begin">Search</button>
+        <input type="text" ng-model="findLocation" class="form-control searchbar" placeholder="Yosemite">
+        <button ui-sref="itineraries({location: findLocation})" class="btn btn-default btn-begin">Search</button>
 
       </div>
     </div><!-- end mainpic-->
@@ -45,6 +46,7 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="col-sm-6  index-col">
       <div class="discover-panel">
@@ -64,7 +66,7 @@
       <div class="discover-panel">
         <div id="bottom-right" class="discover-panel-body text-center" ng-mouseenter="bottomRight = true" ng-mouseleave="bottomRight = false">
           <h4 class="discover-panel-location">Antelope Canyon | Arizona</h4>
-          <div class="discover-panel-footer" ng-show="bottomRight">
+          <div class="discover-panel-footer"  ng-show="bottomRight">
             <div class="button-group">
               <button ng-click="" class="btn btn-view">Discover</button>
               <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
@@ -84,25 +86,37 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="social-columns text-center">
-        <i class="material-icons">chrome_reader_mode</i>
-        <h2>View</h2>
-        <p class="social-paragraph">Browse through hundreds intineraries shared from users all over the world, sharing their interests, activities and the must sees on your next trip.</p>
+        <div class="icon-circle icon-outer">
+          <i class="material-icons material-icon-outer">chrome_reader_mode</i>
+        </div>
+        <div class="social-container social-outer">
+          <h2 class="social-header social-header-outer">View</h2>
+          <p class="social-paragraph">Browse through hundreds intineraries shared from TripChatters all over the world, sharing their interests, activities and the must sees on your next trip.</p>
+        </div>
       </div>
     </div>
 
     <div class="col-sm-4">
       <div class="social-columns text-center">
-        <i class="material-icons">queue</i>
-        <h2>Create</h2>
-        <p class="social-paragraph">Going somewhere? Create an itinerary, share your interests and prepare for feedback! TripChat users will suggest great locations for you to experience the best of the best according your interests and location!</p>
+        <div class="icon-circle icon-middle">
+          <i class="material-icons material-icon-middle">queue</i>
+        </div>
+        <div class="social-container social-middle">
+          <h2 class="social-header social-header-inner">Create</h2>
+          <p class="social-paragraph">Going somewhere? Create an itinerary, share your interests and prepare for feedback! TripChatter will suggest great locations for you to experience the best of the best according your interests and location!</p>
+        </div>
       </div>
     </div>
 
     <div class="col-sm-4">
       <div class="social-columns text-center">
-        <i class="material-icons">share</i>
-        <h2>Share</h2>
-        <p class="social-paragraph">Been there, done that? Share your experiences! View itineraries of other TripChat users and recommend the locations off the beaten path they must see! </p>
+        <div class="icon-circle icon-outer">
+          <i class="material-icons material-icon-outer">share</i>
+        </div>
+        <div class="social-container social-outer">
+          <h2 class="social-header social-header-outer">Share</h2>
+          <p class="social-paragraph">Been there, done that? Share your experiences! View itineraries of other TripChatters and recommend the locations off the beaten path they must see! </p>
+        </div>
       </div>
     </div>
   </div>

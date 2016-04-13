@@ -26,6 +26,7 @@ body{
   background-color: #fff;
   font-size: 18px;
   display: inline-block;
+  margin-top: 10px;
 }
 
 .btn-signup:hover{
@@ -41,6 +42,7 @@ body{
   border: 2px solid #fff;
   border-radius: 3px;
   background-color: transparent;
+  margin-top: 10px;
 }
 
 .btn-login:hover{
@@ -50,10 +52,6 @@ body{
   text-decoration: none;
 }
 
-ul.nav{
-  margin-top: 10px;
-}
-
 .signup-link{
   padding-left: 10px;
 }
@@ -61,5 +59,9 @@ ul.nav{
 .navbar-brand{
   color: #fff;
   font-size: 30px;
+}
+
+.angular-google-map-container {
+  height: 700px;
 }
 
