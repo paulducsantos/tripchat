@@ -10,26 +10,31 @@
         <h3>Going somewhere? Share a new itinerary!</h3>
         <p>Share your interests with your friends and see where their suggestions take you!</p>
         <form class="row">
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-12">
               <input ng-model="itinerary.title" name="title" type="text" class="form-control validate" placeholder="Intinerary Name">
             </div>
             <div class="form-group col-sm-4">
-              <input ng-model="itinerary.location" name="location" type="text" class="form-control validate" placeholder="Location">
+              <input ng-model="itinerary.location" name="location" type="text" class="form-control validate" placeholder="City">
+            </div>
+            <div class="form-group col-sm-4">
+              <input ng-model="itinerary.state" name="location" type="text" class="form-control validate" placeholder="State">
             </div>
              <div class="form-group col-sm-4">
-              <button href="#" class="btn btn-success " ng-click="addItinerary()">Share Itinerary</button>
+              <input ng-model="itinerary.country" name="location" type="text" class="form-control validate" placeholder="Country">
+            </div>
+             <div class="form-group col-sm-4 col-sm-offset-8">
+              <button href="#" class="btn btn-success pull-right " ng-click="addItinerary()">Share Itinerary</button>
             </div>
         </form>
       </div>
 
       <div class="itinerary-panel" ng-repeat="itinerary in userItineraries | orderBy:'created_at':true">
         <div class="itinerary-header">
-          <h3 class="dash-itinerary-heading" ng-hide="editOptions">{{itinerary.title}} in {{itinerary.location}}</h3>
+          <div class="dash-itinerary-heading" ng-hide="editOptions">{{itinerary.title}}</h3>
           <div class="editable-inputs" ng-show="editOptions">
             <div class="col-sm-6">
               <input type="text" ng-model="itinerary.title"  class="form-control">
             </div>
-
             <div class="col-sm-4">
               <input type="text" ng-model="itinerary.location"  class="form-control">
             </div>
