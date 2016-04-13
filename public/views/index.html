@@ -1,139 +1,68 @@
 <!DOCTYPE html>
 <html ng-app="TripChat">
 <head>
-  <meta charset="utf-8">
+
   <title>TripChat</title>
+  <meta charset="utf-8">
+  <!-- Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
-  <!-- Latest compiled and minified BootStrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css" media="screen" title="no title" charset="utf-8"> -->
-  <!-- MaterializeCSS Icons Stylesheet -->
+  <!-- Created by: -->
+  <meta designer="Dan Petro" url="https://danpetro.herokuapp.com">
+  <meta designer="Jeremy M" url="http://www.jmigsdesign.com">
+  <meta developer="Darryl Mendonez" url="https://darrylmendonez.herokuapp.com">
+  <meta developer="Paul Santos" url="https://paulsantos.herokuapp.com">
+  <!-- BootStrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Questrial Google Font -->
   <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Custom Styles -->
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" type="text/css" href="css/landingpage.css">
   <link rel="stylesheet" type="text/css" href="css/itinerary.css">
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <!-- Angular -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <base href="/" />
 </head>
+
 <body ng-controller="AppCtrl">
+
+
 
   <!-- Navbar -->
   <div ng-include="'/views/partials/navbar-partial.html'"></div>
 
+  <!-- Login Modal -->
+  <div ng-include="'/views/partials/login-modal-partial.html'"></div>
 
+  <!-- Signup Modal -->
+  <div ng-include="'/views/partials/signup-modal-partial.html'"></div>
 
+  <!-- Views -->
+  <div>
+    <ui-view></ui-view>
+  <div>
 
+  <!-- Footer Bar -->
+  <div ng-include="'/views/partials/footer-bar-partial.html'"></div>
 
-
-<!-- LOGIN MODAL -->
-<div class="modal fade login dismiss" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-<form class="form-horizontal formLogin">
-  <div class="form-group">
-    <label for="username" class="col-sm-2 control-label">UserName</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control validate" id="username" placeholder="Username" name="username" ng-model="username">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="password" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Log in</button>
-    </div>
-  </div>
-</form>
-    </div>
-  </div>
-</div>
-<!-- SIGNUP MODAL -->
-<div class="modal fade signup" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <form class="form-horizontal">
-
-  <div class="form-group">
-    <label for="username" class="col-sm-2 control-label">Username</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="username" placeholder="Username" ng-model="username">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="email" placeholder="Email" ng-model="email">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="password" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="fname" class="col-sm-2 control-label">First Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="fname" placeholder="First Name" ng-model="fname">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="lname" class="col-sm-2 control-label">Last Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="lname" placeholder="Last Name" ng-model="lname">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button ng-click="signup()" type="submit" class="btn btn-default" data-dismiss="modal">Sign Up</button>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <a href="/auth/facebook">Login with Facebook</a>
-    </div>
-  </div>
-</form>
-    </div>
-  </div>
-</div>
-
-<!--==========================================================
-  INJECT VIEWS HERE!
-=============================================================-->
-<div>
-  <ui-view></ui-view>
-<div>
-
-
-<!--==========================================================
-  SCRIPTS!!
-=============================================================-->
+  <!-- SCRIPTS -->
+  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script> -->
-<!-- Latest compiled and minified JavaScript -->
+  <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <!-- Angular Google Maps -->
   <script src="//rawgit.com/angular-ui/angular-google-maps/2.1.5/dist/angular-google-maps.min.js"></script>
   <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <!-- Lodash -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+  <!-- Angular app controllers and states -->
   <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/scripts.js"></script>
   <script type="text/javascript" src="js/controllers/formController.js"></script>
   <script type="text/javascript" src="js/configs/appStates.js"></script>
   <script type="text/javascript" src="js/controllers/rootController.js"></script>
@@ -141,6 +70,8 @@
   <script type="text/javascript" src="js/controllers/itinerariesController.js"></script>
   <script type="text/javascript" src="js/controllers/detailsController.js"></script>
   <script type="text/javascript" src="js/controllers/userController.js"></script>
+  <!-- Custom Scripts -->
+  <!-- <script type="text/javascript" src="js/scripts.js"></script> -->
 
 </body>
 </html>
