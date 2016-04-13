@@ -8,8 +8,17 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
+    location: {
+      type: DataTypes.STRING
+    },
     address: {
       type: DataTypes.STRING
+    },
+    longitude: {
+      type: DataTypes.DOUBLE
+    },
+    latitude: {
+      type: DataTypes.DOUBLE
     },
     link: {
       type: DataTypes.STRING,
