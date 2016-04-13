@@ -126,15 +126,8 @@ angular.module('TripChat')
                 longitude: element.longitude
               },
               id: element.id,
-              title: 'hello',
-
-              options: {
-                animation: 'DROP',
-                labelContent: 'this is a label',
-                labelAnchor: '22 0',
-                labelClass: 'marker-labels',
-                labelVisible: true
-              }
+              title: element.text,
+              address: element.address
             });
         });
       }, function(err) {
@@ -154,7 +147,9 @@ angular.module('TripChat')
                 latitude: element.latitude, 
                 longitude: element.longitude
               },
-              id: element.id
+              id: element.id,
+              title: element.text,
+              address: element.address
             });
           
         });
@@ -163,7 +158,10 @@ angular.module('TripChat')
     });
   }
 
-
+  $scope.onClick = function(marker, eventName, model) {
+      console.log("Clicked!");
+      model.show = !model.show;
+  };
   // $scope.$watch($scope.search.location, _.debounce(function () {
   //   $scope.newMarkers();
   // }, 2000));
