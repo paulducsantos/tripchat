@@ -167,7 +167,15 @@
 }
 
 .material-icons{
-  font-size: 130px;
+  font-size: 70px;
+  padding-top:20px;
+}
+
+.material-icon-middle{
+  color: #F5F5F5;
+}
+
+.material-icon-outer{
   color: #337AB7;
 }
 
@@ -181,5 +189,42 @@ hr{
 
 .social-columns{
   padding-bottom:30px;
+}
+
+.icon-circle{
+  width: 120px;
+  height: 120px;
+  border-radius: 63px;
+  position: relative;
+  top: 56px;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.icon-middle{
+  border: 2px solid #F5F5F5;
+  background-color: #337AB7
+}
+
+.icon-outer{
+  border: 2px solid #337AB7;
+  background-color: #F5F5F5;
+}
+
+.social-container {
+  min-height: 225px;
+  border-radius: 9px;
+  padding: 38px;
+ }
+
+.social-middle{
+  background-color: #F5F5F5;
+  color: #337AB7;
+  border: 2px solid  #337AB7;
+}
+
+.social-outer{
+  background-color: #337AB7;
+  color: #fff;
 }
 
