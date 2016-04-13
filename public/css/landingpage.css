@@ -189,6 +189,7 @@ hr{
 
 .social-columns{
   padding-bottom:30px;
+  margin-top: -40px;
 }
 
 .icon-circle{
@@ -202,8 +203,8 @@ hr{
 }
 
 .icon-middle{
-  border: 2px solid #F5F5F5;
-  background-color: #337AB7
+  border: 2px solid #337AB7;
+  background-color: #337AB7;
 }
 
 .icon-outer{
@@ -214,7 +215,7 @@ hr{
 .social-container {
   min-height: 225px;
   border-radius: 9px;
-  padding: 38px;
+  padding: 50px 20px 20px;
  }
 
 .social-middle{
@@ -225,6 +226,20 @@ hr{
 
 .social-outer{
   background-color: #337AB7;
-  color: #fff;
+  color: #F5F5F5;
+}
+
+.social-header{
+  display: inline-block;
+  padding: 7px 30px;
+}
+.social-header-outer{
+  border-bottom: 2px solid #F5F5F5;
+  border-top: 2px solid #F5F5F5;
+}
+
+.social-header-inner{
+  border-bottom: 2px solid #337AB7;
+  border-top: 2px solid #337AB7;
 }
 
