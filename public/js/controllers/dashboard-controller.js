@@ -1,6 +1,11 @@
 angular.module("TripChat")
 .controller('dashboardCtrl', ['$scope', '$http', function($scope, $http) {
 
+  $scope.init = function() {
+    setTimeout(function() {
+      $scope.getUserItineraries();
+    },100);
+  }
 
   $scope.getUserItineraries = function() {
     $http.get('/api/itineraries?UserId=' + $scope.user.id)
@@ -14,7 +19,7 @@ angular.module("TripChat")
       console.log(err)
     });
   };
-  $scope.getUserItineraries();
+  
 
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
