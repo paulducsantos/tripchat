@@ -1,5 +1,6 @@
-<div class="container-fluid header-background" ng-init="init()">
-  <h3 class="dash-header">Welcome To Your Dashoard</h3>
+
+<div class="container-fluid header-background"  ng-init="init()">
+  <h3 class="dash-header">{{user.username}} | Dashoard</h3>
 </div>
 
 <div class="container">
@@ -57,7 +58,7 @@
                       <div class="interest text-center">
                         <span class="interest-name">{{activity.name}}</span>
                       </div>
-                      <span class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id)" class="delete-activity">&times;</span>
+                      <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id)" class="delete-activity">&times;</button>
                   </div><!-- end col s4 -->
                 </div>
               </div><!-- end row -->
