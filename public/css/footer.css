@@ -1,0 +1,12 @@
+.profile-pic {
+  width: 200px;
+}
+
+.profile-icons, .names-in-footer {
+  text-decoration: none;
+  color: black;
+}
+
+.names-in-footer {
+  font-size: 125%;
+}
