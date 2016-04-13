@@ -26,6 +26,7 @@ body{
   background-color: #fff;
   font-size: 18px;
   display: inline-block;
+  margin-top: 10px;
 }
 
 .btn-signup:hover{
@@ -41,6 +42,7 @@ body{
   border: 2px solid #fff;
   border-radius: 3px;
   background-color: transparent;
+  margin-top: 10px;
 }
 
 .btn-login:hover{
@@ -48,10 +50,6 @@ body{
   background-color: #549A17;
   border: 2px solid #549A17;
   text-decoration: none;
-}
-
-ul.nav{
-  padding-top: 10px;
 }
 
 .signup-link{
