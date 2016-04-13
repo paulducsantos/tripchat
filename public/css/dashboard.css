@@ -32,8 +32,8 @@ li.interest{
   width: 31px;
   text-align: center;
   height: 31px;
-  padding-top: 3px;
-  padding-left: 2px;
+  padding-top: 2px;
+  padding-right: 4px;
 }
 
 .interest-name{
@@ -65,11 +65,14 @@ li.interest{
 .dash-header{
   color: #fff;
   font-size: 40px;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  padding-left: 15px;
-  padding-right: 15px;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 7px 15px;
   display: inline-block;
   position: relative;
-  top: 120px;
+  top: 100px;
+}
+
+.editable-input-fields{
+  margin-top: 10px;
 }
