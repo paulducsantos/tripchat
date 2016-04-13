@@ -13,6 +13,7 @@ li.interest{
   color: #fff;
   font-size: 15px;
   height: 31px;
+  margin-bottom: 15px;
 }
 
 .interest-delete{
@@ -28,4 +29,26 @@ li.interest{
   height: 31px;
   padding-top: 3px;
   padding-left: 2px;
+}
+
+.interest-name{
+  position: relative;
+  top: 17%;
+}
+
+
+.add-interest-form{
+  padding: 0px 15px;
+}
+
+.dash-itinerary-heading{
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.header-background{
+  height: 200px;
+  background-image: url("../images/california_dash.png");
+  background-size: cover;
+  background-position: center center;
 }
