@@ -70,7 +70,7 @@ angular.module('TripChat')
         latitude: 40.7128,
         longitude: 74.0059
       },
-      zoom: 11,
+      zoom: 12,
       options: {
         scrollwheel: false,
         draggable: true
@@ -120,15 +120,19 @@ angular.module('TripChat')
         console.log(result);
         var markers = [];
         result.data.forEach(function(element, index) {
-            $scope.map.markers.push({
-              coords: {
-                latitude: element.latitude, 
-                longitude: element.longitude
-              },
-              id: element.id,
-              title: element.text,
-              address: element.address
-            });
+          var marker = {
+            coords: {
+              latitude: element.latitude, 
+              longitude: element.longitude
+            },
+            id: element.id,
+            title: element.text,
+            address: element.address,
+            options: {
+              animation: google.maps.Animation.DROP,
+            }
+          }
+          $scope.map.markers.push(marker);
         });
       }, function(err) {
         console.log(err);
@@ -142,15 +146,19 @@ angular.module('TripChat')
         console.log(result);
         var markers = [];
         result.data.forEach(function(element, index) {
-            $scope.map.markers.push({
-              coords: {
-                latitude: element.latitude, 
-                longitude: element.longitude
-              },
-              id: element.id,
-              title: element.text,
-              address: element.address
-            });
+          var marker = {
+            coords: {
+              latitude: element.latitude, 
+              longitude: element.longitude
+            },
+            id: element.id,
+            title: element.text,
+            address: element.address,
+            options: {
+              animation: google.maps.Animation.DROP,
+            }
+          }
+          $scope.map.markers.push(marker);
           
         });
       }, function(err) {

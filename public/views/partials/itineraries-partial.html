@@ -53,7 +53,7 @@
     <div class="col-md-8 mapBorder">
       <div>
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
-          <ui-gmap-markers models="map.markers" coords="'coords'" idKey="markers.id" click="onClick">
+          <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
             <ui-gmap-windows show="show">
                 <div ng-non-bindable>
                   {{title}}
