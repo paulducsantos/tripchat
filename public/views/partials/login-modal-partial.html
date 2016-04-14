@@ -2,63 +2,61 @@
   <div class="modal fade login dismiss" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
-  <form class="form-horizontal formLogin">
-    <h1 class="col-sm-12 loginSignup">Login</h1>
-    <div class="form-group">
-<!--       <label for="username" class="col-sm-2 control-label">User</label> -->
-      <div class="col-sm-10 col-sm-offset-1">
-        <input type="text" class="form-control validate" id="username" placeholder="Username" name="username" ng-model="username">
-      </div>
-    </div>
-    <div class="form-group">
-<!--       <label for="password" class="col-sm-2 control-label">Password</label> -->
-      <div class="col-sm-10 col-sm-offset-1">
-        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Remember me
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-10">
-        <button class="col-sm-10 col-sm-offset-2 btn btn-success" ng-click="login()" type="submit" data-dismiss="modal">Log in</button>
-      </div>
-    </div>
-    <hr class="loginDivder">
-    <div class="col-sm-10 col-sm-offset-4">
-        <h7>Log in with:</h7>
-    </div>
-<!--     <div class="form-group">
-      <div class="col-sm-12 facebookTwitterGoogle">
-        <button class="col-sm-3 col-sm-offset-1 facebook" ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Facebook</button>
-        <button class="col-sm-3 col-sm-offset-1 twitter" ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Twitter</button>
-        <button class="col-sm-3 col-sm-offset-1 google" ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Google</button>
-    </div> -->
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="button" class="col-sm-10 col-sm-offset-2 facebook btn btn-primary" ng-click="login()" type="submit" data-dismiss="modal" href="/auth/facebook">Facebook</button>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="button" class="col-sm-10 col-sm-offset-2 google btn btn-danger" ng-click="login()" type="submit" data-dismiss="modal">Google</button>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="button" class="col-sm-10 col-sm-offset-2 twitter btn btn-info" ng-click="login()" type="submit" data-dismiss="modal" >Twitter</button>
-      </div>
-    </div>
-    <br/>
-  </form>
-
-  <div class="divider"></div>
+        <form class="form-horizontal formLogin">
+          <h1 class="col-sm-12 loginHead">Login</h1>
+          <div class="form-group">
+      <!--       <label for="username" class="col-sm-2 control-label">User</label> -->
+            <div class="col-sm-10 col-sm-offset-1">
+              <input type="text" class="form-control validate" id="username" placeholder="Username" name="username" ng-model="username">
+            </div>
+          </div>
+          <div class="form-group">
+      <!--       <label for="password" class="col-sm-2 control-label">Password</label> -->
+            <div class="col-sm-10 col-sm-offset-1">
+              <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10">
+              <button class="col-sm-10 col-sm-offset-2 btn btn-success" ng-click="login()" type="submit" data-dismiss="modal">Log in</button>
+            </div>
+          </div>
+          <div class="col-sm-10 col-sm-offset-4">
+              <h7>Log in with:</h7>
+          </div>
+      <!--     <div class="form-group">
+            <div class="col-sm-12 facebookTwitterGoogle">
+              <button class="col-sm-3 col-sm-offset-1 facebook" ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Facebook</button>
+              <button class="col-sm-3 col-sm-offset-1 twitter" ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Twitter</button>
+              <button class="col-sm-3 col-sm-offset-1 google" ng-click="login()" type="submit" class="btn btn-default" data-dismiss="modal">Google</button>
+          </div> -->
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="button" class="col-sm-10 col-sm-offset-2 facebook btn btn-primary" ng-click="login()" type="submit" data-dismiss="modal" href="/auth/facebook">Facebook</button>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="button" class="col-sm-10 col-sm-offset-2 google btn btn-danger" ng-click="login()" type="submit" data-dismiss="modal">Google</button>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="button" class="col-sm-10 col-sm-offset-2 twitter btn btn-info" ng-click="login()" type="submit" data-dismiss="modal" >Twitter</button>
+            </div>
+          </div>
+          <br/>
+        </form>
+        <div class="divider"></div>
       </div>
     </div>
   </div>
