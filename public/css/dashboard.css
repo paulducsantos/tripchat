@@ -1,0 +1,82 @@
+.itinerary-panel, .add-itinerary-panel
+{
+  border: 1px #c9c9c9 solid;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+
+.add-itinerary-panel{
+  margin-top: 20px;
+}
+
+li.interest{
+  list-style-type: none;
+}
+
+.interest{
+  background-color: #337AB7;
+  color: #fff;
+  font-size: 15px;
+  height: 31px;
+  margin-bottom: 15px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.interest-delete{
+  position: absolute;
+  right: 0%;
+  top: 0;
+  background-color: #fff;
+  color: #337AB7;
+  border: 2px #337AB7 solid;
+  border-radius: 20px;
+  width: 31px;
+  text-align: center;
+  height: 31px;
+  padding-top: 2px;
+  padding-right: 4px;
+}
+
+.interest-name{
+  position: relative;
+  top: 17%;
+}
+
+.add-interest-form{
+  padding: 0px 15px;
+}
+
+.dash-itinerary-heading{
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.header-background{
+  height: 200px;
+  background-image: url("../images/california_dash.png");
+  background-size: cover;
+  background-position: center center;
+  margin-top: -60px;
+}
+
+.panel{
+  margin-top: 20px;
+}
+
+.dash-header{
+  color: #fff;
+  font-size: 40px;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 7px 15px;
+  display: inline-block;
+  position: relative;
+  top: 100px;
+}
+
+.editable-input-fields{
+  margin-top: 10px;
+}
+
+

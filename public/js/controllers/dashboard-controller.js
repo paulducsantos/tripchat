@@ -1,19 +1,24 @@
 angular.module("TripChat")
 .controller('dashboardCtrl', ['$scope', '$http', function($scope, $http) {
 
+  $scope.init = function() {
+    setTimeout(function() {
+      $scope.getUserItineraries();
+    },100);
+  }
+
   $scope.getUserItineraries = function() {
     $http.get('/api/itineraries?UserId=' + $scope.user.id)
     .then(function(result) {
       $scope.userItineraries = result.data;
       for(var i = 0; i < $scope.userItineraries.length; i++) {
         $scope.userItineraries[i].newActivity = {};
-        console.log($scope.userItineraries[i]);
+        // console.log($scope.userItineraries[i]);
       }
     }, function(err) {
       console.log(err)
     });
   };
-  $scope.getUserItineraries();
 
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
@@ -39,14 +44,6 @@ angular.module("TripChat")
     });
   };
 
-  $scope.showEditableItinerary = function(itineraryId) {
-    $http.get('/api/itineraries/' + itineraryId)
-    .then(function(result) {
-    }, function(err) {
-      console.log(err)
-    });
-  };
-
   $scope.editItinerary = function(itinerary) {
     $http.put('/api/itineraries/' + itinerary.id, {
       title: itinerary.title,
@@ -54,8 +51,30 @@ angular.module("TripChat")
     });
   };
 
+  $scope.addActivity = function(itineraryId, newActivity){
+    newActivity.ItineraryId = itineraryId;
+    $http.post("/api/activities", newActivity)
+    .then(function (result) {
+      $scope.getUserItineraries();
+     }), (function(err) {
+      console.log(err);
+    });
+  };
 
-//FOR SEARCH PARTIAL WHEN COMPLETED
+
+  $scope.deleteActivity = function(activityId){
+    console.log(activityId);
+    debugger;
+    $http.delete("/api/activities/" + activityId)
+    .then(function (result) {
+      $scope.getUserItineraries();
+
+     }), (function(err) {
+      console.log(err);
+    });
+  };
+
+  //FOR SEARCH PARTIAL WHEN COMPLETED
   // $scope.getItineraries = function() {
 
   //     console.log($scope.user.id);
@@ -82,33 +101,4 @@ angular.module("TripChat")
   //   });
   //   $scope.getItineraryActivities();
   // };
-
-  $scope.addActivity = function(itineraryId, newActivity){
-    newActivity.ItineraryId = itineraryId;
-    $http.post("/api/activities", newActivity)
-    .then(function (result) {
-      console.log(result);
-      $scope.getUserItineraries();
-      // $scope.getItineraryActivities = result.data;
-     }), (function(err) {
-      console.log(err);
-    });
-    // $scope.getItineraryActivities();
-  };
-
-
-
-
-  // $scope.addActvitity = function(){
-  //   $http.post("/itineraries/" + itineraryId + "/activities").then(function (response) {
-  //     // $scope./* */ = response.data
-  //    });
-  // };
-
-  $scope.deleteActvitity = function(activityId){
-    $http.delete("/activities/" + activityId).then(function (response) {
-      // $scope./**/ = response.data
-    });
-  };
-
 }]);

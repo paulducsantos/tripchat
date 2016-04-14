@@ -1,73 +1,113 @@
+
+<div class="container-fluid header-background"  ng-init="init()">
+  <h3 class="dash-header">{{user.username}} | Dashoard</h3>
+</div>
+
 <div class="container">
   <div class="row">
-    <form class="col-md-12">
-
-      <div class="row">
-        <div class="input-field col-md-6">
-          <input ng-model="itinerary.title" name="title" type="text" class="validate">
-          <label for="itinerary.name">Intinerary Name</label>
-        </div>
-
-        <div class="input-field col-md-6">
-          <input ng-model="itinerary.location" name="location" type="text" class="validate">
-          <label for="itinerary.location">Location</label>
-        </div>
+    <div class="col-sm-8">
+      <div class="add-itinerary-panel">
+        <h3>Going somewhere? Share a new itinerary!</h3>
+        <p>Share your interests with your friends and see where their suggestions take you!</p>
+        <form class="row">
+            <div class="form-group col-sm-12">
+              <input ng-model="itinerary.title" name="title" type="text" class="form-control validate" placeholder="Intinerary Name">
+            </div>
+            <div class="form-group col-sm-4">
+              <input ng-model="itinerary.location" name="location" type="text" class="form-control validate" placeholder="City">
+            </div>
+            <div class="form-group col-sm-4">
+              <input ng-model="itinerary.state" name="location" type="text" class="form-control validate" placeholder="State">
+            </div>
+             <div class="form-group col-sm-4">
+              <input ng-model="itinerary.country" name="location" type="text" class="form-control validate" placeholder="Country">
+            </div>
+             <div class="form-group col-sm-4 col-sm-offset-8">
+              <button href="#" class="btn btn-success pull-right " ng-click="addItinerary()">Share Itinerary</button>
+            </div>
+        </form>
       </div>
-
-      <a href="#" class="btn right" ng-click="addItinerary()">Save Itinerary</a>
-
-    </form>
-  </div>
-
-  <div class="row">
-    <div class="col-md-7">
 
       <div class="itinerary-panel" ng-repeat="itinerary in userItineraries | orderBy:'created_at':true">
         <div class="itinerary-header">
-          <h3>{{itinerary.title}} || {{itinerary.location}}</h3>
+          <div class="dash-heading-container" ng-hide="editOptions">
+            <h3 class="dash-itinerary-heading">{{itinerary.title}}</h3>
+            <h4 class="dash-itinerary-heading">{{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h4>
+          </div>
+          <div class="editable-inputs" ng-show="editOptions">
+            <div class="row">
+            <div class="col-sm-12">
+              <input type="text" ng-model="itinerary.title"  class="form-control editable-input-fields">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" ng-model="itinerary.city"  class="form-control editable-input-fields">
+            </div>
+
+            <div class="col-sm-4">
+              <input type="text" ng-model="itinerary.state"  class="form-control editable-input-fields">
+            </div>
+
+            <div class="col-sm-4">
+              <input type="text" ng-model="itinerary.country"  class="form-control editable-input-fields">
+            </div>
+          </div>
+          </div>
         </div>
         <div class="itinerary-body">
           <div class="row">
-              <!-- {{MapBox Location}} -->
+            <div class="col-sm-3">
+
             </div>
-            <div class="col s9">
+            <div class="col-sm-9">
               <div class="row">
-                <h6>Add Activity:</h6>
-                <div class="input-field">
-                  <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate col">
+                <div class="form-group">
+                  <h5>What are you interested in?</h5>
+                  <div class="form-inline input-group add-interest-form ">
+                    <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
+                    <div class="input-group-btn">
+                      <button class="btn btn-success" ng-click="addActivity(itinerary.id, itinerary.newActivity)">Add</button>
+                    </div>
+                  </div>
                 </div>
-                 <div class="input-field">
-                  <input placeholder="123 Museum Dr. New York City, NY, 10002"  ng-model="itinerary.newActivity.address" type="text" class="validate col">
-                </div>
-                <a href="" class="btn" ng-click="addActivity(itinerary.id, itinerary.newActivity)">Add Activity</a>
 
                <div ng-repeat="activity in itinerary.Activities">
 
                   <div class="col-md-4">
-                    <ul>
-                      <li>
-                      <span class="btn">{{activity.name}} <span ng-click="deleteActivity(activity.id)" class="delete-activity">x</span></span>
-                      </li>
-                    </ul>
+                      <div class="interest text-center">
+                        <span class="interest-name">{{activity.name}}</span>
+                      </div>
+                      <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id)" class="delete-activity">&times;</button>
                   </div><!-- end col s4 -->
-
+                </div>
               </div><!-- end row -->
             </div><!-- end col s9 -->
           </div><!-- end row -->
         </div><!--end itinerary-body -->
-        <div class="itinerary-footer">
-          <a ui-sref="itinerary/" class="btn">View</a>
-          <input type="text"  ng-model="itinerary.title">
-          <input type="text"  ng-model="itinerary.location">
-          <a href="#" ng-click="editItinerary(itinerary)" class="btn">Save</a>
-          <!-- <a href="#" ng-click="showEditableItinerary(itinerary.id)"class="btn">Edit</a> -->
-          <a href="#" ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
+        <div class="itinerary-footer clearfix">
+          <div class="button-container pull-right">
+            <a ui-sref="itinerary/" class="btn">View</a>
+            <a ng-click="editItinerary(itinerary); editOptions=false" ng-show="editOptions" class="btn">Done</a>
+            <a ng-click="showEditableItinerary(itinerary.id); editOptions=true" ng-hide="editOptions" class="btn">Edit</a>
+            <a ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
+          </div>
         </div>
-
       </div><!-- End Itineray-panel -->
-    </div><!-- end col s7-->
-      <!-- <div class="col s5">
-      </div> -->
+    </div><!-- END col-sm-8 -->
+
+    <div class="col-sm-4">
+      <div class="panel">
+        <div class="panel-heading">
+          Latest Itineraries
+        </div>
+        <div class="panel-body">
+
+        </div>
+        <div class="panel-footer">
+
+        </div>
+      </div>
+    </div>
+
   </div><!-- end row-->
 </div><!-- end container -->
 
