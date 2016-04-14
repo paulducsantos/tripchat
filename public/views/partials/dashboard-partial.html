@@ -72,11 +72,11 @@
 
                <div ng-repeat="activity in itinerary.Activities">
 
-                  <div class="col-md-4">
+                  <div class="col-md-4"ng-hide="deleted">
                       <div class="interest text-center">
                         <span class="interest-name">{{activity.name}}</span>
                       </div>
-                      <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id)" class="delete-activity">&times;</button>
+                      <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id); deleted=true"  class="delete-activity">&times;</button>
                   </div><!-- end col s4 -->
                 </div>
               </div><!-- end row -->
@@ -99,8 +99,8 @@
         <div class="panel-heading">
           Latest Itineraries
         </div>
-        <div class="panel-body">
-
+        <div class="panel-body" ng-repeat="itinerary in allItineraries | orderBy:'created_at':true">
+          {{itinerary.User.username}} just created {{itinerary.title}}
         </div>
         <div class="panel-footer">
 
