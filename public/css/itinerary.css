@@ -91,3 +91,7 @@
   min-height: 100%;
   position: absolute;
 }
+
+.loginDivder {
+  margin-bottom: 0px;
+}
