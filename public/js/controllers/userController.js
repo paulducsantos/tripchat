@@ -9,6 +9,7 @@ angular.module('TripChat')
 
   $scope.getUserProfile = function() {
     console.log('getUserProfile() fired');
+    console.log($stateParams.username);
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(result) {
       console.log(result);
@@ -16,7 +17,7 @@ angular.module('TripChat')
       .then(function(itineraries) {
         // console.log(itineraries.data);
         $scope.userItineraries = itineraries.data;
-        // console.log($scope.userItineraries);
+        console.log($scope.userItineraries);
       }, function(err) {
         console.log(err);
       })
