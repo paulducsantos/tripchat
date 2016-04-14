@@ -3,48 +3,49 @@
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <form class="form-horizontal">
-
-
+          <h1 class="loginSignup">Sign-Up</h1>
+<div class="row">
+  <div class="col-sm-6">
     <div class="form-group">
-      <label for="fname" class="col-sm-2 control-label">First Name</label>
-      <div class="col-sm-10">
+      <label for="fname" class="col-sm-4 control-label">First Name</label>
+      <div class="col-sm-4">
         <input type="text" class="form-control" id="fname" placeholder="First Name" ng-model="fname">
       </div>
     </div>
     <div class="form-group">
-      <label for="lname" class="col-sm-2 control-label">Last Name</label>
-      <div class="col-sm-10">
+      <label for="lname" class="col-sm-4 control-label">Last Name</label>
+      <div class="col-sm-8">
         <input type="text" class="form-control" id="lname" placeholder="Last Name" ng-model="lname">
       </div>
     </div>
     <div class="form-group">
-      <label for="username" class="col-sm-2 control-label">Username</label>
-      <div class="col-sm-10">
+      <label for="username" class="col-sm-4 control-label">Username</label>
+      <div class="col-sm-8">
         <input type="text" class="form-control" id="username" placeholder="Username" ng-model="username">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-      <div class="col-sm-10">
+      <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+      <div class="col-sm-8">
         <input type="email" class="form-control" id="email" placeholder="Email" ng-model="email">
       </div>
     </div>
     <div class="form-group">
-      <label for="password" class="col-sm-2 control-label">Password</label>
-      <div class="col-sm-10">
+      <label for="password" class="col-sm-4 control-label">Password</label>
+      <div class="col-sm-8">
         <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
       </div>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-4 col-sm-4">
         <button ng-click="signup()" type="submit" class="btn btn-default" data-dismiss="modal">Sign Up</button>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <a href="/auth/facebook">Login with Facebook</a>
-      </div>
-    </div>
+  </div>
+  <div class="col-sm-6">
+  <h1>Other</h1>
+  </div>
+</div>
   </form>
       </div>
     </div>
