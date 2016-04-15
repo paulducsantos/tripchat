@@ -65,3 +65,16 @@ body{
   height: 700px;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ }
+
+ #username-navbar {
+  text-decoration: none;
+  color: white;
+ }
+
+ .nav>li>a:focus, .nav>li>a:hover {
+  background-color: transparent;
+ }
