@@ -23,16 +23,15 @@
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" type="text/css" href="css/landingpage.css">
   <link rel="stylesheet" type="text/css" href="css/itinerary.css">
-
   <link rel="stylesheet" type="text/css" href="css/dashboard.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" type="text/css" href="css/loginSignup.css">
   <!-- Angular -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
   <base href="/" />
 </head>
-
 <body ng-controller="AppCtrl">
 
 
@@ -53,6 +52,11 @@
 
   <!-- Footer Bar -->
   <div ng-include="'/views/partials/footer-bar-partial.html'"></div>
+
+  <!-- Contact Modal -->
+  <div ng-include="'/views/partials/contact-modal-partial.html'"></div>
+
+
 
   <!-- SCRIPTS -->
   <!-- jQuery -->

@@ -4,6 +4,7 @@ angular.module("TripChat")
   $scope.init = function() {
     setTimeout(function() {
       $scope.getUserItineraries();
+      $scope.getItineraries();
     },100);
   }
 
@@ -19,7 +20,6 @@ angular.module("TripChat")
       console.log(err)
     });
   };
-  
 
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
@@ -45,43 +45,12 @@ angular.module("TripChat")
     });
   };
 
-
-
   $scope.editItinerary = function(itinerary) {
     $http.put('/api/itineraries/' + itinerary.id, {
       title: itinerary.title,
       location:itinerary.location
     });
   };
-
-
-//FOR SEARCH PARTIAL WHEN COMPLETED
-  // $scope.getItineraries = function() {
-
-  //     console.log($scope.user.id);
-  //     $http.get('/api/itineraries')
-  //     .then(function(result) {
-  //       $scope.allItineraries = result.data;
-  //       console.log(result.data);
-  //     }, function(err) {
-  //       console.log(err)
-  //     });
-  //   }
-  // $scope.getItineraries();
-
-  //  $scope.getItineraryActivities = function(){
-  //   $http.get("/api/activites?ItineraryId=" + $scope.itinerary.id, {
-  //     $scope.activity_name,
-  //     $scope.activity_address,
-
-  //   })
-  //   .then(function (result) {
-  //     $scope.getItineraryActivities = response.data;
-  //    }), (function(err) {
-  //     console.log(err);
-  //   });
-  //   $scope.getItineraryActivities();
-  // };
 
   $scope.addActivity = function(itineraryId, newActivity){
     newActivity.ItineraryId = itineraryId;
@@ -96,15 +65,42 @@ angular.module("TripChat")
 
   $scope.deleteActivity = function(activityId){
     console.log(activityId);
-    debugger;
+
     $http.delete("/api/activities/" + activityId)
     .then(function (result) {
-      $scope.getUserItineraries();
+      // $scope.getUserItineraries();
 
      }), (function(err) {
       console.log(err);
     });
-
   };
 
+
+  //FOR SEARCH PARTIAL WHEN COMPLETED
+  $scope.getItineraries = function() {
+
+      console.log($scope.user.id);
+      $http.get('/api/itineraries')
+      .then(function(result) {
+        $scope.allItineraries = result.data;
+        console.log(result.data);
+      }, function(err) {
+        console.log(err)
+      });
+    }
+  $scope.getItineraries();
+
+  //  $scope.getItineraryActivities = function(){
+  //   $http.get("/api/activites?ItineraryId=" + $scope.itinerary.id, {
+  //     $scope.activity_name,
+  //     $scope.activity_address,
+
+  //   })
+  //   .then(function (result) {
+  //     $scope.getItineraryActivities = response.data;
+  //    }), (function(err) {
+  //     console.log(err);
+  //   });
+  //   $scope.getItineraryActivities();
+  // };
 }]);
