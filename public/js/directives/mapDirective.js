@@ -16,12 +16,28 @@ angular.module('TripChat')
         zoom: 12,
         options: {
           scrollwheel: false,
-          draggable: true
+          draggable: true,
+          zoomControl: true,
+          fullscreenControl: true
         },
         markers: []      
       };
 
+      geocoder = new google.maps.Geocoder();
 
+      $scope.getGeo = function() {
+        geocoder.geocode({ address: $scope.city}, function (result, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            $scope.map.center = {
+              latitude: result[0].geometry.location.lat(),
+              longitude: result[0].geometry.location.lng()
+            }
+            console.log($scope.map.center);
+          }
+        });
+      }
+
+      $scope.getGeo();
     }
   }
 });

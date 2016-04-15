@@ -76,3 +76,8 @@ li.interest{
 .editable-input-fields{
   margin-top: 10px;
 }
+
+.dash-map .angular-google-map-container {
+  width: 12vw;
+  height: 18vw;
+}

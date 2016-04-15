@@ -73,7 +73,9 @@ angular.module('TripChat')
       zoom: 12,
       options: {
         scrollwheel: false,
-        draggable: true
+        draggable: true,
+        zoomControl: true,
+        fullscreenControl: true
       },
       markers: []      
     };
