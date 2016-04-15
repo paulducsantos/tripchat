@@ -14,6 +14,11 @@
   padding-left: 12px;
 }
 
+.socialMediaBtns {
+  padding-left: 26px;
+  margin-bottom: 20px;
+}
+
 .btn-circle {
   width: 40px;
   height: 40px;
@@ -22,4 +27,20 @@
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
+}
+
+.fields {
+  text-align: left;
+  margin-left: 40px;
+}
+
+.signupBtn {
+  padding-left: 20px;
+  margin-left: 116px;
+  margin-top: 10px;
+
+}
+
+.form-group {
+  margin-bottom: 0px;
 }

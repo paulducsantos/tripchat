@@ -3,59 +3,67 @@
 </div>
 
 
-<div class="row" ng-init="init()">
-    <div class="col-md-4">
-        <div class="col-md-3 center input-field">
-            <input id="last_name" type="text" class="validate" ng-model="location" placeholder="Location">
-            <!--       <label for="last_name">Search by location</label> -->
-            <!--             <button class="searchBtn btn btn-danger" ng-click="filterGeo();" type="submit" name="action">Search
-          <i class="material-icons right">search</i>
-        </button> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="itinerariesTitle">Itineraries</h3>
         </div>
-        <!-- <div class="col-md-4 center input-field">
-        <input id="last_name" type="text" class="validate" ng-model="search.title" placeholder="Title">
-        <label for="last_name">Search by title</label>
-        <button class="searchBtn btn btn-danger" type="submit" name="action">Search
-          <i class="material-icons right">search</i>
-        </button>
-      </div>
-      <div class="col-md-4 center input-field">
-        <input id="last_name" type="text" class="validate" ng-model="search.User.username" placeholder="Username">
-        <label for="last_name">Search by user</label>
-        <button class="searchBtn btn btn-danger" type="submit" name="action">Search
-          <i class="material-icons right">search</i>
-        </button>
-      </div> -->
+    <!--     <div ng-init="init()"> -->
+            <div class="col-md-8">
+                <div class="col-md-12 col-md-offset-3 center input-field">
+                    <input type="text" ng-model="findLocation" class="col-md-10 form-control searchbar" placeholder="Search a specific location">
+                    <button ui-sref="itineraries({location: findLocation})" class="col-md-2 btn btn-default btn-primary searchItinBtn">Search</button>
+                </div>
+                <!-- <div class="col-md-4 center input-field">
+            <input id="last_name" type="text" class="validate" ng-model="search.title" placeholder="Title">
+            <label for="last_name">Search by title</label>
+            <button class="searchBtn btn btn-danger" type="submit" name="action">Search
+              <i class="material-icons right">search</i>
+            </button>
+          </div>
+          <div class="col-md-4 center input-field">
+            <input id="last_name" type="text" class="validate" ng-model="search.User.username" placeholder="Username">
+            <label for="last_name">Search by user</label>
+            <button class="searchBtn btn btn-danger" type="submit" name="action">Search
+              <i class="material-icons right">search</i>
+            </button>
+          </div> -->
+            </div>
+    <!--     </div> -->
     </div>
 </div>
 
 
-
-<div class="row">
-    <div class="col-md-4">
-        <h3 class="itinerariesTitle">Itineraries</h3></div>
-</div>
+<div class="container-fluid">
 <div class="row">
     <div class="itineraryLists col-md-4">
         <!--       <h3 class="itinerariesTitle">Itineraries</h3> -->
         <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
-            <!--         <div class="userImage col-md-3"><h1>DP</h1></div> -->
+        <div class="row">
             <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
             <h5 class="col-md-4 userName" ui-sref="showItinerary({id: itinerary.id})"><small>User:</small> {{itinerary.User.username}}</h5>
-
-
-
-            <h5 class="col-md-9 itineraryLocation">{{itinerary.city}}, {{itinerary.state}}</h5>
-            <h4 class="col-md-4 itineraryLocation"> {{itinerary.country}}</h4>
-            <br /><br />
-            <h5 class="col-md-8">Description:</h5>
-            <h6 class="col-md-offset-10">Activities</h6>
-            <ul ng-repeat="activity in itinerary.Activities">
-                <!--           <li>{{activity.name}}</li> -->
+        </div>
+        <div class="row">
+            <h5 class="col-md-9 itineraryLocation">{{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
+            <h5 class="col-md-3 itineraryLocation interestsItin">Interests:</h5>
+        </div>
+        <div class="row">
+            <ul  class="col-md-offset-6" ng-repeat="activity in itinerary.Activities">
+                        <span class="interest-name"><button class="btn btn-xs btn-primary">{{activity.name}}</button></span>
             </ul>
+        </div>
             <h4><a  class="col-md-offset-3" ui-sref=".details({id: itinerary.id})">Suggestions</a></h4>
 
-            <div class="panel-group suggestionsAccordion" id="accordion" role="tablist" aria-multiselectable="true">
+<a class="btn btn-block btn-xs btn-success" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  View Suggestions
+</a>
+<div class="collapse" id="collapseExample">
+  <div class="well" ui-sref=".details({id: itinerary.id})">
+    <a ui-sref=".details({id: itinerary.id})"></a>
+  </div>
+</div>
+
+<!--             <div class="panel-group suggestionsAccordion" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
@@ -72,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="comments" ng-repeat="comment in comments">
           <h6>{{comment.User.username}} says:</h6>
           <p>{{comment.text}}</p>
@@ -95,6 +103,7 @@
 
             </ui-gmap-google-map>
         </div>
+    </div>
     </div>
 
     <div>
