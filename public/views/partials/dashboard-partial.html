@@ -34,7 +34,7 @@
       </div>
 
 
-      <div class="panel add-panel" ng-repeat="itinerary in userItineraries | orderBy:'-createdAt'">
+      <div class="panel add-panel itin-panel" ng-repeat="itinerary in userItineraries | orderBy:'-createdAt'">
 
         <div class="panel-heading itin-heading clearfix">
           <div class="dash-heading-container clearfix" >
@@ -67,13 +67,13 @@
           </div>
 
           <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <div small-map city="itinerary.city" class="dash-map"></div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
               <div class="row">
                 <div class="form-group">
-                  <h5>What are you interested in?</h5>
+                  <p>What are you interested in?</p>
                   <div class="form-inline input-group add-interest-form ">
                     <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
                     <div class="input-group-btn">
