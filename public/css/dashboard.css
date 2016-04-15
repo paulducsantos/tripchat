@@ -225,3 +225,11 @@ a.latest-itinerary-link:hover{
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
 }
+
+.share-itinerary{
+  margin-bottom: 0px;
+}
+
+p{
+  font-size: 17px;
+}
