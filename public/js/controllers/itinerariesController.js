@@ -73,7 +73,9 @@ angular.module('TripChat')
       zoom: 12,
       options: {
         scrollwheel: false,
-        draggable: true
+        draggable: true,
+        zoomControl: true,
+        fullscreenControl: true
       },
       markers: []      
     };
@@ -129,7 +131,7 @@ angular.module('TripChat')
             title: element.text,
             address: element.address,
             options: {
-              animation: google.maps.Animation.DROP,
+              animation: google.maps.Animation.DROP
             }
           }
           $scope.map.markers.push(marker);
@@ -155,7 +157,7 @@ angular.module('TripChat')
             title: element.text,
             address: element.address,
             options: {
-              animation: google.maps.Animation.DROP,
+              animation: google.maps.Animation.DROP
             }
           }
           $scope.map.markers.push(marker);
