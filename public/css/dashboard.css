@@ -82,7 +82,13 @@ h3.dash-itinerary-heading{
 }
 
 .editable-input-fields{
-  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.editable-inputs{
+  border-bottom: 1px solid #c9c9c9;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
 }
 
 .dash-map .angular-google-map-container {
@@ -111,6 +117,7 @@ h3.dash-itinerary-heading{
 .itin-heading{
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
+  margin-bottom: 0px;
 
 }
 
