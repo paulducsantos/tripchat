@@ -48,9 +48,15 @@ li.interest{
 }
 
 .dash-itinerary-heading{
-  margin-top: 4px;
-  margin-bottom: 4px;
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
+
+h3.dash-itinerary-heading{
+  font-size: 20px;
+}
+
 
 .header-background{
   height: 200px;
@@ -100,6 +106,12 @@ li.interest{
   background-color:#337AB7;
   color:#fff;
   margin-bottom: 10px;
+}
+
+.itin-heading{
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+
 }
 
 .panel-footer{
@@ -174,7 +186,6 @@ a.latest-itinerary-link:hover{
 
 .comment-button-group{
   margin-top: 5px;
-<<<<<<< HEAD
 }
 
 .dash-main-header{
