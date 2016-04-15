@@ -24,17 +24,13 @@ angular.module("TripChat")
   $scope.addItinerary = function(){
     $http.post("/api/itineraries", {
       title:$scope.itinerary.title,
-      city: $scope.itinerary.city,
-      state: $scope.itinerary.state,
-      country: $scope.itinerary.country,
+      location: $scope.itinerary.location,
       UserId: $scope.user.id
     })
     .then(function (result) {
       $scope.userItineraries.push(result.data);
-      $scope.itinerary.title = "";
-      $scope.itinerary.city = "";
-      $scope.itinerary.state = "";
-      $scope.itinerary.country= "";
+      $scope.itinerary_name = "";
+      $scope.location = "";
      },function(err) {
       console.log(err)
     });

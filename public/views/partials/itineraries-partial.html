@@ -41,8 +41,9 @@
         <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
             <!--         <div class="userImage col-md-3"><h1>DP</h1></div> -->
             <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
-            <h5 class="col-md-4 userName" ui-sref="showItinerary({id: itinerary.id})"><small>User:</small> {{itinerary.User.username}}</h5>
+            <h5 class="col-md-4 userName"><small>User:</small> <a ui-sref="user({user: username})">{{itinerary.User.username}}</a></h5>
 
+                <!-- ui-sref="user({user: username})" -->
 
 
             <h5 class="col-md-9 itineraryLocation">{{itinerary.location}}</h5>

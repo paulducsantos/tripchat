@@ -16,7 +16,6 @@ angular.module('TripChat')
   $scope.getLogin = function() {
     $http.get('/loginInfo')
     .then(function(result) {
-      console.log(result.data);
       $rootScope.user = result.data;
     })
   }
