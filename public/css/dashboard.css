@@ -79,6 +79,11 @@ li.interest{
   margin-top: 10px;
 }
 
+.dash-map .angular-google-map-container {
+  width: 12vw;
+  height: 18vw;
+}
+
 .dash-latest-itineraries{
   border: 1px solid #c7c7c7;
   padding: 10px;
@@ -169,6 +174,7 @@ a.latest-itinerary-link:hover{
 
 .comment-button-group{
   margin-top: 5px;
+<<<<<<< HEAD
 }
 
 .dash-main-header{
@@ -186,8 +192,4 @@ a.latest-itinerary-link:hover{
 .add-itinerary-panel-head{
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
-
 }
-
-
-
