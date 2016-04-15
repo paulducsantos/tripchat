@@ -1,4 +1,4 @@
-body{
+body {
   font-family: 'Questrial', sans-serif;
   background-color: #F5F5F5;
 }
@@ -19,7 +19,7 @@ body{
   width: 85%;
 }
 
-.btn-signup{
+.btn-signup {
   color: #000;
   border-radius: 3px;
   border: 2px solid #fff;
@@ -29,14 +29,14 @@ body{
   margin-top: 10px;
 }
 
-.btn-signup:hover{
+.btn-signup:hover {
   color:#fff;
   background-color: #337AB7;
   border: 2px solid #337AB7;
   text-decoration: none;
 }
 
-.btn-login{
+.btn-login {
   color: #fff;
   font-size: 18px;
   border: 2px solid #fff;
@@ -45,18 +45,18 @@ body{
   margin-top: 10px;
 }
 
-.btn-login:hover{
+.btn-login:hover {
   color:#fff;
   background-color: #549A17;
   border: 2px solid #549A17;
   text-decoration: none;
 }
 
-.signup-link{
+.signup-link {
   padding-left: 10px;
 }
 
-.navbar-brand{
+.navbar-brand {
   color: #fff;
   font-size: 30px;
 }
@@ -67,14 +67,14 @@ body{
 
 .dropdown:hover .dropdown-menu {
     display: block;
-    margin-top: 0; // remove the gap so it doesn't close
+    margin-top: 0; /* remove the gap so it doesn't close */
  }
 
- #username-navbar {
+#username-navbar {
   text-decoration: none;
   color: white;
- }
+}
 
- .nav>li>a:focus, .nav>li>a:hover {
+.nav>li>a:focus, .nav>li>a:hover {
   background-color: transparent;
- }
+}
