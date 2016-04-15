@@ -171,6 +171,23 @@ a.latest-itinerary-link:hover{
   margin-top: 5px;
 }
 
+.dash-main-header{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.add-panel{
+  border-right: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+  border-bottom-left-radius: 0px;
+  box-shadow: none;
+}
+
+.add-itinerary-panel-head{
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+
+}
 
 
 
