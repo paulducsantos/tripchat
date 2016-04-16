@@ -75,8 +75,19 @@
 
   </div>
 
-  <div class="col-sm-8">
-    <h1>Map</h1>
+  <div class="col-sm-8 map-col">
+     <div>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
+            <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
+                <ui-gmap-windows show="show">
+                    <div ng-non-bindable>
+                        {{title}}
+                        <br /> Located at: {{address}}
+                    </div>
+                </ui-gmap-windows>
+                </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
   </div>
 
 </div>
