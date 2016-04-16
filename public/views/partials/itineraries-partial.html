@@ -12,7 +12,7 @@
     <!--     <div ng-init="init()"> -->
             <div class="col-md-8">
                 <div class="col-md-12 col-md-offset-3 center input-field">
-                    <input type="text" ng-model="findLocation" class="col-md-10 form-control searchbar" placeholder="Search a specific location">
+                    <input type="text" ng-model="search.city" ng-change="filterGeo()" ng-model-options="{ debounce: 1000 }" class="col-md-10 form-control searchbar" placeholder="Search a specific location">
                     <button ui-sref="itineraries({location: findLocation})" class="col-md-2 btn btn-default btn-primary searchItinBtn">Search</button>
                 </div>
                 <!-- <div class="col-md-4 center input-field">

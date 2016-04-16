@@ -126,7 +126,7 @@ angular.module('TripChat')
   }
 
   $scope.filterGeo = function() {
-    geocoder.geocode({ address: $scope.location}, function (result, status) {
+    geocoder.geocode({ address: $scope.search.city}, function (result, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         $scope.map.center = {
           latitude: result[0].geometry.location.lat(),
@@ -166,7 +166,7 @@ angular.module('TripChat')
 
   $scope.newMarkers = function() {
     $scope.map.markers = [];
-    $http.get('/api/comments?location=' + $scope.location)
+    $http.get('/api/comments?location=' + $scope.search.city)
       .then(function(result) {
         console.log(result);
         var markers = [];
