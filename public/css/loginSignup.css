@@ -30,8 +30,18 @@
 }
 
 .fields {
-  text-align: left;
+  color: white;
+  border-style: solid;
+  background-color: #337AB7;
   margin-left: 40px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  margin-left: 3px;
+  width: 100%;
+  padding-left: 15px;
+
 }
 
 .signupBtn {
@@ -43,4 +53,13 @@
 
 .signupMargin {
   margin-bottom: 0px;
+}
+
+.inputField {
+  border-left-width: 0px;
+  border-top-width: 0px;
+  padding-top: 0px;
+  margin-left: 18px;
+  width: 225px;
+  padding-left: 0px;
 }

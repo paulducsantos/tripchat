@@ -109,3 +109,20 @@
   color: white;
   background-color: #337AB7;
 }
+
+.searchWidth {
+  width: 288px;
+}
+
+
+.itinHead {
+  cursor: pointer;
+}
+
+.locationItin {
+  padding-top: 6px;
+}
+
+.formPadding {
+  padding-left: 4px;
+}
