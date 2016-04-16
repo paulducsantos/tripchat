@@ -41,7 +41,7 @@
         <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
         <div class="row">
             <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
-            <h5 class="col-md-4 userName" ui-sref="showItinerary({id: itinerary.id})"><small>User:</small> {{itinerary.User.username}}</h5>
+            <h5 class="col-md-4 userName"><small>User:</small> <a ui-sref="user({username: itinerary.User.username})">{{itinerary.User.username}}</a></h5>
         </div>
         <div class="row">
             <h5 class="col-md-9 itineraryLocation">{{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
