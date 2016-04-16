@@ -1,6 +1,8 @@
 body {
   font-family: 'Questrial', sans-serif;
   background-color: #F5F5F5;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
 
 .navbar {
@@ -77,4 +79,24 @@ body {
 
 .nav>li>a:focus, .nav>li>a:hover {
   background-color: transparent;
+}
+
+.inline {
+    display: inline;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  /*height: 10px;*/
+  background-color: #f5f5f5;
 }

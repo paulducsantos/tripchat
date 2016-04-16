@@ -6,14 +6,41 @@
 
 <div class="container-fluid">
     <div class="row">
+<<<<<<< HEAD
         <div class="itineraryLists col-md-4">
             <div class="center input-field">
                 <input type="text" ng-model="findLocation" class="col-md-12 form-control searchbar searchWidth" placeholder="Search a specific location">
                 <button ui-sref="itineraries({location: findLocation})" class="btn btn-default btn-primary searchItinBtn">Search</button>
+=======
+        <div class="col-md-4">
+            <h3 class="itinerariesTitle">Itineraries</h3>
+        </div>
+    <!--     <div ng-init="init()"> -->
+            <div class="col-md-8">
+                <div class="col-md-12 col-md-offset-3 center input-field">
+                    <input type="text" ng-model="search.city" ng-change="filterGeo()" ng-model-options="{ debounce: 1000 }" class="col-md-10 form-control searchbar" placeholder="Search a specific location">
+                    <button ui-sref="itineraries({location: findLocation})" class="col-md-2 btn btn-default btn-primary searchItinBtn">Search</button>
+                </div>
+                <!-- <div class="col-md-4 center input-field">
+            <input id="last_name" type="text" class="validate" ng-model="search.title" placeholder="Title">
+            <label for="last_name">Search by title</label>
+            <button class="searchBtn btn btn-danger" type="submit" name="action">Search
+              <i class="material-icons right">search</i>
+            </button>
+          </div>
+          <div class="col-md-4 center input-field">
+            <input id="last_name" type="text" class="validate" ng-model="search.User.username" placeholder="Username">
+            <label for="last_name">Search by user</label>
+            <button class="searchBtn btn btn-danger" type="submit" name="action">Search
+              <i class="material-icons right">search</i>
+            </button>
+          </div> -->
+>>>>>>> 0cc2296eb90005b2dff2b8e1def285a69e018788
             </div>
     <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict">
 
 
+<<<<<<< HEAD
         <div class="panel-heading itin-heading clearfix">
           <div class="dash-heading-container clearfix" >
             <div class="col-sm-6">
@@ -23,6 +50,16 @@
             <h5 class="dash-itinerary-heading pull-right locationItin"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
             </div>
           </div>
+=======
+<div class="container-fluid">
+<div class="row">
+    <div class="itineraryLists col-md-4">
+        <!--       <h3 class="itinerariesTitle">Itineraries</h3> -->
+        <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict" ng-mouseenter="hoverGeo(itinerary.city)">
+        <div class="row">
+            <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
+            <h5 class="col-md-4 userName"><small>User:</small> <a ui-sref="user({username: itinerary.User.username})">{{itinerary.User.username}}</a></h5>
+>>>>>>> 0cc2296eb90005b2dff2b8e1def285a69e018788
         </div>
 
       <div class="panel-body showItinerary-panel-body">
