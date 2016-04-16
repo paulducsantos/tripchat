@@ -1,8 +1,9 @@
 angular.module("TripChat")
-.controller('dashboardCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('dashboardCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
   $scope.init = function() {
     setTimeout(function() {
+      $scope.checkAuthentication();
       $scope.getUserItineraries();
       $scope.getItineraries();
     },100);
@@ -93,6 +94,12 @@ angular.module("TripChat")
       });
     }
   $scope.getItineraries();
+
+  $scope.checkAuthentication = function() {
+    if(angular.isDefined($scope.user)) {
+      $location.path('/');
+    }
+  };
 
   //  $scope.getItineraryActivities = function(){
   //   $http.get("/api/activites?ItineraryId=" + $scope.itinerary.id, {
