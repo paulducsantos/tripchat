@@ -28,8 +28,7 @@ angular.module('TripChat')
     .state('itineraries.details', {
       url: '/details/:id',
       controller: 'detailsController',
-      templateUrl: 'views/partials/itineraries-partial.details.html',
-      css: ['css/index.css']
+      templateUrl: 'views/partials/itineraries-partial.details.html'
     })
     .state('user', {
       url: '/:username',
