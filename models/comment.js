@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
-    location: {
+    city: {
       type: DataTypes.STRING
     },
     address: {
