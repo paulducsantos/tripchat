@@ -168,6 +168,46 @@ angular.module('TripChat')
     });
   }
 
+  $scope.hoverGeo = function(city) {
+    geocoder.geocode({ address: city}, function (result, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        $scope.map.center = {
+          latitude: result[0].geometry.location.lat(),
+          longitude: result[0].geometry.location.lng()
+        }
+        console.log($scope.map.center);
+        $scope.hoverMarkers(city);
+      }
+    });
+  }
+
+  $scope.hoverMarkers = function(city) {
+    $scope.map.markers = [];
+    $http.get('/api/comments?location=' + city)
+      .then(function(result) {
+        console.log(result);
+        var markers = [];
+        result.data.forEach(function(element, index) {
+          var marker = {
+            coords: {
+              latitude: element.latitude, 
+              longitude: element.longitude
+            },
+            id: element.id,
+            title: element.text,
+            address: element.address,
+            options: {
+              animation: google.maps.Animation.DROP
+            }
+          }
+          $scope.map.markers.push(marker);
+          
+        });
+      }, function(err) {
+        console.log(err);
+    });
+  }
+
   $scope.onClick = function(marker, eventName, model) {
       console.log("Clicked!");
       model.show = !model.show;

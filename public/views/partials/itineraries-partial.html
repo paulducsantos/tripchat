@@ -6,7 +6,7 @@
 <div class="row" ng-init="init()">
     <div class="col-md-4">
         <div class="col-md-3 center input-field">
-            <input id="last_name" type="text" class="validate" ng-model="location" placeholder="Location">
+            <input id="last_name" type="text" class="validate" ng-model="search.city" placeholder="Location">
             <!--       <label for="last_name">Search by location</label> -->
             <!--             <button class="searchBtn btn btn-danger" ng-click="filterGeo();" type="submit" name="action">Search
           <i class="material-icons right">search</i>
@@ -38,14 +38,14 @@
 <div class="row">
     <div class="itineraryLists col-md-4">
         <!--       <h3 class="itinerariesTitle">Itineraries</h3> -->
-        <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
+        <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict" ng-mouseenter="hoverGeo(itinerary.city)">
             <!--         <div class="userImage col-md-3"><h1>DP</h1></div> -->
             <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
             <h5 class="col-md-4 userName" ui-sref="showItinerary({id: itinerary.id})"><small>User:</small> {{itinerary.User.username}}</h5>
 
 
 
-            <h5 class="col-md-9 itineraryLocation">{{itinerary.location}}</h5>
+            <h5 class="col-md-9 itineraryLocation">{{itinerary.city}}</h5>
             <br /><br />
             <h5 class="col-md-8">Description:</h5>
             <h6 class="col-md-offset-10">Activities</h6>
