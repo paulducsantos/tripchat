@@ -22,9 +22,8 @@
   padding-left: 0px;
 }
 
-
 .comment-box{
-  border-right: 1px solid #c9c9c9;
+  border: 1px solid #c9c9c9;
   border-bottom-right-radius: 4px;
   margin-bottom: 15px;
 }
@@ -33,14 +32,18 @@
   color: #fff;
   background-color: #337AB7;
   padding: 3px 15px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 1px;
 }
 
 .comment-text{
+    background-color: #fff;
+    color: #337AB7;
     min-height: 100px;
-
-    padding: 15px;
+    padding: 10px;
+    margin: 14px;
+    border-right: 1px solid #c9c9c9;
+    border-bottom: 1px solid #c9c9c9;
 }
 
 .itin-handle{
@@ -59,5 +62,9 @@
 .show-itin-hr{
   margin-bottom: 10px;
   padding: 5px;
-  ;
+}
+
+.comment-footer{
+  background-color: #fff;
+  border-bottom-right-radius: 4px;
 }

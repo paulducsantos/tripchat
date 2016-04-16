@@ -42,7 +42,7 @@
             Have a suggestion for {{currentItinerary.User.fname}}?<a type="button" ng-click="showCommentBox=true" class="btn">Share It!</a>
           </div>
           <div class="comment-button-group pull-right" ng-show="showCommentBox">
-            <a type="button" ng-click="addComment(activity.id, activity.city)"class="btn">Share It!</a>
+            <a type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn">Share It!</a>
             <a type="button"  ng-click="showCommentBox=false" class="btn">Cancel</a>
           </div>
         </div>
@@ -50,19 +50,22 @@
     </div> <!-- End Panel-->
   <hr class="show-itin-hr">
 
+  <div class="recent-comment-header">
+    <h4>Recent Comments</h4>
+  </div>
     <div class="comments-column">
       <div class="comment-box" ng-repeat="comment in currentItinerary.comments"><!-- ng-repeat="comment in comments" -->
         <div class="row">
           <div class="col-sm-12">
             <div class="comment-heading">
-              <span class="" ng-click="" >{{comment.User.fname}}</span><a ng-click="" class="itin-handle">{{comment.User.username}}</a> suggested: <span class="date pull-right">{{comment.createdAt | date: "mediumDate"}}</span>
+              <span class="" ng-click="" >{{comment.User.fname}}</span><a ng-click="" class="itin-handle"> @{{comment.User.username}}</a> suggested: <span class="date pull-right">{{comment.createdAt | date: "mediumDate"}}</span>
             </div>
           </div>
           <div class="col-sm-12">
             <div class="comment-text">
               {{comment.text}}
             </div>
-            <div class="itinerary-footer clearfix">
+            <div class="comment-footer clearfix">
               <div class="itin-button-container pull-right">
                 <span class="street-address">{{comment.address}}</span>
                 <a  class="website" ng-click"">Visit Site</a>
