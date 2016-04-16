@@ -59,6 +59,10 @@ angular.module('TripChat')
     });
   }
 
+  $scope.goToUsernameProfile = function() {
+    console.log('goToUsernameProfile() fired');
+  };
+
 
 
 
