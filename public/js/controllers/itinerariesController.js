@@ -49,7 +49,7 @@ angular.module('TripChat')
   $scope.addComment = function(itineraryId, city) {
     var lng;
     var lat;
-    console.log('yo');
+    console.log(itineraryId);
     geocoder.geocode({ address: $scope.comment.address}, function (result, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         lat = result[0].geometry.location.lat();
@@ -213,7 +213,7 @@ angular.module('TripChat')
         result.data.forEach(function(element, index) {
           var marker = {
             coords: {
-              latitude: element.latitude, 
+              latitude: element.latitude,
               longitude: element.longitude
             },
             id: element.id,
@@ -224,7 +224,7 @@ angular.module('TripChat')
             }
           }
           $scope.map.markers.push(marker);
-          
+
         });
       }, function(err) {
         console.log(err);
