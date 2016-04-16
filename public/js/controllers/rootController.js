@@ -24,7 +24,7 @@ angular.module('TripChat')
     });
   }
 
-  $scope.addComment = function(itineraryId, location) {
+  $scope.addComment = function(itineraryId, city) {
     var lng;
     var lat;
     geocoder.geocode({ address: $scope.address}, function (result, status) {
@@ -38,7 +38,7 @@ angular.module('TripChat')
           ItineraryId: itineraryId,
           UserId: $scope.user.id,
           address: $scope.address,
-          location: location,
+          city: city,
           longitude: lng,
           latitude: lat
         })
@@ -51,7 +51,6 @@ angular.module('TripChat')
         });
       }
     });
-    
   }
 
   $scope.getLatestItinerary();

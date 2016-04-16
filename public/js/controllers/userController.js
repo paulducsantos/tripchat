@@ -2,10 +2,10 @@ angular.module('TripChat')
 .controller('userController', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
   // Gets called when the directive is ready:
 
-  // $scope.init = function() {
-  //   console.log('userController init() fired!');
-  //   $scope.getUserProfile();
-  // };
+  $scope.init = function() {
+    console.log('userController init() fired!');
+    $scope.goToUserProfile();
+  };
 
   $scope.getUserProfile = function() {
     console.log('getUserProfile() fired');
@@ -24,7 +24,19 @@ angular.module('TripChat')
     }, function(err) {
       console.log(err)
     });
-  };
+  }; // end getUserProfile
+
+  $scope.goToUserProfile = function() {
+    console.log('goToUserProfile() fired');
+    $http.get('/api/itineraries')
+    .then(function(result) {
+      $scope.allUsers = result.data;
+      console.log($scope.allUsers);
+      // $scope.getComments($scope.latestItinerary.id);
+    }, function(err) {
+      console.log(err)
+    });
+  }
 
 
 
