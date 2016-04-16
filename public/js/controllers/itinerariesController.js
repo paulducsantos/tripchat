@@ -8,7 +8,6 @@ angular.module('TripChat')
     $scope.getItineraries();
     $scope.makeMarkers();
     $scope.getGeo();
-    $scope.getCurrentItinerary();
   }
 
   $scope.location = $stateParams.location;
@@ -29,6 +28,8 @@ angular.module('TripChat')
     .then(function(result) {
       $scope.currentItinerary = result.data;
       console.log($scope.currentItinerary);
+      $scope.currentItineraryGeo($scope.currentItinerary.city)
+      $scope.getComments();
     }, function(err) {
       console.log(err)
     });
@@ -38,7 +39,8 @@ angular.module('TripChat')
     console.log('yoyoyoyo');
     $http.get('/api/comments?ItineraryId=' + $stateParams.id)
     .then(function(results) {
-      $scope.comments = results.data;
+      $scope.currentItinerary.comments = results.data;
+      console.log($scope.comments);
     }, function(err) {
       console.log(err);
     });
@@ -49,7 +51,7 @@ angular.module('TripChat')
   $scope.addComment = function(itineraryId, city) {
     var lng;
     var lat;
-    console.log('yo');
+    console.log(itineraryId);
     geocoder.geocode({ address: $scope.comment.address}, function (result, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         lat = result[0].geometry.location.lat();
@@ -91,7 +93,7 @@ angular.module('TripChat')
   $scope.map = {
       center: {
         latitude: 40.7128,
-        longitude: 74.0059
+        longitude: -74.0059
       },
       zoom: 12,
       options: {
@@ -207,6 +209,50 @@ angular.module('TripChat')
   $scope.hoverMarkers = function(city) {
     $scope.map.markers = [];
     $http.get('/api/comments?location=' + city)
+      .then(function(result) {
+        console.log(result);
+        var markers = [];
+        result.data.forEach(function(element, index) {
+          var marker = {
+            coords: {
+              latitude: element.latitude,
+              longitude: element.longitude
+            },
+            id: element.id,
+            title: element.text,
+            address: element.address,
+            options: {
+              animation: google.maps.Animation.DROP
+            }
+          }
+          $scope.map.markers.push(marker);
+
+        });
+      }, function(err) {
+        console.log(err);
+    });
+  }
+
+/* ================================================================
+  CURRENT ITINERARY
+  =================================================================*/
+
+  $scope.currentItineraryGeo = function(city) {
+    geocoder.geocode({ address: city}, function (result, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        $scope.map.center = {
+          latitude: result[0].geometry.location.lat(),
+          longitude: result[0].geometry.location.lng()
+        }
+        console.log($scope.map.center);
+        $scope.currentItineraryMarkers();
+      }
+    });
+  }
+
+  $scope.currentItineraryMarkers = function() {
+    $scope.map.markers = [];
+    $http.get('/api/comments?ItineraryId=' + $stateParams.id)
       .then(function(result) {
         console.log(result);
         var markers = [];
