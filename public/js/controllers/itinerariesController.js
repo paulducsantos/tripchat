@@ -44,18 +44,36 @@ angular.module('TripChat')
     });
   }
 
-  $scope.addComment = function(itineraryId) {
-    $http.post('/api/comments', {
-      text: $scope.newComment,
-      ItineraryId: itineraryId,
-      UserId: $scope.user.id,
-    })
-    .then(function(results) {
-      console.log(results.data);
-      $scope.newComment = '';
-      $scope.comments.push(results.data);
-    }, function(err) {
-      console.log(err);
+  geocoder = new google.maps.Geocoder();
+
+  $scope.addComment = function(itineraryId, city) {
+    var lng;
+    var lat;
+    console.log('yo');
+    geocoder.geocode({ address: $scope.comment.address}, function (result, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        lat = result[0].geometry.location.lat();
+        lng = result[0].geometry.location.lng();
+        console.log(lat);
+        console.log(lng);
+        $http.post('/api/comments', {
+          text: $scope.comment.text,
+          ItineraryId: itineraryId,
+          UserId: $scope.user.id,
+          address: $scope.comment.address,
+          city: city,
+          longitude: lng,
+          latitude: lat,
+          link: $scope.comment.link
+        })
+        .then(function(results) {
+          console.log(results.data);
+          $scope.newComment = '';
+          $scope.comments.push(results.data);
+        }, function(err) {
+          console.log(err);
+        });
+      }
     });
   }
 
