@@ -1,0 +1,18 @@
+.interest-col{
+  padding-left:5px;
+  padding-right:5px;
+}
+
+.showItinerary-panel-body{
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-top: 15px;
+}
+
+.show-itinerary-interest{
+  margin-bottom: 15px;
+  border: none;
+  color: #337AB7;
+  font-size: 15px;
+}

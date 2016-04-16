@@ -82,12 +82,11 @@
                 </div>
 
                <div ng-repeat="activity in itinerary.Activities">
-
                   <div class="col-md-4"ng-hide="deleted">
-                      <div class="interest text-center">
-                        <span class="interest-name">{{activity.name}}</span>
-                      </div>
-                      <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id); deleted=true"  class="delete-activity">&times;</button>
+                    <div class="interest text-center">
+                      <span class="interest-name">{{activity.name}}</span>
+                    </div>
+                    <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id); deleted=true"  class="delete-activity">&times;</button>
                   </div><!-- end col s4 -->
                 </div>
               </div><!-- end row -->

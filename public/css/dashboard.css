@@ -141,7 +141,7 @@ h3.dash-itinerary-heading{
   color: #fff;
 }
 
-a-panel-footer-link:hover{
+a.panel-footer-link:hover{
   color: #fff;
   text-decoration: none;
   cursor: pointer;
