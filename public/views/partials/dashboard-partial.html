@@ -124,7 +124,7 @@
 
           <div class="dash-latest-itineraries clearfix" ng-repeat="itinerary in allItineraries | orderBy:'-createdAt' | limitTo: 5">
             <div class="dash-latest-itin-heading">
-            <span class="" ng-click="" >{{itinerary.User.fname}}</span><a ng-click="" class="handle"> @{{itinerary.User.username}}</a> shared: <span class="date pull-right">{{itinerary.createdAt | date: "mediumDate"}}</span>
+            <span class="" ng-click="" ><h4 class="inline">{{itinerary.User.fname}}</h4></span><a ui-sref="user({username: itinerary.User.username})" class="handle"> <small>@{{itinerary.User.username}}</small></a> <span class="date pull-right">{{itinerary.createdAt | date: "mediumDate"}}</span>
             </div>
             <div class="latest-itinerary-body clearfix">
               <a class="latest-itinerary-link clearfix" ui-sref="showItinerary({id: itinerary.id})">{{itinerary.title}}</a>
