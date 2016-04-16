@@ -1,4 +1,4 @@
-<div class="container-fluid header-background"  ng-init="init()">
+<div class="container-fluid header-background"  ng-init="getCurrentItinerary()">
   <h3 class="dash-header">{{currentItinerary.title}}</h3>
 </div>
 
@@ -53,22 +53,21 @@
   <div class="recent-comment-header">
     <h4>Recent Comments</h4>
   </div>
-
     <div class="comments-column">
-      <div class="comment-box"><!-- ng-repeat="comment in comments" -->
+      <div class="comment-box" ng-repeat="comment in currentItinerary.comments"><!-- ng-repeat="comment in comments" -->
         <div class="row">
           <div class="col-sm-12">
             <div class="comment-heading">
-              <span class="" ng-click="" ><!-- {{comment.User.fname}} -->Jeremy</span><a ng-click="" class="itin-handle">  @jeremy<!-- {{comment.User.username}} --></a> suggested: <span class="date pull-right">April 14, 2016<!-- {{itinerary.createdAt | date: "mediumDate"}} --></span>
+              <span class="" ng-click="" >{{comment.User.fname}}</span><a ng-click="" class="itin-handle"> @{{comment.User.username}}</a> suggested: <span class="date pull-right">{{comment.createdAt | date: "mediumDate"}}</span>
             </div>
           </div>
           <div class="col-sm-12">
             <div class="comment-text">
-              Definitely checkout Spoony's Bar! <!-- Replace with {{comment.text}} -->
+              {{comment.text}}
             </div>
             <div class="comment-footer clearfix">
               <div class="itin-button-container pull-right">
-                <span class="street-address"> Street Address: 44 Preston Rd</span>
+                <span class="street-address">{{comment.address}}</span>
                 <a  class="website" ng-click"">Visit Site</a>
               </div>
             </div>
@@ -86,7 +85,7 @@
             <div ng-non-bindable>
               {{title}}
               <br /> Located at: {{address}}
-            /div>
+            </div>
           </ui-gmap-windows>
         </ui-gmap-marker>
       </ui-gmap-google-map>
