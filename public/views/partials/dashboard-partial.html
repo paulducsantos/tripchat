@@ -1,6 +1,5 @@
-
 <div class="container-fluid header-background"  ng-init="init()">
-  <h3 class="dash-header">{{user.username}} | Dashoard</h3>
+  <h3 class="dash-header">{{user.username}} | Dashboard</h3>
 </div>
 
 <div class="container">
@@ -83,12 +82,11 @@
                 </div>
 
                <div ng-repeat="activity in itinerary.Activities">
-
                   <div class="col-md-4"ng-hide="deleted">
-                      <div class="interest text-center">
-                        <span class="interest-name">{{activity.name}}</span>
-                      </div>
-                      <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id); deleted=true"  class="delete-activity">&times;</button>
+                    <div class="interest text-center">
+                      <span class="interest-name">{{activity.name}}</span>
+                    </div>
+                    <button class="interest-delete" ng-show="editOptions" ng-click="deleteActivity(activity.id); deleted=true"  class="delete-activity">&times;</button>
                   </div><!-- end col s4 -->
                 </div>
               </div><!-- end row -->
