@@ -1,5 +1,5 @@
 <div class="container-fluid header-background"  ng-init="init()">
-  <h3 class="dash-header">{{currentItinerary.title}} | @{{currentItinerary.User.username}}</h3>
+  <h3 class="dash-header">{{currentItinerary.title}} | {{currentItinerary.city}}, {{currentItinerary.state}}</h3>
 </div>
 
 <div class="container-fluid">
@@ -48,31 +48,75 @@
         </div>
       </div>
     </div> <!-- End Panel-->
+  <hr class="show-itin-hr">
 
-    <div class="comments-column"><!-- ng-repeat="comment in comments" -->
-      <div class="row">
-        <div class="comment-heading col-sm-6">
-          @jeremy says:  <!-- Replace with {{comment.UserId.username}} -->
+    <div class="comments-column">
+      <div class="comment-box"><!-- ng-repeat="comment in comments" -->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="comment-heading">
+              <span class="" ng-click="" ><!-- {{comment.User.fname}} -->Jeremy</span><a ng-click="" class="itin-handle">  @jeremy<!-- {{comment.User.username}} --></a> suggested: <span class="date pull-right">April 14, 2016<!-- {{itinerary.createdAt | date: "mediumDate"}} --></span>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="comment-text">
+              <p>Definitely checkout Spoony's Bar!</p> <!-- Replace with {{comment.text}} -->
+            </div>
+            <div class="itinerary-footer clearfix">
+              <div class="itin-button-container pull-right">
+                <span class="street-address"> Street Address: 44 Preston Rd</span>
+                <a  class="website" ng-click"">Visit Site</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="comment-date col-sm-6">
-          <div class="date pull-right">
-            April 14, 2016 <!-- Replace with {{comment.craeteAt}} -->
+      </div>
+
+      <div class="comment-box"><!-- ng-repeat="comment in comments" -->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="comment-heading">
+              <span class="" ng-click="" ><!-- {{comment.User.fname}} -->Jeremy</span><a ng-click="" class="itin-handle">  @jeremy<!-- {{comment.User.username}} --></a> suggested: <span class="date pull-right">April 14, 2016<!-- {{itinerary.createdAt | date: "mediumDate"}} --></span>
+            </div>
           </div>
-       </div>
-        <div class="col-sm-12">
-          <div class="comment-text">
-            <p>Definitely checkout Spoony's Bar!</p> <!-- Replace with {{comment.text}} -->
+          <div class="col-sm-12">
+            <div class="comment-text">
+              <p>Definitely checkout Spoony's Bar!</p> <!-- Replace with {{comment.text}} -->
+            </div>
+            <div class="itinerary-footer clearfix">
+              <div class="itin-button-container pull-right">
+                <span class="street-address"> Street Address: 44 Preston Rd</span>
+                <a  class="website" ng-click"">Visit Site</a>
+              </div>
+            </div>
           </div>
-          <div class="address">
-            <p>Street Address: 44 Preston Rd</p>
+        </div>
+      </div>
+      <div class="comment-column">
+
+        <div class="comment-box"><!-- ng-repeat="comment in comments" -->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="comment-heading">
+                <span class="" ng-click="" ><!-- {{comment.User.fname}} -->Jeremy</span><a ng-click="" class="itin-handle">  @jeremy<!-- {{comment.User.username}} --></a> suggested: <span class="date pull-right">April 14, 2016<!-- {{itinerary.createdAt | date: "mediumDate"}} --></span>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="comment-text">
+                <p>Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!Definitely checkout Spoony's Bar!</p> <!-- Replace with {{comment.text}} -->
+              </div>
+              <div class="itinerary-footer clearfix">
+                <div class="itin-button-container pull-right">
+                  <span class="street-address"> Street Address: 44 Preston Rd</span>
+                  <a  class="website" ng-click"">Visit Site</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <button type="button" class="btn btn-success pull-right">Visit Site</button>
         </div>
 
       </div>
     </div>
-
-
   </div>
 
   <div class="col-sm-8 map-col">
