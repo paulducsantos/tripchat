@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
         Comment.belongsTo(models.Itinerary),
         Comment.belongsTo(models.User)
       }
-    } 
+    }
   });
 
   return Comment;
