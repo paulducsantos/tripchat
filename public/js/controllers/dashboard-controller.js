@@ -83,9 +83,7 @@ angular.module("TripChat")
 
   //FOR SEARCH PARTIAL WHEN COMPLETED
   $scope.getItineraries = function() {
-
-      console.log($scope.user.id);
-      $http.get('/api/itineraries')
+    $http.get('/api/itineraries')
       .then(function(result) {
         $scope.allItineraries = result.data;
         console.log(result.data);
@@ -96,7 +94,8 @@ angular.module("TripChat")
   $scope.getItineraries();
 
   $scope.checkAuthentication = function() {
-    if(angular.isDefined($scope.user)) {
+    console.log($scope.user.id);
+    if(!angular.isDefined($scope.user.id)) {
       $location.path('/');
     }
   };
