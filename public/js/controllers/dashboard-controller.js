@@ -1,8 +1,9 @@
 angular.module("TripChat")
-.controller('dashboardCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('dashboardCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
   $scope.init = function() {
     setTimeout(function() {
+      $scope.checkAuthentication();
       $scope.getUserItineraries();
       $scope.getItineraries();
     },100);
@@ -82,9 +83,7 @@ angular.module("TripChat")
 
   //FOR SEARCH PARTIAL WHEN COMPLETED
   $scope.getItineraries = function() {
-
-      console.log($scope.user.id);
-      $http.get('/api/itineraries')
+    $http.get('/api/itineraries')
       .then(function(result) {
         $scope.allItineraries = result.data;
         console.log(result.data);
@@ -93,6 +92,13 @@ angular.module("TripChat")
       });
     }
   $scope.getItineraries();
+
+  $scope.checkAuthentication = function() {
+    console.log($scope.user.id);
+    if(!angular.isDefined($scope.user.id)) {
+      $location.path('/');
+    }
+  };
 
   //  $scope.getItineraryActivities = function(){
   //   $http.get("/api/activites?ItineraryId=" + $scope.itinerary.id, {
