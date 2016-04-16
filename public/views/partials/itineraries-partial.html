@@ -3,6 +3,7 @@
 </div>
 
 
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -11,7 +12,7 @@
     <!--     <div ng-init="init()"> -->
             <div class="col-md-8">
                 <div class="col-md-12 col-md-offset-3 center input-field">
-                    <input type="text" ng-model="findLocation" class="col-md-10 form-control searchbar" placeholder="Search a specific location">
+                    <input type="text" ng-model="search.city" ng-change="filterGeo()" ng-model-options="{ debounce: 1000 }" class="col-md-10 form-control searchbar" placeholder="Search a specific location">
                     <button ui-sref="itineraries({location: findLocation})" class="col-md-2 btn btn-default btn-primary searchItinBtn">Search</button>
                 </div>
                 <!-- <div class="col-md-4 center input-field">
@@ -38,7 +39,7 @@
 <div class="row">
     <div class="itineraryLists col-md-4">
         <!--       <h3 class="itinerariesTitle">Itineraries</h3> -->
-        <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
+        <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict" ng-mouseenter="hoverGeo(itinerary.city)">
         <div class="row">
             <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
             <h5 class="col-md-4 userName"><small>User:</small> <a ui-sref="user({username: itinerary.User.username})">{{itinerary.User.username}}</a></h5>
