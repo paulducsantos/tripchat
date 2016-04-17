@@ -68,3 +68,9 @@
   background-color: #fff;
   border-bottom-right-radius: 4px;
 }
+
+.comments-column{
+  margin-top: 0px;
+  height: 73vh;
+  overflow: scroll;
+}

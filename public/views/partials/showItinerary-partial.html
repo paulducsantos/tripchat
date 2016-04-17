@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-sm-4 comments-column">
     <div class="panel add-panel itin-panel">
 
       <div class="panel-heading itin-heading">
@@ -42,7 +42,7 @@
             Have a suggestion for {{currentItinerary.User.fname}}?<a type="button" ng-click="showCommentBox=true" class="btn">Share It!</a>
           </div>
           <div class="comment-button-group pull-right" ng-show="showCommentBox">
-            <a type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn">Share It!</a>
+            <a type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city);showCommentBox=false"class="btn">Share It!</a>
             <a type="button"  ng-click="showCommentBox=false" class="btn">Cancel</a>
           </div>
         </div>
@@ -53,7 +53,7 @@
   <div class="recent-comment-header">
     <h4>Recent Comments</h4>
   </div>
-    <div class="comments-column">
+    <div class="">
       <div class="comment-box" ng-repeat="comment in currentItinerary.comments"><!-- ng-repeat="comment in comments" -->
         <div class="row">
           <div class="col-sm-12">
@@ -78,7 +78,7 @@
   </div>
 
   <div class="col-sm-8 map-col">
-    <div>
+    <div id="map">
       <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
         <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
           <ui-gmap-windows show="show">
