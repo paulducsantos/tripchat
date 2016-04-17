@@ -2,10 +2,10 @@ angular.module('TripChat')
 .controller('userController', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
   // Gets called when the directive is ready:
 
-  $scope.init = function() {
-    console.log('userController init() fired!');
-    $scope.goToUserProfile();
-  };
+  // $scope.init = function() {
+  //   console.log('userController init() fired!');
+  //   $scope.goToUserProfile();
+  // };
 
   $scope.getUserProfile = function() {
     console.log('getUserProfile() fired');
