@@ -57,6 +57,10 @@ h3.dash-itinerary-heading{
   font-size: 20px;
 }
 
+.username-dash-itinerary-heading {
+  color: white;
+  text-decoration: none;
+}
 
 .header-background{
   height: 200px;

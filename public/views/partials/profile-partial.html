@@ -1,4 +1,8 @@
-<div class="container" ng-init="getUserProfile()">
+<div class="container-fluid header-background" ng-init="getUserProfile()">
+  <h3 class="dash-header">{{user.username}} | Profile</h3>
+</div>
+
+<div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-6">
     <h3>{{ userItineraries[0].User.username }}'s Itineraries</h3>
