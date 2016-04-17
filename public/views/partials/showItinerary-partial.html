@@ -39,7 +39,7 @@
       <div class="itinerary-footer clearfix">
         <div class="button-container pull-right">
           <div ng-hide="showCommentBox" class="comment-button-group pull-right">
-            Have a suggestion for <a ui-sref="user({username: currentItinerary.User.username})" class="handle">{{currentItinerary.User.fname}}</a>?<a type="button" ng-click="showCommentBox=true" class="btn">Share It!</a>
+            Have a suggestion for {{currentItinerary.User.fname}}?<a type="button" ng-click="showCommentBox=true" class="btn">Share It!</a>
           </div>
           <div class="comment-button-group pull-right" ng-show="showCommentBox">
             <a type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn">Share It!</a>
