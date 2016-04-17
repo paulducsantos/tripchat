@@ -98,7 +98,7 @@
 
         <div class="itinerary-footer clearfix">
           <div class="button-container pull-right">
-            <a ui-sref="itinerary/" class="btn">View</a>
+            <a  ui-sref="showItinerary({id: itinerary.id})" class="btn">View</a>
             <a ng-click="editItinerary(itinerary); editOptions=false" ng-show="editOptions" class="btn">Done</a>
             <a ng-click="showEditableItinerary(itinerary.id); editOptions=true" ng-hide="editOptions" class="btn">Edit</a>
             <a ng-click="deleteItinerary(itinerary.id)" class="btn">Delete</a>
