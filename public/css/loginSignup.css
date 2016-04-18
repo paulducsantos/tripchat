@@ -10,25 +10,6 @@
 
 
 
-.fbTwGgleBtn {
-  padding-left: 12px;
-}
-
-.socialMediaBtns {
-  padding-left: 26px;
-  margin-bottom: 20px;
-}
-
-.btn-circle {
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-
 .fields {
   color: white;
   border-style: solid;
@@ -55,7 +36,7 @@
   margin-bottom: 0px;
 }
 
-.inputField {
+.mdLgFields {
   border-left-width: 0px;
   border-top-width: 0px;
   padding-top: 0px;
@@ -63,3 +44,4 @@
   width: 225px;
   padding-left: 0px;
 }
+

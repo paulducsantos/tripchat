@@ -21,8 +21,9 @@
 }
 
 .searchItinBtn {
-  margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 20%;
 }
 
 .itinerary {
@@ -110,9 +111,7 @@
   background-color: #337AB7;
 }
 
-.searchWidth {
-  width: 288px;
-}
+
 
 
 .itinHead {
@@ -125,4 +124,17 @@
 
 .formPadding {
   padding-left: 4px;
+}
+
+
+.searchMargin {
+  margin-top: 4px;
+  margin-left: 0px;
+  margin-bottom: 4px;
+  width: 70%;
+  margin-right: 0px;
+}
+
+.searchSection {
+  width: 100%;
 }
