@@ -11,7 +11,7 @@
         </div>
         <div class="panel-body">
           <p>Share your interests with fellow TripChatters and see where their suggestions take you!</p>
-          <form class="row">
+          <form class="row" name="itineraryForm">
               <div class="form-group col-sm-12">
                 <input ng-model="itinerary.title" name="title" type="text" class="form-control validate" placeholder="Intinerary Name">
               </div>
@@ -25,7 +25,7 @@
                 <input ng-model="itinerary.country" name"country" type="text" class="form-control validate" placeholder="Country">
               </div>
                <div class="form-group share-itinerary col-sm-4 col-sm-offset-8">
-                <button href="#" class="btn btn-success pull-right " ng-click="addItinerary()">Share Itinerary</button>
+                <button href="#" class="btn btn-success pull-right" ng-click="addItinerary()" ng-submit="addItinerary()">Share Itinerary</button>
               </div>
           </form>
         </div>
@@ -76,7 +76,7 @@
                   <div class="form-inline input-group add-interest-form ">
                     <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
                     <div class="input-group-btn">
-                      <button class="btn btn-success" ng-click="addActivity(itinerary.id, itinerary.newActivity)">Add</button>
+                      <button class="btn btn-success" ng-click="addActivity(itinerary.id, itinerary.newActivity)" ng-submit="addActivity(itinerary.id, itinerary.newActivity)">Add</button>
                     </div>
                   </div>
                 </div>
