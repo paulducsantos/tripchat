@@ -9,7 +9,7 @@
     <div class="itineraryLists col-md-4">
       <div class="center input-field">
         <input type="text" ng-model="search.city" ng-change="filterGeo()" ng-model-options=" { debounce: 500 } " class="col-md-12 form-control searchbar searchWidth" placeholder="Search a specific location">
-        <button ui-sref="itineraries({location: findLocation})" class="btn btn-default btn-primary searchItinBtn">Search</button>
+        <button ng-click="filterGeo()" class="btn btn-default btn-primary searchItinBtn">Search</button>
       </div>
 
 
