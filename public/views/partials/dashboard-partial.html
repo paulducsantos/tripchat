@@ -25,7 +25,7 @@
                 <input ng-model="itinerary.country" name"country" type="text" class="form-control validate" placeholder="Country">
               </div>
                <div class="form-group share-itinerary col-sm-4 col-sm-offset-8">
-                <button href="#" class="btn btn-success pull-right" ng-click="addItinerary()" ng-submit="addItinerary()">Share Itinerary</button>
+                <button class="btn btn-success pull-right" ng-click="addItinerary()" ng-submit="addItinerary()">Share Itinerary</button>
               </div>
           </form>
         </div>
@@ -71,16 +71,17 @@
             </div>
             <div class="col-sm-8">
               <div class="row">
-                <div class="form-group">
-                  <p>What are you interested in?</p>
-                  <div class="form-inline input-group add-interest-form ">
-                    <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
-                    <div class="input-group-btn">
-                      <button class="btn btn-success" ng-click="addActivity(itinerary.id, itinerary.newActivity)" ng-submit="addActivity(itinerary.id, itinerary.newActivity)">Add</button>
+                <form>
+                  <div class="form-group">
+                    <p ng-hide="editOptions">What are you interested in?</p>
+                    <div class="form-inline input-group add-interest-form" ng-hide="editOptions">
+                      <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
+                      <div class="input-group-btn">
+                        <button class="btn btn-success" ng-submit="addActivity(itinerary.id, itinerary.newActivity)" ng-click="addActivity(itinerary.id, itinerary.newActivity)">Add</button>
+                      </div>
                     </div>
                   </div>
-                </div>
-
+                </form>
                <div ng-repeat="activity in itinerary.Activities">
                   <div class="col-md-4"ng-hide="deleted">
                     <div class="interest text-center">
@@ -129,19 +130,18 @@
               <div class="latest-itinerary-location pull-right">{{itinerary.city}}, {{itinerary.state}}, {{itinerary.country}}</div>
             </div>
             <div class="dash-latest-itin-share-group pull-right">
-              <a ng-click="showCommentBox=true" type="button" class="btn">Comment</a>
-              <a ng-click="showCommentBox=true" type="button" class="btn">Share</a>
+              <a ui-sref="showItinerary({id: itinerary.id})" type="button" class="btn">View</a>
             </div>
 
-            <div class="form-group itinerary-comment" ng-show="showCommentBox">
+         <!--    <div class="form-group itinerary-comment" ng-show="showCommentBox">
               <textarea class="form-control" rows="3" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{itinerary.User.fname}} where to go on in {{itinerary.city}}."></textarea>
-              <input class="form-control latest-address-input" type="text"  placeholder="Address"/>
+              <input ng-model="itinerary.Comment.address" class="form-control latest-address-input" type="text"  placeholder="Street Address"/>
+              <input ng-model="itinerary.Comment.link" class="form-control col-sm-6 latest-address-input"  type="text"  placeholder="Website"/>
               <div class="comment-button-group pull-right">
-
-                <a ng-click="showCommentBox=false" type="button" class="btn">Comment</a>
+                <a ng-click="addComment(itinerary.id, itinerary.city); showCommentBox=false" type="button" class="btn">Comment</a>
                 <a ng-click="showCommentBox=false" type="button" class="btn">Cancel</a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="panel-footer clearfix">
