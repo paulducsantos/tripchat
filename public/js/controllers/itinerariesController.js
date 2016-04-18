@@ -10,6 +10,8 @@ angular.module('TripChat')
     $scope.getGeo();
   }
 
+  $scope.search = {};
+
   $scope.location = $stateParams.location;
 
   $scope.getItineraries = function() {
@@ -36,10 +38,10 @@ angular.module('TripChat')
   }
 
   $scope.getComments = function() {
-    console.log('yoyoyoyo');
     $http.get('/api/comments?ItineraryId=' + $stateParams.id)
     .then(function(results) {
       $scope.currentItinerary.comments = results.data;
+      console.log($scope.currentItinerary.comments)
       console.log($scope.comments);
     }, function(err) {
       console.log(err);
@@ -107,6 +109,8 @@ angular.module('TripChat')
 
   geocoder = new google.maps.Geocoder();
 
+  console.log($stateParams.location);
+
   $scope.getGeo = function() {
 
     if($stateParams.location) {
@@ -117,6 +121,7 @@ angular.module('TripChat')
             longitude: result[0].geometry.location.lng()
           }
           console.log($scope.map.center);
+          $scope.search.city = $stateParams.location;
         }
       });
     } else {
