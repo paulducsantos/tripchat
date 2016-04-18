@@ -33,9 +33,9 @@ angular.module("TripChat")
     .then(function (result) {
       $scope.userItineraries.push(result.data);
       $scope.itinerary.title = "";
-      $scope.itinerary.city = "",
-      sscope.itinerary.state = "",
-      $scope.itinerary.country = ""
+      $scope.itinerary.city = "";
+      $scope.itinerary.state = "";
+      $scope.itinerary.country = "";
      },function(err) {
       console.log(err)
     });
