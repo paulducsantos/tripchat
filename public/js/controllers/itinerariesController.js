@@ -156,7 +156,7 @@ angular.module('TripChat')
             title: element.text,
             address: element.address,
             options: {
-              animation: google.maps.Animation.DROP
+              animation: google.maps.Animation.BOUNCE
             }
           }
           $scope.map.markers.push(marker);
@@ -182,7 +182,7 @@ angular.module('TripChat')
             title: element.text,
             address: element.address,
             options: {
-              animation: google.maps.Animation.DROP
+              animation: google.maps.Animation.BOUNCE
             }
           }
           $scope.map.markers.push(marker);
