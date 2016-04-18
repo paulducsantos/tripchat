@@ -126,3 +126,7 @@
 .formPadding {
   padding-left: 4px;
 }
+
+.itin-heading:hover {
+  background-color: #215582;
+}
