@@ -15,7 +15,6 @@ angular.module("TripChat")
       $scope.userItineraries = result.data;
       for(var i = 0; i < $scope.userItineraries.length; i++) {
         $scope.userItineraries[i].newActivity = {};
-        // console.log($scope.userItineraries[i]);
       }
     }, function(err) {
       console.log(err)
@@ -93,6 +92,7 @@ angular.module("TripChat")
     }
   $scope.getItineraries();
 
+  // Block users from going to dashboard page when not logged in.
   $scope.checkAuthentication = function() {
     console.log($scope.user.id);
     if(!angular.isDefined($scope.user.id)) {
