@@ -36,10 +36,10 @@ angular.module('TripChat')
   }
 
   $scope.getComments = function() {
-    console.log('yoyoyoyo');
     $http.get('/api/comments?ItineraryId=' + $stateParams.id)
     .then(function(results) {
       $scope.currentItinerary.comments = results.data;
+      console.log($scope.currentItinerary.comments)
       console.log($scope.comments);
     }, function(err) {
       console.log(err);
