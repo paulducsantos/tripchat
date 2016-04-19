@@ -19,6 +19,7 @@ angular.module('TripChat')
     .then(function(result) {
       $scope.allItineraries = result.data;
       console.log($scope.allItineraries);
+      console.log($scope.allItineraries.length);
       // $scope.getComments($scope.latestItinerary.id);
     }, function(err) {
       console.log(err)
@@ -29,7 +30,6 @@ angular.module('TripChat')
     $http.get('/api/itineraries/' + $stateParams.id)
     .then(function(result) {
       $scope.currentItinerary = result.data;
-      console.log($scope.currentItinerary);
       $scope.currentItineraryGeo($scope.currentItinerary.city)
       $scope.getComments();
     }, function(err) {

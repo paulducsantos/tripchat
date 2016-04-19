@@ -10,6 +10,7 @@ angular.module('TripChat')
       lname: $scope.lname
     })
     .then(function(result) {
+      $('.login').modal('toggle')
     })
   } // end sign up
 
