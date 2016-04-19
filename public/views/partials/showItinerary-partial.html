@@ -68,7 +68,7 @@
      <!-- End Panel-->
 
     <div class="">
-      <div class="comment-box" ng-repeat="comment in currentItinerary.comments"><!-- ng-repeat="comment in comments" -->
+      <div class="comment-box" ng-repeat="comment in currentItinerary.comments | orderBy:'-createdAt'"><!-- ng-repeat="comment in comments" -->
         <div class="row">
           <div class="col-sm-12">
             <div class="comment-heading">
