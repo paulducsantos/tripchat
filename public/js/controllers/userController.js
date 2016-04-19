@@ -8,11 +8,12 @@ angular.module('TripChat')
   // };
 
   $scope.getUserProfile = function() {
-    console.log('getUserProfile() fired');
     console.log($stateParams.username);
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(result) {
       console.log(result);
+      $scope.userData = result.data[0];
+      console.log($scope.userData);
       $http.get('/api/itineraries/?UserId=' + result.data[0].id)
       .then(function(itineraries) {
         console.log(itineraries.data);
@@ -37,8 +38,6 @@ angular.module('TripChat')
       console.log(err)
     });
   }
-
-
 
   // $scope.addComment = function(itineraryId) {
   //   $http.post('/api/comments', {

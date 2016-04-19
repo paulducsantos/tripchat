@@ -3,6 +3,30 @@
 </div>
 
 <div class="container">
+  <div id="user-info" class="row">
+    <div class="col-md-2">
+      <img src="images/default-profile-pic.png">
+    </div>
+    <div class="col-md-3">
+      <h3>{{ userData.fname }} {{ userData.lname }}</h3>
+      <h4><span class="glyphicon glyphicon-list"></span> {{userItineraries.length}}
+      <ng-pluralize count="userItineraries.length" 
+        when="{
+          '0': 'itineraries', 
+          '1': 'itinerary', 
+          'other': 'itineraries'
+        }">
+      </ng-pluralize>
+
+
+
+
+      <!-- </span> {{userItineraries.length}} <span ng-show="userItineraries">itineraries</span>
+      <span ng-show="userItineraries.length === 1">itinerary</span> -->
+
+      </h4>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-12 col-md-6">
     <br />
@@ -17,7 +41,7 @@
               <span class="interest-name">{{activity.name}}</span>
             </div>
           </div>
-          <div class="col-md-4"ng-hide="deleted">
+          <div class="col-md-4" ng-hide="deleted">
             <h4>Suggestions</h4>
 
             <div ng-show="comments" ng-repeat="comment in comments">
