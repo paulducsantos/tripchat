@@ -26,6 +26,7 @@
   border: 1px solid #c9c9c9;
   border-bottom-right-radius: 4px;
   margin-bottom: 15px;
+  margin-top: 15px
 }
 
 .comment-heading{
@@ -37,13 +38,13 @@
 }
 
 .comment-text{
-    background-color: #fff;
-    color: #337AB7;
-    min-height: 100px;
-    padding: 10px;
-    margin: 14px;
-    border-right: 1px solid #c9c9c9;
-    border-bottom: 1px solid #c9c9c9;
+  background-color: #fff;
+  color: #337AB7;
+  min-height: 100px;
+  padding: 10px;
+  margin: 14px;
+  border-right: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
 }
 
 .itin-handle{
@@ -73,4 +74,19 @@
   margin-top: 0px;
   height: 73vh;
   overflow: scroll;
+}
+.add-itinerary-form{
+margin-top: 15px;
+}
+
+.add-comment-panel{
+  margin-top: 15px;
+}
+
+.share-btn{
+  width: 100%;
+}
+
+.add-comment-row{
+  background-color: #215582;
 }
