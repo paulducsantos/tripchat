@@ -12,14 +12,12 @@
         <button ng-click="filterGeo()" class="btn btn-default btn-primary searchItinBtn">Search</button>
       </div>
 
-
       <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict">
-
 
         <div class="panel-heading itin-heading clearfix" ng-mouseenter="hoverGeo(itinerary.city)">
           <div class="dash-heading-container clearfix" >
             <div class="col-sm-6">
-              <h3 class="dash-itinerary-heading clearfix itinHead" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</h3>
+              <h3 class="dash-itinerary-heading clearfix itinHead" ui-sref="showItinerary({id: itinerary.id})">{{itinerary.title}}</h3>
             </div>
             <div class="col-sm-6">
               <h5 class="dash-itinerary-heading pull-right locationItin"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
@@ -90,7 +88,6 @@
                 <div class="divider"></div>
               </div> -->
             </div>
-
 
     <div class="col-md-8 mapBorder">
       <div id="map">
