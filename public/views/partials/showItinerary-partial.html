@@ -1,19 +1,13 @@
 <div class="container-fluid header-background"  ng-init="getCurrentItinerary()">
   <h3 class="dash-header text-center">{{currentItinerary.title}}</h3>
 </div>
+<div class="container-fluid">
   <div class="row add-comment-row">
-    <div class="col-sm-6">
-      <div class="panel-heading">
-        <h3 class="dash-itinerary-heading"><a class="username-dash-itinerary-heading" ui-sref="user({username: currentItinerary.User.username})">@{{currentItinerary.User.username}}</a> is interested in:</h3>
-      </div>
 
-      <div class="panel-body showItinerary-panel-body">
-        <div ng-repeat="activity in currentItinerary.Activities">
-          <div class="col-sm-3 col-xs-6 interest-col">
-            <div class=" interest text-center">
-              <span class="interest-name">{{activity.name}}</span>
-            </div>
-          </div>
+    <div class="col-sm-6">
+      <div class="add-comment-activites">
+        <div class="itinerary-description">
+          <p>Hey TripChatters! We are going out to Vegas to celebrate Paul's last time of being single! What should we do? Where should we go? We have never been! Help us out!
         </div>
       </div>
     </div>
@@ -26,19 +20,22 @@
             <div class="col-sm-12 interest-col ">
               <textarea ng-model="comment.text" class="form-control" rows="2" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{currentItinerary.User.fname}} where to go on in {{currentItinerary.city}}."></textarea>
             </div>
+
             <div class="col-sm-5  interest-col">
-            <div class="form-group add-itinerary-form">
+              <div class="form-group add-itinerary-form">
               <input ng-model="comment.address" class="form-control" type="text"  placeholder="Street Address"/>
             </div>
             </div>
+
             <div class="col-sm-5 interest-col">
-            <div class="form-group add-itinerary-form">
+              <div class="form-group add-itinerary-form">
               <input ng-model="comment.link" class="form-control"  type="text"  placeholder="Website"/>
               </div>
             </div>
+
             <div class="col-sm-2 interest-col">
-            <div class="form-group add-itinerary-form">
-              <button type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn btn-success share-btn">Share It!</button>
+              <div class="form-group add-itinerary-form">
+                <button type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn btn-success share-btn">Share It!</button>
               </div>
             </div>
           </form>
@@ -49,6 +46,19 @@
     </div>
 
   </div>
+  <div class="row interest-row">
+    <div class="col-sm-12">
+      <div class="interest-name clearfix">
+       <a class="username-link" ui-sref="user({username: currentItinerary.User.username})">{{currentItinerary.User.fname}}</a> is interested in:
+       </div>
+        <div class="interest-name" ng-repeat="activity in currentItinerary.Activities">
+          <span >{{activity.name}}</span>
+        </div>
+
+    </div>
+  </div>
+</div>
+
 
 
 <div class="container-fluid">
