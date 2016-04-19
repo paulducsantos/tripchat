@@ -69,12 +69,12 @@ angular.module('TripChat')
           link: $scope.comment.link
         })
         .then(function(results) {
-          console.log(results.data);
-          $scope.newComment = '';
+          $scope.newComment = ''; // What is this for??
+          $scope.comment.text = "";
+          $scope.comment.address = "";
+          $scope.comment.link = "";
           $scope.comments.push(results.data);
-          $scope.comment.text = '';
-          $scope.comment.address = '';
-          $scope.comment.link = '';
+          console.log(results.data);
         }, function(err) {
           console.log(err);
         });
