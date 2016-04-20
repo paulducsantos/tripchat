@@ -49,12 +49,13 @@
         </ng-pluralize>
         <span ng-show="!numberOfComments">0 comments</span> <!-- If user has no comments -->
       </h4>
-    </div>
-  </div>
+    </div> <!-- end col -->
+  </div> <!-- end row -->
   <div class="row">
+    <!-- Itineraries Column -->
     <div class="col-sm-12 col-md-6">
       <br />
-      <h3>Itineraries</h3>
+      <h3>@{{ userData.username }}'s Itineraries</h3>
       <div class="itinerary" ng-repeat="itinerary in userItineraries">
         <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</a></h3>
         <h5>{{itinerary.location}}</h5>
@@ -90,9 +91,44 @@
         <div class="divider"></div>
       </div>
     </div> <!-- end col -->
+    <!-- Comments Column -->
     <div class="col-sm-12 col-md-6">
       <br />
-      <h3>Comments</h3>
+      <h3>@{{ userData.username }}'s Comments</h3>
+      <div class="itinerary" ng-repeat="text in userItineraries">
+        <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</a></h3>
+        <h5>{{itinerary.location}}</h5>
+        <br />
+        <div class="row">
+          <div class="col-md-4" ng-hide="deleted">
+            <h4>Itineraries</h4>
+            <div class="interest text-center" ng-repeat="activity in itinerary.Activities">
+              <span class="interest-name">{{activity.name}}</span>
+            </div>
+          </div>
+          <div class="col-md-4" ng-hide="deleted">
+            <h4>Comments</h4>
+
+            <div ng-show="comments" ng-repeat="comment in comments">
+              <div>
+                <h6>{{comment.User.username}} says:</h6>
+                <p>{{comment.text}}</p>
+              </div>
+              
+              <div class="divider"></div>
+            </div>
+
+            <!-- <div class="interest text-center" ng-repeat="activity in itinerary.Activities"> -->
+          </div>
+          
+        </div>
+        <!-- <div class="comments" ng-repeat="comment in comments">
+          <h6>{{comment.User.username}} says:</h6>
+          <p>{{comment.text}}</p>
+          <div class="divider"></div>
+        </div> -->
+        <div class="divider"></div>
+      </div>
     </div> <!-- end col -->
   </div> <!-- end row -->
 </div> <!-- end container -->

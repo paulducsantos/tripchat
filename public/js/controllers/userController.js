@@ -31,16 +31,24 @@ angular.module('TripChat')
     });
   }; // end getUserProfile
 
-  $scope.goToUserProfile = function() {
-    console.log('goToUserProfile() fired');
-    $http.get('/api/itineraries')
+  // $scope.goToUserProfile = function() {
+  //   console.log('goToUserProfile() fired');
+  //   $http.get('/api/itineraries')
+  //   .then(function(result) {
+  //     $scope.allUsers = result.data;
+  //     console.log($scope.allUsers);
+  //     // $scope.getComments($scope.latestItinerary.id);
+  //   }, function(err) {
+  //     console.log(err)
+  //   });
+  // }
+
+  $scope.getUserComments = function() {
+    console.log('getUserComments() fired');
+    $http.get('/api/comments')
     .then(function(result) {
-      $scope.allUsers = result.data;
-      console.log($scope.allUsers);
-      // $scope.getComments($scope.latestItinerary.id);
-    }, function(err) {
-      console.log(err)
-    });
+      $scope
+    })
   }
 
   // $scope.addComment = function(itineraryId) {
