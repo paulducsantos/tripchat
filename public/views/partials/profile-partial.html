@@ -1,8 +1,7 @@
 <div class="container-fluid header-background" ng-init="init()">
   <h3 class="dash-header text-center">{{ userData.fname }} | Profile
 </div>
-
-<div class="container">
+<div class="container-fluid">
   <div id="user-info" class="row">
     <div class="col-md-2">
       <br />
@@ -54,8 +53,7 @@
           </div>
           <div class="col-md-4" ng-hide="deleted">
             <h4>Comments</h4>
-
-            <div ng-show="comments" ng-repeat="comment in comments">
+            <div ng-repeat="comment in itinerary.Comments">
               <div>
                 <h6>{{comment.User.username}} says:</h6>
                 <p>{{comment.text}}</p>
@@ -64,7 +62,6 @@
               <div class="divider"></div>
             </div>
           </div>
-
         </div>
         <div class="divider"></div>
       </div>
@@ -79,24 +76,19 @@
         <br />
         <div class="row">
           <div class="col-md-4" ng-hide="deleted">
-            <h4>Itineraries</h4>
             <div class="interest text-center" ng-repeat="activity in comment.Itinerary.Activities">
               <span class="interest-name">{{activity.name}}</span>
             </div>
           </div>
           <div class="col-md-4" ng-hide="deleted">
-            <h4>Comments</h4>
-
             <div>
               <div>
-                <h6>{{comment.User.username}} says:</h6>
+                <h4>{{comment.User.username}} says:</h4>
                 <p>{{comment.text}}</p>
               </div>
-              
               <div class="divider"></div>
             </div>
           </div>
-          
         </div>
         <div class="divider"></div>
       </div>
