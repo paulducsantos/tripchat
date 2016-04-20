@@ -1,7 +1,7 @@
 <div class="container-fluid header-background" ng-init="getUserProfile()">
-  <h3 class="dash-header">{{ userData.fname }}'s <ng-pluralize count="userItineraries.length" 
+  <h3 class="dash-header">{{ userData.fname }}'s <ng-pluralize count="userItineraries.length"
         when="{
-          '1': 'itinerary', 
+          '1': 'itinerary',
           'other': 'itineraries'
         }">
       </ng-pluralize></h3>
@@ -18,9 +18,9 @@
       <!-- Number of Itineraries -->
       <h4>
         <i class="fa fa-list-ul" aria-hidden="true"></i> <span ng-show="userItineraries.length">{{userItineraries.length}}</span>
-        <ng-pluralize count="userItineraries.length" 
+        <ng-pluralize count="userItineraries.length"
           when="{
-            '1': 'itinerary', 
+            '1': 'itinerary',
             'other': 'itineraries'
           }">
         </ng-pluralize>
@@ -28,10 +28,10 @@
       </h4>
       <!-- Number of Activities -->
       <h4>
-        <i class="fa fa-smile-o" aria-hidden="true"></i> <span ng-show="numberOfActivities">{{ numberOfActivities }}</span> 
-        <ng-pluralize count="numberOfActivities" 
+        <i class="fa fa-smile-o" aria-hidden="true"></i> <span ng-show="numberOfActivities">{{ numberOfActivities }}</span>
+        <ng-pluralize count="numberOfActivities"
           when="{
-            '1': 'activity', 
+            '1': 'activity',
             'other': 'activities'
           }">
         </ng-pluralize>
@@ -40,9 +40,9 @@
       <!-- Number of Comments -->
       <h4>
         <i class="fa fa-commenting" aria-hidden="true"></i> <span ng-show="numberOfComments">{{ numberOfComments }}</span>
-        <ng-pluralize count="numberOfComments" 
+        <ng-pluralize count="numberOfComments"
           when="{
-            '1': 'comment', 
+            '1': 'comment',
             'other': 'comments'
           }">
         </ng-pluralize>
@@ -61,7 +61,7 @@
           <div class="col-md-4" ng-hide="deleted">
             <h4>Activities</h4>
             <div class="interest text-center" ng-repeat="activity in itinerary.Activities">
-              <span class="interest-name">{{activity.name}}</span>
+              <span class="">{{activity.name}}</span>
             </div>
           </div>
           <div class="col-md-4" ng-hide="deleted">
@@ -72,13 +72,13 @@
                 <h6>{{comment.User.username}} says:</h6>
                 <p>{{comment.text}}</p>
               </div>
-              
+
               <div class="divider"></div>
             </div>
 
             <!-- <div class="interest text-center" ng-repeat="activity in itinerary.Activities"> -->
           </div>
-          
+
         </div>
         <!-- <div class="comments" ng-repeat="comment in comments">
           <h6>{{comment.User.username}} says:</h6>
@@ -89,7 +89,7 @@
       </div>
     </div> <!-- end col -->
     <div class="col-md-6">
-      
+
     </div>
   </div>
 </div>
