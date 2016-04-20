@@ -27,11 +27,18 @@ angular.module('TripChat')
       password: $scope.password
     })
     .then(function(result) {
-      $scope.getLogin();
-      $('.login').modal('toggle')
-      $state.go('dashboard');
+      console.log(result);
+      if(result.status === 401) {
+        $scope.alerts = [];
+        $scope.alerts.push({msg: 'Oops! Wrong username/password!'});
+      } else {
+        $scope.getLogin();
+        $('.login').modal('toggle')
+        $state.go('dashboard');
+      }
     }, function(err) {
       console.log(err);
+      $scope.alerts = [];
       $scope.alerts.push({msg: 'Oops! Wrong username/password!'});
 
     })
