@@ -1,15 +1,38 @@
 <div class="container-fluid header-background" ng-init="init()">
-  <h3 class="dash-header">TripChats | All Itineraries</h3>
+  <h3 class="dash-header text-center">TripChats | All Itineraries</h3>
 </div>
 
+<div class="container-fluid">
+  <div class="row add-comment-row">
+    <div class="col-sm-4">
+      <div class="form-inline input-group search-itineraries">
+        <input type="text" ng-model="search.city" ng-change="filterGeo(); numItins()" ng-model-options=" { debounce: 500 } " class="form-control" placeholder="Search a specific location">
+        <div class="input-group-btn">
+          <button ng-click="filterGeo()" class="btn btn-success">Search</button>
+        </div>
+      </div>
+    </div>
 
+  </div>
+  <div class="row interest-row">
+    <div class='col-sm-12'>
+      <div class="prodash-link pull-right">
+        <p class="add-new-itin">Going somewhere? Create Your Own Itinerary! </p>
+        <a type="button" href="/dashboard" class="btn btn-success add-itin-dash-link">Add Itinerary</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container-fluid">
   <div class="row">
     <div class="itineraryLists col-md-4">
-      <div class="center input-field">
-        <input type="text" ng-model="search.city" ng-change="filterGeo()" ng-model-options=" { debounce: 500 } " class="col-md-12 form-control searchbar searchWidth" placeholder="Search a specific location">
-        <button ng-click="filterGeo()" class="btn btn-default btn-primary searchItinBtn">Search</button>
+      <div ng-show="!(allItineraries | filter:search:strict).length">
+        <div class="clearfix">
+          <br />
+          <h4>No itineraries for this location.</h4>
+          <h4>Be the first to post an itinerary here!</h4>
+        </div>
       </div>
 
       <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict">
@@ -61,6 +84,7 @@
         </div>
       </div>
     </div>
+
 
 <!--             <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
                 <div class="row">
