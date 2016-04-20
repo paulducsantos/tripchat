@@ -126,6 +126,7 @@
   padding-left: 4px;
 }
 
+<<<<<<< HEAD
 
 .searchMargin {
   margin-top: 4px;
@@ -137,4 +138,8 @@
 
 .searchSection {
   width: 100%;
+=======
+.itin-heading:hover {
+  background-color: #215582;
+>>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
 }

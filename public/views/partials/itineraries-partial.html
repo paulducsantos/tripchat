@@ -1,8 +1,13 @@
 <div class="container-fluid header-background" ng-init="init()">
+<<<<<<< HEAD
     <h3 class="dash-header">All Itineraries</h3>
+=======
+  <h3 class="dash-header">TripChats | All Itineraries</h3>
+>>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
 </div>
 
 <div class="container-fluid">
+<<<<<<< HEAD
     <div class="row">
         <div class="itineraryLists col-lg-4 col-md-5 col-sm-6 col-xs-6">
 
@@ -13,6 +18,38 @@
             </div>
  -->
 
+=======
+  <div class="row">
+    <div class="itineraryLists col-md-4">
+      <div class="center input-field">
+        <input type="text" ng-model="search.city" ng-change="filterGeo()" ng-model-options=" { debounce: 500 } " class="col-md-12 form-control searchbar searchWidth" placeholder="Search a specific location">
+        <button ng-click="filterGeo()" class="btn btn-default btn-primary searchItinBtn">Search</button>
+      </div>
+
+
+      <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict">
+
+
+        <div class="panel-heading itin-heading clearfix" ng-mouseenter="hoverGeo(itinerary.city)">
+          <div class="dash-heading-container clearfix" >
+            <div class="col-sm-6">
+              <h3 class="dash-itinerary-heading clearfix itinHead" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</h3>
+            </div>
+            <div class="col-sm-6">
+              <h5 class="dash-itinerary-heading pull-right locationItin"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body showItinerary-panel-body">
+         <div ng-repeat="activity in currentItinerary.Activities">
+          <div class="col-sm-4 interest-col">
+            <div class=" show-itinerary-interest text-center">
+              <span class="interest-name">{{activity.name}}</span>
+            </div>
+          </div><!-- end col s4 -->
+        </div>
+>>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
 
             <div class="input-group">
               <input type="text" ng-model="findLocation" class="form-control" placeholder="Search a specific location">
@@ -33,6 +70,12 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+                <div class="divider"></div>
+              </div> -->
+            </div>
+>>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
 
                 <div class="panel-body showItinerary-panel-body">
                     <div ng-repeat="activity in currentItinerary.Activities">
@@ -50,6 +93,7 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div class="itinerary-footer clearfix">
                     <div class="button-container pull-right">
                         <div ng-hide="showCommentBox" class="comment-button-group pull-right">
@@ -87,3 +131,26 @@
 <div>
     <ui-view></ui-view>
 </div>
+=======
+    <div class="col-md-8 mapBorder">
+      <div id="map">
+          <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
+            <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
+                <ui-gmap-windows show="show">
+                <div ng-non-bindable>
+                  {{title}}
+                  <br /> Located at: {{address}}
+                </div>
+              </ui-gmap-windows>
+            </ui-gmap-marker>
+
+          </ui-gmap-google-map>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <ui-view></ui-view>
+    </div>
+  </div>
+>>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af

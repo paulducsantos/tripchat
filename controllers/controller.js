@@ -1,4 +1,5 @@
 var models = require('../models');
+var request = require('request');
 
 exports.home = function(req, res, next) {
   res.sendFile(process.cwd() + '/public/views/index.html');
@@ -16,7 +17,7 @@ exports.signup = function(req, res, next){
   };
 
 exports.getLogin = function(req, res, next) {
-    res.json(req.user);
+  res.json(req.user);
 }
 
 exports.logout = function(req, res, next) {
