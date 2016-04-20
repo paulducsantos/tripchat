@@ -5,7 +5,7 @@ angular.module('TripChat')
   $scope.init = function() {
     console.log('userController init() fired!');
     $scope.getUserProfile();
-    $scope.getUserComments();
+    // $scope.getUserComments();
   };
 
   $scope.getUserProfile = function() {
@@ -17,13 +17,10 @@ angular.module('TripChat')
       // console.log($scope.userData);
       $http.get('/api/itineraries/?UserId=' + result.data[0].id)
       .then(function(itineraries) {
-        // console.log(itineraries.data);
-        // console.log(itineraries.data[0].Comments.length);
-        $scope.numberOfComments = itineraries.data[0].Comments.length;
-        // console.log(itineraries.data[0].Activities.length);
-        $scope.numberOfActivities = itineraries.data[0].Activities.length;
+        console.log(itineraries.data);
         $scope.userItineraries = itineraries.data;
         // console.log($scope.userItineraries);
+        $scope.getUserComments(itineraries.data[0].UserId);
       }, function(err) {
         console.log(err);
       })
@@ -44,13 +41,14 @@ angular.module('TripChat')
   //   });
   // }
 
-  $scope.getUserComments = function() {
-    console.log('getUserComments() fired');
-    $http.get('/api/comments')
+  $scope.getUserComments = function(id) {
+    console.log(id);
+    $http.get('/api/comments?UserId=' + id)
     .then(function(result) {
       $scope.userComments = result.data;
       console.log($scope.userComments);
       console.log($scope.userComments[0].text);
+      $scope.numberOfComments = $scope.userComments.length;
     }, function(err) {
       console.log(err);
     });
