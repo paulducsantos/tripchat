@@ -28,7 +28,12 @@ angular.module('TripChat')
     })
     .then(function(result) {
       $scope.getLogin();
+      $('.login').modal('toggle')
       $state.go('dashboard');
+    }, function(err) {
+      console.log(err);
+      $scope.alerts.push({msg: 'Oops! Wrong username/password!'});
+
     })
   }; // end login
 
@@ -41,4 +46,12 @@ angular.module('TripChat')
     })
   }; // end logout
   $scope.getLogin();
+
+  $scope.alerts = [];
+
+  
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 });
