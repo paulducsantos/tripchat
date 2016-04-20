@@ -20,7 +20,8 @@
             'other': 'itineraries'
           }">
         </ng-pluralize>
-        <span ng-show="!userItineraries.length">0 itineraries</span> <!-- If user has no itineraries -->
+        <!-- If user has no itineraries -->
+        <span ng-show="!userItineraries.length">0 itineraries</span>
       </h4>
       <!-- Number of Comments -->
       <h4> <!-- If use has comments -->
@@ -62,16 +63,9 @@
 
               <div class="divider"></div>
             </div>
-
-            <!-- <div class="interest text-center" ng-repeat="activity in itinerary.Activities"> -->
           </div>
 
         </div>
-        <!-- <div class="comments" ng-repeat="comment in comments">
-          <h6>{{comment.User.username}} says:</h6>
-          <p>{{comment.text}}</p>
-          <div class="divider"></div>
-        </div> -->
         <div class="divider"></div>
       </div>
     </div> <!-- end col -->
@@ -101,16 +95,9 @@
               
               <div class="divider"></div>
             </div>
-
-            <!-- <div class="interest text-center" ng-repeat="activity in itinerary.Activities"> -->
           </div>
           
         </div>
-        <!-- <div class="comments" ng-repeat="comment in comments">
-          <h6>{{comment.User.username}} says:</h6>
-          <p>{{comment.text}}</p>
-          <div class="divider"></div>
-        </div> -->
         <div class="divider"></div>
       </div>
     </div> <!-- end col -->

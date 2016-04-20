@@ -5,7 +5,6 @@ angular.module('TripChat')
   $scope.init = function() {
     console.log('userController init() fired!');
     $scope.getUserProfile();
-    // $scope.getUserComments();
   };
 
   $scope.getUserProfile = function() {
@@ -29,18 +28,6 @@ angular.module('TripChat')
     });
   }; // end getUserProfile
 
-  // $scope.goToUserProfile = function() {
-  //   console.log('goToUserProfile() fired');
-  //   $http.get('/api/itineraries')
-  //   .then(function(result) {
-  //     $scope.allUsers = result.data;
-  //     console.log($scope.allUsers);
-  //     // $scope.getComments($scope.latestItinerary.id);
-  //   }, function(err) {
-  //     console.log(err);
-  //   });
-  // }
-
   $scope.getUserComments = function(id) {
     console.log(id);
     $http.get('/api/comments?UserId=' + id)
@@ -52,21 +39,6 @@ angular.module('TripChat')
     }, function(err) {
       console.log(err);
     });
-  };
-
-  // $scope.addComment = function(itineraryId) {
-  //   $http.post('/api/comments', {
-  //     text: $scope.newComment,
-  //     ItineraryId: itineraryId,
-  //     UserId: $scope.user.id
-  //   })
-  //   .then(function(results) {
-  //     console.log(results.data);
-  //     $scope.newComment = '';
-  //     $scope.comments.push(results.data);
-  //   }, function(err) {
-  //     console.log(err);
-  //   });
-  // }
+  }; // end getUserComments
 
 }]);
