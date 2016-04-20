@@ -1,22 +1,18 @@
-<div class="container-fluid header-background" ng-init="getUserProfile()">
-  <h3 class="dash-header">{{ userData.fname }}'s <ng-pluralize count="userItineraries.length"
-        when="{
-          '1': 'itinerary',
-          'other': 'itineraries'
-        }">
-      </ng-pluralize></h3>
+<div class="container-fluid header-background" ng-init="init()">
+  <h3 class="dash-header text-center">{{ userData.fname }} | Profile
 </div>
 
 <div class="container">
   <div id="user-info" class="row">
     <div class="col-md-2">
+      <br />
       <img src="images/default-profile-pic.png">
     </div>
     <div class="col-md-3">
       <h3>{{ userData.fname }} {{ userData.lname }}</h3>
       <h4>@{{ userData.username }}</h4>
       <!-- Number of Itineraries -->
-      <h4>
+      <h4> <!-- If user has itineraries -->
         <i class="fa fa-list-ul" aria-hidden="true"></i> <span ng-show="userItineraries.length">{{userItineraries.length}}</span>
         <ng-pluralize count="userItineraries.length"
           when="{
@@ -24,21 +20,21 @@
             'other': 'itineraries'
           }">
         </ng-pluralize>
-        <span ng-show="!userItineraries.length">0 itineraries</span>
+        <span ng-show="!userItineraries.length">0 itineraries</span> <!-- If user has no itineraries -->
       </h4>
       <!-- Number of Activities -->
-      <h4>
-        <i class="fa fa-smile-o" aria-hidden="true"></i> <span ng-show="numberOfActivities">{{ numberOfActivities }}</span>
-        <ng-pluralize count="numberOfActivities"
+      <h4> <!-- If user has activities -->
+        <i class="fa fa-smile-o" aria-hidden="true"></i> <span ng-show="numberOfActivities">{{ numberOfActivities }}</span> 
+        <ng-pluralize count="numberOfActivities" 
           when="{
             '1': 'activity',
             'other': 'activities'
           }">
         </ng-pluralize>
-        <span ng-show="!numberOfActivities">0 activities</span>
+        <span ng-show="!numberOfActivities">0 activities</span> <!-- If use has no activities -->
       </h4>
       <!-- Number of Comments -->
-      <h4>
+      <h4> <!-- If use has comments -->
         <i class="fa fa-commenting" aria-hidden="true"></i> <span ng-show="numberOfComments">{{ numberOfComments }}</span>
         <ng-pluralize count="numberOfComments"
           when="{
@@ -46,14 +42,16 @@
             'other': 'comments'
           }">
         </ng-pluralize>
-        <span ng-show="!numberOfComments">0 comments</span>
+        <span ng-show="!numberOfComments">0 comments</span> <!-- If user has no comments -->
       </h4>
-    </div>
-  </div>
+    </div> <!-- end col -->
+  </div> <!-- end row -->
   <div class="row">
+    <!-- Itineraries Column -->
     <div class="col-sm-12 col-md-6">
-    <br />
-    <div class="itinerary" ng-repeat="itinerary in userItineraries">
+      <br />
+      <h3>@{{ userData.username }}'s Itineraries</h3>
+      <div class="itinerary" ng-repeat="itinerary in userItineraries">
         <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</a></h3>
         <h5>{{itinerary.location}}</h5>
         <br />
@@ -88,8 +86,44 @@
         <div class="divider"></div>
       </div>
     </div> <!-- end col -->
-    <div class="col-md-6">
+    <!-- Comments Column -->
+    <div class="col-sm-12 col-md-6">
+      <br />
+      <h3>@{{ userData.username }}'s Comments</h3>
+      <div class="itinerary" ng-repeat="text in userItineraries">
+        <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</a></h3>
+        <h5>{{itinerary.location}}</h5>
+        <br />
+        <div class="row">
+          <div class="col-md-4" ng-hide="deleted">
+            <h4>Itineraries</h4>
+            <div class="interest text-center" ng-repeat="activity in itinerary.Activities">
+              <span class="interest-name">{{activity.name}}</span>
+            </div>
+          </div>
+          <div class="col-md-4" ng-hide="deleted">
+            <h4>Comments</h4>
 
-    </div>
-  </div>
-</div>
+            <div ng-show="comments" ng-repeat="comment in comments">
+              <div>
+                <h6>{{comment.User.username}} says:</h6>
+                <p>{{comment.text}}</p>
+              </div>
+              
+              <div class="divider"></div>
+            </div>
+
+            <!-- <div class="interest text-center" ng-repeat="activity in itinerary.Activities"> -->
+          </div>
+          
+        </div>
+        <!-- <div class="comments" ng-repeat="comment in comments">
+          <h6>{{comment.User.username}} says:</h6>
+          <p>{{comment.text}}</p>
+          <div class="divider"></div>
+        </div> -->
+        <div class="divider"></div>
+      </div>
+    </div> <!-- end col -->
+  </div> <!-- end row -->
+</div> <!-- end container -->
