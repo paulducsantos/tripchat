@@ -84,7 +84,6 @@ angular.module('TripChat')
       }
        $scope.getCurrentItinerary();
     });
-
   }
 
 

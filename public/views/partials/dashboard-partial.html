@@ -4,65 +4,64 @@
 
 <div class="container-fluid">
   <div class="row add-comment-row">
-    <div class="col-sm-6">
-      <h3 class="dash-main-header">Going somewhere? Share a new itinerary!</h3>
-      <p>Share your interests with fellow TripChatters and see where their suggestions take you!</p>
+    <div class="col-sm-4">
+      <h4 class="dash-main-header">Going somewhere? Share a new itinerary!</h4>
+      <p class="dash-main-para">Share your interests with fellow TripChatters and see where their suggestions take you!</p>
     </div>
-
-    <div class="col-sm-6">
+    <div class="col-sm-8">
       <form class="row" name="itineraryForm">
-        <div class="form-group col-sm-12">
-          <input ng-model="itinerary.title" name="title" type="text" class="form-control validate" placeholder="Intinerary Name">
+        <div class="col-sm-6">
+          <div class="add-itin-form">
+            <div class="form-group col-sm-12 middle-col">
+              <input ng-model="itinerary.title" name="title" type="text" class="form-control validate" placeholder="Intinerary Name">
+            </div>
+            <div class="form-group col-sm-6 middle-col">
+              <input ng-model="itinerary.city" name="city" type="text" class="form-control validate" placeholder="City">
+            </div>
+            <div class="form-group col-sm-3 middle-col">
+              <input ng-model="itinerary.state" name="state" type="text" class="form-control validate" placeholder="State">
+            </div>
+             <div class="form-group col-sm-3 middle-col">
+              <input ng-model="itinerary.country" name"country" type="text" class="form-control validate" placeholder="Country">
+            </div>
+          </div>
         </div>
-        <div class="form-group col-sm-4">
-          <input ng-model="itinerary.city" name="city" type="text" class="form-control validate" placeholder="City">
-        </div>
-        <div class="form-group col-sm-4">
-          <input ng-model="itinerary.state" name="state" type="text" class="form-control validate" placeholder="State">
-        </div>
-         <div class="form-group col-sm-4">
-          <input ng-model="itinerary.country" name"country" type="text" class="form-control validate" placeholder="Country">
-        </div>
-         <div class="form-group share-itinerary col-sm-4 col-sm-offset-8">
-          <button class="btn btn-success pull-right" ng-click="addItinerary()" ng-submit="addItinerary()">Share Itinerary</button>
+        <div class="col-sm-6">
+          <div class="add-itin-form">
+            <div class="form-group">
+              <textarea ng-model="itinerary.description" rows="1" name="description" type="text" class="form-control validate" placeholder="Describe Your Trip"></textarea>
+            </div>
+            <div class="form-group share-itinerary">
+              <button class="btn btn-success add-itin-button" ng-click="addItinerary()" ng-submit="addItinerary()">Share Itinerary</button>
+            </div>
+          </div>
         </div>
       </form>
     </div>
   </div>
+
+  <div class="row interest-row">
+    <div class="col-sm-12">
+      <h4 class="itinerary-number">
+        You have </i> <span ng-show="userItineraries.length">{{userItineraries.length}}</span>
+        <ng-pluralize count="userItineraries.length"
+          when="{
+            '1': 'itinerary',
+            'other': 'itineraries'
+          }">
+        </ng-pluralize>
+        <span ng-show="!userItineraries.length">0 itineraries</span>
+      </h4>
+    </div>
+  </div>
+
 </div>
 
-<div class="container">
+
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
-
-      <div class="panel add-panel">
-        <div class="panel-heading add-itinerary-panel-head">
-         <h3 class="dash-main-header">Going somewhere? Share a new itinerary!</h3>
-        </div>
-        <div class="panel-body">
-          <p>Share your interests with fellow TripChatters and see where their suggestions take you!</p>
-          <form class="row" name="itineraryForm">
-              <div class="form-group col-sm-12">
-                <input ng-model="itinerary.title" name="title" type="text" class="form-control validate" placeholder="Intinerary Name">
-              </div>
-              <div class="form-group col-sm-4">
-                <input ng-model="itinerary.city" name="city" type="text" class="form-control validate" placeholder="City">
-              </div>
-              <div class="form-group col-sm-4">
-                <input ng-model="itinerary.state" name="state" type="text" class="form-control validate" placeholder="State">
-              </div>
-               <div class="form-group col-sm-4">
-                <input ng-model="itinerary.country" name"country" type="text" class="form-control validate" placeholder="Country">
-              </div>
-               <div class="form-group share-itinerary col-sm-4 col-sm-offset-8">
-                <button class="btn btn-success pull-right" ng-click="addItinerary()" ng-submit="addItinerary()">Share Itinerary</button>
-              </div>
-          </form>
-        </div>
-
-      </div>
-
-
       <div class="panel add-panel itin-panel" ng-repeat="itinerary in userItineraries | orderBy:'-createdAt'">
 
         <div class="panel-heading itin-heading clearfix">
