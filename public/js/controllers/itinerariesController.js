@@ -71,15 +71,21 @@ angular.module('TripChat')
           link: $scope.comment.link
         })
         .then(function(results) {
-          console.log(results.data);
-          $scope.newComment = '';
+          $scope.newComment = ''; // What is this for??
+          $scope.comment.text = "";
+          $scope.comment.address = "";
+          $scope.comment.link = "";
           $scope.comments.push(results.data);
+          console.log(results.data);
         }, function(err) {
           console.log(err);
         });
       }
     });
+    $scope.getCurrentItinerary();
   }
+
+
 
   $scope.goToUsernameProfile = function() {
     console.log('goToUsernameProfile() fired');
@@ -264,7 +270,7 @@ angular.module('TripChat')
         result.data.forEach(function(element, index) {
           var marker = {
             coords: {
-              latitude: element.latitude, 
+              latitude: element.latitude,
               longitude: element.longitude
             },
             id: element.id,
@@ -275,7 +281,7 @@ angular.module('TripChat')
             }
           }
           $scope.map.markers.push(marker);
-          
+
         });
       }, function(err) {
         console.log(err);
