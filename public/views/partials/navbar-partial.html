@@ -7,18 +7,16 @@
         <span class="sr-only">Toggle navigation</span>
         <span class="glyphicon glyphicon-menu-hamburger"></span>
       </button>
-      <a class="navbar-brand" href="/">Trip Chats</a>
+      <a class="navbar-brand hide-on-small-only" href="/">Trip Chats</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-     <!--  <span id="welcome-user" class="brand-logo text-shadow welcomeHeader">Welcome <span ng-show="user">{{ user.fname }}</span></span>
-      <h3 class="brand-logo text-shadow text-center">Welcome <span ng-show="user">{{ user.fname }}</span></h3>
-      <a ng-show="!user" type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target=".login">Log In</a>
-      <a ng-show="!user" type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target=".signup">Sign Up</a> -->
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
+
+        <!-- When user is logged in -->
         <li ng-show="user" class="dropdown">
           <a id="username-navbar" href='#' class="dropdown-toggle" data-toggle="dropdown">{{ user.username }}&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
           <ul class="dropdown-menu">
@@ -33,6 +31,7 @@
             </li>
           </ul>
 
+          <!-- When user is not logged in -->
           <li ng-show="!user"><button type="button" class="btn btn-login" data-toggle="modal" data-target=".login">Log In</button></li>
           <li class="signup-link" ng-show="!user"><button type="button" class="btn btn-signup" data-toggle="modal" data-target=".signup">Sign Up</button></li>
 
