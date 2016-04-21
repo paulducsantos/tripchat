@@ -60,6 +60,8 @@ module.exports.routes = function(app) {
 
   app.post('/login', passport.authenticate('local'), function(req, res) {
       res.json(req.user);
+    }, function(err, req, res, next) {
+      res.status(401).json(err);
     }
   );
   app.post('/signup', controller.signup);
@@ -98,7 +100,7 @@ module.exports.routes = function(app) {
     models.User.findOne({
       where: {username: username }
     }).then(function(user) {
-      console.log(user.id);
+      // console.log(user.id);
       // check the password against the hash
       if(user) {
         bcrypt.compare(password, user.password, function(err, userlogin) {
@@ -110,8 +112,10 @@ module.exports.routes = function(app) {
             done(null, null);
           }
         });
+      } else {
+        done("NO USE FOUND");
       }
-    })
+    });
   })); // end passport-local
 
   // ************** PASSPORT-FACEBOOK **************
