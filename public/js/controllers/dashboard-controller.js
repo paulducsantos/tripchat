@@ -66,7 +66,6 @@ angular.module("TripChat")
     });
   };
 
-
   $scope.deleteActivity = function(activityId){
     console.log(activityId);
 
@@ -78,7 +77,6 @@ angular.module("TripChat")
       console.log(err);
     });
   };
-
 
   //FOR SEARCH PARTIAL WHEN COMPLETED
   $scope.getItineraries = function() {
