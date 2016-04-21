@@ -80,6 +80,9 @@
               <div class="col-sm-12">
                 <input type="text" ng-model="itinerary.title"  class="form-control editable-input-fields">
               </div>
+              <div class="col-sm-12">
+                <input type="text" ng-model="itinerary.description"  class="form-control editable-input-fields">
+              </div>
               <div class="col-sm-4">
                 <input type="text" ng-model="itinerary.city"  class="form-control editable-input-fields">
               </div>
@@ -100,6 +103,9 @@
             </div>
             <div class="col-sm-8">
               <div class="row">
+                <div class="itinerary-description">
+                  {{itinerary.description}}
+                </div>
                 <form>
                   <div class="form-group">
                     <p ng-hide="editOptions">What are you interested in?</p>

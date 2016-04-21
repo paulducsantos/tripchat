@@ -27,6 +27,7 @@ angular.module("TripChat")
       city: $scope.itinerary.city,
       state: $scope.itinerary.state,
       country: $scope.itinerary.country,
+      country: $scope.itinerary.description,
       UserId: $scope.user.id
     })
     .then(function (result) {
@@ -35,6 +36,7 @@ angular.module("TripChat")
       $scope.itinerary.city = "";
       $scope.itinerary.state = "";
       $scope.itinerary.country = "";
+      $scope.itinerary.description = "";
      },function(err) {
       console.log(err)
     });
@@ -99,51 +101,4 @@ angular.module("TripChat")
       $location.path('/');
     }
   };
-
-  geocoder = new google.maps.Geocoder();
-
-  // $scope.addComment = function(itineraryId, city) {
-  //   var lng;
-  //   var lat;
-  //   console.log(itineraryId);
-  //   geocoder.geocode({ address: $scope.itinerary.address}, function (result, status) {
-  //     if (status === google.maps.GeocoderStatus.OK) {
-  //       lat = result[0].geometry.location.lat();
-  //       lng = result[0].geometry.location.lng();
-  //       console.log(lat);
-  //       console.log(lng);
-  //       $http.post('/api/comments', {
-  //         text: $scope.itinerary.text,
-  //         ItineraryId: itineraryId,
-  //         UserId: $scope.user.id,
-  //         address: $scope.itinerary.address,
-  //         city: city,
-  //         longitude: lng,
-  //         latitude: lat,
-  //         link: $scope.itinerary.link
-  //       })
-  //       .then(function(results) {
-  //         console.log(results.data);
-  //         $scope.newComment = '';
-  //         $scope.comments.push(results.data);
-  //       }, function(err) {
-  //         console.log(err);
-  //       });
-  //     }
-  //   });
-  // }
-
-  //  $scope.getItineraryActivities = function(){
-  //   $http.get("/api/activites?ItineraryId=" + $scope.itinerary.id, {
-  //     $scope.activity_name,
-  //     $scope.activity_address,
-
-  //   })
-  //   .then(function (result) {
-  //     $scope.getItineraryActivities = response.data;
-  //    }), (function(err) {
-  //     console.log(err);
-  //   });
-  //   $scope.getItineraryActivities();
-  // };
 }]);

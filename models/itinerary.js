@@ -12,13 +12,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true  
+        notEmpty: true
       }
     },
     state: {
       type: DataTypes.STRING
     },
     country: {
+      type: DataTypes.STRING
+    },
+    description:{
       type: DataTypes.STRING
     }
   }, {
