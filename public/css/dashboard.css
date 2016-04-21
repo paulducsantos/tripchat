@@ -19,6 +19,7 @@ li.interest{
   font-size: 15px;
   height: 31px;
   margin-bottom: 15px;
+  padding-top: 5px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -63,8 +64,8 @@ h3.dash-itinerary-heading{
 }
 
 .header-background{
-  height: 200px;
-  background-image: url("../images/california_dash.png");
+  height: 60px;
+  background-color: #337AB7;
   background-size: cover;
   background-position: center center;
   margin-top: -60px;
@@ -76,13 +77,10 @@ h3.dash-itinerary-heading{
 
 .dash-header{
   color: #fff;
-  font-size: 35px;
-  border-top: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  padding: 7px 15px;
-  display: inline-block;
-  position: relative;
-  top: 105px;
+  font-size: 25px;
+  padding: 2px 15px;
+
+
 }
 
 .editable-input-fields{

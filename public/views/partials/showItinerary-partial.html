@@ -1,60 +1,74 @@
 <div class="container-fluid header-background"  ng-init="getCurrentItinerary()">
-  <h3 class="dash-header">{{currentItinerary.title}}</h3>
+  <h3 class="dash-header text-center">{{currentItinerary.title}}</h3>
 </div>
-
 <div class="container-fluid">
+  <div class="row add-comment-row">
 
-<div class="row">
-  <div class="col-sm-4 comments-column">
-    <div class="panel add-panel itin-panel">
-
-      <div class="panel-heading itin-heading">
-          <h3 class="dash-itinerary-heading"><a class="username-dash-itinerary-heading" ui-sref="user({username: currentItinerary.User.username})">@{{currentItinerary.User.username}}</a> is interested in:</h3>
-      </div>
-
-      <div class="panel-body showItinerary-panel-body">
-         <div ng-repeat="activity in currentItinerary.Activities">
-          <div class="col-sm-4 interest-col">
-            <div class=" show-itinerary-interest text-center">
-              <span class="interest-name">{{activity.name}}</span>
-            </div>
-          </div><!-- end col s4 -->
+    <div class="col-sm-6">
+      <div class="add-comment-activites">
+        <div class="itinerary-description">
+          <p>Hey TripChatters! We are going out to Vegas to celebrate Paul's last time of being single! What should we do? Where should we go? We have never been! Help us out!
         </div>
+      </div>
+    </div>
 
-        <div class="form-group clearfix" ng-show="showCommentBox">
+    <div class="col-sm-6">
+
+      <div class="panel add-panel itin-panel add-comment-panel">
+        <div class="form-group" >
           <form>
-            <div class="col-sm-12 interest-col">
-              <textarea ng-model="comment.text" class="form-control" rows="3" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{currentItinerary.User.fname}} where to go on in {{currentItinerary.city}}."></textarea>
+            <div class="col-sm-12 interest-col ">
+              <textarea ng-model="comment.text" class="form-control" rows="2" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{currentItinerary.User.fname}} where to go on in {{currentItinerary.city}}."></textarea>
             </div>
-            <div class="col-sm-6 interest-col">
-              <input ng-model="comment.address" class="form-control col-sm-6 latest-address-input" type="text"  placeholder="Street Address"/>
+
+            <div class="col-sm-5  interest-col">
+              <div class="form-group add-itinerary-form">
+              <input ng-model="comment.address" class="form-control" type="text"  placeholder="Street Address"/>
             </div>
-            <div class="col-sm-6 interest-col">
-              <input ng-model="comment.link" class="form-control col-sm-6 latest-address-input"  type="text"  placeholder="Website"/>
+            </div>
+
+            <div class="col-sm-5 interest-col">
+              <div class="form-group add-itinerary-form">
+              <input ng-model="comment.link" class="form-control"  type="text"  placeholder="Website"/>
+              </div>
+            </div>
+
+            <div class="col-sm-2 interest-col">
+              <div class="form-group add-itinerary-form">
+                <button type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn btn-success share-btn">Share It!</button>
+              </div>
             </div>
           </form>
         </div>
       </div>
 
-      <div class="itinerary-footer clearfix">
-        <div class="button-container pull-right">
-          <div ng-hide="showCommentBox" class="comment-button-group pull-right">
-            Have a suggestion for {{currentItinerary.User.fname}}?<a type="button" ng-click="showCommentBox=true" class="btn">Share It!</a>
-          </div>
-          <div class="comment-button-group pull-right" ng-show="showCommentBox">
-            <a type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city);showCommentBox=false"class="btn">Share It!</a>
-            <a type="button"  ng-click="showCommentBox=false" class="btn">Cancel</a>
-          </div>
-        </div>
-      </div>
-    </div> <!-- End Panel-->
-  <hr class="show-itin-hr">
 
-  <div class="recent-comment-header">
-    <h4>Recent Comments</h4>
+    </div>
+
   </div>
+  <div class="row interest-row">
+    <div class="col-sm-12">
+      <div class="interest-name clearfix">
+       <a class="username-link" ui-sref="user({username: currentItinerary.User.username})">{{currentItinerary.User.fname}}</a> is interested in:
+       </div>
+        <div class="interest-name" ng-repeat="activity in currentItinerary.Activities">
+          <span >{{activity.name}}</span>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+
+<div class="row">
+  <div class="col-sm-4 comments-column">
+     <!-- End Panel-->
+
     <div class="">
-      <div class="comment-box" ng-repeat="comment in currentItinerary.comments"><!-- ng-repeat="comment in comments" -->
+      <div class="comment-box" ng-repeat="comment in currentItinerary.comments | orderBy:'-createdAt'"><!-- ng-repeat="comment in comments" -->
         <div class="row">
           <div class="col-sm-12">
             <div class="comment-heading">
@@ -94,4 +108,3 @@
 </div>
 
 </div>
-

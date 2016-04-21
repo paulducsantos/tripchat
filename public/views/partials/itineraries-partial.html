@@ -1,39 +1,46 @@
 <div class="container-fluid header-background" ng-init="init()">
-<<<<<<< HEAD
-    <h3 class="dash-header">All Itineraries</h3>
-=======
-  <h3 class="dash-header">TripChats | All Itineraries</h3>
->>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
+  <h3 class="dash-header text-center">{{user.username}} | All Itineraries</h3>
 </div>
 
 <div class="container-fluid">
-<<<<<<< HEAD
-    <div class="row">
-        <div class="itineraryLists col-lg-4 col-md-5 col-sm-6 col-xs-6">
+  <div class="row add-comment-row">
+    <div class="col-sm-4">
+      <div class="form-inline input-group search-itineraries">
+        <input type="text" ng-model="search.city" ng-change="filterGeo(); numItins()" ng-model-options=" { debounce: 500 } " class="form-control" placeholder="Search a specific location">
+        <div class="input-group-btn">
+          <button ng-click="filterGeo()" class="btn btn-success">Search</button>
+        </div>
+      </div>
+    </div>
 
-<!--         Start of the Search Bar -->
-<!--             <div class="center input-field searchSection">
-                <input type="text" ng-model="findLocation" class="form-control searchbar searchMargin" placeholder="Search a specific location">
-                <button ui-sref="itineraries({location: findLocation})" class="btn btn-default btn-warning searchItinBtn">Search</button>
-            </div>
- -->
+  </div>
+  <div class="row interest-row">
+    <div class='col-sm-12'>
+      <div class="prodash-link pull-right">
+        <p class="add-new-itin">Going somewhere? Create Your Own Itinerary! </p>
+        <a type="button" href="/dashboard" class="btn btn-success add-itin-dash-link">Add Itinerary</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-=======
+<div class="container-fluid">
   <div class="row">
     <div class="itineraryLists col-md-4">
-      <div class="center input-field">
-        <input type="text" ng-model="search.city" ng-change="filterGeo()" ng-model-options=" { debounce: 500 } " class="col-md-12 form-control searchbar searchWidth" placeholder="Search a specific location">
-        <button ng-click="filterGeo()" class="btn btn-default btn-primary searchItinBtn">Search</button>
+      <div ng-show="!(allItineraries | filter:search:strict).length">
+        <div class="clearfix">
+          <br />
+          <h4>No itineraries for this location.</h4>
+          <h4>Be the first to post an itinerary here!</h4>
+        </div>
       </div>
 
-
       <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict">
-
 
         <div class="panel-heading itin-heading clearfix" ng-mouseenter="hoverGeo(itinerary.city)">
           <div class="dash-heading-container clearfix" >
             <div class="col-sm-6">
-              <h3 class="dash-itinerary-heading clearfix itinHead" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</h3>
+              <h3 class="dash-itinerary-heading clearfix itinHead" ui-sref="showItinerary({id: itinerary.id})">{{itinerary.title}}</h3>
             </div>
             <div class="col-sm-6">
               <h5 class="dash-itinerary-heading pull-right locationItin"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
@@ -41,97 +48,73 @@
           </div>
         </div>
 
-        <div class="panel-body showItinerary-panel-body">
-         <div ng-repeat="activity in currentItinerary.Activities">
-          <div class="col-sm-4 interest-col">
-            <div class=" show-itinerary-interest text-center">
-              <span class="interest-name">{{activity.name}}</span>
-            </div>
-          </div><!-- end col s4 -->
+      <div class="panel-body showItinerary-panel-body allItinerariesBox">
+        <div class="itineraryInfo">
+          <div class="">
+            <div class="col-md-3"><img class="userImage" src="https://cdn-images-1.medium.com/fit/c/100/100/0*hC8RSOUqrstv2JO6.jpg"></div>
+            <h7 class="col-md-3" >User: <a ui-sref="user({username: itinerary.User.username})">{{user.username}}</a></h7>
+            <h7 class="col-md-6" >Description: I'm thinking about going on an adventure around the city. Anyone know of any good bars and/or restaurants</h7>
+          </div>
         </div>
->>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
-
-            <div class="input-group">
-              <input type="text" ng-model="findLocation" class="form-control" placeholder="Search a specific location">
-              <span class="input-group-btn">
-                <button class="btn btn-warning" ui-sref="itineraries({location: findLocation})" type="button">Search</button>
-              </span>
+        <div class="form-group clearfix" ng-show="showCommentBox">
+          <form>
+            <div class="col-sm-12 interest-col">
+              <textarea class="form-control" rows="3" id="comment" placeholder="Add a comment for {{user.username}} to visit."></textarea>
             </div>
+            <div class="col-sm-6 interest-col">
+              <input ng-model="comment.address" class="form-control col-sm-6 latest-address-input" type="text"  placeholder="Street Address"/>
+            </div>
+            <div class="col-sm-6 interest-col">
+              <input ng-model="comment.link" class="form-control col-sm-6 latest-address-input"  type="text"  placeholder="Website"/>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="itinerary-footer clearfix">
+        <div class="button-container pull-left">
+          <div ng-hide="showCommentBox" class="comment-button-group pull-right"><a type="button" ng-click="showCommentBox=true" class="btn">Add Comment</a>
+          </div>
+          <div class="comment-button-group pull-right" ng-show="showCommentBox">
+            <a type="button" ng-click="showCommentBox=true"class="btn">Add</a>
+            <a type="button"  ng-click="showCommentBox=false" class="btn">Close</a>
+          </div>
+        </div>
+        <div class="button-container pull-right">
+          <div ng-hide="showCommentBox" class="comment-button-group pull-right"><a type="button" ng-click="showCommentBox=true" class="btn" ui-sref="showItinerary({id: itinerary.id})">View Comments</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-            <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict">
-                <div class="panel-heading itin-heading clearfix">
-                    <div class="dash-heading-container clearfix">
-                        <div class="col-lg-6">
-                            <h3 class="dash-itinerary-heading clearfix itinHead" ui-sref="showItinerary({id: itinerary.id})">{{itinerary.title}}</h3>
-                        </div>
-                        <div class="col-lg-6">
-                            <h5 class="dash-itinerary-heading pull-right locationItin"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
-                        </div>
+<!--             <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
+                <div class="row">
+                    <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
+                    <h5 class="col-md-4 userName" ui-sref="showItinerary({id: itinerary.id})"><small>User:</small> {{itinerary.User.username}}</h5>
+                </div>
+                <div class="row">
+                    <h5 class="col-md-9 itineraryLocation">{{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
+                    <h5 class="col-md-3 itineraryLocation interestsItin">Interests:</h5>
+                </div>
+                <div class="row">
+                    <ul class="col-md-offset-6" ng-repeat="activity in itinerary.Activities">
+                        <span class="interest-name"><button class="btn btn-xs btn-primary">{{activity.name}}</button></span>
+                    </ul>
+                </div>
+                <h4><a  class="col-md-offset-3" ui-sref=".details({id: itinerary.id})">Suggestions</a></h4>
+                <a class="btn btn-block btn-xs btn-success" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          View Suggestions
+        </a>
+                <div class="collapse" id="collapseExample">
+                    <div class="well" ui-sref=".details({id: itinerary.id})">
+                        <a ui-sref=".details({id: itinerary.id})"></a>
                     </div>
                 </div>
-<<<<<<< HEAD
-=======
                 <div class="divider"></div>
               </div> -->
             </div>
->>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
 
-                <div class="panel-body showItinerary-panel-body">
-                    <div ng-repeat="activity in currentItinerary.Activities">
-                        <div class="col-lg-4 interest-col">
-                            <div class=" show-itinerary-interest text-center">
-                                <span class="interest-name">{{activity.name}}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group clearfix" ng-show="showCommentBox">
-                            <div class="col-sm-12 interest-col">
-                                Get Suggestions Here
-                            </div>
-                    </div>
-                </div>
-
-<<<<<<< HEAD
-                <div class="itinerary-footer clearfix">
-                    <div class="button-container pull-right">
-                        <div ng-hide="showCommentBox" class="comment-button-group pull-right">
-                            View Suggestions<a type="button" ng-click="showCommentBox=true" class="btn">Here</a>
-                        </div>
-                        <div class="comment-button-group pull-right" ng-show="showCommentBox">
-                            <a type="button" ng-click="showCommentBox=true" class="btn">Here</a>
-                            <a type="button" ng-click="showCommentBox=false" class="btn">Cancel</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Start of Map -->
-        <div class="col-lg-8 col-md-7 col-sm-6 col-xs-6 mapBorder">
-            <div id="map">
-                <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
-                    <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
-                        <ui-gmap-windows show="show">
-                            <div ng-non-bindable>
-                                {{title}}
-                                <br /> Located at: {{address}}
-                            </div>
-                        </ui-gmap-windows>
-                    </ui-gmap-markers>
-                </ui-gmap-google-map>
-            </div>
-        </div>
-        <!-- End of Map -->
-
-    </div>
-</div>
-<!-- Footer -->
-<div>
-    <ui-view></ui-view>
-</div>
-=======
     <div class="col-md-8 mapBorder">
       <div id="map">
           <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
@@ -153,4 +136,3 @@
       <ui-view></ui-view>
     </div>
   </div>
->>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af

@@ -10,6 +10,7 @@ angular.module('TripChat')
       lname: $scope.lname
     })
     .then(function(result) {
+      $('.login').modal('toggle')
     })
   } // end sign up
 
@@ -34,7 +35,7 @@ angular.module('TripChat')
   $scope.logout = function() {
     $http.get('/logout').then(function() {
       $rootScope.user = '';
-      $state.go('home');
+      // $state.go('home');
     }, function(err) {
       console.log(err);
     })

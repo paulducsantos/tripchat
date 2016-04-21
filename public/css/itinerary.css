@@ -1,8 +1,19 @@
-.searchBtn {
-    box-shadow: 3px 3px 2px #888888;
+.search-itineraries{
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
+.add-itin-dash-link{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
+.btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  border-bottom: 2px solid #5cb85c;
+ }
 .itinerariesTitle {
   color: white;
   background-color: #337AB7;
@@ -113,7 +124,6 @@
 
 
 
-
 .itinHead {
   cursor: pointer;
 }
@@ -138,8 +148,29 @@
 
 .searchSection {
   width: 100%;
-=======
+}
+
 .itin-heading:hover {
   background-color: #215582;
->>>>>>> 14204e162f20782ad7a7c1e1de34b2f996d631af
+}
+
+.add-new-itin{
+  color: #fff;
+  display: inline-block;
+  padding-top: 10px;
+  padding-right: 5px;
+}
+
+
+.allItinerariesBox {
+   background-color: white;
+   margin-top:5px; 
+   margin-bottom: 5px; 
+   margin-right: 5px; 
+   padding-top: 0px;
+}
+
+.userImage {
+  width: 50px;
+  height: 50px;
 }

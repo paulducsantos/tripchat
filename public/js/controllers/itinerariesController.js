@@ -19,6 +19,7 @@ angular.module('TripChat')
     .then(function(result) {
       $scope.allItineraries = result.data;
       console.log($scope.allItineraries);
+      console.log($scope.allItineraries.length);
       // $scope.getComments($scope.latestItinerary.id);
     }, function(err) {
       console.log(err)
@@ -29,7 +30,6 @@ angular.module('TripChat')
     $http.get('/api/itineraries/' + $stateParams.id)
     .then(function(result) {
       $scope.currentItinerary = result.data;
-      console.log($scope.currentItinerary);
       $scope.currentItineraryGeo($scope.currentItinerary.city)
       $scope.getComments();
     }, function(err) {
@@ -71,21 +71,25 @@ angular.module('TripChat')
           link: $scope.comment.link
         })
         .then(function(results) {
-          console.log(results.data);
-          $scope.newComment = '';
+          $scope.newComment = ''; // What is this for??
+          $scope.comment.text = "";
+          $scope.comment.address = "";
+          $scope.comment.link = "";
           $scope.comments.push(results.data);
+          console.log(results.data);
         }, function(err) {
           console.log(err);
         });
       }
     });
+    $scope.getCurrentItinerary();
   }
+
+
 
   $scope.goToUsernameProfile = function() {
     console.log('goToUsernameProfile() fired');
   };
-
-
 
 
 /* ============================================================
@@ -264,7 +268,7 @@ angular.module('TripChat')
         result.data.forEach(function(element, index) {
           var marker = {
             coords: {
-              latitude: element.latitude, 
+              latitude: element.latitude,
               longitude: element.longitude
             },
             id: element.id,
@@ -275,7 +279,7 @@ angular.module('TripChat')
             }
           }
           $scope.map.markers.push(marker);
-          
+
         });
       }, function(err) {
         console.log(err);

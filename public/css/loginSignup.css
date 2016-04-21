@@ -25,23 +25,57 @@
 
 }
 
-.signupBtn {
-  padding-left: 20px;
-  margin-left: 116px;
-  margin-top: 10px;
 
-}
-
-.signupMargin {
-  margin-bottom: 0px;
-}
 
 .mdLgFields {
   border-left-width: 0px;
   border-top-width: 0px;
   padding-top: 0px;
-  margin-left: 18px;
-  width: 225px;
+  margin-left: 1px;
+  width: 100%;
   padding-left: 0px;
 }
 
+
+
+
+
+
+/****************************************************
+LOGIN/SIGNUP
+****************************************************/
+
+.or {
+  text-align: center;
+}
+
+
+.formPadding {
+  padding-left: 12px;
+}
+
+.inputField {
+  margin-bottom: 15px;
+}
+
+
+
+/****************************************************
+LOGIN
+****************************************************/
+.loginSubmitBtn {
+  width: 100%;
+}
+
+.guestLogin {
+  text-align: center;
+}
+
+
+
+/****************************************************
+SIGNUP
+****************************************************/
+.signupBtn {
+  width: 100%;
+}
