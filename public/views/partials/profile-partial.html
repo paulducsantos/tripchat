@@ -5,7 +5,7 @@
   <div id="user-info" class="row">
     <div class="col-md-2">
       <br />
-      <img src="images/default-profile-pic.png">
+      <img src="images/user_image.png" width="150px" class="center-block">
     </div>
     <div class="col-md-3">
       <h3>{{ userData.fname }} {{ userData.lname }}</h3>
@@ -39,7 +39,10 @@
     <!-- Itineraries Column -->
     <div class="col-sm-12 col-md-6">
       <br />
-      <h3>@{{ userData.username }}'s Itineraries</h3>
+      <div class="panel-heading itin-heading clearfix">
+        <h3 class="dash-itinerary-heading clearfix">@{{ userData.username }}'s Itineraries</h3>
+      </div>
+      
       <div class="itinerary" ng-repeat="itinerary in userItineraries">
         <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</a></h3>
         <h5>{{itinerary.location}}</h5>
@@ -69,7 +72,9 @@
     <!-- Comments Column -->
     <div class="col-sm-12 col-md-6">
       <br />
-      <h3>@{{ userData.username }}'s Comments</h3>
+      <div class="panel-heading itin-heading clearfix">
+        <h3 class="dash-itinerary-heading clearfix">@{{ userData.username }}'s Comments</h3>
+      </div>
       <div class="itinerary" ng-repeat="comment in userComments">
         <h3><a href="/itineraries/{{comment.ItineraryId}}">{{comment.Itinerary.title}}</a></h3>
         <h5>{{comment.Itinerary.location}}</h5>
