@@ -99,6 +99,10 @@ body {
   color: white;
 }
 
+.navbar-inverse, .navbar-nav>li>a, .navbar-brand {
+  color: white !important;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
