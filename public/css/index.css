@@ -91,6 +91,18 @@ body {
     display: inline;
 }
 
+.navbar-header, .navbar-collapse, #username-navbar {
+  background-color: #337AB7
+}
+
+.glyphicon-menu-hamburger {
+  color: white;
+}
+
+.navbar-inverse, .navbar-nav>li>a, .navbar-brand {
+  color: white !important;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
