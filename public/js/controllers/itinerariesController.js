@@ -76,13 +76,14 @@ angular.module('TripChat')
           $scope.comment.address = "";
           $scope.comment.link = "";
           $scope.comments.push(results.data);
+
           console.log(results.data);
         }, function(err) {
           console.log(err);
         });
       }
+       $scope.getCurrentItinerary();
     });
-    $scope.getCurrentItinerary();
   }
 
 

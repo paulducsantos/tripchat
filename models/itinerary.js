@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true  
+        notEmpty: true
       }
     },
     state: {
@@ -21,6 +21,9 @@ module.exports = function(sequelize, DataTypes) {
     country: {
       type: DataTypes.STRING
     }
+    // description:{
+    //   type: DataTypes.STRING
+    // }
   }, {
     classMethods: {
       associate: function(models) {

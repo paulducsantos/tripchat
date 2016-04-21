@@ -208,8 +208,18 @@ a.latest-itinerary-link:hover{
 }
 
 .dash-main-header{
-  margin-top: 5px;
+  margin-top: 15px;
   margin-bottom: 5px;
+  color: #fff;
+}
+.dash-main-para{
+  color:#fff;
+  margin-top:22px;
+  font-size: 15px;
+}
+
+.itinerary-number{
+  color: #fff;
 }
 
 .add-panel{
@@ -234,4 +244,17 @@ a.latest-itinerary-link:hover{
 
 p{
   font-size: 17px;
+}
+
+.middle-col{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.add-itin-form{
+  margin-top: 15px;
+}
+
+.add-itin-button{
+  width: 100%;
 }
