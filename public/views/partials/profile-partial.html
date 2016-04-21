@@ -43,7 +43,7 @@
         <h3 class="dash-itinerary-heading clearfix">@{{ userData.username }}'s Itineraries</h3>
       </div>
       
-      <div class="itinerary" ng-repeat="itinerary in userItineraries">
+      <div ng-repeat="itinerary in userItineraries">
         <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</a></h3>
         <h5>{{itinerary.location}}</h5>
         <br />
@@ -65,6 +65,7 @@
               <div class="divider"></div>
             </div>
           </div>
+          <div class="itinerary-footer clearfix"></div>
         </div>
         <div class="divider"></div>
       </div>
@@ -75,7 +76,7 @@
       <div class="panel-heading itin-heading clearfix">
         <h3 class="dash-itinerary-heading clearfix">@{{ userData.username }}'s Comments</h3>
       </div>
-      <div class="itinerary" ng-repeat="comment in userComments">
+      <div ng-repeat="comment in userComments">
         <h3><a href="/itineraries/{{comment.ItineraryId}}">{{comment.Itinerary.title}}</a></h3>
         <h5>{{comment.Itinerary.location}}</h5>
         <br />
