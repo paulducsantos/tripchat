@@ -52,7 +52,7 @@
       <div class="panel-body showItinerary-panel-body allItinerariesBox">
         <div class="itineraryInfo">
           <div class="">
-            <div class="col-md-3"><img class="userImage" src="./images/user_image.png"></div>
+            <div class="col-md-3"><img class="userImage" src="http://www.gravatar.com/avatar/{{ userData.email | gravatar }}?s=200&d=mm"></div>
             <h7 class="col-md-3" ><a ui-sref="user({username: itinerary.User.username})">{{itinerary.User.username}}</a></h7>
             <h7 class="col-md-6" >{{itinerary.description}}</h7>
           </div>
