@@ -54,7 +54,7 @@
           <div class="">
             <div class="col-md-3"><img class="userImage" src="./images/user_image.png"></div>
             <h7 class="col-md-3" ><a ui-sref="user({username: itinerary.User.username})">{{itinerary.User.username}}</a></h7>
-            <h7 class="col-md-6" >Description: I'm thinking about going on an adventure around the city. Anyone know of any good bars and/or restaurants?!?!</h7>
+            <h7 class="col-md-6" >{{itinerary.description}}</h7>
           </div>
         </div>
         <div class="form-group clearfix" ng-show="showCommentBox">
