@@ -19,7 +19,7 @@
       <div class="prodash-link pull-right">
         <p class="add-new-itin">Going somewhere? Create Your Own Itinerary! </p>
         <a type="button" ng-show="user" href="/dashboard" class="btn btn-success add-itin-dash-link">Add Itinerary</a>
-        <a type="button" ng-show="!user" href="/dashboard" class="btn btn-success add-itin-dash-link" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Log in to share">Add Itinerary</a>
+        <a type="button" ng-show="!user" class="btn btn-success add-itin-dash-link" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Log in to share">Add Itinerary</a>
       </div>
     </div>
   </div>
@@ -52,9 +52,15 @@
       <div class="panel-body showItinerary-panel-body allItinerariesBox">
         <div class="itineraryInfo">
           <div class="">
-            <div class="col-md-3"><img class="userImage" src="./images/user_image.png"></div>
-            <h7 class="col-md-3" ><a ui-sref="user({username: itinerary.User.username})">{{itinerary.User.username}}</a></h7>
-            <h7 class="col-md-6" >{{itinerary.description}}</h7>
+            <div class="col-md-3">
+              <a ui-sref="user({username: itinerary.User.username})">
+                <img class="userImage" src="./images/user_image.png">
+              </a>
+              <a ui-sref="user({username: itinerary.User.username})">
+                <h5 class="dash-itinerary-heading clearfix itinHead">@<span>{{ itinerary.User.username }}</span></h5>
+              </a>
+            </div>
+            <h5 class="col-md-9" >Description: I'm thinking about going on an adventure around the city. Anyone know of any good bars and/or restaurants?!?!</h5>
           </div>
         </div>
         <div class="form-group clearfix" ng-show="showCommentBox">
