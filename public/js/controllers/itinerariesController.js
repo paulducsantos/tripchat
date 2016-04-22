@@ -3,8 +3,6 @@ angular.module('TripChat')
   // Gets called when the directive is ready:
 
   $scope.init = function() {
-    // $scope.getCurrentItinerary();
-    // $scope.getComments();
     $scope.getItineraries();
     $scope.makeMarkers();
     $scope.getGeo();
@@ -18,9 +16,6 @@ angular.module('TripChat')
     $http.get('/api/itineraries')
     .then(function(result) {
       $scope.allItineraries = result.data;
-      console.log($scope.allItineraries);
-      console.log($scope.allItineraries.length);
-      // $scope.getComments($scope.latestItinerary.id);
     }, function(err) {
       console.log(err)
     });
@@ -41,8 +36,6 @@ angular.module('TripChat')
     $http.get('/api/comments?ItineraryId=' + $stateParams.id)
     .then(function(results) {
       $scope.currentItinerary.comments = results.data;
-      console.log($scope.currentItinerary.comments)
-      console.log($scope.comments);
     }, function(err) {
       console.log(err);
     });
