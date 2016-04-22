@@ -69,7 +69,6 @@ angular.module("TripChat")
   };
 
   $scope.deleteActivity = function(activityId){
-    console.log(activityId);
 
     $http.delete("/api/activities/" + activityId)
     .then(function (result) {
@@ -85,7 +84,6 @@ angular.module("TripChat")
     $http.get('/api/itineraries')
       .then(function(result) {
         $scope.allItineraries = result.data;
-        console.log(result.data);
       }, function(err) {
         console.log(err)
       });
@@ -94,7 +92,6 @@ angular.module("TripChat")
 
   // Block users from going to dashboard page when not logged in.
   $scope.checkAuthentication = function() {
-    console.log($scope.user.id);
     if(!angular.isDefined($scope.user.id)) {
       $location.path('/');
     }
