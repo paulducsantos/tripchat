@@ -104,14 +104,14 @@
             </div>
             <div class="col-sm-8">
               <div class="row">
-                <div class="itinerary-description">
-                  {{itinerary.description}}
+                <div class="description">
+                  <p ng-hide="editOptions">{{itinerary.description}}</p>
                 </div>
                 <form>
                   <div class="form-group">
                     <p ng-hide="editOptions">What are you interested in?</p>
                     <div class="form-inline input-group add-interest-form" ng-hide="editOptions">
-                      <input placeholder="Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
+                      <input placeholder="e.g. Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
                       <div class="input-group-btn">
                         <button class="btn btn-success" ng-submit="addActivity(itinerary.id, itinerary.newActivity)" ng-click="addActivity(itinerary.id, itinerary.newActivity)">Add</button>
                       </div>
