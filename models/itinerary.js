@@ -20,10 +20,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     country: {
       type: DataTypes.STRING
+    },
+    description:{
+      type: DataTypes.STRING
     }
-    // description:{
-    //   type: DataTypes.STRING
-    // }
   }, {
     classMethods: {
       associate: function(models) {

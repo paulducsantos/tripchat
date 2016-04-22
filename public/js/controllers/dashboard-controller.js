@@ -27,7 +27,7 @@ angular.module("TripChat")
       city: $scope.itinerary.city,
       state: $scope.itinerary.state,
       country: $scope.itinerary.country,
-      country: $scope.itinerary.description,
+      description: $scope.itinerary.description,
       UserId: $scope.user.id
     })
     .then(function (result) {
