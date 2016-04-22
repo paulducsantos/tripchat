@@ -5,7 +5,7 @@
   <div id="user-info" class="row">
     <div class="col-md-2">
       <br />
-      <img src="images/user_image.png" width="150px" class="center-block">
+      <img src="http://www.gravatar.com/avatar/{{ userData.email | gravatar }}?s=200&d=mm" width="150px" class="center-block">
     </div>
     <div class="col-md-3">
       <h3>{{ userData.fname }} {{ userData.lname }}</h3>
