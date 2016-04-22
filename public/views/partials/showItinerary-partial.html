@@ -47,7 +47,7 @@
                 <button type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn btn-success share-btn">Share It!</button>
               </div>
             </div> <!-- end enabled btn -->
-            
+
           </form>
         </div>
       </div>
@@ -90,7 +90,7 @@
             <div class="comment-footer clearfix">
               <div class="itin-button-container pull-right">
                 <span class="street-address">{{comment.address}}</span>
-                <a class="website" ng-show="comment.link" href="{{comment.link}}" target="_blank">Visit Site</a>
+                <a class="website" ng-show="comment.link" href=" http://{{ comment.link }}" target="_blank">Visit Site</a>
               </div>
             </div>
           </div>
