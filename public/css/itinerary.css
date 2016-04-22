@@ -32,8 +32,9 @@
 }
 
 .searchItinBtn {
-  margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 20%;
 }
 
 .itinerary {
@@ -121,9 +122,7 @@
   background-color: #337AB7;
 }
 
-.searchWidth {
-  width: 288px;
-}
+
 
 .itinHead {
   cursor: pointer;
@@ -137,6 +136,20 @@
   padding-left: 4px;
 }
 
+<<<<<<< HEAD
+
+.searchMargin {
+  margin-top: 4px;
+  margin-left: 0px;
+  margin-bottom: 4px;
+  width: 70%;
+  margin-right: 0px;
+}
+
+.searchSection {
+  width: 100%;
+}
+
 .itin-heading:hover {
   background-color: #215582;
 }
@@ -146,4 +159,18 @@
   display: inline-block;
   padding-top: 10px;
   padding-right: 5px;
+}
+
+
+.allItinerariesBox {
+   background-color: white;
+   margin-top:5px; 
+   margin-bottom: 5px; 
+   margin-right: 5px; 
+   padding-top: 0px;
+}
+
+.userImage {
+  width: 50px;
+  height: 50px;
 }

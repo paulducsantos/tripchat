@@ -14,11 +14,12 @@
 
     <div class="col-sm-6">
 
+      <!-- When user is not logged in -->
       <div class="panel add-panel itin-panel add-comment-panel">
         <div class="form-group" >
           <form>
             <div class="col-sm-12 interest-col ">
-              <textarea ng-model="comment.text" class="form-control" rows="2" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{currentItinerary.User.fname}} where to go on in {{currentItinerary.city}}."></textarea>
+              <textarea ng-model="comment.text" class="form-control" rows="2" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{currentItinerary.User.fname}} where to go in {{currentItinerary.city}}."></textarea>
             </div>
 
             <div class="col-sm-5  interest-col">
@@ -33,16 +34,23 @@
               </div>
             </div>
 
-            <div class="col-sm-2 interest-col">
+            <!-- Disable btn when user is not logged in -->
+            <div ng-show="!user" class="col-sm-2 interest-col" data-toggle="tooltip" data-placement="top" title="Log in to share">
+              <div class="form-group add-itinerary-form">
+                <button type="button" class="btn btn-success share-btn" disabled="disabled">Share It!</button>
+              </div>
+            </div> <!-- end disabled btn -->
+
+            <!-- Enable btn when user is logged in -->
+            <div ng-show="user" class="col-sm-2 interest-col">
               <div class="form-group add-itinerary-form">
                 <button type="button" ng-click="addComment(currentItinerary.id, currentItinerary.city)"class="btn btn-success share-btn">Share It!</button>
               </div>
-            </div>
+            </div> <!-- end enabled btn -->
+            
           </form>
         </div>
       </div>
-
-
     </div>
 
   </div>
@@ -82,7 +90,7 @@
             <div class="comment-footer clearfix">
               <div class="itin-button-container pull-right">
                 <span class="street-address">{{comment.address}}</span>
-                <a class="website" ng-show="comment.link">Visit Site</a>
+                <a class="website" ng-show="comment.link" href="{{comment.link}}" target="_blank">Visit Site</a>
               </div>
             </div>
           </div>
