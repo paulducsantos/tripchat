@@ -43,10 +43,11 @@ angular.module('TripChat')
 
   geocoder = new google.maps.Geocoder();
 
+  $scope.comment = {};
+
   $scope.addComment = function(itineraryId, city) {
     var lng;
     var lat;
-    console.log(itineraryId);
     geocoder.geocode({ address: $scope.comment.address}, function (result, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         lat = result[0].geometry.location.lat();
@@ -64,18 +65,14 @@ angular.module('TripChat')
           link: $scope.comment.link
         })
         .then(function(results) {
-          $scope.newComment = ''; // What is this for??
           $scope.comment.text = "";
           $scope.comment.address = "";
           $scope.comment.link = "";
-          $scope.comments.push(results.data);
-
           console.log(results.data);
         }, function(err) {
           console.log(err);
         });
       }
-       $scope.getCurrentItinerary();
     });
   }
 

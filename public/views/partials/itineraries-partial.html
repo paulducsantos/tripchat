@@ -66,7 +66,7 @@
         <div class="form-group clearfix" ng-show="showCommentBox">
           <form>
             <div class="col-sm-12 interest-col">
-              <textarea class="form-control" rows="3" id="comment" placeholder="Add a comment for {{user.username}} to visit."></textarea>
+              <textarea class="form-control" rows="3" id="comment" ng-model="comment.text" placeholder="Add a comment for {{itinerary.User.username}} to visit."></textarea>
             </div>
             <div class="col-sm-6 interest-col">
               <input ng-model="comment.address" class="form-control col-sm-6 latest-address-input" type="text"  placeholder="Street Address"/>
@@ -83,7 +83,7 @@
           <div ng-hide="showCommentBox" class="comment-button-group pull-right"><a type="button" ng-click="showCommentBox=true" class="btn">Add Comment</a>
           </div>
           <div class="comment-button-group pull-right" ng-show="showCommentBox">
-            <a type="button" ng-click="showCommentBox=true"class="btn">Add</a>
+            <a type="button" ng-click="addComment(itinerary.id, itinerary.city); showCommentBox=false"class="btn">Add</a>
             <a type="button"  ng-click="showCommentBox=false" class="btn">Close</a>
           </div>
         </div>
