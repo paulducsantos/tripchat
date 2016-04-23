@@ -45,7 +45,7 @@
     <div class="col-sm-12">
       <h4 class="itinerary-number">
         You have </i> <span ng-show="userItineraries.length">{{userItineraries.length}}</span>
-        <ng-pluralize count="userItineraries.length"
+        <ng-pluralize ng-show="userItineraries.length" count="userItineraries.length"
           when="{
             '1': 'itinerary',
             'other': 'itineraries'
