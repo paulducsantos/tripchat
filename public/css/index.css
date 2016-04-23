@@ -102,6 +102,12 @@ a.navbar-brand:hover,a.navbar-brand:active, a.navbar-brand:focus {
 .social-row{
   margin-bottom: 50px;
 }
+
+.pointer {
+ cursor: pointer;
+}
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
