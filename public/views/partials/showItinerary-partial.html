@@ -1,3 +1,6 @@
+<head>
+  <style>.angular-google-map-container{height: 69vh;}</style>
+</head>
 <div class="container-fluid header-background"  ng-init="getCurrentItinerary()">
   <h3 class="dash-header text-center">{{currentItinerary.title}}</h3>
 </div>
@@ -100,7 +103,7 @@
   </div>
 
   <div class="col-sm-8 map-col">
-    <div id="map">
+    <div id="map" class="singleMap">
       <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
         <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
           <ui-gmap-windows show="show">

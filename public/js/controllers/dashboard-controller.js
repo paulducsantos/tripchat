@@ -54,7 +54,10 @@ angular.module("TripChat")
   $scope.editItinerary = function(itinerary) {
     $http.put('/api/itineraries/' + itinerary.id, {
       title: itinerary.title,
-      location:itinerary.location
+      city:itinerary.city,
+      state:itinerary.state,
+      country:itinerary.country,
+      description:itinerary.description
     });
   };
 
