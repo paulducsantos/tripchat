@@ -13,7 +13,7 @@
       <!-- Number of Itineraries -->
       <h4> <!-- If user has itineraries -->
         <i class="fa fa-list-ul" aria-hidden="true"></i> <span ng-show="userItineraries.length">{{userItineraries.length}}</span>
-        <ng-pluralize count="userItineraries.length"
+        <ng-pluralize ng-show="userItineraries.length" count="userItineraries.length"
           when="{
             '1': 'itinerary',
             'other': 'itineraries'
