@@ -76,6 +76,8 @@ angular.module('TripChat')
           $scope.comment.address = "";
           $scope.comment.link = "";
           console.log(results.data);
+          $scope.getComments();
+          $scope.newMarkers();
         }, function(err) {
           console.log(err);
         });
