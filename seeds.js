@@ -21,6 +21,7 @@ models.Activity.create(newActivity1)
 .then(function(result){
 
 });
+//asdf
 
 
 var newActivity2 = {
