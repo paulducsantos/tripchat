@@ -163,13 +163,17 @@
 
 .allItinerariesBox {
    background-color: white;
-   margin-top:5px; 
-   margin-bottom: 5px; 
-   margin-right: 5px; 
+   margin-top:5px;
+   margin-bottom: 5px;
+   margin-right: 5px;
    padding-top: 0px;
 }
 
 .userImage {
   width: 100px;
   height: 100px;
+}
+
+.prodash-link{
+  margin-top: 5px;
 }

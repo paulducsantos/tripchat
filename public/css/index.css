@@ -15,6 +15,11 @@ body {
   border: 0;
 }
 
+a.navbar-brand:hover,a.navbar-brand:active, a.navbar-brand:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
 .welcomeHeader {
   text-align: center;
 }
@@ -28,9 +33,10 @@ body {
   border-radius: 3px;
   border: 2px solid #fff;
   background-color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   display: inline-block;
   margin-top: 10px;
+  padding: 3px 12px;
 }
 
 .btn-signup:hover {
@@ -38,15 +44,17 @@ body {
   background-color: #337AB7;
   border: 2px solid #337AB7;
   text-decoration: none;
+
 }
 
 .btn-login {
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   border: 2px solid #fff;
   border-radius: 3px;
   background-color: transparent;
   margin-top: 10px;
+  padding: 3px 12px;
 }
 
 .btn-login:hover {
