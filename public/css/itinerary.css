@@ -84,7 +84,7 @@
 
 .itineraryLists {
   margin-top: 0px;
-  height: 73vh;
+  height: 76vh;
   overflow: scroll;
 }
 
@@ -163,9 +163,9 @@
 
 .allItinerariesBox {
    background-color: white;
-   margin-top:5px; 
-   margin-bottom: 5px; 
-   margin-right: 5px; 
+   margin-top:5px;
+   margin-bottom: 5px;
+   margin-right: 5px;
    padding-top: 0px;
 }
 
