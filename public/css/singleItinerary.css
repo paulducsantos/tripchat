@@ -83,7 +83,7 @@
 
 .comments-column{
   margin-top: 0px;
-  height: 73vh;
+  height: 69vh;
   overflow: scroll;
 }
 .add-itinerary-form{
@@ -128,3 +128,4 @@ a.username-link:hover{
   text-decoration: none;
   cursor: pointer;
 }
+

@@ -22,7 +22,18 @@
   </div>
   <div class="row interest-row">
     <div class='col-sm-12'>
-      <h4 class="itinerary-number">There are currently {{allItineraries.length}} itineraries.</h4>
+      <h4 class="itinerary-number">There <ng-pluralize ng-show="allItineraries.length" count="allItineraries.length"
+          when="{
+            '1': 'is',
+            'other': 'are'
+          }">
+        </ng-pluralize> currently <span ng-show="allItineraries.length">{{allItineraries.length}}</span>
+        <ng-pluralize ng-show="allItineraries.length" count="allItineraries.length"
+          when="{
+            '1': 'itinerary',
+            'other': 'itineraries'
+          }">
+        </ng-pluralize></h4>
     </div>
   </div>
 </div>
