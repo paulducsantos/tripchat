@@ -56,7 +56,7 @@
           <div class="">
             <div class="col-md-3">
               <a ui-sref="user({username: itinerary.User.username})">
-                <img class="userImage" src="./images/user_image.png">
+                <img class="userImage" src="http://www.gravatar.com/avatar/{{ itinerary.User.email | gravatar }}?s=100&d=mm">
               </a>
               <a ui-sref="user({username: itinerary.User.username})">
                 <h5 class="dash-itinerary-heading clearfix itinHead">@<span>{{ itinerary.User.username }}</span></h5>
