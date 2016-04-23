@@ -62,80 +62,47 @@
           </div>
         </div>
 
-      <div class="panel-body showItinerary-panel-body allItinerariesBox">
-        <div class="itineraryInfo">
-          <div class="">
-            <div class="col-md-3">
-              <a ui-sref="user({username: itinerary.User.username})">
-                <img class="userImage" src="http://www.gravatar.com/avatar/{{ itinerary.User.email | gravatar }}?s=100&d=mm">
-              </a>
-              <a ui-sref="user({username: itinerary.User.username})">
-                <h5 class="dash-itinerary-heading clearfix itinHead">@<span>{{ itinerary.User.username }}</span></h5>
-              </a>
+        <div class="panel-body showItinerary-panel-body allItinerariesBox">
+          <div class="itineraryInfo">
+            <div class="row">
+              <div class="col-sm-4">
+                <a ui-sref="user({username: itinerary.User.username})">
+                  <img class="userImage" src="http://www.gravatar.com/avatar/{{ itinerary.User.email | gravatar }}?s=100&d=mm">
+                </a>
+              </div>
+              <div class="col-sm-8">
+                <h5>{{itinerary.description}}</h5>
+              </div>
             </div>
-            <h5 class="col-md-9" >{{itinerary.description}}</h5>
+          </div>
+          <div class="form-group clearfix" ng-show="showCommentBox">
+            <form>
+              <div class="col-sm-12 interest-col">
+                <textarea class="form-control" rows="3" id="comment" ng-model="comment.text" placeholder="Add a comment for {{itinerary.User.username}} to visit."></textarea>
+              </div>
+              <div class="col-sm-6 interest-col">
+                <input ng-model="comment.address" class="form-control col-sm-6 latest-address-input" type="text"  placeholder="Street Address"/>
+              </div>
+              <div class="col-sm-6 interest-col">
+                <input ng-model="comment.link" class="form-control col-sm-6 latest-address-input"  type="text"  placeholder="Website"/>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="form-group clearfix" ng-show="showCommentBox">
-          <form>
-            <div class="col-sm-12 interest-col">
-              <textarea class="form-control" rows="3" id="comment" ng-model="comment.text" placeholder="Add a comment for {{itinerary.User.username}} to visit."></textarea>
-            </div>
-            <div class="col-sm-6 interest-col">
-              <input ng-model="comment.address" class="form-control col-sm-6 latest-address-input" type="text"  placeholder="Street Address"/>
-            </div>
-            <div class="col-sm-6 interest-col">
-              <input ng-model="comment.link" class="form-control col-sm-6 latest-address-input"  type="text"  placeholder="Website"/>
-            </div>
-          </form>
-        </div>
-      </div>
 
-      <div class="itinerary-footer clearfix">
-        <div class="button-container pull-left">
-          <div ng-hide="showCommentBox" class="comment-button-group pull-right"><a type="button" ng-click="showCommentBox=true" class="btn">Add Comment</a>
-          </div>
-          <div class="comment-button-group pull-right" ng-show="showCommentBox">
-            <a type="button" ng-click="addComment(itinerary.id, itinerary.city); showCommentBox=false"class="btn">Add</a>
-            <a type="button"  ng-click="showCommentBox=false" class="btn">Close</a>
-          </div>
-        </div>
-        <div class="button-container pull-right">
-          <div ng-hide="showCommentBox" class="comment-button-group pull-right"><a type="button" class="btn" ui-sref="showItinerary({id: itinerary.id})">View Comments</a>
+        <div class="itinerary-footer clearfix">
+          <a ui-sref="user({username: itinerary.User.username})">
+            <p class="all-itinerary-username clearfix itinHead">@<span>{{ itinerary.User.username }}</span></p>
+          </a>
+          <div class="button-container pull-right">
+            <div class="comment-button-group pull-right"><a type="button" class="btn" ui-sref="showItinerary({id: itinerary.id})">View Itinerary</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-
-<!--             <div class="itinerary" ng-repeat="itinerary in allItineraries | filter:search:strict">
-                <div class="row">
-                    <h3 class="itinBorder"><a class="itineraryName col-md-8" ui-sref="showItinerary({id: itinerary.id})" >{{itinerary.title}}</a></h3>
-                    <h5 class="col-md-4 userName" ui-sref="showItinerary({id: itinerary.id})"><small>User:</small> {{itinerary.User.username}}</h5>
-                </div>
-                <div class="row">
-                    <h5 class="col-md-9 itineraryLocation">{{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
-                    <h5 class="col-md-3 itineraryLocation interestsItin">Interests:</h5>
-                </div>
-                <div class="row">
-                    <ul class="col-md-offset-6" ng-repeat="activity in itinerary.Activities">
-                        <span class="interest-name"><button class="btn btn-xs btn-primary">{{activity.name}}</button></span>
-                    </ul>
-                </div>
-                <h4><a  class="col-md-offset-3" ui-sref=".details({id: itinerary.id})">Suggestions</a></h4>
-                <a class="btn btn-block btn-xs btn-success" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          View Suggestions
-        </a>
-                <div class="collapse" id="collapseExample">
-                    <div class="well" ui-sref=".details({id: itinerary.id})">
-                        <a ui-sref=".details({id: itinerary.id})"></a>
-                    </div>
-                </div>
-                <div class="divider"></div>
-              </div> -->
-            </div>
-
-    <div class="col-md-8 mapBorder">
+    <div class="col-sm-8 mapBorder">
       <div id="map">
           <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
             <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
