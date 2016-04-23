@@ -12,15 +12,17 @@
         </div>
       </div>
     </div>
-
-  </div>
-  <div class="row interest-row">
-    <div class='col-sm-12'>
+    <div class="col-sm-8">
       <div class="prodash-link pull-right">
         <p class="add-new-itin">Going somewhere? Create Your Own Itinerary! </p>
         <a type="button" ng-show="user" href="/dashboard" class="btn btn-success add-itin-dash-link">Add Itinerary</a>
         <a type="button" ng-show="!user" class="btn btn-success add-itin-dash-link" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Log in to share">Add Itinerary</a>
       </div>
+    </div>
+  </div>
+  <div class="row interest-row">
+    <div class='col-sm-12'>
+      <h4 class="itinerary-number">There are currently {{allItineraries.length}} itineraries.</h4>
     </div>
   </div>
 </div>
