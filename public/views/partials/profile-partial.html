@@ -49,6 +49,14 @@
         <br />
         <div class="row">
           <div class="col-md-4" ng-hide="deleted">
+            <div small-map city="itinerary.city" class="dash-map"></div>
+          </div>
+          <div class="col-md-4" ng-hide="deleted">
+            <h4>Description</h4>
+            <!-- Doesn't display correctly -->
+            <div class="description">
+              <p ng-hide="editOptions">{{itinerary.description}}</p>
+            </div> 
             <h4>Activities</h4>
             <div class="interest text-center" ng-repeat="activity in itinerary.Activities">
               <span class="">{{activity.name}}</span>
@@ -66,7 +74,7 @@
             </div>
           </div>
           <div class="clearfix"></div>
-        </div>
+        </div> <!-- end row -->
         <div class="divider"></div>
       </div>
     </div> <!-- end col -->
@@ -84,6 +92,10 @@
           <div class="col-md-4" ng-hide="deleted">
             <div class="interest text-center" ng-repeat="activity in comment.Itinerary.Activities">
               <span class="interest-name">{{activity.name}}</span>
+              <!-- map doesn't display. needs to be fixed -->
+              <div class="col-md-4" ng-hide="deleted">
+                <div small-map city="comment.city" class="dash-map"></div>
+              </div>
             </div>
           </div>
           <div class="col-md-4" ng-hide="deleted">

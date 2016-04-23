@@ -8,17 +8,13 @@ angular.module('TripChat')
   };
 
   $scope.getUserProfile = function() {
-    // console.log($stateParams.username);
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(result) {
-      // console.log(result);
       $scope.userData = result.data[0];
-      // console.log($scope.userData);
       $http.get('/api/itineraries/?UserId=' + result.data[0].id)
       .then(function(itineraries) {
         console.log(itineraries.data);
         $scope.userItineraries = itineraries.data;
-        // console.log($scope.userItineraries);
         $scope.getUserComments(itineraries.data[0].UserId);
       }, function(err) {
         console.log(err);
@@ -34,7 +30,7 @@ angular.module('TripChat')
     .then(function(result) {
       $scope.userComments = result.data;
       console.log($scope.userComments);
-      console.log($scope.userComments[0].text);
+      console.log($scope.userComments[0].Itinerary.city);
       $scope.numberOfComments = $scope.userComments.length;
     }, function(err) {
       console.log(err);

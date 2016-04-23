@@ -4,7 +4,7 @@ body {
   font-family: 'Questrial', sans-serif;
   background-color: #F5F5F5;
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;*/
 }
 
 .navbar {
