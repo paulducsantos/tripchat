@@ -258,3 +258,16 @@ p{
 .add-itin-button{
   width: 100%;
 }
+
+.description{
+  background-color: #FFFFFF;
+  padding: 10px;
+  margin-right: 15px;
+  border-bottom: 1px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
+  border-bottom-right-radius: 4px;
+}
+.description-text{
+  margin-bottom: 0px;
+  font-size: 15px;
+}

@@ -64,7 +64,6 @@
   <div class="row">
     <div class="col-sm-8">
       <div class="panel add-panel itin-panel" ng-repeat="itinerary in userItineraries | orderBy:'-createdAt'">
-
         <div class="panel-heading itin-heading clearfix">
           <div class="dash-heading-container clearfix" >
             <div class="col-sm-6">
@@ -104,8 +103,8 @@
             </div>
             <div class="col-sm-8">
               <div class="row">
-                <div class="description">
-                  <p ng-hide="editOptions">{{itinerary.description}}</p>
+                <div class="description" ng-hide="editOptions">
+                  <p class="description-text">{{itinerary.description}}</p>
                 </div>
                 <form>
                   <div class="form-group">
