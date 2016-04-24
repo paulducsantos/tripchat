@@ -1,114 +1,110 @@
 <div class="container-fluid header-background" ng-init="init()">
-  <h3 class="dash-header text-center">{{ userData.fname }} | Profile
 </div>
+
 <div class="container-fluid">
-  <div id="user-info" class="row">
-    <div class="col-md-2">
-      <br />
-      <img src="http://www.gravatar.com/avatar/{{ userData.email | gravatar }}?s=200&d=mm" width="150px" class="center-block">
-    </div>
-    <div class="col-md-3">
+  <div class="row add-comment-row">
+    <div class="col-md-6">
+      <img class="main-profile-img" src="http://www.gravatar.com/avatar/{{ userData.email | gravatar }}?s=200&d=mm" width="150px" class="center-block">
+    <div class="user-profile-info">
+      <div class="user-profile-info-text">
       <h3>{{ userData.fname }} {{ userData.lname }}</h3>
       <h4>@{{ userData.username }}</h4>
-      <!-- Number of Itineraries -->
-      <h4> <!-- If user has itineraries -->
-        <i class="fa fa-list-ul" aria-hidden="true"></i> <span ng-show="userItineraries.length">{{userItineraries.length}}</span>
-        <ng-pluralize ng-show="userItineraries.length" count="userItineraries.length"
-          when="{
-            '1': 'itinerary',
-            'other': 'itineraries'
-          }">
-        </ng-pluralize>
-        <!-- If user has no itineraries -->
-        <span ng-show="!userItineraries.length">0 itineraries</span>
-      </h4>
-      <!-- Number of Comments -->
-      <h4> <!-- If use has comments -->
-        <i class="fa fa-commenting" aria-hidden="true"></i> <span ng-show="numberOfComments">{{ numberOfComments }}</span>
-        <ng-pluralize count="numberOfComments"
-          when="{
-            '1': 'comment',
-            'other': 'comments'
-          }">
-        </ng-pluralize>
-        <span ng-show="!numberOfComments">0 comments</span> <!-- If user has no comments -->
-      </h4>
+      </div>
+    </div>
     </div> <!-- end col -->
   </div> <!-- end row -->
+
+  <div class="row interest-row">
+  <div class="col-sm-12">
+   <!-- Number of Itineraries -->
+   <h4 class="itinerary-number"> <!-- If user has itineraries -->
+   {{ userData.fname }} has shared
+      <!-- <i class="fa fa-list-ul" aria-hidden="true"></i> --> <span ng-show="userItineraries.length">{{userItineraries.length}}</span>
+      <ng-pluralize ng-show="userItineraries.length" count="userItineraries.length"
+        when="{
+          '1': 'itinerary',
+          'other': 'itineraries'
+        }">
+      </ng-pluralize>
+      <!-- If user has no itineraries -->
+      <span ng-show="!userItineraries.length">0 itineraries</span>
+        and has made
+    <!-- Number of Comments -->
+    <!-- If use has comments -->
+      <!-- <i class="fa fa-commenting" aria-hidden="true"></i> --> <span ng-show="numberOfComments"> {{ numberOfComments }}</span>
+
+      <ng-pluralize count="numberOfComments"
+        when="{
+          '1': 'comment',
+          'other': 'comments'
+        }">
+      </ng-pluralize>
+      <span ng-show="!numberOfComments">0 comments</span> <!-- If user has no comments -->
+    </h4>
+    </div>
+  </div>
+
+
   <div class="row">
     <!-- Itineraries Column -->
-    <div class="col-sm-12 col-md-6">
-      <br />
-      <div class="panel-heading itin-heading clearfix">
-        <h3 class="dash-itinerary-heading clearfix">@{{ userData.username }}'s Itineraries</h3>
-      </div>
-      
-      <div class="itinerary-footer" ng-repeat="itinerary in userItineraries">
-        <h3><a href="/itineraries/{{itinerary.id}}">{{itinerary.title}}</a></h3>
-        <h5>{{itinerary.location}}</h5>
-        <br />
-        <div class="row">
-          <div class="col-md-4" ng-hide="deleted">
-            <div small-map city="itinerary.city" class="dash-map"></div>
-          </div>
-          <div class="col-md-4" ng-hide="deleted">
-            <h4>Description</h4>
-            <!-- Doesn't display correctly -->
-            <div class="description">
-              <p ng-hide="editOptions">{{itinerary.description}}</p>
-            </div> 
-            <h4>Activities</h4>
-            <div class="interest text-center" ng-repeat="activity in itinerary.Activities">
-              <span class="">{{activity.name}}</span>
-            </div>
-          </div>
-          <div class="col-md-4" ng-hide="deleted">
-            <h4>Comments</h4>
-            <div ng-repeat="comment in itinerary.Comments">
-              <div>
-                <h6>{{comment.User.username}} says:</h6>
-                <p>{{comment.text}}</p>
-              </div>
+    <div class="col-sm-12 col-md-8">
+      <div class="panel add-panel itin-panel"ng-repeat="itinerary in userItineraries | orderBy:'-createdAt'">
+        <div class="panel-heading itin-heading clearfix">
+          <h3 class="dash-itinerary-heading clearfix"><a href="/itineraries/{{itinerary.id}}" class="profile-itinerary-link">{{itinerary.title}}</a></h3>
+        </div>
 
-              <div class="divider"></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4" ng-hide="deleted">
+              <div small-map city="itinerary.city" class="dash-map"></div>
             </div>
+
+            <div class="col-md-8" ng-hide="deleted">
+              <div class="description">
+                <p class="description-text">{{itinerary.description}}</p>
+              </div>
+              <h5>Interests:</h5>
+              <div ng-repeat="activity in itinerary.Activities">
+                <div class="col-sm-4">
+                  <div class="interest text-center">
+                    <span class="">{{activity.name}}</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div> <!-- end row -->
           </div>
-          <div class="clearfix"></div>
-        </div> <!-- end row -->
-        <div class="divider"></div>
+         <div class="itinerary-footer clearfix">
+          <div class="button-container pull-right">
+            <a  ui-sref="showItinerary({id: itinerary.id})" class="btn">Full Itinerary</a>
+
+          </div>
+        </div>
       </div>
     </div> <!-- end col -->
     <!-- Comments Column -->
-    <div class="col-sm-12 col-md-6">
-      <br />
-      <div class="panel-heading itin-heading clearfix">
-        <h3 class="dash-itinerary-heading clearfix">@{{ userData.username }}'s Comments</h3>
-      </div>
-      <div class="itinerary-footer" ng-repeat="comment in userComments">
-        <h3><a href="/itineraries/{{comment.ItineraryId}}">{{comment.Itinerary.title}}</a></h3>
-        <h5>{{comment.Itinerary.location}}</h5>
-        <br />
-        <div class="row">
-          <div class="col-md-4" ng-hide="deleted">
-            <div class="interest text-center" ng-repeat="activity in comment.Itinerary.Activities">
-              <span class="interest-name">{{activity.name}}</span>
-              <!-- map doesn't display. needs to be fixed -->
-              <div class="col-md-4" ng-hide="deleted">
-                <div small-map city="comment.city" class="dash-map"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4" ng-hide="deleted">
-            <div>
-              <div>
-                <h4>{{comment.User.username}} says:</h4>
-                <p>{{comment.text}}</p>
-              </div>
-              <div class="divider"></div>
-            </div>
-          </div>
+    <div class="col-sm-12 col-md-4">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="dash-itinerary-heading">Recent Activity</h3>
         </div>
-        <div class="divider"></div>
+        <div class="dash-latest-itineraries clearfix "ng-repeat="comment in userComments">
+          <div class="panel-body-latest-itin ">
+            <div class="dash-latest-itin-heading">
+            <span class="" ng-click="" ><h5 class="inline">{{comment.User.username}} commented on <a href="/itineraries/{{comment.ItineraryId}}">{{comment.Itinerary.title}}</a></h5> <span class="date pull-right">{{comment.Itinerary.createdAt | date: "mediumDate"}}</span>
+            </div>
+            <div class="latest-itinerary-body clearfix">
+              <p class="recent-comment-text">{{comment.text}}</p>
+             </div>
+            <div class="dash-latest-itin-share-group pull-right">
+
+              <a href="/itineraries/{{comment.ItineraryId}}" type="button" class="btn">View</a>
+            </div>
+        </div>
+        </div>
+        <div class="panel-footer clearfix">
+          <a class="panel-footer-link pull-right" href="/itineraries">View All Itineraries</a>
+        </div>
       </div>
     </div> <!-- end col -->
   </div> <!-- end row -->

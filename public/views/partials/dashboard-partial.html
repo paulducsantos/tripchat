@@ -64,7 +64,6 @@
   <div class="row">
     <div class="col-sm-8">
       <div class="panel add-panel itin-panel" ng-repeat="itinerary in userItineraries | orderBy:'-createdAt'">
-
         <div class="panel-heading itin-heading clearfix">
           <div class="dash-heading-container clearfix" >
             <div class="col-sm-6">
@@ -104,8 +103,8 @@
             </div>
             <div class="col-sm-8">
               <div class="row">
-                <div class="description">
-                  <p ng-hide="editOptions">{{itinerary.description}}</p>
+                <div class="description" ng-hide="editOptions">
+                  <p class="description-text">{{itinerary.description}}</p>
                 </div>
                 <form>
                   <div class="form-group">
@@ -143,12 +142,6 @@
           </div>
         </div>
       </div><!-- End Itineray-panel -->
-
-
-
-
-
-
     </div><!-- END col-sm-8 -->
 
     <div class="col-sm-4">
@@ -157,7 +150,6 @@
           <h3 class="latest-itineraries-header">Latest Itineraries</h3>
         </div>
         <div class="panel-body-latest-itin ">
-
           <div class="dash-latest-itineraries clearfix" ng-repeat="itinerary in allItineraries | orderBy:'-createdAt' | limitTo: 5">
             <div class="dash-latest-itin-heading">
             <span class="" ng-click="" ><h4 class="inline">{{itinerary.User.fname}}</h4></span><a ui-sref="user({username: itinerary.User.username})" class="handle"> <small>@{{itinerary.User.username}}</small></a> <span class="date pull-right">{{itinerary.createdAt | date: "mediumDate"}}</span>

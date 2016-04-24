@@ -103,7 +103,7 @@ margin-top: 15px;
 }
 
 .itinerary-description{
-  padding-top: 10px;
+  padding-top: 15px;
   color: #fff;
 }
 
@@ -128,4 +128,6 @@ a.username-link:hover{
   text-decoration: none;
   cursor: pointer;
 }
-
+.comment-date{
+  margin-top: 5px;
+}
