@@ -30,6 +30,8 @@ angular.module('TripChat')
     $http.get('/api/itineraries/' + $stateParams.id)
     .then(function(result) {
       $scope.currentItinerary = result.data;
+      console.log($scope.currentItinerary.Activities)
+      console.log($scope.currentItinerary.Activities.length);
       $scope.currentItineraryGeo($scope.currentItinerary.city)
       $scope.getComments();
     }, function(err) {

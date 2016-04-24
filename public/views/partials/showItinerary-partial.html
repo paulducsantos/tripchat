@@ -60,12 +60,22 @@
   <div class="row interest-row">
     <div class="col-sm-12">
       <div class="interest-name clearfix">
-       <a class="username-link" ui-sref="user({username: currentItinerary.User.username})">{{currentItinerary.User.fname}}</a> is interested in:
-       </div>
-        <div class="interest-name" ng-repeat="activity in currentItinerary.Activities">
-          <span >{{activity.name}}</span>
+
+        <!-- When no activities have been listed -->
+        <div class="interest-name" ng-show="!currentItinerary.Activities.length">
+          <h4>No activities have been listed by {{ currentItinerary.User.username }} yet.</h4>
+        </div>
+        <div ng-show="currentItinerary.Activities.length">
+          <a class="username-link" ui-sref="user({username: currentItinerary.User.username})">{{currentItinerary.User.fname}}</a> is interested in:
         </div>
 
+       </div>
+
+        <div class="interest-name" ng-repeat="activity in currentItinerary.Activities">
+
+          <!-- When activities have been listed -->
+          <span >{{activity.name}}</span>
+        </div>
     </div>
   </div>
 </div>
@@ -78,15 +88,18 @@
   <div class="col-sm-4 comments-column">
      <!-- End Panel-->
 
+
     <div class="">
       <div class="comment-box" ng-repeat="comment in currentItinerary.comments | orderBy:'-createdAt'"><!-- ng-repeat="comment in comments" -->
         <div class="row">
           <div class="col-sm-12">
+
             <div class="comment-heading">
               <span class="" ng-click="" ><img src="http://www.gravatar.com/avatar/{{ userData.email | gravatar }}?s=30&d=mm"> {{comment.User.fname}}</span><a ui-sref="user({username: comment.User.username})" class="itin-handle"> @{{comment.User.username}}</a> commented: <span class="date pull-right">{{comment.createdAt | date: "mediumDate"}}</span>
             </div>
           </div>
           <div class="col-sm-12">
+
             <div class="comment-text">
               {{comment.text}}
             </div>
