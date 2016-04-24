@@ -87,6 +87,14 @@ angular.module('TripChat')
     });
   }
 
+  $scope.deleteComment = function(commentId) {
+    $http.delete('/api/comments/' + commentId)
+    .then(function(result) {
+      $scope.getComments();
+      $scope.newMarkers();
+    })
+  }
+
 
 
   $scope.goToUsernameProfile = function() {
