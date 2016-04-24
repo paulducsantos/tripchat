@@ -27,7 +27,7 @@
             '1': 'is',
             'other': 'are'
           }">
-        </ng-pluralize> currently <span ng-show="allItineraries.length">{{allItineraries.length}}</span>
+        </ng-pluralize> currently <span ng-show="allItineraries.length">{{result.length}}</span>
         <ng-pluralize ng-show="allItineraries.length" count="allItineraries.length"
           when="{
             '1': 'itinerary',
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict">
+      <div class="panel add-panel itin-panel" ng-repeat="itinerary in allItineraries | filter:search:strict as result">
 
         <div class="panel-heading itin-heading clearfix" ng-mouseenter="hoverGeo(itinerary.city)">
           <div class="dash-heading-container clearfix" >
