@@ -147,16 +147,16 @@
     <div class="col-sm-4">
       <div class="panel">
         <div class="panel-heading">
-          <h3 class="latest-itineraries-header">Latest Itineraries</h3>
+          <h4 class="latest-itineraries-header">Latest Itineraries</h4>
         </div>
         <div class="panel-body-latest-itin ">
           <div class="dash-latest-itineraries clearfix" ng-repeat="itinerary in allItineraries | orderBy:'-createdAt' | limitTo: 5">
             <div class="dash-latest-itin-heading">
-            <span class="" ng-click="" ><h4 class="inline">{{itinerary.User.fname}}</h4></span><a ui-sref="user({username: itinerary.User.username})" class="handle"> <small>@{{itinerary.User.username}}</small></a> <span class="date pull-right">{{itinerary.createdAt | date: "mediumDate"}}</span>
+            <span class="" ng-click="" ><h5 class="inline">{{itinerary.User.fname}}</h5></span><a ui-sref="user({username: itinerary.User.username})" class="handle"> <small>@{{itinerary.User.username}}</small></a> <span class="date pull-right">{{itinerary.createdAt | date: "mediumDate"}}</span>
             </div>
             <div class="latest-itinerary-body clearfix">
               <a class="latest-itinerary-link clearfix" ui-sref="showItinerary({id: itinerary.id})">{{itinerary.title}}</a>
-              <div class="latest-itinerary-location pull-right">{{itinerary.city}}, {{itinerary.state}}, {{itinerary.country}}</div>
+              <div class="latest-itinerary-location">{{itinerary.city}}, {{itinerary.state}}, {{itinerary.country}}</div>
             </div>
             <div class="dash-latest-itin-share-group pull-right">
               <a ui-sref="showItinerary({id: itinerary.id})" type="button" class="btn">View</a>
