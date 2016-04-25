@@ -157,6 +157,11 @@
             <div class="latest-itinerary-body clearfix">
               <a class="latest-itinerary-link clearfix" ui-sref="showItinerary({id: itinerary.id})">{{itinerary.title}}</a>
               <div class="latest-itinerary-location">{{itinerary.city}}, {{itinerary.state}}, {{itinerary.country}}</div>
+              <div class="">
+                <div class="latest-description-text">
+                  <p>{{itinerary.description}}</p>
+                </div>
+              </div>
             </div>
             <div class="dash-latest-itin-share-group pull-right">
               <a ui-sref="showItinerary({id: itinerary.id})" type="button" class="btn">View</a>
