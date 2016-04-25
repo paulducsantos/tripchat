@@ -107,6 +107,10 @@ a.navbar-brand:hover,a.navbar-brand:active, a.navbar-brand:focus {
  cursor: pointer;
 }
 
+#cancel-delete-modal {
+  margin-top: 10px;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
