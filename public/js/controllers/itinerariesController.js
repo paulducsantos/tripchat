@@ -83,6 +83,8 @@ angular.module('TripChat')
         }, function(err) {
           console.log(err);
         });
+      } else {
+        console.log(status);
       }
     });
   }
