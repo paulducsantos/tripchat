@@ -131,3 +131,7 @@ a.username-link:hover{
 .comment-date{
   margin-top: 5px;
 }
+.delete-comment{
+  padding-left: 10px;
+  padding-right: 15px;
+}

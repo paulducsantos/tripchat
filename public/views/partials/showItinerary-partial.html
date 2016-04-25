@@ -107,8 +107,7 @@
               <div class="itin-button-container pull-right">
                 <span class="street-address">{{comment.address}}</span>
                 <a class="website" ng-show="comment.link" href=" http://{{ comment.link }}" target="_blank">Visit Site</a>
-                <a href="" ng-show="user.id == comment.UserId || user.id == comment.Itinerary.UserId" ng-click="deleteComment(comment.id)">Delete</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="delete-comment" ng-show="user.id == comment.UserId || user.id == comment.Itinerary.UserId" ng-click="deleteComment(comment.id)">Delete</a>
               </div>
             </div>
           </div>

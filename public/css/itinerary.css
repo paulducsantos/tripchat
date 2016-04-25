@@ -188,7 +188,8 @@
 
 .all-itinerary-username{
   display: inline-block;
-  font-size: 15px;
+  font-size: 14px;
+  margin-bottom: 0px;
  }
 
 .description-col{
