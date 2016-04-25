@@ -111,6 +111,12 @@ a.navbar-brand:hover,a.navbar-brand:active, a.navbar-brand:focus {
   margin-top: 10px;
 }
 
+.btn-success:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #449d44;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
