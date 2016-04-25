@@ -5,7 +5,8 @@ var newItinerary1 = {
   city: 'New York City',
   state: 'NY',
   country: 'USA',
-  UserId: 1
+  UserId: 1,
+  description: 'put description here'
 };
 
 models.Itinerary.create(newItinerary1)
