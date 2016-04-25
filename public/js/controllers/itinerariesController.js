@@ -307,59 +307,5 @@ angular.module('TripChat')
       console.log("Clicked!");
       model.show = !model.show;
   };
-  // $scope.$watch($scope.search.location, _.debounce(function () {
-  //   $scope.newMarkers();
-  // }, 2000));
-
-
-
-
-    // console.log($rootScope.redLobsters);
-    // $scope.filterMale = function(maleFemale) {
-    //   $http.get('http://localhost:3000/markers')
-    //     .then(function(result) {
-    //       console.log(result);
-    //       var markers = [];
-    //       result.data.forEach(function(element, index) {
-    //         // if(element.Gender === "M") {
-    //           markers.push({
-    //             coords: {
-    //               latitude: element.Latitude,
-    //               longitude: element.Longitude
-    //             },
-    //             id: index
-    //           });
-    //         // }
-
-    //       });
-    //       $scope.map.markers = markers;
-    //     }, function(err) {
-    //       console.log(err);
-    //     });
-    // }
-    // // $scope.filterMale();
-
-    // $scope.filterFemale = function() {
-    //   $http.get('http://localhost:3000/markers')
-    //     .then(function(result) {
-    //       console.log(result);
-    //       var markers = [];
-    //       result.data.forEach(function(element, index) {
-    //         if(element.Gender === "M") {
-    //           markers.push({
-    //             coords: {
-    //               latitude: element.Latitude,
-    //               longitude: element.Longitude
-    //             },
-    //             id: index
-    //           });
-    //         }
-
-    //       });
-    //       $scope.map.markers = markers;
-    //     }, function(err) {
-    //       console.log(err);
-    //     });
-    // }
 
 }]);
