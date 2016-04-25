@@ -3,8 +3,8 @@ angular.module('TripChat')
   // Gets called when the directive is ready:
 
   $scope.init = function() {
-    // $scope.getCurrentItinerary();
-    // $scope.getComments();
+    $scope.getCurrentItinerary();
+    $scope.getComments();
     $scope.getItineraries();
     $scope.makeMarkers();
     $scope.getGeo();
@@ -176,11 +176,13 @@ angular.module('TripChat')
             id: element.id,
             title: element.text,
             address: element.address,
+            link: element.link,
             options: {
               animation: google.maps.Animation.BOUNCE
             }
           }
           $scope.map.markers.push(marker);
+          console.log(marker);
         });
       }, function(err) {
         console.log(err);
@@ -202,6 +204,7 @@ angular.module('TripChat')
             id: element.id,
             title: element.text,
             address: element.address,
+            link: element.link,
             options: {
               animation: google.maps.Animation.BOUNCE
             }
@@ -242,6 +245,7 @@ angular.module('TripChat')
             id: element.id,
             title: element.text,
             address: element.address,
+            link: element.link,
             options: {
               animation: google.maps.Animation.BOUNCE
             }
@@ -285,9 +289,10 @@ angular.module('TripChat')
             },
             id: element.id,
             title: element.text,
+            link: element.link,
             address: element.address,
             options: {
-              animation: google.maps.Animation.DROP
+              animation: google.maps.Animation.BOUNCE
             }
           }
           $scope.map.markers.push(marker);
