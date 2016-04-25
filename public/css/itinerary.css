@@ -1,3 +1,16 @@
+.valign-wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.valign-wrapper .valign {
+  display: block;
+}
+
 .search-itineraries{
   margin-top: 15px;
   margin-bottom: 15px;
@@ -122,15 +135,11 @@
   background-color: #337AB7;
 }
 
-
-
 .itinHead {
   cursor: pointer;
 }
 
-.locationItin {
-  padding-top: 6px;
-}
+
 
 .formPadding {
   padding-left: 4px;
@@ -180,5 +189,11 @@
 .all-itinerary-username{
   display: inline-block;
   font-size: 15px;
-  margin-top: 10px;
+ }
+
+.description-col{
+  padding-left: 0;
 }
+
+.itin-footer-location{
+

@@ -58,27 +58,29 @@
 
         <div class="panel-heading itin-heading clearfix" ng-mouseenter="hoverGeo(itinerary.city)">
           <div class="dash-heading-container clearfix" >
-            <div class="col-sm-6">
+            <div class="col-sm-12">
               <h3 class="dash-itinerary-heading clearfix itinHead" ui-sref="showItinerary({id: itinerary.id})">{{itinerary.title}}</h3>
-            </div>
-            <div class="col-sm-6">
-              <h5 class="dash-itinerary-heading pull-right locationItin"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
+            <!-- </div>
+            <div class="col-sm-6"> -->
             </div>
           </div>
         </div>
 
         <div class="panel-body showItinerary-panel-body allItinerariesBox">
           <div class="itineraryInfo">
-            <div class="row">
+
               <div class="col-sm-4">
                 <a ui-sref="user({username: itinerary.User.username})">
                   <img class="userImage" src="http://www.gravatar.com/avatar/{{ itinerary.User.email | gravatar }}?s=100&d=mm">
                 </a>
               </div>
-              <div class="col-sm-8">
-                <h5>{{itinerary.description}}</h5>
+              <div class="col-sm-8 description-col">
+                <p class="all-itinerary-username clearfix itinHead"><a ui-sref="user({username: itinerary.User.username})">
+                  <span>{{ itinerary.User.username }} :</span>
+                  </a>{{itinerary.description}}
+                </p>
               </div>
-            </div>
+
           </div>
           <div class="form-group clearfix" ng-show="showCommentBox">
             <form>
@@ -95,15 +97,21 @@
           </div>
         </div>
 
-        <div class="itinerary-footer clearfix">
-          <a ui-sref="user({username: itinerary.User.username})">
-            <p class="all-itinerary-username clearfix itinHead">@<span>{{ itinerary.User.username }}</span></p>
-          </a>
-          <div class="button-container pull-right">
-            <div class="comment-button-group pull-right"><a type="button" class="btn" ui-sref="showItinerary({id: itinerary.id})">View Itinerary</a>
+        <div class="itinerary-footer">
+          <div class="row valign-wrapper">
+            <div class="col-sm-6">
+              <div class="itin-footer-location">
+                <h5 class="dash-itinerary-heading valign"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="button-container pull-right">
+                <a type="button" class="btn" ui-sref="showItinerary({id: itinerary.id})">View Itinerary</a>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
 

@@ -108,7 +108,7 @@
                 </div>
                 <form>
                   <div class="form-group">
-                    <p ng-hide="editOptions">What are you interested in?</p>
+                    <p  class="activity-question" ng-hide="editOptions">What are you interested in?</p>
                     <div class="form-inline input-group add-interest-form" ng-hide="editOptions">
                       <input placeholder="e.g. Museums"  ng-model="itinerary.newActivity.name" type="text" class="validate form-control">
                       <div class="input-group-btn">
@@ -147,7 +147,7 @@
     <div class="col-sm-4">
       <div class="panel">
         <div class="panel-heading">
-          <h4 class="latest-itineraries-header">Latest Itineraries</h4>
+          <h3 class="dash-itinerary-heading">Latest Itineraries</h3>
         </div>
         <div class="panel-body-latest-itin ">
           <div class="dash-latest-itineraries clearfix" ng-repeat="itinerary in allItineraries | orderBy:'-createdAt' | limitTo: 5">
