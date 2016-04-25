@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
   <div class="row add-comment-row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <div class="form-inline input-group search-itineraries">
         <input type="text" ng-model="search.city" ng-change="filterGeo(); numItins()" ng-model-options=" { debounce: 500 } " class="form-control" placeholder="Search a specific location">
         <div class="input-group-btn">
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-5 col-sm-offset-2">
       <div class="prodash-link pull-right">
         <p class="add-new-itin">Going somewhere? Create Your Own Itinerary! </p>
         <a type="button" ng-show="user" href="/dashboard" class="btn btn-success add-itin-dash-link">Add Itinerary</a>
