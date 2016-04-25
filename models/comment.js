@@ -21,10 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DOUBLE
     },
     link: {
-      type: DataTypes.STRING,
-      validate: {
-        isUrl: true
-      }
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {

@@ -22,7 +22,7 @@
         <div class="form-group" >
           <form>
             <div class="col-sm-12 interest-col ">
-              <textarea ng-model="comment.text" class="form-control" rows="2" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{currentItinerary.User.fname}} where to go in {{currentItinerary.city}}."></textarea>
+              <textarea ng-model="comment.text" class="form-control" rows="4" id="comment" placeholder="Been there, done that?  Share your experience! Tell  {{currentItinerary.User.fname}} where to go in {{currentItinerary.city}}."></textarea>
             </div>
 
             <div class="col-sm-5  interest-col">
@@ -95,7 +95,7 @@
           <div class="col-sm-12">
 
             <div class="comment-heading">
-              <span class="" ng-click="" ><img src="http://www.gravatar.com/avatar/{{ userData.email | gravatar }}?s=30&d=mm"> {{comment.User.fname}}</span><a ui-sref="user({username: comment.User.username})" class="itin-handle"> @{{comment.User.username}}</a> commented: <span class="comment-date pull-right">{{comment.createdAt | date: "mediumDate"}}</span>
+              <span class="" ng-click="" ><img src="http://www.gravatar.com/avatar/{{ comment.User.email | gravatar }}?s=30&d=mm"> {{comment.User.fname}}</span><a ui-sref="user({username: comment.User.username})" class="itin-handle"> @{{comment.User.username}}</a> commented: <span class="comment-date pull-right">{{comment.createdAt | date: "mediumDate"}}</span>
             </div>
           </div>
           <div class="col-sm-12">
@@ -107,8 +107,7 @@
               <div class="itin-button-container pull-right">
                 <span class="street-address">{{comment.address}}</span>
                 <a class="website" ng-show="comment.link" href=" http://{{ comment.link }}" target="_blank">Visit Site</a>
-                <a href="" ng-show="user.id == comment.UserId || user.id == comment.Itinerary.UserId" ng-click="deleteComment(comment.id)">Delete</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="delete-comment" ng-show="user.id == comment.UserId || user.id == comment.Itinerary.UserId" ng-click="deleteComment(comment.id)">Delete</a>
               </div>
             </div>
           </div>

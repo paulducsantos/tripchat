@@ -99,7 +99,14 @@ margin-top: 15px;
 }
 
 .add-comment-row{
-  background-color: #215582;
+    background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      rgba(33, 85, 130, 0.5),
+      rgba(33, 85, 130, 0.5)
+    ),
+   url("../images/california_dash.png");
+   min-height: 170px;
 }
 
 .itinerary-description{
@@ -130,4 +137,8 @@ a.username-link:hover{
 }
 .comment-date{
   margin-top: 5px;
+}
+.delete-comment{
+  padding-left: 10px;
+  padding-right: 15px;
 }

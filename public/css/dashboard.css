@@ -282,3 +282,7 @@ p{
   font-size: 13px;
   padding-left: 5px;
 }
+
+.description-box-input{
+  height: 83px!important;
+}
