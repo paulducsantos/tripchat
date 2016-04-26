@@ -27,10 +27,10 @@ a.navbar-brand:hover,a.navbar-brand:active, a.navbar-brand:focus {
 }
 
 .btn-signup {
-  color: #000;
+  color: #fff;
   border-radius: 3px;
   border: 2px solid #fff;
-  background-color: #fff;
+  background-color: transparent;
   font-size: 14px;
   display: inline-block;
   margin-top: 10px;
@@ -45,22 +45,16 @@ a.navbar-brand:hover,a.navbar-brand:active, a.navbar-brand:focus {
 
 }
 
-.btn-login {
-  color: #fff;
-  font-size: 14px;
-  border: 2px solid #fff;
-  border-radius: 3px;
-  background-color: transparent;
-  margin-top: 10px;
-  padding: 3px 12px;
+.btn-logged-in{
+  background-color: #337ab3;
+    color: #fff;
+    margin-top: 10px
 }
 
-.btn-login:hover {
-  color:#fff;
-  background-color: #549A17;
-  border: 2px solid #549A17;
-  text-decoration: none;
+.btn-logged-in:hover{
+    color: #fff;
 }
+
 
 .signup-link {
   padding-left: 10px;

@@ -1,40 +1,32 @@
-<!-- BOOTSTRAP NAVBAR -->
-<nav class="navbar fixed-top">
+<div class="navbar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="glyphicon glyphicon-menu-hamburger" style="color: white"></span>
-      </button>
-      <a class="navbar-brand" href="/">Trip Chats</a>
-    </div>
-
+      <a class="navbar-brand" href="#">Trip Chats</a>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-        <li ng-show="user" class="dropdown">
-          <a id="username-navbar" href='#' class="dropdown-toggle" data-toggle="dropdown">{{ user.username }}&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/dashboard">My Dashboard</a></li>
-            <li><a href="/{{ user.username }}">My Profile</a></li>
-            <li><a href="/itineraries">All Itineraries</a></li>
-            <li role="separator" class="divider"></li>
-            <li ng-show="user">
-              <li ng-click="logout()" class="pointer">
-                <a>Logout</a>
-              </li>
-            </li>
-          </ul>
-
-          <li ng-show="!user"><button type="button" class="btn btn-login" data-toggle="modal" data-target=".login">Log In</button></li>
-          <li class="signup-link" ng-show="!user"><button type="button" class="btn btn-signup" data-toggle="modal" data-target=".signup">Sign Up</button></li>
-
-        </li>
+    <div ng-show="!user" class="dropdown pull-right">
+      <button class="btn btn-signup dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+        Sign In
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" data-toggle="modal" data-target=".login">Login</a></li>
+        <li><a href="#" data-toggle="modal" data-target=".signup">Sign Up</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+    <div ng-show="user" class="dropdown pull-right">
+      <button class="btn btn-logged-in dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+        {{ user.username }}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="/" >Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/{{ user.username }}">Profile</a></li>
+        <li><a href="/itineraries">All Itineraries</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a  ng-click="logout()">Log Out</a></li>
+      </ul>
+    </div>
   </div><!-- /.container-fluid -->
-</nav>
+</div>
+
