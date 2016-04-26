@@ -46,7 +46,7 @@ a.navbar-brand:hover,a.navbar-brand:active, a.navbar-brand:focus {
 }
 
 .btn-logged-in{
-  background-color: #337ab3;
+  background-color: transparent;
     color: #fff;
     margin-top: 10px
 }
