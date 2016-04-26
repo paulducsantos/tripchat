@@ -180,7 +180,6 @@
 }
 
 .all-itinerary-username{
-  display: inline-block;
   font-size: 14px;
   margin-bottom: 0px;
  }
@@ -189,5 +188,6 @@
   padding-left: 0;
 }
 
-.itin-footer-location{
-
+.all-itin-profile-img{
+  margin-right: 10px
+}

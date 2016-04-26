@@ -45,7 +45,8 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="itineraryLists col-md-4">
+
+    <div class="itineraryLists col-sm-4 ">
       <div ng-show="!(allItineraries | filter:search:strict).length">
         <div class="clearfix">
           <br />
@@ -69,12 +70,12 @@
         <div class="panel-body showItinerary-panel-body allItinerariesBox">
           <div class="itineraryInfo">
 
-              <div class="col-sm-4">
-                <a ui-sref="user({username: itinerary.User.username})">
+              <div class="col-sm-12">
+                <a ui-sref="user({username: itinerary.User.username})" class="all-itin-profile-img pull-left">
                   <img class="userImage" src="http://www.gravatar.com/avatar/{{ itinerary.User.email | gravatar }}?s=100&d=mm">
                 </a>
-              </div>
-              <div class="col-sm-8 description-col">
+              <!-- </div>
+              <div class="col-sm-8 description-col"> -->
                 <p class="all-itinerary-username clearfix itinHead"><a ui-sref="user({username: itinerary.User.username})">
                   <span>{{ itinerary.User.username }} :</span>
                   </a>{{itinerary.description}}
@@ -115,25 +116,25 @@
       </div>
     </div>
 
-    <div class="col-sm-8 mapBorder">
+     <div class="col-sm-8 mapBorder hide-on-small-only">
       <div id="map">
-          <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
-            <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
-                <ui-gmap-windows show="show">
-                <div ng-non-bindable>
-                  {{title}}
-                  <br /> Located at: {{address}}
-                  <br /><a class="website" ng-show="link" href="http:// {{ link }}" target="_blank">Visit Suggested Site</a>
-                </div>
-              </ui-gmap-windows>
-            </ui-gmap-marker>
-
-          </ui-gmap-google-map>
-        </div>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
+          <ui-gmap-markers models="map.markers" coords="'coords'" idKey="id" click="onClick" doCluster="true" options="'options'">
+              <ui-gmap-windows show="show">
+              <div ng-non-bindable>
+                {{title}}
+                <br /> Located at: {{address}}
+                <br /><a class="website" ng-show="link" href="http:// {{ link }}" target="_blank">Visit Suggested Site</a>
+              </div>
+            </ui-gmap-windows>
+          </ui-gmap-marker>
+        </ui-gmap-google-map>
       </div>
     </div>
 
     <div>
       <ui-view></ui-view>
     </div>
+
   </div>
+</div>
