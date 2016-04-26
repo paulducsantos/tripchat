@@ -11,6 +11,7 @@ angular.module('TripChat')
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(user) {
       $scope.userData = user.data[0];
+      $scope.getUserComments($scope.userData.id);
       $http.get('/api/itineraries/?UserId=' + $scope.userData.id)
       .then(function(itineraries) {
 

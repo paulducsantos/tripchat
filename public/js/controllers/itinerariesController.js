@@ -4,7 +4,7 @@ angular.module('TripChat')
 
   $scope.init = function() {
     $scope.getCurrentItinerary();
-    $scope.getComments();
+    // $scope.getComments();
     $scope.getItineraries();
     $scope.makeMarkers();
     $scope.getGeo();
@@ -52,7 +52,7 @@ angular.module('TripChat')
     var lng;
     var lat;
 
-    if($scope.comment.link.substring(0,4) !== 'http') {
+    if($scope.comment.link.substring(0,4) !== 'http' && $scope.comment.link !== '') {
       $scope.comment.link = 'http://' + $scope.comment.link;
     }
 
