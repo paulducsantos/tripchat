@@ -68,6 +68,9 @@
         </div>
 
         <div class="panel-body showItinerary-panel-body allItinerariesBox">
+         <div class="itin-head-location clearfix">
+                <h5 class="dash-itinerary-heading pull-right"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
+              </div>
           <div class="itineraryInfo">
 
               <div class="col-sm-12">
@@ -76,10 +79,12 @@
                 </a>
               <!-- </div>
               <div class="col-sm-8 description-col"> -->
-                <p class="all-itinerary-username clearfix itinHead"><a ui-sref="user({username: itinerary.User.username})">
-                  <span>{{ itinerary.User.username }} :</span>
-                  </a>{{itinerary.description}}
-                </p>
+                <div class="all-itin-description-text">
+                  <p class="all-itinerary-username clearfix itinHead"><a ui-sref="user({username: itinerary.User.username})">
+                    <span>{{ itinerary.User.username }} :</span>
+                    </a>{{itinerary.description}}
+                  </p>
+                </div>
               </div>
 
           </div>
@@ -100,11 +105,7 @@
 
         <div class="itinerary-footer">
           <div class="row valign-wrapper">
-            <div class="col-sm-6">
-              <div class="itin-footer-location">
-                <h5 class="dash-itinerary-heading valign"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h5>
-              </div>
-            </div>
+
             <div class="col-sm-6">
               <div class="button-container pull-right">
                 <a type="button" class="btn" ui-sref="showItinerary({id: itinerary.id})">View Itinerary</a>

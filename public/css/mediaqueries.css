@@ -126,5 +126,21 @@
     padding-right: 5px;
   }
 
+  .add-comment-panel {
+    margin-top: 0;
+  }
+
+  .add-itin-textarea{
+    margin-bottom: 10px;
+  }
+
+  .add-itinerary-form {
+    margin-top: 0px;
+  }
+
+  .angular-google-map-container{
+    height: 50vh;
+  }
+
 
 }

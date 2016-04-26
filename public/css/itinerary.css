@@ -17,8 +17,8 @@
 }
 
 .add-itin-dash-link{
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 .btn-success {
@@ -190,4 +190,14 @@
 
 .all-itin-profile-img{
   margin-right: 10px
+}
+
+.itin-head-location{
+  border-bottom: 1px solid #c9c9c9;
+  margin-left: 15px;
+  padding-bottom: 5px;
+}
+
+.all-itin-description-text{
+  padding-top: 5px;
 }
