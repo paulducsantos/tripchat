@@ -159,3 +159,7 @@ a.username-link:hover{
   padding-left: 10px;
   padding-right: 15px;
 }
+
+.single-itinerary-form-panel{
+  border-right: none;
+}

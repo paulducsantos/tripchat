@@ -6,7 +6,6 @@ angular.module('TripChat')
     $scope.getUserProfile();
   };
 
-
   $scope.getUserProfile = function() {
     $http.get('/api/users?username=' + $stateParams.username)
     .then(function(user) {
@@ -43,5 +42,4 @@ angular.module('TripChat')
       console.log(err);
     });
   }; // end getUserComments
-
 }]);

@@ -80,6 +80,44 @@
     padding-right: 0px;
   }
 
+  /* PROFILE PAGE */
+
+  .user-profile-info {
+    padding-left: 0px;
+    top: -10px;
+  }
+
+  .itinerary-number{
+    font-size: 14px;
+  }
+
+  .description-profile{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* ALL ITINERARIES */
+
+  .search-itineraries {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    z-index: 0;
+  }
+
+  .prodash-link {
+    margin-top: 10px;
+  }
+
+  .add-new-itin {
+    padding-top: 0px;
+    padding-right: 5px;
+  }
+
+  .add-itin-dash-link {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
 
 
 }
