@@ -106,7 +106,7 @@
             <div class="comment-footer clearfix">
               <div class="itin-button-container pull-right">
                 <span class="street-address">{{comment.address}}</span>
-                <a class="website" ng-show="comment.link" href="http:// {{ comment.link }}" target="_blank">Visit Site</a>
+                <a class="website" ng-show="comment.link" href="{{ comment.link }}" target="_blank">Visit Site</a>
                 <a class="delete-comment" ng-show="user.id == comment.UserId || user.id == comment.Itinerary.UserId" ng-click="deleteComment(comment.id)">Delete</a>
               </div>
             </div>
@@ -124,7 +124,7 @@
             <div ng-non-bindable>
               {{title}}
               <br /> Located at: {{address}}
-              <br /><a class="website" ng-show="link" href="http:// {{ link }}" target="_blank">Visit Suggested Site</a>
+              <br /><a class="website" ng-show="link" href="{{ link }}" target="_blank">Visit Suggested Site</a>
             </div>
           </ui-gmap-windows>
         </ui-gmap-marker>
