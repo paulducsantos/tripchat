@@ -99,13 +99,15 @@
             </div>
           </div>
           <div class="col-sm-12">
-
             <div class="comment-text">
               {{comment.text}}
             </div>
-            <div class="comment-footer clearfix">
+
+            <div class="comment-location">
+              <span class="street-address">{{comment.address}}</span>
+            </div>
+            <div class="comment-footer clearfix" ng-show="comment.link || user.id == comment.UserId || user.id == comment.Itinerary.UserId">
               <div class="itin-button-container pull-right">
-                <span class="street-address">{{comment.address}}</span>
                 <a class="website" ng-show="comment.link" href="{{ comment.link }}" target="_blank">Visit Site</a>
                 <a class="delete-comment" ng-show="user.id == comment.UserId || user.id == comment.Itinerary.UserId" ng-click="deleteComment(comment.id)">Delete</a>
               </div>
