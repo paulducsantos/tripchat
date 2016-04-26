@@ -46,10 +46,12 @@ angular.module('TripChat')
   geocoder = new google.maps.Geocoder();
 
   $scope.comment = {};
+  $scope.comment.link = '';
 
   $scope.addComment = function(itineraryId, city) {
     var lng;
     var lat;
+
     if($scope.comment.link.substring(0,4) !== 'http') {
       $scope.comment.link = 'http://' + $scope.comment.link;
     }
