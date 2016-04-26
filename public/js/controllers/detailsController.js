@@ -18,7 +18,6 @@ angular.module('TripChat')
       UserId: $scope.user.id
     })
     .then(function(results) {
-      console.log(results.data);
       $scope.newComment = '';
       $scope.comments.push(results.data);
     }, function(err) {

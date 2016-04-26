@@ -18,9 +18,6 @@ angular.module('TripChat')
     $http.get('/api/itineraries')
     .then(function(result) {
       $scope.allItineraries = result.data;
-      console.log($scope.allItineraries);
-      console.log($scope.allItineraries.length);
-      // $scope.getComments($scope.latestItinerary.id);
     }, function(err) {
       console.log(err)
     });
@@ -30,8 +27,6 @@ angular.module('TripChat')
     $http.get('/api/itineraries/' + $stateParams.id)
     .then(function(result) {
       $scope.currentItinerary = result.data;
-      console.log($scope.currentItinerary.Activities)
-      console.log($scope.currentItinerary.Activities.length);
       $scope.currentItineraryGeo($scope.currentItinerary.city)
       $scope.getComments();
     }, function(err) {
@@ -43,8 +38,6 @@ angular.module('TripChat')
     $http.get('/api/comments?ItineraryId=' + $stateParams.id)
     .then(function(results) {
       $scope.currentItinerary.comments = results.data;
-      console.log($scope.currentItinerary.comments)
-      console.log($scope.comments);
     }, function(err) {
       console.log(err);
     });
@@ -60,7 +53,7 @@ angular.module('TripChat')
     if($scope.comment.link.substring(0,4) !== 'http') {
       $scope.comment.link = 'http://' + $scope.comment.link;
     }
-    
+
     if(!$scope.comment.address) {
       $http.post('/api/comments', {
         text: $scope.comment.text,
@@ -76,7 +69,6 @@ angular.module('TripChat')
         $scope.comment.text = "";
         $scope.comment.address = "";
         $scope.comment.link = "";
-        console.log(results.data);
         $scope.getComments();
         $scope.newMarkers();
       }, function(err) {
@@ -87,8 +79,6 @@ angular.module('TripChat')
         if (status === google.maps.GeocoderStatus.OK) {
           lat = result[0].geometry.location.lat();
           lng = result[0].geometry.location.lng();
-          console.log(lat);
-          console.log(lng);
           $http.post('/api/comments', {
             text: $scope.comment.text,
             ItineraryId: itineraryId,
@@ -103,7 +93,6 @@ angular.module('TripChat')
             $scope.comment.text = "";
             $scope.comment.address = "";
             $scope.comment.link = "";
-            console.log(results.data);
             $scope.getComments();
             $scope.newMarkers();
           }, function(err) {
@@ -127,11 +116,6 @@ angular.module('TripChat')
 
 
 
-  $scope.goToUsernameProfile = function() {
-    console.log('goToUsernameProfile() fired');
-  };
-
-
 /* ============================================================
   MAP STUFF
 ==================================================*/
@@ -153,7 +137,6 @@ angular.module('TripChat')
 
   geocoder = new google.maps.Geocoder();
 
-  console.log($stateParams.location);
 
   $scope.getGeo = function() {
 
@@ -164,7 +147,6 @@ angular.module('TripChat')
             latitude: result[0].geometry.location.lat(),
             longitude: result[0].geometry.location.lng()
           }
-          console.log($scope.map.center);
           $scope.search.city = $stateParams.location;
         }
       });
@@ -183,7 +165,6 @@ angular.module('TripChat')
           latitude: result[0].geometry.location.lat(),
           longitude: result[0].geometry.location.lng()
         }
-        console.log($scope.map.center);
         $scope.newMarkers();
       }
     });
@@ -193,7 +174,6 @@ angular.module('TripChat')
     $scope.map.markers = [];
     $http.get('/api/comments?location=' + $stateParams.location)
       .then(function(result) {
-        console.log(result);
         var markers = [];
         result.data.forEach(function(element, index) {
           var marker = {
@@ -210,7 +190,6 @@ angular.module('TripChat')
             }
           }
           $scope.map.markers.push(marker);
-          console.log(marker);
         });
       }, function(err) {
         console.log(err);
@@ -221,7 +200,6 @@ angular.module('TripChat')
     $scope.map.markers = [];
     $http.get('/api/comments?location=' + $scope.search.city)
       .then(function(result) {
-        console.log(result);
         var markers = [];
         result.data.forEach(function(element, index) {
           var marker = {
@@ -262,7 +240,6 @@ angular.module('TripChat')
     $scope.map.markers = [];
     $http.get('/api/comments?location=' + city)
       .then(function(result) {
-        console.log(result);
         var markers = [];
         result.data.forEach(function(element, index) {
           var marker = {
@@ -297,7 +274,6 @@ angular.module('TripChat')
           latitude: result[0].geometry.location.lat(),
           longitude: result[0].geometry.location.lng()
         }
-        console.log($scope.map.center);
         $scope.currentItineraryMarkers();
       }
     });
@@ -307,7 +283,6 @@ angular.module('TripChat')
     $scope.map.markers = [];
     $http.get('/api/comments?ItineraryId=' + $stateParams.id)
       .then(function(result) {
-        console.log(result);
         var markers = [];
         result.data.forEach(function(element, index) {
           var marker = {
@@ -332,7 +307,6 @@ angular.module('TripChat')
   }
 
   $scope.onClick = function(marker, eventName, model) {
-      console.log("Clicked!");
       model.show = !model.show;
   };
 

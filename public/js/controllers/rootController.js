@@ -7,7 +7,6 @@ angular.module('TripChat')
     $http.get('/api/itineraries?sort=-createdAt')
     .then(function(result) {
       $scope.latestItinerary = result.data[0];
-      console.log($scope.latestItinerary);
       $scope.getComments($scope.latestItinerary.id);
     }, function(err) {
       console.log(err)
@@ -17,7 +16,6 @@ angular.module('TripChat')
   $scope.getComments = function(itineraryId) {
     $http.get('/api/comments?ItineraryId=' + itineraryId)
     .then(function(results) {
-      console.log(results.data);
       $scope.comments = results.data;
     }, function(err) {
       console.log(err);
@@ -31,8 +29,6 @@ angular.module('TripChat')
       if (status === google.maps.GeocoderStatus.OK) {
         lat = result[0].geometry.location.lat();
         lng = result[0].geometry.location.lng();
-        console.log(lat);
-        console.log(lng);
         $http.post('/api/comments', {
           text: $scope.newComment,
           ItineraryId: itineraryId,
