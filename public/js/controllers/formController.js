@@ -27,7 +27,6 @@ angular.module('TripChat')
       password: $scope.password
     })
     .then(function(result) {
-      console.log(result);
       if(result.status === 401) {
         $scope.alerts = [];
         $scope.alerts.push({msg: 'Oops! Wrong username/password!'});
