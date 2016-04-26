@@ -1,11 +1,48 @@
 @media (max-width: 480px) {
-/* GLOBALE */
+/* GLOBAL */
   .dash-header{
     text-align: left;
     font-size: 20px;
     padding-left: 0px;
     padding-top: 4px;
   }
+
+  .already{
+    font-size: 13px;
+  }
+/* LANDING PAGE */
+
+  .mainpic {
+    width: 100%;
+    height: 250px;
+  }
+
+  .slogan{
+    font-size:20px;
+  }
+
+  .searchbar {
+    width: 70%;
+
+    height: 35px
+  }
+
+  .search-container {
+    top: 40%;
+  }
+
+  .btn-begin {
+    height: 37px;
+    font-size: 15px;
+  }
+
+  .social-columns {
+    padding-bottom: 50px;
+    margin-top: -70px;
+  }
+
+
+
 /* DASHBOARD PAGE */
    .dash-main-header{
     margin-top: 10px;
