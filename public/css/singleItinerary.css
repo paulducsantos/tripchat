@@ -95,7 +95,7 @@
 
 .comments-column{
   margin-top: 0px;
-  height: 69vh;
+  height: 62vh;
   overflow: scroll;
 }
 .add-itinerary-form{
@@ -158,4 +158,8 @@ a.username-link:hover{
 .delete-comment{
   padding-left: 10px;
   padding-right: 15px;
+}
+
+.single-itinerary-form-panel{
+  border-right: none;
 }

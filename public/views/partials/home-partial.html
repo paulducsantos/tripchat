@@ -17,9 +17,19 @@
 
     <div class="col-sm-6  index-col">
       <div class="discover-panel">
-        <div id="top-left" class="discover-panel-body text-center" ng-mouseenter="topLeft = true" ng-mouseleave="topLeft = false">
+        <div id="top-left" class="discover-panel-body text-center hide-on-med-and-down" ng-mouseenter="topLeft = true" ng-mouseleave="topLeft = false">
           <h4 class="discover-panel-location">Mazatlan | Mexico</h4>
           <div class="discover-panel-footer" ng-show="topLeft">
+            <div class="button-group">
+              <button type="button" class="btn btn-view" ui-sref="itineraries({location: 'Mazatlan'})">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="top-left" class="discover-panel-body text-center hide-on-large-only">
+          <h4 class="discover-panel-location">Mazatlan | Mexico</h4>
+          <div class="discover-panel-footer">
             <div class="button-group">
               <button type="button" class="btn btn-view" ui-sref="itineraries({location: 'Mazatlan'})">Discover</button>
               <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
@@ -31,9 +41,18 @@
 
     <div class="col-sm-6 index-col">
       <div class="discover-panel">
-        <div id="top-right" class="discover-panel-body text-center" ng-mouseenter="topRight = true" ng-mouseleave="topRight = false">
+        <div id="top-right" class="discover-panel-body text-center hide-on-med-and-down" ng-mouseenter="topRight = true" ng-mouseleave="topRight = false">
           <h4 class="discover-panel-location">Machu Picchu | Peru</h4>
           <div class="discover-panel-footer" ng-show="topRight">
+            <div class="button-group">
+              <button ng-click="" class="btn btn-view" ui-sref="itineraries({location: 'Machu Picchu'})">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+        <div id="top-right" class="discover-panel-body text-center hide-on-large-only">
+          <h4 class="discover-panel-location">Machu Picchu | Peru</h4>
+          <div class="discover-panel-footer">
             <div class="button-group">
               <button ng-click="" class="btn btn-view" ui-sref="itineraries({location: 'Machu Picchu'})">Discover</button>
               <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
@@ -48,9 +67,19 @@
   <div class="row">
     <div class="col-sm-6  index-col">
       <div class="discover-panel">
-        <div id="bottom-left" class="discover-panel-body text-center" ng-mouseenter="bottomLeft = true" ng-mouseleave="bottomLeft = false">
+        <div id="bottom-left" class="discover-panel-body text-center hide-on-med-and-down" ng-mouseenter="bottomLeft = true" ng-mouseleave="bottomLeft = false">
           <h4 class="discover-panel-location">Iguazu Falls | Argentina</h4>
           <div class="discover-panel-footer" ng-show="bottomLeft">
+            <div class="button-group">
+              <button ng-click="" class="btn btn-view" ui-sref="itineraries({location: 'Iguazu Falls'})">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="bottom-left" class="discover-panel-body text-center hide-on-large-only">
+          <h4 class="discover-panel-location">Iguazu Falls | Argentina</h4>
+          <div class="discover-panel-footer">
             <div class="button-group">
               <button ng-click="" class="btn btn-view" ui-sref="itineraries({location: 'Iguazu Falls'})">Discover</button>
               <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
@@ -62,9 +91,19 @@
 
     <div class="col-sm-6 index-col">
       <div class="discover-panel">
-        <div id="bottom-right" class="discover-panel-body text-center" ng-mouseenter="bottomRight = true" ng-mouseleave="bottomRight = false">
+        <div id="bottom-right" class="discover-panel-body text-center hide-on-med-and-down" ng-mouseenter="bottomRight = true" ng-mouseleave="bottomRight = false">
           <h4 class="discover-panel-location">Antelope Canyon | Arizona</h4>
           <div class="discover-panel-footer"  ng-show="bottomRight">
+            <div class="button-group">
+              <button ng-click="" class="btn btn-view" ui-sref="itineraries({location: 'Antelope Canyon'})">Discover</button>
+              <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
+            </div>
+          </div>
+        </div>
+
+         <div id="bottom-right" class="discover-panel-body text-center hide-on-large-only" >
+          <h4 class="discover-panel-location">Antelope Canyon | Arizona</h4>
+          <div class="discover-panel-footer">
             <div class="button-group">
               <button ng-click="" class="btn btn-view" ui-sref="itineraries({location: 'Antelope Canyon'})">Discover</button>
               <button data-toggle="modal" data-target=".signup" class="btn btn-link start">Or Start Your Own Journey</button>
