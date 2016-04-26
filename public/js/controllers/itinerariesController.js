@@ -57,36 +57,60 @@ angular.module('TripChat')
   $scope.addComment = function(itineraryId, city) {
     var lng;
     var lat;
-    geocoder.geocode({ address: $scope.comment.address}, function (result, status) {
-      if (status === google.maps.GeocoderStatus.OK) {
-        lat = result[0].geometry.location.lat();
-        lng = result[0].geometry.location.lng();
-        console.log(lat);
-        console.log(lng);
-        $http.post('/api/comments', {
-          text: $scope.comment.text,
-          ItineraryId: itineraryId,
-          UserId: $scope.user.id,
-          address: $scope.comment.address,
-          city: city,
-          longitude: lng,
-          latitude: lat,
-          link: $scope.comment.link
-        })
-        .then(function(results) {
-          $scope.comment.text = "";
-          $scope.comment.address = "";
-          $scope.comment.link = "";
-          console.log(results.data);
-          $scope.getComments();
-          $scope.newMarkers();
-        }, function(err) {
-          console.log(err);
-        });
-      } else {
-        console.log(status);
-      }
-    });
+    if(!$scope.comment.address) {
+      $http.post('/api/comments', {
+        text: $scope.comment.text,
+        ItineraryId: itineraryId,
+        UserId: $scope.user.id,
+        address: $scope.comment.address,
+        city: city,
+        longitude: lng,
+        latitude: lat,
+        link: $scope.comment.link
+      })
+      .then(function(results) {
+        $scope.comment.text = "";
+        $scope.comment.address = "";
+        $scope.comment.link = "";
+        console.log(results.data);
+        $scope.getComments();
+        $scope.newMarkers();
+      }, function(err) {
+        console.log(err);
+      });
+    } else {
+      geocoder.geocode({ address: $scope.comment.address}, function (result, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          lat = result[0].geometry.location.lat();
+          lng = result[0].geometry.location.lng();
+          console.log(lat);
+          console.log(lng);
+          $http.post('/api/comments', {
+            text: $scope.comment.text,
+            ItineraryId: itineraryId,
+            UserId: $scope.user.id,
+            address: $scope.comment.address,
+            city: city,
+            longitude: lng,
+            latitude: lat,
+            link: $scope.comment.link
+          })
+          .then(function(results) {
+            $scope.comment.text = "";
+            $scope.comment.address = "";
+            $scope.comment.link = "";
+            console.log(results.data);
+            $scope.getComments();
+            $scope.newMarkers();
+          }, function(err) {
+            console.log(err);
+          });
+        } else {
+          console.log(status);
+        }
+      });
+    }
+    
   }
 
   $scope.deleteComment = function(commentId) {
