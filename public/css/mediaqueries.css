@@ -1,8 +1,47 @@
 @media (max-width: 480px) {
+/* GLOBALE */
+  .dash-header{
+    text-align: left;
+    font-size: 20px;
+    padding-left: 0px;
+    padding-top: 4px;
+  }
+/* DASHBOARD PAGE */
+   .dash-main-header{
+    margin-top: 10px;
+   }
+
+   .dash-main-para {
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+
+  .share-itinerary {
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .add-itin-form {
+    margin-top: 10px;
+  }
+
+  .dash-map .angular-google-map-container {
+    width: 100%;
+    height: 50vw;
+  }
+
+  .description {
+    margin-left: 15px;
+  }
 
   .middle-col {
     padding-left: 0px;
     padding-right: 0px;
   }
+
+
 
 }

@@ -112,13 +112,18 @@ margin-top: 15px;
 
 .add-comment-row{
     background:
-    /* top, transparent red, faked with gradient */
-    linear-gradient(
-      rgba(33, 85, 130, 0.5),
-      rgba(33, 85, 130, 0.5)
-    ),
+    -webkit-linear-gradient(rgba(33, 85, 130, 0.5), rgba(33, 85, 130, 0.5)),
+   url("../images/california_dash.png"),
+    background:
+    -o-linear-gradient(rgba(33, 85, 130, 0.5), rgba(33, 85, 130, 0.5)),
+   url("../images/california_dash.png");
+    background:
+    linear-gradient(rgba(33, 85, 130, 0.5), rgba(33, 85, 130, 0.5)),
    url("../images/california_dash.png");
    min-height: 170px;
+   background-repeat: no-repeat;
+   background-size: cover;
+
 }
 
 .itinerary-description{

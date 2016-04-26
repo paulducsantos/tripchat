@@ -1,5 +1,5 @@
 <div class="container-fluid header-background"  ng-init="init()">
-  <h3 class="dash-header text-center">{{user.username}} | Dashboard</h3>
+  <h3 class="dash-header">{{user.username}} | Dashboard</h3>
 </div>
 
 <div class="container-fluid">
@@ -70,7 +70,7 @@
             <a ui-sref="showItinerary({id: itinerary.id})" class="text-dec-none"><h3 class="dash-itinerary-heading clearfix">{{itinerary.title}}</h3></a>
             </div>
             <div class="col-sm-6">
-              <h3 class="dash-itinerary-heading pull-right"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h3>
+              <h3 class="dash-itinerary-heading pull-right hide-on-small-only"> {{itinerary.city}}, {{itinerary.state}} {{itinerary.country}}</h3>
             </div>
           </div>
         </div>
