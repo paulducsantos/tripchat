@@ -142,5 +142,23 @@
     height: 50vh;
   }
 
+  .interest-name{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .itinerary-name-col{
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .dash-latest-itineraries-mobile{
+    padding-bottom: 0px;
+  }
+
+  .date-mobile{
+    padding-top: 6px
+  }
+
 
 }

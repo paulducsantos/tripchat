@@ -5,8 +5,8 @@
 
 .interest-name{
   display: inline-block;
-  float: left;
-  padding-right: 20px;
+  /*float: left;*/
+  padding-right: 10px;
   color: #fff;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -50,7 +50,7 @@
 .comment-location{
   background-color: #fff;
   padding: 10px;
-  line-height: .5;
+  line-height: 1;
   border-bottom-right-radius: 4px;
 }
 
@@ -162,4 +162,14 @@ a.username-link:hover{
 
 .single-itinerary-form-panel{
   border-right: none;
+}
+
+.single-itin-interest-name{
+  display: inline-block;
+  line-height: 19.8px;
+}
+
+.interest-name-head{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

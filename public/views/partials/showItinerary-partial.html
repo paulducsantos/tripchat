@@ -56,14 +56,14 @@
 
   </div>
   <div class="row interest-row">
-    <div class="col-sm-12">
-      <div class="clearfix">
+    <div class="col-sm-12 itinerary-name-col">
+      <div class="single-itin-interest-name clearfix">
 
         <!-- When no activities have been listed -->
         <div  ng-show="!currentItinerary.Activities.length">
           <h4 class="itinerary-number" >No activities have been listed by {{ currentItinerary.User.username }} yet.</h4>
         </div>
-        <div class="interest-name" ng-show="currentItinerary.Activities.length">
+        <div class="interest-name interest-name-head" ng-show="currentItinerary.Activities.length">
           <a class="username-link" ui-sref="user({username: currentItinerary.User.username})">{{currentItinerary.User.fname}}</a> is interested in:
         </div>
 
